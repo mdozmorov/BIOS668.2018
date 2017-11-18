@@ -55,14 +55,14 @@ Homework and other assignments should be submitted as reproducible reports using
 -  Genomic technologies and Bioconductor
 -  Genome sequencing and alignment
 -  Single nucleotide polymorphism (SNP) analysis
--  Copy Number Variant (CNV) analysi
+-  Copy Number Variant (CNV) analysis
 -  RNA- and miRNA-seq
 -  Chromatin Immunoprecipitation (ChIP)-, DNAse-, ATAC-seq
 -  Metagenomic
 -  Methylation
 -  Epigenomics
 -  Chromatin Conformation Capture analysis
--  Single-cell sequencin
+-  Single-cell sequencing
 -  Integrative analysis
 
 <!--[Final project](final_project.html)-->
