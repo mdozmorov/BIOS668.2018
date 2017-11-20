@@ -63,7 +63,7 @@ Homework and other assignments should be submitted as reproducible reports using
 -  Epigenomics
 -  Chromatin Conformation Capture analysis
 -  Single-cell sequencing
--  Integrative analysis
+-  Integrative analysis, TCGA
 
 <!--[Final project](final_project.html)-->
 
