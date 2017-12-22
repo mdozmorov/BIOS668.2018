@@ -15,7 +15,7 @@ instructor:
 coursecode:
  - "BIOS 668"
 coursedates:
- - "Monday/Wednesday class: January 17 to May XX, 2018."
+ - "Monday/Wednesday class: January 17 to May 2, 2018."
 coursetime: "9:00 am to 10:20 am"
 courselocation:
  - "One Capitol Square, Rm 5009"
@@ -33,7 +33,7 @@ communication:
    description: ""
    details: ""
 officehours:
-  description: "Monday/Wednesday 10:30 pm to 12:00 pm at Biostatistics Office 730."
+  description: "Monday/Wednesday 10:30 am to 12:00 pm at Biostatistics Office 730."
   link: ""
 # Tachyons Version
 tv: "4.6.1"
