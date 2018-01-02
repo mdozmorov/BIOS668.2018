@@ -9,7 +9,13 @@ Special thanks to:
 
 - Aaron Quinlan, `applied-computational-genomics` - applied computational genomics course, https://github.com/quinlan-lab/applied-computational-genomics
 
+- David Gifford and his course "Foundations of Computational and Systems Biology" https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/index.htm, https://www.youtube.com/watch?v=pJAIalWDgY0&list=PLA48145CC64FE7990
+
 - Ben Langmead, `ads1-slides` - Ben Langmead's Slides for Algorithms for DNA Sequencing Coursera class. https://github.com/BenLangmead/ads1-slides.git. The complete class is at http://www.langmead-lab.org/teaching-materials/
+
+- Steven Skiena, `CSE549` - CSE 549 - Introduction to Computational Biology. Includes video lectures. http://www3.cs.stonybrook.edu/~skiena/549/, https://www.youtube.com/watch?v=pJAIalWDgY0&list=PLA48145CC64FE7990
+
+- Kasper Hansen, `genbioconductor` - "Materials for Genomics Data Science: Introduction to Bioconductor" course. Includes videos, code examples and lecture material. Web-site, https://kasperdanielhansen.github.io/genbioconductor/
 
 - Michael Schatz, `appliedgenomics` - JHU Applied Comparative Genomics 2017 course. https://github.com/schatzlab/appliedgenomics, links to similar courses there. Other courses by Michael, http://schatzlab.cshl.edu/teaching/
 
@@ -23,4 +29,3 @@ Special thanks to:
 
 - Ingo Ruczinski, JHU, http://www.biostat.jhsph.edu/~iruczins/
 
-- "Foundations of Computational and Systems Biology" MIT course, https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/index.htm
