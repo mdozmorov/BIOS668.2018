@@ -15,7 +15,7 @@
 
 - Mardis, Elaine R. “DNA Sequencing Technologies: 2006-2016.” Nature Protocols 12, no. 2 (February 2017): 213–18. doi:10.1038/nprot.2016.182. - DNA sequencing technologies introduction, references.
 
-- Heather, James M., and Benjamin Chain. “The Sequence of Sequencers: The History of Sequencing DNA.” Genomics 107, no. 1 (January 2016): 1–8. https://doi.org/10.1016/j.ygeno.2015.11.003. - Review of sequencing technologies, from pre-Sanger to current PacBio, Oxford Nanopore, Ion Torrent.
+- Heather, James M., and Benjamin Chain. “The Sequence of Sequencers: The History of Sequencing DNA.” Genomics 107, no. 1 (January 2016): 1–8. [https://doi.org/10.1016/j.ygeno.2015.11.003](https://doi.org/10.1016/j.ygeno.2015.11.003). - Review of sequencing technologies, from pre-Sanger to current PacBio, Oxford Nanopore, Ion Torrent.
 
 - Cordaux, Richard, and Mark A. Batzer. “The Impact of Retrotransposons on Human Genome Evolution.” Nature Reviews. Genetics 10, no. 10 (October 2009): 691–703. doi:10.1038/nrg2640.
 
@@ -25,11 +25,11 @@
 
 - Green, Eric D., Mark S. Guyer, Eric D. Green, Mark S. Guyer, Teri A. Manolio, and Jane L. Peterson. “Charting a Course for Genomic Medicine from Base Pairs to Bedside.” Nature 470, no. 7333 (February 10, 2011): 204–13. doi:10.1038/nature09764. - Perspective on genomics development, technologies. Figure 1 - pictorial roadmap
 
-- https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf - read about Illumina technology, mostly figures
+- [https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf](https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf) - read about Illumina technology, mostly figures
 
-- Video. The Genomic Landscape circa 2016 - Eric Green. Overview of genomics and medicine. https://www.youtube.com/watch?v=mhD3-_5Ee-A
+- Video. The Genomic Landscape circa 2016 - Eric Green. Overview of genomics and medicine. [https://www.youtube.com/watch?v=mhD3-_5Ee-A](https://www.youtube.com/watch?v=mhD3-_5Ee-A)
 
-- Video. Any talks by Elaine Mardis. https://www.youtube.com/results?search_query=elaine+mardis
+- Video. Any talks by Elaine Mardis. [https://www.youtube.com/results?search_query=elaine+mardis](https://www.youtube.com/results?search_query=elaine+mardis)
 
 # ToDo
 
