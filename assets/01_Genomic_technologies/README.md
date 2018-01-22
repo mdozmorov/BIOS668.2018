@@ -29,6 +29,8 @@
 
 - Video. The Genomic Landscape circa 2016 - Eric Green. Overview of genomics and medicine. https://www.youtube.com/watch?v=mhD3-_5Ee-A
 
+- Video. Any talks by Elaine Mardis. https://www.youtube.com/results?search_query=elaine+mardis
+
 # ToDo
 
 # `misc`
