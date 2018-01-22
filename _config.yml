@@ -1,6 +1,6 @@
 # site setup
 # Exclude this stuff
-exclude: [node_modules, gulpfile.js, README.md, BUILD.md, LICENSE, .gitignore, pages, assets]
+exclude: [node_modules, gulpfile.js, README.md, BUILD.md, LICENSE, .gitignore, pages, assets/*/img, assets/00_Homework]
 permalink: /:title/
 markdown: kramdown
 # baseurl is used as a subdomain suffix. If a site is hosted on http://site.url/mysite, 
