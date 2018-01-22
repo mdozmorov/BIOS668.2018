@@ -1,0 +1,708 @@
+---
+title: ""
+author: "Mikhail Dozmorov"
+date: ""
+output:
+  beamer_presentation:
+    colortheme: seahorse
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    theme: boxes
+  ioslides_presentation:
+    css:
+    - css/fonts.css
+    - css/custom.css
+    - css/title-slide.css
+    - css/slide-background.css
+    transition: faster
+    widescreen: true
+    includes:
+      before_body: html/title.html
+---
+
+## Age of OMICS
+
+\includegraphics[height=210px]{img/omics.jpg}
+
+\tiny http://journal.frontiersin.org/article/10.3389/fpls.2014.00244/full
+
+# Genome in a nutshell
+
+## Genome arithmetics
+
+- Haploid (one copy) human genome has 23 chromosomes, autosomes (chromosome 1-22) and one sex chromosome (X, Y)
+- Human genome is _diploid_ - comprised of a paternal and a maternal "haplotype". Together, they form our "genotype" of 46 chromosomes
+
+\includegraphics[height=110px]{img/diploid.png}
+
+## Genome arithmetics
+
+- One genome per cell, located in the nucleus - most of the time (Red blood cells lack chromosomes)  
+- Mitochondria (cell powerhouses) have their own genomes - many mitochondrial genomes (Liver cells have 1000-2000 mito)
+- A typical human is comprised of roughly 40 trillion human cells (excluding trillions of bacterial cells in our gut)
+- If stretched out, each haploid genome would be roughly 2 meters - each cell has 4 meters of DNA (1 m = 3.28 ft)
+- 40 trillion * 4 meters = 160 trillion meters.
+- 160 trillion meters / 1609.34 = 99,750,623,441 miles
+- 99,750,623,441 / 92,960,000 = 1,073.05 trips to the sun.
+
+## Genome arithmetics
+
+- ~3,235 billion base pairs (haploid)
+- ~20,000 protein coding genes
+- ~200,000 coding transcripts (isoforms of a gene that each encode a distinct protein product)
+
+\includegraphics[height=150px]{img/chromosomes.png}
+
+\tiny http://uswest.ensembl.org/Homo_sapiens/Location/Genome
+
+## The human genome from a micro to macro scale 
+
+\includegraphics[height=220px]{img/genome_scale1.png}
+
+##  The basic structure of a chromosome
+
+\begin{center}
+\includegraphics[height=120px]{img/chromosome_structure.png}
+\end{center}
+
+- **Size**. This is the easiest way to tell chromosomes apart.
+- **Banding pattern**. The size and location of Giemsa bands make each chromosome unique.
+- **Centromere position**. Centromeres appear as a constriction. They have a role in the separation of chromosomes into daughter cells during cell division (mitosis and meiosis).
+
+\tiny http://learn.genetics.utah.edu/content/basics/readchromosomes/
+
+##  The role of the centromere
+
+\begin{center}
+\includegraphics[height=90px]{img/chromosome_division.png}
+\end{center}
+
+- Centromeres are required for chromosome separation during cell division.
+- The centromeres are attachement points for microtubules, which are protein fibers that pull duplicate chromosomes toward opposite ends of the cell before it divides. 
+- This separation ensures that each daughter cell will have a full set of chromosomes.  
+- Each chromosome has only one centromere.
+
+\tiny http://learn.genetics.utah.edu/content/basics/readchromosomes/
+
+## Centromere positions
+
+\begin{center}
+\includegraphics[height=70px]{img/chromosome_centromere.png}
+\end{center}
+
+The position of the centromere relative to the ends helps scientists tell chromosomes apart. Centromere position can be described as:
+
+- **Metacentric** - the centromere lies near the center of the chromosome.
+- **Submetacentric** - the centromere that is off-center, so that one chromosome arm is longer than the other. The short arm is designated "p" (for petite), and the long arm is designated "q" (because it follows the letter "p").
+- **Acrocentric** - the centromere is very near one end.
+
+\tiny http://learn.genetics.utah.edu/content/basics/readchromosomes/
+
+##  Chromosome Giemsa banding (G-banding)
+
+\includegraphics[height=60px]{img/giemsa.png}
+
+- Heterochromatic regions, which tend to be rich with adenine and thymine (AT-rich) DNA and relatively gene-poor, stain more darkly with Giemsa and result in G-banding  
+- Less condensed ("open") chromatin, which tends to be (GC-rich) and more transcriptionally active, incorporates less Giemsa stain, resulting in light bands in G-banding. 
+- Cytogenetic bands are labeled p1, p2, p3,   q1, q2, q3, etc., counting from the centromere out toward the telomeres. At higher resolutions, sub-bands can be seen within the bands. 
+- For example, the locus for the CFTR (cystic fibrosis) gene is 7q31.2, which indicates it is on chromosome 7, q arm, band 3, sub-band 1, and sub-sub-band 2. (Say 7,q,3,1 dot 2)
+
+\tiny https://ghr.nlm.nih.gov/chromosome/1#ideogram
+
+## Gene content
+
+- "There appear to be about $30,000 \pm 40,000$ protein-coding genes in the human genome -- only about twice as many as in worm or fly. However, the genes are more complex, with more alternative splicing generating a larger number of protein products."  
+- Over time this has evolved to an estimate of approximately 20,000 protein coding genes, which reflects roughly the number of genes in fly and worm
+
+\includegraphics[height=100px]{img/gene_content.png}
+
+\tiny http://www.nature.com/nature/journal/v409/n6822/full/409860a0.html
+
+## Genes are unevenly distributed across chromosomes
+
+Chromosome 19 is the most gene dense chromosome in the human genome
+
+\includegraphics[height=170px]{img/chromosome_genes.png}
+
+## GENCODE – Annotation Gene Features
+
+- ~21,000 protein coding genes
+- PolyA+
+    - Almost completely spliced before nuclear export
+      – co-trascriptional splicing "first transcribed – first spliced"
+    - Most have at least 2 dominate splice forms
+    - Show allele specific expression – potential imprinting
+- PolyA-
+    - Many are lncRNAs
+    - Also shows allele specific expression
+
+## GENCODE – Annotation Gene Features
+
+- Most (62%) of the genome is transcribed – the genome is pervasively transcribed
+    - <5% can be identified as exons
+- ~12,000 pseudogenes – results of duplications
+    - 876 are transcribed – can have regulatory function by serving as decoys
+    - Infrequently spliced
+- ~10,000 lncRNA = noncoding RNAs >200bp
+    - 92% are not translated
+    - Many show tissue-specific expression – more so than protein coding genes
+    - 33% are primate specific but few are human specific – most new genes are in this category
+    - Poorly spliced – most are two exon transcripts
+
+## GENCODE – Annotation Gene Features
+
+- ~9000 small RNAs - many of the lncRNA transcripts are processed into stable small RNAs
+    - tRNA, miRNA, siRNA, snRNA, snoRNA
+- ~82,000 – 128,000 transcription start sites - depending on detection method
+    - ~44% are near annotated transcripts
+- ~5,000 RNA edits occur post transcription
+    - Mostly A to G(I) conversions (APOBEC pathway)
+    - 94% are in transcribed repeat elements
+        - Remaining are mostly in introns, 3’UTRs
+        - Very few (123) in protein coding sequences
+
+## Half of the human genome is low complexity
+
+- Retrotransposons - fossil records of evolution
+    - McClintock's "jumping genes" in maize
+    - Retrotransposons use a "copy/paste" mechanism - transcribed to RNA and then reverse transcribed into DNA and insert
+    - DNA transposons use a "cut/paste" mechanism - excise themselves and insert to another place
+
+\begin{center}
+\includegraphics[height=120px]{img/retrotransposons.png}
+\end{center}
+
+\tiny https://www.ncbi.nlm.nih.gov/pubmed/19763152
+
+## Repeats
+
+- Repetitive DNA not driven by retrotransposition (e.g., ATATATATATATATATAT...)
+- CpG islands - clusters of CG dinucleotides (The "p" represents the phosphate bond between the nucleotides on the same strand. Needed to distinguish between hydrogen bond between C and G on complementary DNA strands)
+
+\begin{center}
+\includegraphics[height=100px]{img/cpg_stats.png}
+\end{center}
+
+\tiny https://www.nature.com/nature/journal/v409/n6822/full/409860a0.html
+
+## Genome variability
+
+A typical genome differs from the reference genome at 4.1 to 5.0 million sites - Single Nucleotide Polymorphisms (SNPs)
+
+- Over 99.9% are SNPs or short indels
+- Only 1-4% are rare (frequency <0.5% in the population)
+- Contains 2,100 – 2,500 structural variants, which affect more bases (~20 million bases)
+- ~1,000 large deletions
+- ~1,094 Alu, L1, SINE (short interspersed nuclear element), VNTR (variable number tandem repeat) insertions
+- ~160 CNVs
+- ~10 inversions
+- ~ 4 NUMTs (nuclear mitochondrial DNA variations)
+
+## Genome variability
+
+- 149-182 protein truncating variants
+- ~2,000 variants associated with complex traits
+- 24-30 variants associated with rare disease
+- On average 74 _de novo_ SNVs per individual 
+
+\tiny Conrad DF, Keebler JE, DePristo MA, Lindsay SJ, Zhang Y, Casals F, Idaghdour Y, Hartl CL, Torroja C, Garimella KV, Zilversmit M, Cartwright R, Rouleau GA, Daly M, Stone EA, Hurles ME, Awadalla P; 1000 Genomes Project. Variation in genome-wide mutation rates within and between human families. Nat Genet. 2011 Jun 12;43(7):712-4. doi: 10.1038/ng.862. https://www.nature.com/articles/ng.862
+
+# Genome sequencing
+
+## Why sequence a reference genome?
+
+- Determine the "complete" sequence of a human haploid genome.
+- Identify the sequence and location of every protein coding gene.
+- Use as a "map" with which to track the location and frequency of genetic variation in the human genome.
+- Unravel the genetic architecture of inherited and somatic human diseases.
+- Understand genome and species evolution
+
+## DNA sequencing: Maxam-Gilbert, Sanger
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+
+1) Sequencing by synthesis (not degradation)
+
+2) Radioactive primers hybridize to DNA
+
+3) Polymerase + dNTPs (normal dNTPs) + ddNTP (dideoxynucleotides terminators) at low concentration
+
+4) 1 lane per base, visually interpret ladder 
+
+\end{column}
+\begin{column}{0.48\textwidth}
+
+\includegraphics[height=200px]{img/sanger_sequencing1.jpg}
+
+\end{column}
+\end{columns}
+
+\tiny https://en.wikipedia.org/wiki/Maxam%E2%80%93Gilbert_sequencing
+
+https://www.youtube.com/watch?v=bEFLBf5WEtc
+
+<!--Sanger's ‘chain-termination’ sequencing. Radio- or fluorescently-labelled ddNTP nucleotides of a given type - which once incorporated, prevent further extension - are included in DNA polymerisation reactions at low concentrations (primed off a 5′ sequence, not shown). Therefore in each of the four reactions, sequence fragments are generated with 3′ truncations as a ddNTP is randomly incorporated at a particular instance of that base (underlined 3′ terminal characters).
+Dideoxynucleotides (ddNTPs) lack the 3′ hydroxyl group that is required for extension of DNA chains, and therefore cannot form a bond with the 5′ phosphate of the next dNTP
+-->
+
+## Shotgun genome sequencing milestones
+
+- 1977: Bacteriophage $\Phi X 147$ (5kb) 
+- 1995: H. Influenza (1Mb);
+- 1996: Yeast (12mb); 
+- 2000: Drosophila (165Mb); 
+- 2002: Human (3Gb)
+
+\tiny https://en.wikipedia.org/wiki/Phi_X_174
+
+# Sequencing on a scale
+
+## How to sequence a human genome: Lee Hood automation
+
+\includegraphics[height=190px]{img/lee_hood_sequencing.png}
+
+## Shotgun genome sequencing (Sanger, 1979)
+
+1) Fragment the genome (or large Bacterial artificial chromosome (BAC) clones)
+2) Clone 2-10kb fragments into plasmids; pick lots of colonies; purify DNA from each
+3) Use a primer to plasmid to sequence into genomic DNA
+4) Assemble the genome from overlapping "reads"
+
+\includegraphics[height=150px]{img/shotgun.png}
+
+## Sequencing in a nutshell
+
+- Cut the long DNA into smaller segments (several hundreds to several thousand bases).
+- Sequence each segment: start from one end and sequence along the chain, base by base.
+- The process stops after a while because the noise level is too high.
+- Results from sequencing are many sequence pieces. The lengths vary, usually a few thousands from Sanger, and several hundreds from NGS.
+- The sequence pieces are called "reads" for NGS data.
+
+## Massively Parallel DNA sequencing instruments
+
+- All MPS platforms require a library obtained either by amplification or ligation with custom linkers (adapters)
+- Each library fragment is amplified on a solid surface (either bead or flat _Si_-derived surface) with covalently attached adapters that hybridize the library adapters
+- Direct step-by-step detection of the nucleotide base incorporated by each amplified library fragment set
+- Hundreds of thousands to hundreds of millions of reactions detected per instrument run = "massively parallel sequencing"
+- A "digital" read type that enables direct quantitative comparisons
+- Shorter read lengths than capillary sequencers
+
+## Library Construction for MPS
+
+\includegraphics[height=140px]{img/library.png}
+
+- Shear high molecular weight DNA with sonication
+- Enzymatic treatments to blunt ends
+- Ligate synthetic DNA adapters (each with a DNA barcode), PCR amplify 
+- Quantitate library
+- Proceed to WGS, or do exome or specific gene hybrid capture
+
+## PCR-related Problems in MPS
+
+- PCR is an effective vehicle for amplifying DNA, however...
+- In MPS library construction, PCR can introduce preferential amplification ("jackpotting") of certain fragments
+- Duplicate reads with exact start/stop alignments
+- Need to "de-duplicate" after alignment and keep only one pair
+- Low input DNA amounts favor jackpotting due to lack of complexity in the fragment population
+
+## PCR-related Problems in MPS
+
+- PCR also introduces false positive artifacts due to substitution errors by the polymerase
+- If substitution occurs in early PCR cycles, error appears as a true variant
+- If substitution occurs in later cycles, error typically is drowned out by correctly copied fragments in the cluster
+- Cluster formation is a type of PCR ("bridge amplification") • Introduces bias in amplifying high and low G+C fragments
+- Reduced coverage at these loci is a result
+
+## Hybrid Capture
+
+- Hybrid capture - fragments from a whole genome library are selected by combining with probes that correspond to most (not all) human exons or gene targets.
+- The probe DNAs are biotinylated, making selection from solution with streptavidin magnetic beads an effective means of purification.
+- An "exome" by definition, is the exons of all genes annotated in the reference genome.
+- Custom capture reagents can be synthesized to target specific loci that may be of clinical interest.
+
+# The Human Genome project
+
+## Early days of human genome sequencing
+
+\includegraphics[height=160px]{img/early_sequencing.png}
+
+\tiny Green, Eric D., James D. Watson, and Francis S. Collins. "Human Genome Project: Twenty-Five Years of Big Biology." Nature 526, no. 7571 (October 1, 2015): 29–31. doi:10.1038/526029a.
+
+## Two shotgun-sequencing strategies
+
+\includegraphics[height=200px]{img/shotgun_strategies.png}
+
+\tiny https://www.nature.com/nrg/journal/v2/n8/full/nrg0801_573a.html
+
+<!--a | Schematic overview of clone-by-clone shotgun sequencing. A representation of a genome is made by analogy to an encyclopaedia set, with each volume corresponding to an individual chromosome. The construction of clone-based physical maps produces overlapping series of clones (that is, contigs), each of which spans a large, contiguous region of the source genome. Each clone (for example, a bacterial artificial chromosome (BAC)) can be thought of as containing the DNA represented by one page of a volume. For shotgun sequencing, individual mapped clones are subcloned into smaller-insert libraries, from which sequence reads are randomly derived. In the case of BACs, this typically requires the generation of several thousand sequence reads per clone. The resulting sequence data set is then used to assemble the complete sequence of that clone (see Figs 3,4). b | Schematic overview of whole-genome shotgun sequencing. In this case, the mapping phase is skipped and shotgun sequencing proceeds using subclone libraries prepared from the entire genome. Typically, tens of millions of sequence reads are generated and these in turn are subjected to computer-based assembly to generate contiguous sequences of various sizes.-->
+
+## The competing human genome projects
+
+\includegraphics[height=180px]{img/sequencing_race.png}
+
+## A first map of the human genome
+
+\includegraphics[height=100px]{img/nature_genome.png}
+
+\tiny http://www.nature.com/nature/journal/v409/n6822/full/409860a0.html
+
+## Human genome is sequenced!
+
+\includegraphics[height=210px]{img/human_genome_project.jpg}
+
+## The Human Genome roadmap
+
+\includegraphics[height=150px]{img/Timeline.jpg}
+
+&nbsp;
+
+\tiny https://www.davidstreams.com/mis-apuntes/human-genome-project/
+
+<!--
+## Sanger sequencing: technological advances
+
+- 1977: Fred Sanger
+    - 1 hardworking technician = 700 bases per day = 118,000 years to sequence the human genome
+- 1985: ABI 370 (first automated sequencer)
+    - 5000 bases per day= 16,000 years
+- 1995: ABI 377 (Bigger gels, better chemistry & optics, more sensitive dyes, faster computers)
+    - 19,000 bases per day = 4,400 years
+- 1999: ABI 3700 (96 capillaries, 96 well plates, fluid handling robots)
+    - 400,000 bases per day = 205 years
+-->
+
+# Evolution of post-Sanger sequencing technologies
+
+## Evolution of sequencing technologies
+
+- "Massively parallel" sequencing
+- "High-throughput" sequencing
+- "Ultra high-throughput" sequencing
+- "Next generation" sequencing (NGS)
+- "Second generation" sequencing
+
+## Evolution of sequencing technologies
+
+- 2005: 454 (Roche)
+- 2006: Solexa (Illumina)
+- 2007: ABI/SOLiD (Life Technologies)
+- 2010: Complete Genomics
+- 2011: Pacific Biosciences
+- 2010: Ion Torrent (Life Technologies)
+- 2015: Oxford Nanopore Technologies
+
+## 454 pyrosequencing
+
+\includegraphics[height=90px]{img/pyrosequencing.png}
+
+1) Hybridize sequencing primer
+
+2) Add DNA polymerase, ATP sulfurylase, luciferase, apyrase & substrates (adenosine 5' phosphosulfate (APS) and luciferin)
+
+3) Nucleotide incorporation catalyzes chain reaction that results in light
+
+4) Add bases sequentially: add A, take a picture - did it flash? :: wash :: add T - did it flash? :: wash :: add G - did it flash? :: wash :: add C - did it flash? :: wash. Repeat ~500 times
+
+\tiny https://www.nature.com/nbt/journal/v26/n10/full/nbt1485.html
+
+## 454 pyrosequencing
+
+\begin{columns}
+\begin{column}{0.28\textwidth}
+
+1) Fragment DNA
+
+2) Bind to beads, emulsion PCR amplification
+
+3) Remove emultion, place beads in wells
+
+4) Solid phase pyrophosphate sequencing reaction
+
+5) Scanning electron micrograph
+
+\end{column}
+\begin{column}{0.68\textwidth}
+
+\includegraphics[height=200px]{img/454.png}
+
+\end{column}
+\end{columns}
+
+\tiny https://www.nature.com/nbt/journal/v26/n10/full/nbt1485.html
+
+## 454 sequencing: summary
+
+- First post-Sanger technology (2005)
+- Used to sequence many microorganisms & Jim Watson’s genome (for $2M in 2007)
+- Longer reads than Illumina, but much lower yield (~500bp)
+- Rapidly outpaced by other technologies - now essentially obsolete
+
+## Solexa (Illumina) sequencing (2006)
+
+- PCR amplify DNA fragments
+- Immobilize fragments on a solid surface, amplify
+- Reversible terminator sequencing with 4 color dye-labelled nucleotides
+
+\tiny Video of Illumina sequencing, http://www.youtube.com/watch?v=77r5p8IBwJk (1.5m)
+
+## Solexa (Illumina) sequencing (2006)
+
+\includegraphics[height=220px]{img/Cluster_Generation.png}
+
+\tiny http://www.annualreviews.org/doi/abs/10.1146/annurev.genom.9.081307.164359
+
+##  Cluster amplification by "bridge" PCR
+
+\includegraphics[height=150px]{img/illumina_bridge_pcr.png}
+
+\tiny https://binf.snipcademy.com/lessons/ngs-techniques/bridge-pcr
+
+## Clonal amplification
+
+\includegraphics[height=200px]{img/illumina_cluster_amplification.png}
+
+## Base calling
+
+- 6 cycles with base-calling
+
+\includegraphics[height=150px]{img/illumina_base_calling.png}
+
+## Illumina sequencers
+
+\includegraphics[height=100px]{img/HiSeq_X_Five_Sequencing_System.jpg}
+
+- **Illumina HiSeq**: ~3 billion paired 100bp reads, ~600Gb, $10K, 8 days (or "rapid run" ~90Gb in 1-2 days)
+- **Illumina X Ten**: ~6 billion paired 150bp reads, 1.8Tb, <3 days, ~1000 / genome(\$\$), (or "rapid run" ~90Gb in 1-2 days)
+- **Illumina NextSeq**: One human genome in <30 hours
+
+\tiny http://www.businesswire.com/news/home/20150112006333/en/Illumina-Expands-World%E2%80%99s-Comprehensive-Next-Generation-Sequencing-Portfolio
+
+## Solexa (Illumina) sequencing: summary
+
+Advantages:
+
+- Best throughput, accuracy and read length for any 2nd gen. sequencer
+- Fast & robust library preparation
+
+Disadvantages:
+
+- Inherent limits to read length (practically, 150bp)
+- Some runs are error prone
+
+\tiny Video of Illumina sequencing https://www.youtube.com/watch?v=womKfikWlxM (5m)
+
+## ION Torrent-pH Sensing of Base Incorporation
+
+\includegraphics[height=170px]{img/iontorrent.png}
+
+## Platforms: Ion Torrent
+
+\includegraphics[height=140px]{img/ion_platforms.png}
+
+- Low substitution error rate, in/dels problematic, no paired end reads
+- Inexpensive and fast turn-around for data production
+- Improved computational workflows for analysis
+
+##  Pacific Biosciences
+
+\includegraphics[height=150px]{img/pacbio.jpg}
+
+- Long reads
+    - Structural vatiant discovery
+    - _De novo_ genome assembly
+
+\tiny https://www.forbes.com/forbes/2009/1005/revolutionaries-science-genomics-gene-machine.html
+
+## Pacific Biosciences: summary
+
+Key Points:
+
+- 1 DNA molecule and 1 polymerase in each well (zero-mode waveguide)
+- 4 colors flash in real time as polymerase acts
+- Methylated cytosine has distinct pattern
+- No _theoretical_ limit to DNA fragment length
+
+Caveats:
+
+- Higher error rate (1-2%), but they are random
+- Lower throughput, roughly 5 gigabases per run
+
+## Nanopore sequencing
+
+- Nearly 30-years old technology
+
+\includegraphics[height=160px]{img/nanopore_x616[1].jpg}
+
+\tiny http://www2.technologyreview.com/news/427677/nanopore-sequencing/
+
+## Nanopore sequencing
+
+- Nanopore sequencing with ONT is accurate and relatively reliable
+- Current yield per run ("R9.4" chemistry): ~5 Gbp, 97% identity (i.e., 3% error rate)
+
+\includegraphics[height=130px]{img/nanoporex2760.jpg}
+
+\tiny https://www.technologyreview.com/s/600887/with-patent-suit-illumina-looks-to-tame-emerging-british-rival-oxford-nanopore/
+
+Video of Ion Torrent chemistry, http://www.youtube.com/watch?v=yVf2295JqUg (2.5m)
+
+## Nanopore sequencing
+
+- Key advantage - portability
+
+\includegraphics[height=90px]{img/nasasdnasequ.jpg}
+
+\includegraphics[height=90px]{img/zika.png}
+
+\tiny Video of Nanopore DNA sequencint technology https://www.youtube.com/watch?v=CE4dW64x3Ts (4.5m)
+
+https://phys.org/news/2016-08-nasa-dna-sequencing-space-success.html
+
+## Nanopore technology
+
+- Nanopore sequencing yields raw signals reflecting modulation of the ionic current at each pore by a DNA molecule.
+- The resulting time-series of nanopore translocation, ‘events’, are base-called by proprietary software running as a cloud service.
+
+\includegraphics[height=140px]{img/nanopore_squiggle_plot.png}
+
+\tiny https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btu555
+
+## Nanopore base callers
+
+- Proper base calling is a paramount, as it defines whether the technology is good or bad.
+- `Nanonet`, `Albacore`, `Scrappie`
+- Most modern basecallers use neural networks.
+
+\includegraphics[height=70px]{img/nanobasecallers_total_yield.png}
+
+\tiny https://github.com/rrwick/Basecalling-comparison
+
+## Nanopore analysis
+
+- The resulting files for each sequenced read are stored in ‘FAST5’ format, an application of the HDF5 format.
+- `poretools` - a toolkit for analyzing nanopore sequence data.
+
+\includegraphics[height=70px]{img/poretools.png}
+
+\tiny https://github.com/arq5x/poretools
+
+https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btu555
+
+## PacBio vs. Oxford Nanopore sequencing
+
+\includegraphics[height=210px]{img/pacbio_vs_oxnano.png}
+
+\tiny https://blog.genohub.com/2017/06/16/pacbio-vs-oxford-nanopore-sequencing/
+
+# Single-end vs. paired-end sequencing
+
+## Single-end vs. paired-end sequencing
+
+- Single-end sequencing: sequence one end of the DNA segment.
+- Paired-end sequencing: sequence both ends of a DNA segments.
+    - Result reads are "paired", separated by certain length (the length of the DNA segments, usually a few hundred bps).
+    - Paired-end data can be used as single-end, but contain extra information which is useful in some cases, e.g., detecting structural variations in the genome.
+    - Modeling technique is more complicated.
+
+## Paired-end sequencing - a workaround to sequence longer fragments
+
+- Read one end of the molecule, flip, and read the other end
+- Generate pair of reads separated by up to 500bp with inward orientation
+
+\includegraphics[height=150px]{img/illumina_paired_end.png}
+
+## Templates and segments
+
+- Template – DNA/RNA molecule which was subjected to sequencing
+    – "Insert size" - template length
+    - "Segment" – part of the template which was "read" by a sequencing machine (represented by a "sequencing read")
+
+\includegraphics[height=100px]{img/template-segment.png}
+
+## Advantages of paired-end sequencing
+
+- Alignment of the read pair to the reference genome gives coordinates describing where in the human genome the read pair came from
+
+\includegraphics[height=80px]{img/paired_end.png}
+
+# Sequencing applications
+
+## Applications
+
+- NGS has a wide range of applications.
+    - DNA-seq: sequence genomic DNA.
+    - RNA-seq: sequence RNA products.
+    - ChIP-seq: detect protein-DNA interaction sites.
+    - Bisulfite sequencing (BS-seq): measure DNA methylation strengths.
+    - A lot of others.
+- Basically replaced microarrays with better data: greater dynamic range and higher signal-to-noise ratios.
+
+## DNA-seq (Whole-Genome sequencing)
+
+- Sequence the untreated genomic DNA.
+    - Obtain DNA from cells, cut into small pieces then sequence the segments.
+- Goals:
+    - Compare with the reference genome and look for genetic variants:
+    
+- Single nucleotide polymorphisms (SNPs)
+- Insertions/deletions (indels),
+- Copy number variations (CNVs)
+- Other structural variations (gene fusion, etc.).
+    - _De novo_ assembly of a new genome.
+
+## Variations of DNA-seq
+
+- Targeted sequencing, e.g., exome sequencing.
+    - Sequence the genomic DNA at targeted genomic regions.
+    - Cheaper than whole genome DNA-seq, so that money can be spent to get bigger sample size (more individuals).
+    - The targeted genomic regions need to be "captured" first using technologies like microarrays.
+
+- Metagenomic sequencing.
+    - Sequence the DNA of a mixture of species, mostly microbes, in order to understand the microbial environments.
+    - The goal is to determine number of species, their genome and proportions in the population.
+    - _De novo_ assembly is required. But the number and proportions of species are unknown, so it poses challenge to assembly.
+
+## RNA-seq
+
+- Sequence the "transcriptome": the set of RNA molecules.
+- Goals:
+    - Catalogue RNA products.
+    - Determine transcriptional structures: alternative splicing, gene fusion, etc.
+    - Quantify gene expression: the sequencing version of gene expression microarray.
+
+## Sequencing vs. microarray
+
+- Very good agreement
+- More information
+
+\includegraphics[height=150px]{img/seq_vs_marray.jpg}
+
+\tiny https://www.ncbi.nlm.nih.gov/pubmed/18550803
+
+## ChIP-seq
+
+- Chromatin-Immunoprecipitation (ChIP) followed by sequencing (seq): sequencing version of ChIP-chip.
+- Used to detect locations of certain "events" on the genome:
+    - Transcription factor binding.
+    - DNA methylations and histone modifications.
+- A type of "captured" sequencing. ChIP step is to capture genomic regions of interest.
+
+## What matters is what you feed into the sequencing machine
+
+\includegraphics[height=200px]{img/seq_pachter.png}
+
+\tiny https://liorpachter.wordpress.com/seq/
+
+## Evolution of sequencing technologies
+
+\includegraphics[height=200px]{img/seq_technologies.png}
+
+## Developments in next generation sequencing: instruments, read lengths, throughput.
+
+\includegraphics[height=200px]{img/developments_in_high_throughput_sequencing.jpg}
+
+\tiny https://github.com/lexnederbragt/developments-in-next-generation-sequencing
+

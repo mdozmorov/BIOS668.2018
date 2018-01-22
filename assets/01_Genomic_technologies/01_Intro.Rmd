@@ -1,0 +1,74 @@
+---
+title: ""
+author: "Mikhail Dozmorov"
+date: ""
+output:
+  beamer_presentation:
+#    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+#    theme: AnnArbor
+  ioslides_presentation:
+    # - css/title-slide.css
+    # - css/slide-background.css
+    css:
+    - ../css/fonts.css
+    - ../css/custom.css
+    transition: faster
+    widescreen: true
+    # includes:
+    #   before_body: html/title.html
+---
+
+
+## Welcome!
+
+The primary goal of the course is to provide theory and practice of computational genomics, and empower to conduct independent genomic analyses.
+
+- We will study the leading computational and quantitative approaches for comparing and analyzing genomes starting from raw sequencing data.
+- The course will focus on human genomics and human medical applications, but the techniques will be broadly applicable across the tree of life.
+- The topics will include genome assembly, variant identification and analysis, gene- and miRNA expression, methylation and epigenomic analysis, copy number variant analysis, metagenomics, single-cell analysis, 3D genomics, and cancer genomics.
+
+## Logistics
+
+- Course Webpage: https://mdozmorov.github.io/BIOS668.2018/
+    - Lecture notes in PDF, exercises R code, references will be posted there
+- Course Discussions: https://blackboard.vcu.edu
+    - Announcements, assignments, homework submission and grading
+- Class Hours: Monday/Wednesday, 9:00 am to 10:20 am
+- Office Hours: Monday/Wednesday 10:30 am to 12:00 pm at Biostatistics Office 730.
+    - Any other time - by appointment
+
+## Prerequisites
+
+- BIOS 567 (Statistical Methods for High-throughput Genomic Data I), BIOS 692 (Reproducible Research Tools)
+- Access to an Mac or Linux machine, or, for Windows machines, install VirtualBox
+- Familiarity with the Unix command line for exercises
+- Familiarity with R programming environment
+- Knowledge of Git and GitHub for homework submission
+
+## Resources 
+
+- Primary Texts: We will be studying primary research papers 
+- Lecture notes will contain many footnotes with links. Make a good use of them, explore the references on your own!
+- Other Resources: Google, SEQanswers, Biostars, StackOverflow
+
+## Grading Policies
+
+- Homework assignments practicing methods and tools learned in class: 50% of the total grade. Due at 9:00am ~two weeks after assignment
+- Paper reading is important. Paper notes will be graded
+- Final Project developing a fully reproducible genomics analysis: 30%. Pre-proposal due in the middle of the semester, the final project due at the end
+- Class attendance and participation: 20%. 
+- Deadlines are mandatory
+- Discuss homework with your peers, work together, but provide your own solution
+
+## Course evaluation
+
+- At the end of the course, you will be asked to evaluate it
+- Assess what you learned during the course
+- Take notes on what you like in the course, what you want to be improved
+- Your evaluation is anonymous
+
+
