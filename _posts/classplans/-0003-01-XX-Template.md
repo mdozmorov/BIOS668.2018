@@ -9,6 +9,6 @@ visible: 0
 ---
 
 
-[Slides]({{site.baseurl}}/presentations/16_final_project/index.html)
+[Slides]({{site.baseurl}}/assets/01_Genomic_technologies/01_Intro.pdf)
 
 ## References
