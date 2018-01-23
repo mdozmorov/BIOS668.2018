@@ -1,27 +1,18 @@
 ---
-title: ""
+title: "Introduction"
 author: "Mikhail Dozmorov"
-date: ""
+date: "Spring 2018"
 output:
   beamer_presentation:
-#    colortheme: dolphin
+    # colortheme: seahorse
+    colortheme: dolphin
     fig_caption: no
     fig_height: 6
     fig_width: 7
     fonttheme: structurebold
-#    theme: AnnArbor
-  ioslides_presentation:
-    # - css/title-slide.css
-    # - css/slide-background.css
-    css:
-    - ../css/fonts.css
-    - ../css/custom.css
-    transition: faster
-    widescreen: true
-    # includes:
-    #   before_body: html/title.html
+    # theme: boxes
+    theme: AnnArbor
 ---
-
 
 ## Welcome!
 

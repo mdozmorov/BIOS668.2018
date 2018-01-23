@@ -1,30 +1,22 @@
 ---
-title: ""
+title: "Genomic technologies"
 author: "Mikhail Dozmorov"
-date: ""
+date: "Spring 2018"
 output:
   beamer_presentation:
-    colortheme: seahorse
+    # colortheme: seahorse
+    colortheme: dolphin
     fig_caption: no
     fig_height: 6
     fig_width: 7
     fonttheme: structurebold
-    theme: boxes
-  ioslides_presentation:
-    css:
-    - css/fonts.css
-    - css/custom.css
-    - css/title-slide.css
-    - css/slide-background.css
-    transition: faster
-    widescreen: true
-    includes:
-      before_body: html/title.html
+    # theme: boxes
+    theme: AnnArbor
 ---
 
 ## Age of OMICS
 
-\includegraphics[height=210px]{img/omics.jpg}
+\includegraphics[height=200px]{img/omics.jpg}
 
 \tiny http://journal.frontiersin.org/article/10.3389/fpls.2014.00244/full
 
@@ -53,18 +45,18 @@ output:
 - ~20,000 protein coding genes
 - ~200,000 coding transcripts (isoforms of a gene that each encode a distinct protein product)
 
-\includegraphics[height=150px]{img/chromosomes.png}
+\includegraphics[height=140px]{img/chromosomes.png}
 
 \tiny http://uswest.ensembl.org/Homo_sapiens/Location/Genome
 
 ## The human genome from a micro to macro scale 
 
-\includegraphics[height=220px]{img/genome_scale1.png}
+\includegraphics[height=200px]{img/genome_scale1.png}
 
 ##  The basic structure of a chromosome
 
 \begin{center}
-\includegraphics[height=120px]{img/chromosome_structure.png}
+\includegraphics[height=110px]{img/chromosome_structure.png}
 \end{center}
 
 - **Size**. This is the easiest way to tell chromosomes apart.
@@ -76,7 +68,7 @@ output:
 ##  The role of the centromere
 
 \begin{center}
-\includegraphics[height=90px]{img/chromosome_division.png}
+\includegraphics[height=70px]{img/chromosome_division.png}
 \end{center}
 
 - Centromeres are required for chromosome separation during cell division.
@@ -102,7 +94,7 @@ The position of the centromere relative to the ends helps scientists tell chromo
 
 ##  Chromosome Giemsa banding (G-banding)
 
-\includegraphics[height=60px]{img/giemsa.png}
+\includegraphics[height=40px]{img/giemsa.png}
 
 - Heterochromatic regions, which tend to be rich with adenine and thymine (AT-rich) DNA and relatively gene-poor, stain more darkly with Giemsa and result in G-banding  
 - Less condensed ("open") chromatin, which tends to be (GC-rich) and more transcriptionally active, incorporates less Giemsa stain, resulting in light bands in G-banding. 
@@ -171,7 +163,7 @@ Chromosome 19 is the most gene dense chromosome in the human genome
     - DNA transposons use a "cut/paste" mechanism - excise themselves and insert to another place
 
 \begin{center}
-\includegraphics[height=120px]{img/retrotransposons.png}
+\includegraphics[height=110px]{img/retrotransposons.png}
 \end{center}
 
 \tiny https://www.ncbi.nlm.nih.gov/pubmed/19763152
@@ -235,7 +227,7 @@ A typical genome differs from the reference genome at 4.1 to 5.0 million sites -
 \end{column}
 \begin{column}{0.48\textwidth}
 
-\includegraphics[height=200px]{img/sanger_sequencing1.jpg}
+\includegraphics[height=180px]{img/sanger_sequencing1.jpg}
 
 \end{column}
 \end{columns}
@@ -271,7 +263,7 @@ Dideoxynucleotides (ddNTPs) lack the 3′ hydroxyl group that is required for ex
 3) Use a primer to plasmid to sequence into genomic DNA
 4) Assemble the genome from overlapping "reads"
 
-\includegraphics[height=150px]{img/shotgun.png}
+\includegraphics[height=140px]{img/shotgun.png}
 
 ## Sequencing in a nutshell
 
@@ -292,7 +284,7 @@ Dideoxynucleotides (ddNTPs) lack the 3′ hydroxyl group that is required for ex
 
 ## Library Construction for MPS
 
-\includegraphics[height=140px]{img/library.png}
+\includegraphics[height=130px]{img/library.png}
 
 - Shear high molecular weight DNA with sonication
 - Enzymatic treatments to blunt ends
@@ -553,9 +545,9 @@ Video of Ion Torrent chemistry, http://www.youtube.com/watch?v=yVf2295JqUg (2.5m
 
 - Key advantage - portability
 
-\includegraphics[height=90px]{img/nasasdnasequ.jpg}
+\includegraphics[height=80px]{img/nasasdnasequ.jpg}
 
-\includegraphics[height=90px]{img/zika.png}
+\includegraphics[height=80px]{img/zika.png}
 
 \tiny Video of Nanopore DNA sequencint technology https://www.youtube.com/watch?v=CE4dW64x3Ts (4.5m)
 
@@ -593,7 +585,7 @@ https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatic
 
 ## PacBio vs. Oxford Nanopore sequencing
 
-\includegraphics[height=210px]{img/pacbio_vs_oxnano.png}
+\includegraphics[height=200px]{img/pacbio_vs_oxnano.png}
 
 \tiny https://blog.genohub.com/2017/06/16/pacbio-vs-oxford-nanopore-sequencing/
 
@@ -678,7 +670,9 @@ https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatic
 - Very good agreement
 - More information
 
+\begin{center}
 \includegraphics[height=150px]{img/seq_vs_marray.jpg}
+\end{center}
 
 \tiny https://www.ncbi.nlm.nih.gov/pubmed/18550803
 
@@ -692,7 +686,7 @@ https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatic
 
 ## What matters is what you feed into the sequencing machine
 
-\includegraphics[height=200px]{img/seq_pachter.png}
+\includegraphics[height=190px]{img/seq_pachter.png}
 
 \tiny https://liorpachter.wordpress.com/seq/
 
@@ -702,7 +696,7 @@ https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatic
 
 ## Developments in next generation sequencing: instruments, read lengths, throughput.
 
-\includegraphics[height=200px]{img/developments_in_high_throughput_sequencing.jpg}
+\includegraphics[height=190px]{img/developments_in_high_throughput_sequencing.jpg}
 
 \tiny https://github.com/lexnederbragt/developments-in-next-generation-sequencing
 
