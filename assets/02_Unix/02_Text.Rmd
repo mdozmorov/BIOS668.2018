@@ -33,6 +33,32 @@ output:
 - **sed** - (stream editor) applies transformation rules to each line of text based on a pattern  
 - **awk** - powerful text processing language  
 
+## Regular expressions - everywhere
+
+\begin{center}
+\includegraphics[height=200px]{img/regexp1.png}
+\end{center}
+
+\tiny https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended
+
+## Regular expressions
+
+| Expression | Description                                                                                                                                     |
+|:----------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
+|     []     | Matches a set. [abc] matches a, b, or c. [a-zA-Z] matches any letter. [0-9] matches any number. “^” negates a set, [^abc] matches d, e, f, etc. |
+|      ^     | Starting position anchor. ^abc finds lines starting with abc                                                                                    |
+|      \$     | Ending position anchor. xyz\$ finds lines ending with xyz                                                                                        |
+|      \\     | Escape symbol, to find special characters. \\\* will find \*. \\n matches new line character, \\t – tab character                                  |
+|      \*     | Match the preceding element zero or more times. a\*b matches ab, aab, aaab, etc.                                                                 |
+
+## Extended regular expressions
+
+| Expression | Description                                                                    |
+|:----------:|--------------------------------------------------------------------------------|
+|      ?     | Matches the preceding element zero or one time. a*b matches b, ab, but not aab |
+|      +     | Matches the preceding element one or more times. a+b matches ab, aab, etc.     |
+|      |     | OR operator. “abc|def” matches abc or def                                      |
+
 ## The `grep` command 
 
 - Find lines in an input file or stream that match a specific pattern you are looking for
@@ -60,35 +86,6 @@ Basic syntax: `grep "pattern" <filename>`, e.g., `cat README.md | grep "use"`
 `ls | grep "^[w|b]"` - lists files/directorys starting with ”w” or ”b”
 
 Use `--color` argument to highlight matched patterns
-
-## Regular expressions - everywhere
-
-\begin{center}
-\includegraphics[height=200px]{img/regexp1.png}
-\end{center}
-
-\tiny https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended
-
-## Regular expressions
-
-| Expression | Description                                                                                                                                     |
-|:----------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
-|     []     | Matches a set. [abc] matches a, b, or c. [a-zA-Z] matches any letter. [0-9] matches any number. “^” negates a set, [^abc] matches d, e, f, etc. |
-|      ^     | Starting position anchor. ^abc finds lines starting with abc                                                                                    |
-|      \$     | Ending position anchor. xyz\$ finds lines ending with xyz                                                                                        |
-|      \\     | Escape symbol, to find special characters. \\\* will find \*. \\n matches new line character, \\t – tab character                                  |
-|      \*     | Match the preceding element zero or more times. a\*b matches ab, aab, aaab, etc.                                                                 |
-
-## Extended regular expressions
-
-| Expression | Description                                                                    |
-|:----------:|--------------------------------------------------------------------------------|
-|      ?     | Matches the preceding element zero or one time. a*b matches b, ab, but not aab |
-|      +     | Matches the preceding element one or more times. a+b matches ab, aab, etc.     |
-|      |     | OR operator. “abc|def” matches abc or def                                      |
-
-
-
 
 ## Fine-tuning your grep
 
