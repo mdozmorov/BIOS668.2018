@@ -32,6 +32,8 @@ visible: 1
 
 - Green, Eric D., Mark S. Guyer, Eric D. Green, Mark S. Guyer, Teri A. Manolio, and Jane L. Peterson. “Charting a Course for Genomic Medicine from Base Pairs to Bedside.” Nature 470, no. 7333 (February 10, 2011): 204–13. doi:10.1038/nature09764. - Perspective on genomics development, technologies. Figure 1 - pictorial roadmap
 
+- `Bioinformatics-Resources` -  A curated list of resources for learning bioinformatics. [https://github.com/YTLogos/Bioinformatics-Resources](https://github.com/YTLogos/Bioinformatics-Resources)
+
 - [https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf](https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf) - read about Illumina technology, mostly figures
 
 - Video. The Genomic Landscape circa 2016 - Eric Green. Overview of genomics and medicine. [https://www.youtube.com/watch?v=mhD3-_5Ee-A](https://www.youtube.com/watch?v=mhD3-_5Ee-A)
