@@ -112,43 +112,9 @@ output:
 
 - Most commands take additional arguments that fine tune their behavior
 - If you don't know what a command does, use the command `man <command>`
-- Some tools use an alternate documentation system called `info`
 - Press `q` to quit the `man` page viewer
 - Most often, you’ll use `<command> -h` or `<command> --help`
 - Some commands output help if executed without any arguments
-
-## Files
-
-- Create an empty file: `touch filename.txt`
-- Edit it: `nano filename.txt`
-
-## Move files over the network
-
-**scp**: securely copy a file from one computer to another
- 
- - Use `scp` to securely transfer files between two Unix computers
- - No need to start an FTP session of logging into the remote system explicityl
- - The scp command uses SSH to transfer data, so it requires a password or passphrase for authentication
- - `scp` encrypts both the file and any passwords exchanged
- - Alternatively, use `rsync`
- 
-The syntax for the scp command is:
-```
-scp [options] username1@source_host:directory1/filename1 username2@destination_host:directory2/filename2
-```
- 
-## scp examples
- 
-- Copy remote file locally (in the current folder)
-```
-scp mdozmorov@merlot.bis.vcu.edu:sequencing/hg38.Ensembl.gtf .
-```
-- Copy local file remotely
-```
-scp hg38.Ensembl.gtf mdozmorov@merlot.bis.vcu.edu:sequencing/
-```
-- Use `-r` (recursive) option to copy a directory
-- Explore `rsync` command as an alternative to `scp`
 
 ## File system: Full vs. relative paths
 
@@ -161,6 +127,23 @@ scp hg38.Ensembl.gtf mdozmorov@merlot.bis.vcu.edu:sequencing/
 - `cd ..` - go to the upper level directory
 - `cd`, or `cd ~` - go to the user’s home directory
 - `cd --` - go to the last visited directory
+
+## Orienting in the filesystem
+
+- `pwd` 		- print working directory
+- `ls` 			- list all files in the current directory
+- `ls -1` 	- list files in _one_ column
+- `ls –lah`	- list files in `l`ong, `h`uman readable format, include `a`ll content, user, owner, permissions
+
+## Creating, moving, copying, and removing files
+
+- `touch <file>` - creates an empty file
+- `nano <file>` - edit it
+- `mkdir <dirname>` - creates a directory
+- `cp <source_file> <target_file>` - copy a file to another location/file
+- `mv <source_file> <target_file>` - move a file
+- `rm <file>` - remove a file. If multiple files provided, removes all of them
+- `rm –r <dirname>` - recursive removal (deletes a directory)
 
 ## Permissions: `chmod`, `chown` and `chgrp`
 
@@ -200,22 +183,6 @@ drwxr-xr-x  10 mdozmorov  staff   340B Dec 18 10:20 _layouts
 drwxr-xr-x   7 mdozmorov  staff   238B Dec 18 10:29 _posts
 -rw-r--r--   1 mdozmorov  staff   1.0K Dec 20 15:54 acknowledgements.md
 ```
-
-## Orienting in the filesystem
-
-- `pwd` 		- print working directory
-- `ls` 			- list all files in the current directory
-- `ls -1` 	- list files in _one_ column
-- `ls –lah`	- list files in `l`ong, `h`uman readable format, include `a`ll content, user, owner, permissions
-
-## Creating, moving, copying, and removing files
-
-- `touch <file>` - creates an empty file
-- `mkdir <dirname>` - creates a directory
-- `cp <source_file> <target_file>` - copy a file to another location/file
-- `mv <source_file> <target_file>` - move a file
-- `rm <file>` - remove a file. If multiple files provided, removes all of them
-- `rm –r <dirname>` - recursive removal (deletes a directory)
 
 ## Finding your files
 
@@ -330,6 +297,34 @@ mkdir music && mv *.mp3 music/
 - VCU Biostatistics cluster information, https://wiki.vcu.edu/display/biosit/Home
 - Contact Helen Wang (huwang at vcu.edu) to establish an account
 - Google if you run into problems using Unix!
+
+## Move files over the network
+
+**scp**: securely copy a file from one computer to another
+ 
+ - Use `scp` to securely transfer files between two Unix computers
+ - No need to start an FTP session of logging into the remote system explicityl
+ - The scp command uses SSH to transfer data, so it requires a password or passphrase for authentication
+ - `scp` encrypts both the file and any passwords exchanged
+ - Alternatively, use `rsync`
+ 
+The syntax for the scp command is:
+```
+scp [options] username1@source_host:directory1/filename1 username2@destination_host:directory2/filename2
+```
+ 
+## scp examples
+ 
+- Copy remote file locally (in the current folder)
+```
+scp mdozmorov@merlot.bis.vcu.edu:sequencing/hg38.Ensembl.gtf .
+```
+- Copy local file remotely
+```
+scp hg38.Ensembl.gtf mdozmorov@merlot.bis.vcu.edu:sequencing/
+```
+- Use `-r` (recursive) option to copy a directory
+- Explore `rsync` command as an alternative to `scp`
 
 ## Learn more 
 
