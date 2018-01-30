@@ -5,7 +5,9 @@
 
 ## `lab` - in-class lab material
 
-# ToRead
+## `read` - reading assignment
+
+### General
 
 - Hagen, J. B. “The Origins of Bioinformatics.” Nature Reviews. Genetics 1, no. 3 (2000): 231–36. doi:10.1038/35042090.
 
@@ -25,7 +27,19 @@
 
 - Green, Eric D., Mark S. Guyer, Eric D. Green, Mark S. Guyer, Teri A. Manolio, and Jane L. Peterson. “Charting a Course for Genomic Medicine from Base Pairs to Bedside.” Nature 470, no. 7333 (February 10, 2011): 204–13. doi:10.1038/nature09764. - Perspective on genomics development, technologies. Figure 1 - pictorial roadmap
 
+### Genomics resources
+
 - `Bioinformatics-Resources` -  A curated list of resources for learning bioinformatics. [https://github.com/YTLogos/Bioinformatics-Resources](https://github.com/YTLogos/Bioinformatics-Resources)
+
+- Biostar Handbook - bioinformatics survival guide. A practical overview for the data analysis methods of bioinformatics. [https://www.biostarhandbook.com/index.html](https://www.biostarhandbook.com/index.html) and on Git [https://github.com/ialbert/biostar-handbook-web](https://github.com/ialbert/biostar-handbook-web)
+
+- biotools - A massive collection of references on the topics of bioinformatics, sequencing technologies, programming, machine learning, and more. [https://github.com/jdidion/biotools](https://github.com/jdidion/biotools)
+
+- "Computational genomics with R" book by Altuna Akalin. Web site, [https://compgenomr.github.io/book/](https://compgenomr.github.io/book/), and GitHub repo, [https://github.com/compgenomr/book](https://github.com/compgenomr/book)
+
+- Links and references to many resources [https://github.com/crazyhottommy/getting-started-with-genomics-tools-and-resources](https://github.com/crazyhottommy/getting-started-with-genomics-tools-and-resources)
+
+### Misc
 
 - [https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf](https://www.illumina.com/documents/products/techspotlights/techspotlight_sequencing.pdf) - read about Illumina technology, mostly figures
 
