@@ -553,6 +553,17 @@ Video of Ion Torrent chemistry, http://www.youtube.com/watch?v=yVf2295JqUg (2.5m
 
 https://phys.org/news/2016-08-nasa-dna-sequencing-space-success.html
 
+## Nanopore for human genome sequencing
+
+\includegraphics[height=80px]{img/nanopore_human_genome.png}
+
+- Closes 12 gaps
+- Phased the entire major histocompatibility complex (MHC) region, one of the most gene-dense and highly variable regions of the genome
+
+\tiny Jain, Miten, Sergey Koren, Karen H Miga, Josh Quick, Arthur C Rand, Thomas A Sasani, John R Tyson, et al. “Nanopore Sequencing and Assembly of a Human Genome with Ultra-Long Reads.” Nature Biotechnology, January 29, 2018. https://doi.org/10.1038/nbt.4060.
+
+https://www.genengnews.com/gen-exclusives/first-nanopore-sequencing-of-human-genome/77901044
+
 ## Nanopore technology
 
 - Nanopore sequencing yields raw signals reflecting modulation of the ionic current at each pore by a DNA molecule.
