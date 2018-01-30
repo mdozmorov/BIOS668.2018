@@ -114,6 +114,19 @@ The position of the centromere relative to the ends helps scientists tell chromo
 
 ## Genes are unevenly distributed across chromosomes
 
+- Highly expressed genes positively correlated with:
+    - Very short indels
+    - High gene density
+    - High GC content
+    - High density of Short interspersed nuclear elements (SINE) repeats
+    - Low density of Long interspersed nuclear elements (LINE) repeats
+    - Both housekeeping and tissue-specific expression
+- The opposite is true for lowly expressed genes
+
+\tiny Versteeg, Rogier, Barbera D. C. van Schaik, Marinus F. van Batenburg, Marco Roos, Ramin Monajemi, Huib Caron, Harmen J. Bussemaker, and Antoine H. C. van Kampen. “The Human Transcriptome Map Reveals Extremes in Gene Density, Intron Length, GC Content, and Repeat Pattern for Domains of Highly and Weakly Expressed Genes.” Genome Research 13, no. 9 (September 2003): 1998–2004. https://doi.org/10.1101/gr.1649303.
+
+## Genes are unevenly distributed across chromosomes
+
 Chromosome 19 is the most gene dense chromosome in the human genome
 
 \includegraphics[height=170px]{img/chromosome_genes.png}
