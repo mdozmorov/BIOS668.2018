@@ -43,6 +43,7 @@ output:
 - Vast array of simple, dependable tools
 - Each do one simple task, and do it really well
 - By combining these tools, one can conduct rather sophisticated analyses
+- The Linux help philosophy: "RTFM" (Read the F\*\*\*ing Manual)
 
 ## Know your Unix
 
