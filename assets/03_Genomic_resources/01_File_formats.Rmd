@@ -1,0 +1,564 @@
+---
+title: "Genomic data formats"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    theme: AnnArbor
+---
+
+# Sequencing data ecosystem
+
+## The reference genome as a coordinate system
+
+\includegraphics[height=70px]{img/genomic_coordinates.png}
+
+## Binary and "plain text" files
+
+**"Plain text" ("flat") file formats**  
+
+- Information often structured into lines and columns
+- Human-readable, processable with simple command-line tools
+- Space is often saved through the means of archiving (e.g. zip) and human-readable information coding (e.g. flags)
+
+**Binary file formats**  
+
+- Not human-readable (not intended for reading)
+- Require special software for processing (programs intended for plain text processing will not work properly on them, e.g. `wc`, `grep`)
+- Efficient storage, (significant) reduction to file size when compared to a plain text counterpart (e.g. 75 % space saved)
+
+## Some common file formats
+
+- **FASTA** - Simple collections of named DNA/protein sequences (text)
+- **FASTQ** - Extension of FASTA format, contains additional quality information. Widely used for storing unaligned sequencing reads (text)
+- **SAM/BAM** - Alignments of sequencing reads to a reference genome (text/binary)
+- **BED** - Region-based genome annotation information (e.g. a list of genes and their genomic locations). Used for visualization or simple enumeration (text)
+- **GFF/GTF** - gene-centric annotations (text)
+- **(big)WIG** - continuous signal representation (text, binary)
+- **VCF** - variant call format, to store information about genomic variants (text)
+
+## FASTA format
+
+- Origin in 1980’s FASTP/FASTA software packages for sequence similarity searching
+- Convenient format for storing/transferring simple sequence collections
+- Intended for both, nucleotide and protein sequences (FAST- A, "Fast-All")
+- Common output format of sequence databases –  Input format for various tools
+
+## FASTA format
+
+Each sequence entry consists of:  
+
+- _a single line_ with sequence metadata, starting with the "greater-than" symbol (">")
+- _any number of lines_ representing the actual sequence
+
+\small
+```
+>SRR493818.1.1 HWUSI-EAS519_0001_FC61TCNAAXX:2:1:960:20843 length=54
+NGTAAATCCCGTTACCTCTCTGAGCCTCGGTNNCCNNNNNTGTAAAAAGGNNNN
+>SRR493818.2.1 HWUSI-EAS519_0001_FC61TCNAAXX:2:1:961:7550 length=54
+NACACTACAATGTAAAAGCTTGGCCTAACTTNNTTNNNNNGGCTGTTATTNNNN
+```
+
+## FASTA format
+
+The nucleic acid codes that can be found in FASTA file:
+
+```
+A --> adenosine           M --> A C (amino)
+C --> cytidine            S --> G C (strong)
+G --> guanine             W --> A T (weak)
+T --> thymidine           B --> G T C
+U --> uridine             D --> G A T
+R --> G A (purine)        H --> A C T
+Y --> T C (pyrimidine)    V --> G C A
+K --> G T (keto)          N --> A G C T (any)
+                          -  gap of indeterminate length
+```
+
+\tiny http://zhanglab.ccmb.med.umich.edu/FASTA/
+
+
+## FASTA format
+
+- Human  genome is there! http://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/
+- Get chromosome Y sequence:
+
+\small
+
+```
+$ URL=http://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/chrY.fa.gz
+$ wget $URL; mv chrY.fa.gz hg38.chrY.fa.gz
+# or
+$ curl $URL > hg38.chrY.fa.gz
+# Ungzip
+$ gzip -d hg38.chrY.fa.gz
+# Peek into the file
+$ head hg38.chrY.fa
+$ tail hg38.chrY.fa
+# How many lines
+$ wc -l hg38.chrY.fa
+# Look somewhere in the middle
+$ head -n 10000 hg38.chrY.fa | tail
+```
+
+## Orienting in FASTA file
+
+- Do not run:
+```
+$ # grep > hg38.chrY.fa
+```
+
+- What this command will do?
+```
+$ grep ">" hg38.chrY.fa
+```
+
+- What this command will do?
+```
+$ grep -v ">" hg38.chrY.fa
+```
+
+## chrY summary statistics
+
+- How long is chrY?
+```
+$ grep -v ">" hg38.chrY.fa | grep -o "[ATCGatcg]" | wc -l
+26415043
+```
+
+- How many adenosines are there?
+```
+$ grep -v ">" hg38.chrY.fa | grep -o -i "A" | wc -l
+7886192
+```
+
+## Low-complexity regions
+
+- Approximately 45% of the human genome can currently be recognized as being derived from transposable elements
+- The majority are non-long terminal repeat (LTR) retrotransposons, such as LINE-1 (L1), Alu and SVA elements
+- Other low-complexity biases: CG- and AT-rich DNA
+- Represented by lower-case letters
+
+```
+GATCAAAGTGTCATACAGTAACAGCCCAGACAGACGATAGGTATGGCAGa
+aaagaaaaaaactaaaaaaaaaaaaaaaaaaaaaaaTCGCATGGGAAGTT
+TCCCCGCCTCCTCTTTGGCCATTCTGTGCCCGGAGATCAAAGTTCTCATT
+```
+
+## The conversion of sequencing signal to a nucleotide sequence
+
+Nearly all sequencing technologies produce sequencing reads in **FASTQ** format
+
+Sequence ID\ \ \ ```@SEQ_ID```   
+Sequence\ \ \ \ \ \ \ \ \ \ \ ```GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT```   
+Separator\ \ \ \ \ \ \ ```+```   
+Quality\ scores\ \ \ ```!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65```    
+
+\tiny https://en.wikipedia.org/wiki/FASTQ_format
+
+## Sequence ID
+
+\includegraphics[height=200px]{img/seqid.png}
+
+## FASTQ quality scores (Phred scores)
+
+**PHRED Base quality (Q)** – integer value derived from the estimated probability (P) of the corresponding base being determined wrong
+
+$Q = -10*log_{10}(P_{err})$ (rounded to nearest integer)
+
+- The _Ph_ in Phred comes from Phil Green, the inventor of the encoding
+- P might be computed in different ways, depending on the sequencing platform, but the meaning of Q remains the same
+
+\tiny Peter J. A. Cock, Christopher J. Fields, Naohisa Goto, Michael L. Heuer, and Peter M. Rice, Nucleic Acids Res. 2010 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2847217/
+
+http://www.gs.washington.edu/faculty/green.htm
+
+## FASTQ quality scores (Phred scores)
+
+**PHRED Base quality (Q)** – integer value derived from the estimated probability (P) of the corresponding base being determined wrong
+
+-  A higher quality score is better (>=20 is considered "good")
+
+\includegraphics[height=100px]{img/phred_table.png}
+
+## ASCII table
+
+\includegraphics[height=180px]{img/ascii-chars-table-landscape.png}
+
+$$ASCII(char) = Q + 33$$
+
+\tiny http://www.asciicharstable.com/_site_media/ascii/ascii-chars-table-landscape.pdf
+
+##  Older FASTQ has had different encoding schemes for encoding PHRED quality scores.
+
+\includegraphics[height=70px]{img/fastq_quality_encoding.png}
+
+- Phred + 33 is currently used
+
+## FASTQC - quality control
+
+- Java program, HTML output
+
+\includegraphics[height=150px]{img/fastqc.png}
+
+\tiny 
+
+- http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+- FASTQC manual: http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
+- Video tutorial how to interpret, https://www.youtube.com/watch?v=bz93ReOv87Y
+
+## fastx toolkit: manipulating FASTQ and FASTA files
+
+\includegraphics[height=180px]{img/fastx.png}
+
+\tiny http://hannonlab.cshl.edu/fastx_toolkit/
+
+## fastx toolkit: manipulating FASTQ and FASTA files
+
+```
+fastx_quality_stats -h
+fastx_quality_stats -Q 0 -i file.fastq -o fastx_report.txt
+head fastx_report.txt
+fastx_trimmer -h
+fastx_trimmer -f 1 -l 100 -i file.fastq -o file_trimmed.fastq
+```
+
+## The Sequence Alignment/Map format (SAM)
+
+- Intended for storing read alignments against reference sequences
+- Has a binary version with good software support (BAM format)
+
+The SAM format consists of two sections: 
+
+**Header section**
+
+- Used to describe source of data, reference sequence, method of alignment, etc.
+
+**Alignment section**
+
+- Used to describe the read, quality of the read, and nature alignment of the read to a region of the genome
+
+\tiny SAM format specification https://samtools.github.io/hts-specs/SAMv1.pdf
+
+## BAM file format of aligned data
+
+- BAM is the binary version of a SAM file. Smaller, but not easily readable.
+- Compressed using lossless BGZF format
+- Other BAM compression strategies are a subject of research. See ‘CRAM’ format for example
+
+\tiny http://www.internationalgenome.org/faq/what-are-cram-files/
+
+## BAM file format of aligned data
+
+- BAM files are usually indexed. An index is stored alongside the BAM file with a ".bai" extension
+- Indexing aims to achieve fast retrieval of alignments overlapping a specified region without going through the whole alignments.
+- BAM must be sorted before indexing. Depending on the downstream tools, sort by 
+    - Name
+    - Coordinate
+
+## SAM example
+
+\includegraphics[height=200px]{img/sam_example.png}
+
+## SAM/BAM header section
+
+- Used to describe source of data, reference sequence, method of alignment, etc.
+- Each section begins with ‘@’ followed by a two-letter record type code. These are followed by two-letter tags and values
+
+\small
+
+```
+@HD The header line
+VN: format version
+SO: Sorting order of alignments
+@SQ Reference sequence dictionary
+SN: reference sequence name
+LN: reference sequence length
+SP: species
+@RG Read group
+ID: read group identifier
+CN: name of sequencing center
+SM: sample name
+@PG Program
+PN: program name
+VN: program version
+```
+
+## SAM/BAM alignment section
+
+\includegraphics[height=120px]{img/sam_alignment.png}
+
+\tiny https://samtools.github.io/hts-specs/SAMv1.pdf
+
+## Using SAM flags to filter subsets of reads
+
+- 12 bitwise flags describing the alignment
+- "Bitwise" – values contributing to the sum are powers of two (each can be represented by a single positive bit in a binary number)
+- These flags are stored as a binary string of length 11
+- Value of "1" indicates the flag is set. e.g. 00100000000
+- All combinations can be represented as a number from 1 to 2048 (i.e. $2^{11}-1$). This number is used in the BAM/SAM file. You can specify "required" or "filter" flags in `samtools view` command using the `-f` and `-F` options, respectively
+
+## Using SAM flags to filter subsets of reads
+
+- Unambiguous – there is exactly one possible decomposition of each FLAG sum 
+- Each value contributing to the sum represents one fulfilled condition
+
+\includegraphics[height=120px]{img/sam_flags.png}
+
+\tiny https://broadinstitute.github.io/picard/explain-flags.html
+
+https://samtools.github.io/hts-specs/SAMv1.pdf
+
+## SAM – bitwise FLAG (example)
+
+\includegraphics[height=185px]{img/flag_example.png}
+
+## SAM – bitwise FLAG (example)
+
+FLAG 83  
+
+- Binary numbers: FLAG 1010011 is a sum of 1000000, 10000, 10 and 1
+    - Easy to break down, but binary numbers are long  
+- In decimal numbers: FLAG 83 is a sum of 64, 16, 2 and 1
+    - 83 = 64 + 19 = 64 + (16 + 3) = 64 + 16 + (2 + 1)  
+- What does FLAG 83 mean?
+
+\includegraphics[height=35px]{img/flag_example1.png}
+
+## CIGAR string
+
+\includegraphics[height=100px]{img/sam_cigar.png}
+
+- The CIGAR string is a sequence of base lengths and associated "operations" that are used to indicate which bases align to the reference (either a match or mismatch), are deleted, are inserted, represent introns, etc.
+    - e.g. 81M859N19M
+    - Read as: A 100 bp read consists of: 81 bases of alignment to reference, 859 bases skipped (an intron), 19 bases of alignment
+
+\tiny https://samtools.github.io/hts-specs/SAMv1.pdf
+
+## Tools to work with SAM/BAM files
+
+- **samtools** - view, sort, index, QC, stats on SAM/BAM files, and more
+- **sambamba** - view, sort, index, merge, stats, mark duplicates. fast laternative to `samtools`
+- **picard** - QC, validation, duplicates removal and many more utility tools
+
+\tiny https://github.com/samtools/samtools
+
+https://lomereiter.github.io/sambamba/index.html
+
+https://broadinstitute.github.io/picard/
+
+##  SAMTOOLS Commands: Manipulating SAM/BAM
+
+\small
+
+```
+  -- Indexing
+     dict - create a sequence dictionary file
+     faidx - index/extract FASTA
+     index - index alignment
+  -- Editing
+     calmd - recalculate MD/NM tags and '=' bases
+     fixmate - fix mate information
+     reheader - replace BAM header
+     rmdup - remove PCR duplicates
+     targetcut - cut fosmid regions (for fosmid pool only)
+     addreplacerg - adds or replaces RG tags
+  -- Viewing
+     flags - explain BAM flags
+     tview - text alignment viewer
+     view - SAM<->BAM<->CRAM conversion
+     depad - convert padded BAM to unpadded BAM
+```
+
+##  SAMTOOLS Commands: Manipulating SAM/BAM
+
+\small
+
+```
+  -- File operations
+     collate - shuffle and group alignments by name
+     cat - concatenate BAMs
+     merge - merge sorted alignments
+     mpileup - multi-way pileup
+     sort - sort alignment file
+     split - splits a file by read group
+     quickcheck - quickly check if SAM/BAM/CRAM file appears intact
+     fastq - converts a BAM to a FASTQ
+     fasta - converts a BAM to a FASTA
+  -- Statistics
+     bedcov - read depth per BED region
+     depth - compute the depth
+     flagstat - simple stats
+     idxstats - BAM index stats
+     phase - phase heterozygotes
+     stats - generate stats (former bamcheck)
+```
+
+\tiny http://quinlanlab.org/tutorials/samtools/samtools.html
+
+## BED format
+
+- Text-based, tab-separated list of genomic regions
+- Each region is specified by a reference sequence and the start and end positions on it
+- Optionally, each region can have additional properties defined –  E.g. strand, name, score, color
+- Intended for visualizing genomic annotations in IGV, UCSC Genome Browser (context of expression, regulation, variation, conservation, ...)
+
+\tiny http://genome.ucsc.edu/FAQ/FAQformat.html#format1
+
+## BED format
+
+3 mandatory columns (must be in correct order)  
+
+- "chrom" – chromosome
+- "chromStart" – the first base of the region with respect to the chromosome (counting starts from 0)
+- "chromEnd" – the first base after the region with respect to the chromosome
+- [chromStart, chromEnd) allows easy region-length calculation
+- Optional fields: "name", "score", "strand", other annotation columns
+
+\small
+
+```
+chr1  115263684 115263685 rs10489525  0 +
+chr12 97434219  97434220  rs6538761   0 +
+chr14 102360744 102360745 rs7142002   0 +
+chr16 84213683  84213684  rs4150167   0 -
+chr2  206086170 206086171 rs4675502   0 +
+chr20 14747470  14747471  rs4141463   0 +
+````
+
+## BED format – optional fields
+
+- 9 additional optional fields, their order is binding (unlike with SAM format). If n optional fields are included, they will be considered to be the first n optional fields from the format specification
+- All regions must have the same optional fields (unlike with SAM format)
+
+Most important optional fields:  
+
+- "name" – name of the region
+- "score" – score value between 0 and 1000 (read-count, transformed p-value, "quality", ...)
+- Can be interpreted as shades of grey during visualization
+- "strand" – either "+" or "-" (not "1"/"-1")
+- BED12 format specification available
+
+\tiny https://genome.ucsc.edu/FAQ/FAQformat.html#format1.7
+
+## Tools to work with BED files
+
+- **bedtools** - universal tools for manipulating genomic regions
+- **bedops** - complementary to `bedtools`, providing additional functionality and speedup
+
+\tiny https://bedtools.readthedocs.io/en/latest/
+
+https://bedtools.readthedocs.io/en/latest/
+
+## GFF/GTF file format
+
+- Generic feature format for storing genomic annotation data
+- **GFF** - Generic Feature Format - describes gene-centric elements
+- **GTF** - Gene Transfer Format - similar to GFF, but more restrictive
+
+\tiny 
+- GFF specifications: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
+- GTF specifications: http://www.gencodegenes.org/gencodeformat.html
+- More about file formats, http://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s008
+
+## GFF/GTF file format
+
+- Tab delimited text file (with optional header lines beginning ##):
+    - contig (chromosome)
+    - source
+    - type
+    - start
+    - end
+    - score
+    - strand
+    - phase
+    - attributes
+
+\tiny
+
+```
+wget ftp://ftp.ensembl.org/pub/release-89/gtf/homo_sapiens/Homo_sapiens.GRCh38.89.gtf.gz
+```
+
+\tiny GTF gene annotations: http://www.ensembl.org/info/data/ftp/index.html
+
+## WIG format
+
+- Text format to represent continuous signal - "wiggle" format
+- variable step format - for data with irregular intervals 
+```
+variableStep  chrom=chrN
+[span=windowSize]
+  chromStartA  dataValueA
+  chromStartB  dataValueB
+  ... etc ...  ... etc ...
+```
+- fixed step format - for data with regular intervals
+```
+fixedStep  chrom=chrN
+start=position  step=stepInterval
+[span=windowSize]
+  dataValue1
+  dataValue2
+  ... etc ...
+```
+
+## Tools to work with WIG format
+
+- **Wiggler** - converts aligner reads to continuous WIG signal
+- **WiggleTools** - Basic operations on the space of numerical functions defined on the genome. Works with multiple genomic file formats. Operates on single file or pairs of files
+
+\tiny https://genome.ucsc.edu/goldenpath/help/wiggle.html
+
+https://code.google.com/archive/p/align2rawsignal/
+
+https://github.com/Ensembl/WiggleTools
+
+## VCF format
+
+- Variant Call Format (VCF) is a flexible and extendable format for variation data 
+
+\includegraphics[height=160px]{img/vcf_format1.png}
+
+## VCF format
+
+- CHROMO: chromosome / contig
+- POS: the reference position with the 1st base having position 1
+    - The value in POS refers to the position of the first base in the string. For indels, the reference string must include the base before the event (and this must be reflected in POS)
+- ID: an id; rs number if dbSNP variant
+- REF: reference base
+- ALT: comma sepearated list of alternate non-ref alleles called on at least one of the samples
+    - If no alternate alleles then the missing value should be used “.”
+- QUAL: phred-scaled quality score of the assertion made in ALT (whether variant or non-variant)
+- FILTER: PASS if the position has passed all filters (defined in meta-data)
+- INFO: additional information
+
+## VCF Format
+
+\includegraphics[height=140px]{img/vcf_appnote.png}
+
+\tiny https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/pdf/btr330.pdf
+
+## Formats use different coordinate systems
+
+- **BED**: 0-based, half-open 
+- **GFF**: 1-based, closed 
+- **SAM**: 1-based, closed 
+- **BAM**: 0-based, half-open
+- **VCF**: 1-based, closed
+
+\includegraphics[height=65px]{img/bed_coordinates.jpg}
+
+\tiny https://www.biostars.org/p/84686/
+
+## Formats use different chromosome naming conventions
+
+- The UCSC and Ensembl databases name their chromosomes differently. 
+- By convention, UCSC chromosomes start with chr while Ensembl chromosome names do not.
+- UCSC will call the fifth chromosome chr5 and Ensembl will call it 5
+
