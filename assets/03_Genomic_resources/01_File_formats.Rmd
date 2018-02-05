@@ -57,6 +57,7 @@ Each sequence entry consists of:
 - _any number of lines_ representing the actual sequence
 
 \small
+
 ```
 >SRR493818.1.1 HWUSI-EAS519_0001_FC61TCNAAXX:2:1:960:20843 length=54
 NGTAAATCCCGTTACCTCTCTGAGCCTCGGTNNCCNNNNNTGTAAAAAGGNNNN
