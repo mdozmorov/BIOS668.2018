@@ -1,0 +1,307 @@
+---
+title: "The Cancer Genomics Atlas (TCGA)"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    theme: AnnArbor
+---
+
+## The Cancer Genome Atlas (TCGA)
+
+- Started December 13, 2005, phase II in 2009, ended in 2014
+- Mission - to accelerate our understanding of the molecular basis of cancer through the application of genome analysis technologies, including large-scale genome sequencing.
+- Data generation
+    - Clinical information about participants
+    - Metadata about the samples (e.g. the weight of a sample portion, etc.)
+    - Histopathology slide images from sample portions
+    - Molecular information derived from the samples (e.g. mRNA/miRNA expression, protein expression, copy number, etc.)
+
+\tiny https://cancergenome.nih.gov/
+
+## TCGA by the numbers
+
+\includegraphics[height=190px]{img/tcga_stats.png}
+
+\tiny https://cancergenome.nih.gov/abouttcga
+
+## Major TCGA Research Components
+
+- **Biospecimen Core Resource (BCR)** - Collect and process tissue samples
+- **Genome Sequencing Centers (GSCs)** - Use high-throughput Genome Sequencing to identify the changes in DNA sequences in cancer
+- **Genome Characterization Centers (GCCs)** - Analyze genomic and epigenomic changes involved in cancer
+- **Data Coordinating Center (DCC)** - The TCGA data are centrally managed at the DCC
+- **Genome Data Analysis Centers (GDACs)** - These centers provide informatics tools to facilitate broader use of TCGA data.	
+
+## TCGA Data Access Policy
+
+- An access control policy is in place for TCGA data to ensure that personally identifiable information is kept from unauthorized users.
+- **Open access** - Houses data that cannot be aggregated to generate a data set unique to an individual. This tier does not require user certification for data access.
+- **Controlled access** - Houses individually-unique information that could potentially be used to identify an individual. This tier requires user certification for data access.	
+
+## TCGA Controlled Access Data
+
+Access to controlled data is available to researchers who:
+
+- Agree to restrict their use of the information to biomedical research purposes only
+- Agree with the statements within TCGA Data Use Certification (DUC)
+- Have their institutions certifiably agree to the statements within TCGA DUC
+- Complete the Data Access Request (DAR) form and submit it to the Data Access Committee to be a TCGA Approved User. This form is available electronically through dbGaP.
+
+\tiny https://wiki.nci.nih.gov/display/TCGA/TCGA+Home
+
+## TCGA data types
+
+\includegraphics[height=180px]{img/tcga_data_types.png}
+
+\tiny http://www.liuzlab.org/TCGA2STAT/DataPlatforms.pdf
+
+## TCGA cancer types
+
+\includegraphics[height=200px]{img/tcga_cancer_types.png}
+
+\tiny http://www.liuzlab.org/TCGA2STAT/CancerDataChecklist.pdf
+
+## TCGA Clinical data
+
+\includegraphics[height=200px]{img/tcga_clinical.png}
+
+\tiny http://www.liuzlab.org/TCGA2STAT/ClinicalVariables.pdf
+
+## TCGA sample identifiers
+
+- Each sample has a unique ID (barcode), like `TCGA-AO-A128` or `TCGA-A1-A0SK-01A`
+- Each barcode can and should be parsed
+
+\includegraphics[height=70px]{img/tcga_barcode.png}
+
+- Can be used to distinguish normal and tumor samples (Sample: Tumor types range from 01 - 09, normal types from 10 - 19 and control samples from 20 - 29)
+- Not to be confused with case UUIDs, like `7eea2b6e-771f-44c0-9350-38f45c8dbe87`, which are bound to filenames
+
+\tiny https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode
+
+## PAM50
+
+- Breast cancer can be classified into 4 major intrinsic subtypes: Luminal A, Luminal B, Her2-enriched, Basal
+- Subtypes are clinically relevant for drug sensitivity and long-term survival 
+- Determine tumor subtype by looking at the gene expression of 50 genes
+
+\tiny Parker, Joel S., Michael Mullins, Maggie C. U. Cheang, Samuel Leung, David Voduc, Tammi Vickery, Sherri Davies, et al. “Supervised Risk Predictor of Breast Cancer Based on Intrinsic Subtypes.” Journal of Clinical Oncology: Official Journal of the American Society of Clinical Oncology 27, no. 8 (March 10, 2009): 1160–67. https://doi.org/10.1200/JCO.2008.18.1370.
+
+https://xenabrowser.net/datapages/?dataset=TCGA.BRCA.sampleMap/BRCA_clinicalMatrix&host=https://tcga.xenahubs.net
+
+`genefu` R package for PAM50 classification and survival analysis. https://www.bioconductor.org/packages/release/bioc/html/genefu.html
+
+## The Broad Institute Genome Data Analysis Center (GDAC) Firehose
+
+- Standardized, analysis-ready TCGA datasets
+    - Aggregated, version-stamped
+    - Analysis-ready format / semantics
+
+- Standardized analyses upon them
+    - For vetted algorithms: GISTIC, MutSig, CNMF, ...
+    - Companioned with biologist-friendly reports
+
+\tiny http://gdac.broadinstitute.org/
+
+## Firehose data access
+
+- `fbget` - Python application programming interface (API) with >27 functions for Sample-level data, Firehose analyses, Standard data archives, Metadata access
+- Unix command-line access, `firehose_get`
+- `FirebrowseR` - An R client for broads firehose pipeline, providing TCGA data sets
+- `web-TCGA` - a shiny app to access TCGA data from Firebrowse
+
+\tiny http://firebrowse.org/
+
+https://confluence.broadinstitute.org/display/GDAC/fbget
+
+https://confluence.broadinstitute.org/display/GDAC/Download
+
+https://github.com/mariodeng/FirebrowseR
+
+https://github.com/mariodeng/web-TCGA
+
+## Firehose data visualization
+
+Firehose data comes pre-loaded in IGV (File/Load from server)
+
+\includegraphics[height=190px]{img/tcga_igv.png}
+
+## NCI's Genomic Data Commons (GDC)
+
+- Launched on June 6, 2016
+- Provides standardized genomic and clinical data from
+    - **The Cancer Genome Atlas (TCGA)**
+    - **Therapeutically Applicable Research To Generate Effective Treatments (TARGET)** - A comprehensive genomic approach to determine molecular changes that drive childhood cancers. (AML and Neuroblastoma)
+    - **Cancer Cell Line Encyclopedia (CCLE)** - Genome-wide information of ~1000 cell lines under baseline condition. Pharmacologic response profiles (IC50) and mutation status analysis.
+    - **Stand Up To Cancer (SU2C)** - 50 Breast cancer cell lines. GI50 to 77 therapeutic compounds.  
+    - **Connectivity Map** - 4 cell lines and 1309 perturbagens at several concentrations. Gene expression change after treatment.
+
+\tiny https://ocg.cancer.gov/programs/target.
+
+https://portals.broadinstitute.org/ccle
+
+http://www.standuptocancer.org/
+ 
+https://portals.broadinstitute.org/cmap/forceLogin.jsp
+
+## Accessing GDC
+    
+- The GDC Application Programming Interface (API)
+- `GenomicDataCommons` - GDC access in R
+
+\tiny https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/#api-endpoints
+
+https://bioconductor.org/packages/release/bioc/html/GenomicDataCommons.html
+
+## cBioPortal
+
+- Rich set of tools for visualization, analysis and download of large-scale cancer genomics data sets.  
+    - Mutations (OncoPrint display)
+    - Mutual exclusivity of genetic events (log-odds ratio)
+    - Correlations among genetic events (boxplots)
+    - Survival (Kaplan-Meier plots)
+- The Onco Query Language (OQL) to fine-tune queries
+
+\tiny http://www.cbioportal.org/index.do
+
+http://www.cbioportal.org/tutorial.jsp - short tutorials
+
+Gao, Jianjiong, Bülent Arman Aksoy, Ugur Dogrusoz, Gideon Dresdner, Benjamin Gross, S. Onur Sumer, Yichao Sun, et al. “Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the CBioPortal.” Science Signaling 6, no. 269 (April 2, 2013): pl1. https://doi.org/10.1126/scisignal.2004088.
+
+## cBioPortal data
+
+- REST-based web API
+- `CGDS-R` package provides a basic set of functions for querying the Cancer Genomic Data Server (CGDS)
+- `MATLAB CGDS Cancer Genomics Toolbox` - data access functionality in the MATLAB environment
+
+\tiny http://www.cbioportal.org/web_api.jsp
+
+http://www.cbioportal.org/cgds_r.jsp
+
+https://cran.r-project.org/web/packages/cgdsr/vignettes/cgdsr.pdf
+
+## R resources to access TCGA data
+
+- `curatedTCGAData` - Curated Data From The Cancer Genome Atlas (TCGA) as MultiAssayExperiment Objects
+    - MultiAssayExperiment objects integrate multiple assays (e.g. RNA-seq, copy number, mutation, microRNA, protein, and others) with clinical / pathological data. 
+    - Patient IDs are matched (same number and order) across multiple assays, enabling harmonized subsetting of rows (features) and columns (patients / samples) across the entire experiment.
+- `HarmonizedTCGAData` - Processed Harmonized TCGA Data of Five Selected Cancer Types
+
+\tiny https://bioconductor.org/packages/release/data/experiment/html/curatedTCGAData.html
+
+MultiAssayExperiment TCGA data, http://tinyurl.com/MAEOurls <!--https://docs.google.com/spreadsheets/d/1Ih64DDS5mqDlYFzDyCY9HAUnxvI1b6hapKP_akFuNPY/edit#gid=0.--> 
+
+https://bioconductor.org/packages/release/data/experiment/html/HarmonizedTCGAData.html
+
+## R resources to access TCGA data
+
+- `curatedOvarianData`
+    - 30 datasets, > 3K unique samples
+    - survival, surgical debulking, histology...
+- `curatedCRCData` (colorectal)
+    - 34 datasets, ~4K unique samples
+    - many annotated for MSS, gender, stage, age, N, M
+- `curatedBladderData`
+    - 12 datasets, ~1,200 unique samples
+    - many annotated for stage, grade, OS
+
+## TCGA packages
+
+- `TCGAbiolinks` - an R/Bioconductor package for integrative analysis of TCGA data
+
+\begin{center}
+\includegraphics[height=170px]{img/tcga_rpackages.png}
+\end{center}
+
+\tiny Colaprico, Antonio, Tiago C. Silva, Catharina Olsen, Luciano Garofano, Claudia Cava, Davide Garolini, Thais S. Sabedot, et al. “TCGAbiolinks: An R/Bioconductor Package for Integrative Analysis of TCGA Data.” Nucleic Acids Research 44, no. 8 (May 5, 2016): e71. https://doi.org/10.1093/nar/gkv1507.
+
+https://bioconductor.org/packages/release/bioc/html/TCGAbiolinks.html
+
+## TCGA2STAT
+
+\includegraphics[height=100px]{img/tcga2statlogo4-1024x294.png}
+
+- Well-structured TCGA data access in R
+
+\tiny http://www.liuzlab.org/TCGA2STAT/
+
+## GDCRNATools
+
+- Downloading, organizing, and integrative analyzing RNA data in the GDC
+- Differential gene expression analysis, ceRNAs regulatory network analysis, univariate survival analysis, and functional enrichment analysis.
+- Considers ceRNAs - Competing endogenous RNAs, RNA molecules that indirectly regulate other RNA transcripts by competing for the shared miRNAs.
+
+\tiny https://github.com/Jialab-UCR/GDCRNATools
+
+Li, Ruidong, Han Qu, Shibo Wang, Julong Wei, Le Zhang, Renyuan Ma, Jianming Lu, Jianguo Zhu, Wei-De Zhong, and Zhenyu Jia. “GDCRNATools: An R/Bioconductor Package for Integrative Analysis of LncRNA, MiRNA, and MRNA Data in GDC,” December 11, 2017. https://doi.org/10.1101/229799.
+
+\tiny https://github.com/Jialab-UCR/GDCRNATools
+
+## Xena Functional Genomics Explorer
+
+- Former UCSC Cancer Genomics Browser. Now UCSC Xena
+- Includes TCGA, Cancer Cell Line Encyclopedia, the Stand Up To Cancer (SU2C) Breast Cancer data, custom datasets
+- A tool to visually explore and analyze cancer genomics data and its associated clinical information.
+- Gene- and genome-centric view
+- Survival analysis on user-defined subgroups
+
+\tiny https://xenabrowser.net/, https://xenabrowser.net/datapages/, http://xena.ucsc.edu/getting-started/
+
+Cline, Melissa S., Brian Craft, Teresa Swatloski, Mary Goldman, Singer Ma, David Haussler, and Jingchun Zhu. “Exploring TCGA Pan-Cancer Data at the UCSC Cancer Genomics Browser.” Scientific Reports 3 (October 2, 2013): 2652. https://doi.org/10.1038/srep02652.
+
+## Gitools
+
+- A framework for analysis and visualization of multidimensional genomic data using interactive heatmaps
+- User-provided and precompiled datasets: TCGA, IntOGen
+- Analyses: Enrichment, Group Comparison, Mutual exclusion and co-occurrence test, Correlations, Overlaps, Combination of p-values
+
+\includegraphics[height=90px]{img/gitools.png}
+
+\tiny http://www.gitools.org/
+
+## TCGA analysis on the cloud
+
+- Goal - simplify centralized access to TCGA data and provide easy analysis
+- Three centers were awarded to develop cloud access 
+    - Institute for Systems Biology Cancer Genomics Cloud (ISB-CGC)
+    - Broad Institute FireCloud
+    - Seven Bridges Cancer Genomics Cloud
+
+\tiny http://cgc.systemsbiology.net/
+
+https://software.broadinstitute.org/firecloud/
+
+http://www.cancergenomicscloud.org/
+
+## Other resources for cancer genomics
+
+- `IntOgen` - catalog of cancer driver mutations, 
+- `Regulome Explorer` - exploratory analysis of integrated TCGA data
+- `Oncomine research edition` - coexpression, differential analysis of cancer datasets, including TCGA
+- `CPTAC` - Clinical Proteomics Tumor Analysis Consortium
+
+\tiny https://www.intogen.org/search
+
+Gonzalez-Perez, Abel, Christian Perez-Llamas, Jordi Deu-Pons, David Tamborero, Michael P Schroeder, Alba Jene-Sanz, Alberto Santos, and Nuria Lopez-Bigas. “IntOGen-Mutations Identifies Cancer Drivers across Tumor Types.” Nature Methods 10, no. 11 (September 15, 2013): 1081–82. https://doi.org/10.1038/nmeth.2642.
+
+http://explorer.cancerregulome.org
+
+https://www.oncomine.org/resource/login.html
+
+## International Cancer Genome Consortium
+
+- International effort
+- A comprehensive catalog of somatic changes in the major cancers 
+- >10,000 cancer genomes
+- Similar to other large-scale genome projects, the ICGC has a Data Coordination Center (DCC) 
+
+\tiny http://icgc.org/
+
+ICGC data portal http://dcc.icgc.org/
+

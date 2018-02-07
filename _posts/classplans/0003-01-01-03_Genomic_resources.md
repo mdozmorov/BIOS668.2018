@@ -10,6 +10,7 @@ visible: 1
 
 [Slides: Genomic file formats and tools]({{site.baseurl}}/assets/03_Genomic_resources/01_File_formats.pdf)  
 [Slides: Genomic resources]({{site.baseurl}}/assets/03_Genomic_resources/02_Genomic_Resources.pdf)  
+[Slides: TCGA]({{site.baseurl}}/assets/03_Genomic_resources/03_TCGA.pdf)  
 
 ## References
 
