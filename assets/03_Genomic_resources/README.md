@@ -34,6 +34,8 @@
 
 - Tutorial for the sevenbridges cancer genomics cloud, [https://github.com/tdelhomme/CancerGenomicsCloud_tutorial](https://github.com/tdelhomme/CancerGenomicsCloud_tutorial)
 
+- "Read GTF file into R", GTF intro, tutorial for command line and R handling of GTF info, https://davetang.org/muse/2017/08/04/read-gtf-file-r/
+
 - VCF-tips-tricks, [https://github.com/tdelhomme/VCF-tips-tricks](https://github.com/tdelhomme/VCF-tips-tricks)
 
 # `misc`
