@@ -451,7 +451,7 @@ Dideoxynucleotides (ddNTPs) lack the 3′ hydroxyl group that is required for ex
 - Immobilize fragments on a solid surface, amplify
 - Reversible terminator sequencing with 4 color dye-labelled nucleotides
 
-\tiny Video of Illumina sequencing, http://www.youtube.com/watch?v=77r5p8IBwJk (1.5m)
+\tiny Video of Illumina sequencing, http://www.youtube.com/watch?v=77r5p8IBwJk (1.5m), https://www.youtube.com/watch?time_continue=2&v=fCd6B5HRaZ8 (5m)
 
 ## Solexa (Illumina) sequencing (2006)
 
@@ -474,6 +474,10 @@ Dideoxynucleotides (ddNTPs) lack the 3′ hydroxyl group that is required for ex
 - 6 cycles with base-calling
 
 \includegraphics[height=150px]{img/illumina_base_calling.png}
+
+\tiny https://www.youtube.com/watch?v=IzXQVwWYFv4
+
+https://www.youtube.com/watch?time_continue=65&v=tuD-ST5B3QA
 
 ## Illumina sequencers
 
