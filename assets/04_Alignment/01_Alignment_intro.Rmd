@@ -203,7 +203,7 @@ $$NB(y;\alpha,\beta)=\int_0^\infty Poisson(y;x) \, Gamma(x;\alpha,\beta) \, dx$$
 ## Negative Binomial model for sequence occurrences
 
 - $C$ - library complexity (latent, fit to observed data)
-- $N$ - nuber of reads
+- $N$ - number of reads
 - $M$ - total number of unique sequences
 - $\lambda=N/C$
 - $k$ - dispersion (latent, fit to observed data)
@@ -277,13 +277,13 @@ for i = 1 to n - m + 1 do
 - This algorithm might use only $n$ steps if we are lucky, e.g. $T = aaaaaaaaaaa$, and $P = bbbbbbb$.  
 - We might need  $\sim n \times m$ steps if we are unlucky, e.g. $T = aaaaaaaaaaa$, and $P = aaaaaab$.  
 - We can’t say what happens "in practice", so we settle for a worst case analysis.  
-- By being more clever, we can reduce the worst case running time to $O(n + m)$.  
+- By being more clever, we can reduce the worst case running time to $O(nm)$.  
 - Certain generalizations won’t change this, like stopping after the first occurrence of the pattern.  
 - Certain other generalizations seem more complicated, like matching with gaps.  
 
 ## Algorithm Complexity
 
-We use the "Big oh" notation to state an upper bound on the number of steps that an algorithm takes in the worst case. Thus the brute force string matching algorithm is $O(mn)$, or takes _quadratic_ time.  
+We use the "Big oh" notation to state an upper bound on the number of steps that an algorithm takes in the worst case. Thus the brute force string matching algorithm is $O(nm)$, or takes _quadratic_ time.  
 
 - A _linear_ time algorithm, i.e. $O(n + m)$, is fast enough for almost any application.
 - A _quadratic_ time algorithm is usually fast enough for small problems, but not big ones, since $1000^2 = 1, 000, 000$ steps is reasonable but $1,000,000^2$ is not.
