@@ -296,12 +296,9 @@ https://www.oncomine.org/resource/login.html
 
 ## International Cancer Genome Consortium
 
-- International effort
-- A comprehensive catalog of somatic changes in the major cancers 
-- >10,000 cancer genomes
+- The International Cancer Genome Consortium (ICGC)’s Pan-Cancer Analysis of Whole Genomes (PCAWG) project aimed to categorize somatic and germline variations in both coding and non-coding regions in over 2,800 cancer patients 
+- 5,789 whole genomes of tumors and matched normal tissue spanning 39 tumor types, RNA-Seq profiles were obtained from a subset of 1,284 of the donors
 - Similar to other large-scale genome projects, the ICGC has a Data Coordination Center (DCC) 
 
-\tiny http://icgc.org/
-
-ICGC data portal http://dcc.icgc.org/
+\tiny http://icgc.org/, http://dcc.icgc.org/
 

@@ -1,9 +1,9 @@
 + `01_Alignment_intro.Rmd` - Alignment introduction
 + `lab/naive_exact.R` - naive exact matching  
-+ `02_Approximate_matching_Langmead.pdf` - Edit distance, Hamming distance. `full` version contains more slides
++ `02_Approximate_matching_Langmead.pdf` - Hamming/Edit distance, global/local alignment overview. `full` version contains more slides
 + `lab/naive_Hamming.R` - Hamming distance matching  
++ `lab/edDistRecursive.R` - edit distance, recursive
 + `lab/edDistDynamic.R` - edit distance, dynamic programming  
-+ `lab/edDistRecursive.R` - R implementation of the function in video https://www.youtube.com/watch?v=8Q2IEIY2pDU&index=33&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA
 + `03_Needleman_Wunsch.Rmd` - Needleman-Wunsch global alignment basics
 
 - `04_Smith-Waterman.pdf` - Smith-Waterman algorithm, after Ben Langmead http://www.biostat.jhsph.edu/~khansen/teaching/2014/140.668/seq_aln.pdf
@@ -79,7 +79,12 @@
 
 - `MIT7_91JS14_Lecture3.pdf` - Gifford. Global/local alignment, NW/SW algorithms, dynamic programming, from video https://www.youtube.com/watch?v=PdyARRNwi7I&list=PLUl4u3cNGP63uK-oWiLgO7LLJV6ZCWXac&index=3. For `01_Alignment_intro.Rmd`
 
-- "Approximate matching, Hamming and edit distance", https://www.youtube.com/watch?v=MCvHeW13DsE&index=30&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA, "Solving the edit distance problem", https://www.youtube.com/watch?v=8Q2IEIY2pDU&index=33&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA, "Using dynamic programming for edit distance", https://www.youtube.com/watch?v=0KzWq118UNI&index=34&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA, for `02_Approximate_matching_Langmead.pdf`
+- `02_Approximate_matching_Langmead.pdf`
+    - "Approximate matching, Hamming and edit distance", `lab/naive_Hamming.R` https://www.youtube.com/watch?v=MCvHeW13DsE&index=30&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA
+    - "Solving the edit distance problem", `lab/edDistRecursive.R`, https://www.youtube.com/watch?v=8Q2IEIY2pDU&index=33&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA
+    - "Using dynamic programming for edit distance", `lab/edDistDynamic.R` https://www.youtube.com/watch?v=0KzWq118UNI&index=34&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA
+    - "Edit distance for approximate matching", https://www.youtube.com/watch?v=NjfNZzJiu8o&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA&index=36
+    - "Meet the family: global and local alignment", https://www.youtube.com/watch?v=-bjSPP2v6_Q&index=37&list=PL2mpR0RYFQsBiCWVJSvVAO3OJ2t7DzoHA
 
 - `assembly_dbg.pdf` - To use. Langmead. de Brujin graph lecture, https://www.cs.jhu.edu/~langmea/resources/lecture_notes/assembly_dbg.pdf
 
