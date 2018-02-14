@@ -438,16 +438,13 @@ $$p=\left( \frac{n-1}{n} \right)^n -> \frac{1}{e}$$
 
 ## Gaps
 
-1. Sequence-coverage gaps
-    - Sequencing gaps occur, under the simplest condition, where no sequence reads have been sampled for a particular portion of the genome.
-2. Segmental duplication-associated gaps
-    - Over one-third (206/540) of the euchromatic gaps in the human reference genome (GRCh38) are flanked by large, highly identical segmental duplications.
-3. Satellite-associated gaps
-    - These include short and long runs of tandem repeats designated as short tandem repeats (STRs; also known as microsatellites), variable number of tandem repeats (VNTRs; also known as macrosatellites) and Mb-sized centromeric satellite repeats.
-4. Muted gaps
-    - Muted gaps are defined as regions that are inadvertently closed in an assembly but that actually show additional or different sequences in the vast majority of individuals
-5. Allelic variation gaps
-  - Some regions of a genome also show extraordinary patterns of allelic variation, often reflecting deep evolutionary coalescence.
+\small
+
+- **Sequence-coverage gaps** - Sequencing gaps occur, under the simplest condition, where no sequence reads have been sampled for a particular portion of the genome
+- **Segmental duplication-associated gaps** - Over one-third (206/540) of the euchromatic gaps in the human reference genome (GRCh38) are flanked by large, highly identical segmental duplications
+- **Satellite-associated gaps** - These include short and long runs of tandem repeats designated as short tandem repeats (STRs; also known as microsatellites), variable number of tandem repeats (VNTRs; also known as macrosatellites) and Mb-sized centromeric satellite repeats
+- **Muted gaps** - Muted gaps are defined as regions that are inadvertently closed in an assembly but that actually show additional or different sequences in the vast majority of individuals
+- **Allelic variation gaps** - Some regions of a genome also show extraordinary patterns of allelic variation, often reflecting deep evolutionary coalescence
 
 ## Gaps
 
