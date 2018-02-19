@@ -40,4 +40,10 @@
 
 # `misc`
 
+- `ngsplot_Apr2014.pdf` - Visualization of Next-Gen Sequencing (NGS) Data: ngsplot, http://barc.wi.mit.edu/education/hot_topics/ngsplot/ngsplot_Apr2014.pdf
+- Data - http://barc.wi.mit.edu/education/hot_topics/ngsplot/ngsplot_demo.zip, ~500Mb
 
+
+# `ToDo`
+
+- `ngsplot` - Quick mining and visualization of NGS data by integrating genomic databases. https://github.com/shenlab-sinai/ngsplot
