@@ -4,10 +4,9 @@
 + `lab/naive_Hamming.R` - Hamming distance matching  
 + `lab/edDistRecursive.R` - edit distance, recursive
 + `lab/edDistDynamic.R` - edit distance, dynamic programming  
-+ `03_Needleman_Wunsch.Rmd` - Needleman-Wunsch global alignment basics
 
+- `03_Needleman_Wunsch.Rmd` - Needleman-Wunsch global alignment basics
 - `04_Smith-Waterman.pdf` - Smith-Waterman algorithm, after Ben Langmead http://www.biostat.jhsph.edu/~khansen/teaching/2014/140.668/seq_aln.pdf
-
 - `05_BWT.pdf` - Short overview of BWT, from MIT7_91JS14_Lecture5.pdf, https://www.youtube.com/watch?v=P3ORBMon8aw&list=PLUl4u3cNGP63uK-oWiLgO7LLJV6ZCWXac&index=5
 
 - `17 - Genome arithmetic with bedtools.pdf` - BEDtools tutorial. From https://github.com/quinlan-lab/applied-computational-genomics
