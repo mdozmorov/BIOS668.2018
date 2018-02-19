@@ -1,6 +1,6 @@
 + `01_Alignment_intro.Rmd` - Alignment introduction
 + `lab/naive_exact.R` - naive exact matching  
-+ `02_Approximate_matching_Langmead.pdf` - Hamming/Edit distance, global/local alignment overview. `full` version contains more slides
++ `02_Approximate_matching_Langmead.pdf` - Hamming/Edit distance, global/local alignment overview
 + `lab/naive_Hamming.R` - Hamming distance matching  
 + `lab/edDistRecursive.R` - edit distance, recursive
 + `lab/edDistDynamic.R` - edit distance, dynamic programming  
@@ -71,6 +71,8 @@
 
 
 ## `misc`
+
+- `02_Approximate_matching_Langmead_full.pdf` - Hamming/Edit distance, global/local alignment overview, extended version
 
 - `MIT7_91JS14_Lecture6.pdf` - Gifford. overlap/consensus/layout, shortest common superstring, greedy algorithm, de Bruijn graph. https://www.youtube.com/watch?v=ZYW2AeDE6wU&list=PLUl4u3cNGP63uK-oWiLgO7LLJV6ZCWXac&index=6. For `01_Alignment_intro.Rmd`
 
