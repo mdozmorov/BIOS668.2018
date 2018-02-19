@@ -3,3 +3,9 @@ _site
 .jekyll-metadata
 node_modules
 .Rproj.user
+assets/Untitled.*
+assets/README.md
+assets/*/lab
+assets/*/misc
+assets/data
+assets/others
