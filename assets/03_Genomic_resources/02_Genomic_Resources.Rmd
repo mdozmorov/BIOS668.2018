@@ -164,6 +164,16 @@ Features
 
 https://epiviz.github.io/
 
+## ggbio R package
+
+- ggplot2 for genomic data
+
+\includegraphics[height=130px]{img/ggbio-show-mutation.png}
+
+\tiny https://www.bioconductor.org/packages/release/bioc/html/ggbio.html
+
+http://www.sthda.com/english/wiki/ggbio-visualize-genomic-data
+
 ## Other visualization tools
 
 - Review of omics data visualization tools, summary table: Schroeder, Michael P., Abel Gonzalez-Perez, and Nuria Lopez-Bigas. “Visualizing Multidimensional Cancer Genomics Data.” Genome Medicine 5, no. 1 (2013): 9. https://doi.org/10.1186/gm413.
