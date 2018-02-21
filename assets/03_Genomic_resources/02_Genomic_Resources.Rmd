@@ -290,3 +290,16 @@ http://amp.pharm.mssm.edu/archs4/download.html
 - **GenomeSpace** - integrated environment of the aforementioned genomic platforms allowing the data to be stored in one place and analyzed by a multitude of tools. http://www.genomespace.org/
 
 \tiny Side-by-side comparison of many resources https://docs.google.com/spreadsheets/d/1o8iYwYUy0V7IECmu21Und3XALwQihioj23WGv-w0itk/pubhtml
+
+## Summarized data sets, services and resources
+
+<!-- misc/Table_resources.xlsx -->
+
+\includegraphics[height=160px]{img/big_data_sets.png}
+
+\tiny Langmead, Ben, and Abhinav Nellore. “Cloud Computing for Genomic Data Analysis and Collaboration.” Nature Reviews Genetics, January 30, 2018. https://doi.org/10.1038/nrg.2017.113.
+
+\tiny 
+www.ebi.ac.uk/arrayexpress, beacon-network.org, bravo.sph.umich.edu, www.ebi.ac.uk/gxa, docs.icgc.org/pcawg, jhubiostatistics.shinyapps.io/recount, www.ebi.ac.uk/fg/rnaseq/api, snaptron.cs.jhu.edu, osf.io/gqrz9, xenabrowser.net/datapages/?host=https://toil.xenahubs.net, xena.ucsc.edu
+
+
