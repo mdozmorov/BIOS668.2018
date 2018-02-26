@@ -1,10 +1,11 @@
 - `01_Bioconductor` - introduction to Bioconductor, main genomic packages
 
-- `lab/annotation.R` - OrgDb, TxDb, biomaRt, AnnotationHub, ExperimentHub
-
-- `biostrings.pdf` - Biostrings lecture, `lab/biostrings.R` - R code. http://www.haowulab.org/teaching/bioc/biostrings.pdf
+- `biostrings.pdf` - Biostrings lecture. http://www.haowulab.org/teaching/bioc/biostrings.pdf
+- `lab/biostrings.R` - R code
 
 - `genomicRanges.pdf` - GenomicRanges and GenomicFeatures, IRanges/GRanges, TxDb, biomaRt. `lab/genomicRanges.R` - R code https://github.com/haowulab/haowulab.github.io/tree/master/teaching/bioc
+
+- `lab/annotation.R` - OrgDb, TxDb, biomaRt, AnnotationHub, ExperimentHub
 
 - `lab/shortread.R` - basics of ShortRead package, read in FASTQ files, getting QC. Uses `fastq` data
 

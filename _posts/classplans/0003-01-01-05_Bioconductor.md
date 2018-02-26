@@ -9,9 +9,8 @@ visible: 1
 ---
 
 [Slides: Bioconductor for genomics]({{site.baseurl}}/assets/05_Bioconductor/01_Bioconductor.pdf)  
-<!--
-[Exercise: `naive_exact.R` - naive exact matching]({{site.baseurl}}/assets/04_Alignment/lab/naive_exact.R)  
--->
+[Slides: Biostrings]({{site.baseurl}}/assets/05_Bioconductor/biostrings.pdf). [Source](http://www.haowulab.org/teaching/bioc/biostrings.pdf)  
+[Exercise: `biostrings.R` - Biostrings]({{site.baseurl}}/assets/04_Alignment/lab/biostrings.R)  
 
 ## References
 
