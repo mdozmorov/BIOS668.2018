@@ -3,7 +3,7 @@
 - `biostrings.pdf` - Biostrings lecture. http://www.haowulab.org/teaching/bioc/biostrings.pdf
 - `lab/biostrings.R` - R code
 
-- `genomicRanges.pdf` - GenomicRanges and GenomicFeatures, IRanges/GRanges, TxDb, biomaRt. `lab/genomicRanges.R` - R code https://github.com/haowulab/haowulab.github.io/tree/master/teaching/bioc
+- `genomicRanges.pdf` - GenomicRanges and GenomicFeatures, IRanges/GRanges, TxDb, biomaRt. `lab/genomicRanges.R` - R code https://github.com/haowulab/haowulab.github.io/blob/master/teaching/bioc/genomicRanges.pdf
 
 - `lab/annotation.R` - OrgDb, TxDb, biomaRt, AnnotationHub, ExperimentHub
 

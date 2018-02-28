@@ -11,6 +11,8 @@ visible: 1
 [Slides: Bioconductor for genomics]({{site.baseurl}}/assets/05_Bioconductor/01_Bioconductor.pdf)  
 [Slides: Biostrings]({{site.baseurl}}/assets/05_Bioconductor/biostrings.pdf). [Source](http://www.haowulab.org/teaching/bioc/biostrings.pdf)  
 [Exercise: `biostrings.R` - Biostrings]({{site.baseurl}}/assets/04_Alignment/lab/biostrings.R)  
+[Slides: IRanges, GenomicRanges, GenomicFeatures]({{site.baseurl}}/assets/05_Bioconductor/genomicRanges.pdf). [Source](https://github.com/haowulab/haowulab.github.io/blob/master/teaching/bioc/genomicRanges.pdf)  
+[Exercise: `genomicRanges.R` - Biostrings]({{site.baseurl}}/assets/04_Alignment/lab/genomicRanges.R)  
 
 ## References
 
