@@ -222,6 +222,7 @@ paln <- readGAlignmentsList(bf)
 paln
 ?summarizeJunctions
 j <- summarizeJunctions(paln, with.revmap=TRUE)
+j
 j_overlap <- j[j %over% roi]
 j_overlap
 

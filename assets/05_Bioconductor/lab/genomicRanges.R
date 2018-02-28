@@ -116,20 +116,20 @@ c(gr[1], gr[3])
 
 ## other useful functions
 coverage(gr)
-reduce(gr)
-disjoin(gr)
-flank(gr, width = 3)
-gaps(gr)
+reduce(gr) %>% autoplot
+disjoin(gr) %>% autoplot
+flank(gr, width = 3)  %>% autoplot
+gaps(gr) %>% autoplot
 
 ## set operations
 gr1 <- GRanges(seqnames = Rle("chr1", 2),
                ranges=IRanges(start=c(1,10), end = c(5,15)))
 gr2 <- GRanges(seqnames = Rle("chr1", 1),
                ranges = IRanges(start=3, end = 12))
-union(gr1, gr2)
+autoplot(c(gr1, gr2))
+union(gr1, gr2)  %>% autoplot
 intersect(gr1, gr2)
-
-setdiff(gr1, gr2)
+setdiff(gr1, gr2) %>% autoplot
 
 ## find overlaps
 findOverlaps(gr1, gr2)
@@ -137,7 +137,10 @@ gr1 %over% gr2
 
 ##### GRangesList
 glist=GRangesList(gr1, gr2)
+glist
 glist[[1]]
+glist[[2]]
+
 lapply(glist, length)
 sapply(glist, length)
 
@@ -155,6 +158,7 @@ txdb
 dataDir <- "/Users/mdozmorov/Documents/Work/Teaching/BIOS668.2018/assets/data"
 saveDb(txdb, file=paste0(dataDir, "/hg19_knownGenes.sqlite")) # Takes a few minutes
 txdb=loadDb(paste0(dataDir, "/hg19_knownGenes.sqlite"))
+txdb
 
 ## make TxDb package - this gives a package directory in current folder
 # makeTxDbPackageFromUCSC(maintainer="Hao Wu <hao.wu@emory.edu>", author="Hao Wu",
