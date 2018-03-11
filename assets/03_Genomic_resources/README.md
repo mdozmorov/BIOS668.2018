@@ -47,3 +47,5 @@
 # `ToDo`
 
 - `ngsplot` - Quick mining and visualization of NGS data by integrating genomic databases. https://github.com/shenlab-sinai/ngsplot
+
+- Galaxy tutorial, https://wiki.uio.no/projects/clsi/images/3/32/HTS_2014_Intro_Galaxy_Lifeportal.pdf, exercise on miRNA analysis, https://wiki.uio.no/projects/clsi/images/2/2f/HTS_2014_miRNA_analysis_Lifeportal_14_final.pdf
