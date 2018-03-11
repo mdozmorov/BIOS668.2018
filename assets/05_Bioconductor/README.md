@@ -53,6 +53,15 @@
 
 - `GvizEuropeanBioc2012.pdf` - Gviz tutorial, mirrors main tutorial at https://bioconductor.org/packages/release/bioc/vignettes/Gviz/inst/doc/Gviz.pdf. https://www.bioconductor.org/help/course-materials/2012/BiocEurope2012/GvizEuropeanBioc2012.pdf
 
+- `PINSPlus_1.0.0.tar.gz` - Tin Nguyen (03-05-2018) Regarding the package, I asked my students to upload the new package. We will submit it to CRAN soon after polishing the document. You can download the file PINSPlus_1.0.0.tar.gz from the following link: https://drive.google.com/file/d/1JCIb6eXxhSkl5izOcwyaEUNc3YU0nI14/view?usp=sharing. To install and run the package, please run the following commands on R console:
+• Install dependencies: >   install.packages(c("entropy", "pbmcapply", "doParallel"))
+• Install package: >   install.packages(path_to_downloaded_file, repos = NULL, type="source")
+• Load the package: >   library(PINSPlus)
+You can use PerturbationClustering to cluster single type data, and SubtypingOmicsData for integrated multi-type omics data. To open the help for those functions, run command : 
+>   ?PerturbationClustering 
+or 
+>   ?SubtypingOmicsData
+
 
 
 # ToDo
