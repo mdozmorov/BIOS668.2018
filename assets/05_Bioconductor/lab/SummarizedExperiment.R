@@ -4,7 +4,7 @@ dataDir <- "/Users/mdozmorov/Documents/Work/Teaching/BIOS668.2018/assets/data"
 # three components -- underlying 'matrix', 'row' annotations (genomic features), 'column' annotations (sample descriptions)
 counts <- read.csv(paste0(dataDir, "/airway_counts.csv"), row.names=1)
 counts <- as.matrix(counts)
-head(counts, 3)
+counts[1:5, 1:5]
 
 colData <- read.csv(paste0(dataDir, "/airway_colData.csv"), row.names=1)
 colData[, 1:4]
@@ -23,6 +23,8 @@ plot(
 library(SummarizedExperiment)
 
 se <- SummarizedExperiment(counts, rowRanges = rowRanges, colData = colData)
+se
+se$dex
 cidx <- se$dex == "trt"
 plot(
   rowMeans(1 + assay(se)[, cidx]) ~ rowMeans(1 + assay(se)[, !cidx]),

@@ -19,10 +19,14 @@ str(fqdata)
 reads <- sread(fqdata)
 class(reads)
 str(reads)
+
 ?quality
 qualities <- quality(fqdata)
+qualities
 class(qualities)
+
 id(fqdata)
+
 ?qa
 qa.reads <- qa(fastqDir, "fastq", BPPARAM=SerialParam())
 class(qa.reads)
