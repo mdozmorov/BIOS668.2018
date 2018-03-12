@@ -10,12 +10,12 @@ visible: 1
 
 [Slides: Bioconductor for genomics]({{site.baseurl}}/assets/05_Bioconductor/01_Bioconductor.pdf)  
 [Slides: Biostrings]({{site.baseurl}}/assets/05_Bioconductor/biostrings.pdf). [Source](http://www.haowulab.org/teaching/bioc/biostrings.pdf)  
-[Exercise: `biostrings.R` - Biostrings]({{site.baseurl}}/assets/04_Alignment/lab/biostrings.R)  
+[Exercise: `biostrings.R` - Biostrings]({{site.baseurl}}/assets/05_Bioconductor/lab/biostrings.R)  
 [Slides: IRanges, GenomicRanges, GenomicFeatures]({{site.baseurl}}/assets/05_Bioconductor/genomicRanges.pdf). [Source](https://github.com/haowulab/haowulab.github.io/blob/master/teaching/bioc/genomicRanges.pdf)  
-[Exercise: `genomicRanges.R` - Biostrings]({{site.baseurl}}/assets/04_Alignment/lab/genomicRanges.R)  
-[Exercise: `annotation.R` - OrgDb, TxDb, biomaRt, AnnotationHub, ExperimentHub]({{site.baseurl}}/assets/04_Alignment/lab/annotation.R)  
-[Exercise: `shortread.R` - basics of ShortRead package, read in FASTQ files, getting QC]({{site.baseurl}}/assets/04_Alignment/lab/shortread.R)  
-[Exercise: `SummarizedExperiment.R` - SummarizedExperiment using 'airway' data]({{site.baseurl}}/assets/04_Alignment/lab/SummarizedExperiment.R)  
+[Exercise: `genomicRanges.R` - Biostrings]({{site.baseurl}}/assets/05_Bioconductor/lab/genomicRanges.R)  
+[Exercise: `annotation.R` - OrgDb, TxDb, biomaRt, AnnotationHub, ExperimentHub]({{site.baseurl}}/assets/05_Bioconductor/lab/annotation.R)  
+[Exercise: `shortread.R` - basics of ShortRead package, read in FASTQ files, getting QC]({{site.baseurl}}/assets/05_Bioconductor/lab/shortread.R)  
+[Exercise: `SummarizedExperiment.R` - SummarizedExperiment using 'airway' data]({{site.baseurl}}/assets/05_Bioconductor/lab/SummarizedExperiment.R)  
 
 
 ## References
