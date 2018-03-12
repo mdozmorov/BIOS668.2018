@@ -11,6 +11,8 @@
 
 - `lab/SummarizedExperiment.R` - SummarizedExperiment using 'airway' data.
 
+- `02_Integrative.Rmd` - multi-omics data integration approaches, MultiAssayExperiment
+
 
 ## `lab` - in-class lab material
 
