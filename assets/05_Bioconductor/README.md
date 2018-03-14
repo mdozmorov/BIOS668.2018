@@ -48,6 +48,12 @@
 
 - Zhang, Shihua, Chun-Chi Liu, Wenyuan Li, Hui Shen, Peter W. Laird, and Xianghong Jasmine Zhou. “Discovery of Multi-Dimensional Modules by Integrative Analysis of Cancer Genomic Data.” Nucleic Acids Research 40, no. 19 (October 2012): 9379–91. https://doi.org/10.1093/nar/gks725. - Integrative analysis of gene expression, metnylation, miRNA expression. Using NMF. Good explanation of NMF. Tested on TCGA ovarian cancer data
 
+- Shen, Ronglai, Adam B. Olshen, and Marc Ladanyi. “Integrative Clustering of Multiple Genomic Data Types Using a Joint Latent Variable Model with Application to Breast and Lung Cancer Subtype Analysis.” Bioinformatics (Oxford, England) 25, no. 22 (November 15, 2009): 2906–12. https://doi.org/10.1093/bioinformatics/btp543. - iCluster. Clustering of samples (patients), given mRNA/methylation datasets. Latent variable model, K-means clustering, PCA. Methods paper. https://www.mskcc.org/departments/epidemiology-biostatistics/biostatistics/icluster
+
+- Peng, Jie, Ji Zhu, Anna Bergamaschi, Wonshik Han, Dong-Young Noh, Jonathan R. Pollack, and Pei Wang. “Regularized Multivariate Regression for Identifying Master Predictors with Application to Integrative Genomics Study of Breast Cancer.” The Annals of Applied Statistics 4, no. 1 (March 2010): 53–77. https://doi.org/10.1214/09-AOAS271SUPP. - `remMap` — REgularized Multivariate regression for identifying MAster Predictors for fitting multivariate response regression models under the high-dimension–low-sample-size setting. Dependence between two datasets, e.g., RNA levels and DNA copy numbers, is modeled through a multivariate response linear regression model
+
+- Wang, Bo, Aziz M. Mezlini, Feyyaz Demir, Marc Fiume, Zhuowen Tu, Michael Brudno, Benjamin Haibe-Kains, and Anna Goldenberg. “Similarity Network Fusion for Aggregating Data Types on a Genomic Scale.” Nature Methods 11, no. 3 (March 2014): 333–37. https://doi.org/10.1038/nmeth.2810. - Fusing correlation matrices for each data type into one network. Constructing sample similarity for each data type, then merging them into a single similarity network using a nonlinear combination method based on message passing theory
+
 
 # `misc`
 
