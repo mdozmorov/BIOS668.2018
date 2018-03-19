@@ -5,7 +5,6 @@ date: "Spring 2018"
 output:
   beamer_presentation:
     colortheme: dolphin
-    fig_caption: no
     fig_height: 6
     fig_width: 7
     fonttheme: structurebold
@@ -159,7 +158,7 @@ https://www.ebi.ac.uk/~zerbino/oases/
 http://soap.genomics.org.cn/SOAPdenovo-Trans.html
 
 https://github.com/trinityrnaseq/trinityrnaseq/wiki
-
+<!--
 ## Trinity _de novo_ assembly 
 
 - Trinity combines three independent software modules: **Inchworm**, **Chrysalis**, and **Butterfly**
@@ -171,7 +170,6 @@ https://github.com/trinityrnaseq/trinityrnaseq/wiki
 
 \tiny Grabherr, Manfred G., Brian J. Haas, Moran Yassour, Joshua Z. Levin, Dawn A. Thompson, Ido Amit, Xian Adiconis, et al. “Full-Length Transcriptome Assembly from RNA-Seq Data without a Reference Genome.” Nature Biotechnology 29, no. 7 (May 15, 2011): 644–52. doi:10.1038/nbt.1883.
 
-https://www.youtube.com/playlist?list=PLfFNmoa-yUIY3-BcTTXsAMMjk-jSVTgwk
-
+-->
 
 
