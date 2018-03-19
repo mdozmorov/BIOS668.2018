@@ -1,18 +1,12 @@
----
-categories:
- - weekly
-title: "06 - RNA-seq"
-slides: ""
-tags:
- - assets
-visible: 1
----
 
-[Slides: RNA-seq introduction]({{site.baseurl}}/assets/06_RNA-seq/01_RNA-seq_overview.pdf)  
-[Slides: Experimental design for RNA-seq]({{site.baseurl}}/assets/06_RNA-seq/02_RNA-seq_expdesign.pdf)  
-[Slides: RNA-seq quality control, alignment]({{site.baseurl}}/assets/06_RNA-seq/03_RNA-seq_qc_alignment.pdf)  
 
-## References
+## `lab` - in-class lab material
+
+- `r-rnaseq-airway.Rmd` and `r-rnaseq-homework.Rmd` - RNA-seq tutorial and homework, https://github.com/thriv/datasci2017
+
+## `read` - reading assignment
+
+### Overview
 
 - Conesa, Ana, Pedro Madrigal, Sonia Tarazona, David Gomez-Cabrero, Alejandra Cervera, Andrew McPherson, Michał Wojciech Szcześniak, et al. “A Survey of Best Practices for RNA-Seq Data Analysis.” Genome Biology 17, no. 1 (December 2016). [https://doi.org/10.1186/s13059-016-0881-8](https://doi.org/10.1186/s13059-016-0881-8). - RNA-seq analysis roadmap, QC. Differential detection. TPM. Tools for alternative splicing detection and visualization. small RNA analysis. single cell. Integrative analysis, with methylation.
 
@@ -98,3 +92,25 @@ visible: 1
 - "enrichOmics" - Functional enrichment analysis of high-throughput omics data. From basic ExpressionSet differential and functional enrichment analysis to genomic region enrichment analysis and MultiAssayExperiment demo. Uses versatile `EnrichmentBrowser` package. [https://github.com/waldronlab/enrichOmics](https://github.com/waldronlab/enrichOmics)
 
 - ENCODE RNA-, ChIP-, DNAse-, ATAC- and other seq pipelines, [https://github.com/ENCODE-DCC/](https://github.com/ENCODE-DCC/)
+
+- https://github.com/mdozmorov/dcaf/tree/master/ngs.rna-seq - an example of a pipeline
+
+## `misc` - misc presentations and materials
+
+- Video (12 min) "StatQuest: DESeq2, part 1, Library Normalization", https://youtu.be/UFB993xufUU. Problems with library normalization due to library complexity, DESeq2 processing to obtain scaling factors. 
+
+- Video (21 min) "StatQuest: edgeR and DESeq2, part 2 - Independent Filtering", https://youtu.be/Gi0JdrxRq5s. FDR and issues with too many null tests, edgeR filtering by hard cutoff CPM, DESeq2 filtering by quantile CPM plot. Code to calculate DESeq2-like CPM cutoff for edgeR, https://statquest.org/2017/05/16/statquest-filtering-genes-with-low-read-counts/
+
+- Video Naomi Altman, RNA-seq, differential analysis, https://www.youtube.com/watch?v=IWsP-008W0Q&feature=youtu.be
+
+- `kingsford-regulatory-genomics-salmon.pdf` - Accurate, Fast, and Model-Aware Transcript Expression Quantification with Salmon. https://www.youtube.com/watch?v=TMLIxwDP7sk&list=PLgKuh-lKre10fYXnD-8ghi9b9xl83CKet&index=3
+
+
+## ToDo 
+
+- `RNA-seq_workflow.pdf` - SummarizedExperiment and RNA-seq data manipulation in Bioconductor, https://www.bioconductor.org/help/course-materials/2017/OMRF/B3_RNASeq_Workflow.html
+
+
+- RNA-seq differential expression with Bioconductor by Davide Risso, https://github.com/drisso/rnaseq_meetup
+
+- DiffSplice, rMATS (shen), EBSeq
