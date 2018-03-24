@@ -60,6 +60,9 @@
 
 - Kim, Daehwan, Ben Langmead, and Steven L. Salzberg. “HISAT: A Fast Spliced Aligner with Low Memory Requirements.” Nature Methods 12, no. 4 (April 2015): 357–60. https://doi.org/10.1038/nmeth.3317. - HISAT aligner. Two indexes - one large with many small
 
+- "Sequence alignment" - global and local alignment explained, tools for alignment. [https://www.hiv.lanl.gov/content/sequence/HIV/REVIEWS/2006_7/ABECASIS/abecasis.html](https://www.hiv.lanl.gov/content/sequence/HIV/REVIEWS/2006_7/ABECASIS/abecasis.html)
+
+- "Dynamic programming for sequence alignment" - building alignment table and tracing back. [https://www.ibm.com/developerworks/library/j-seqalign/](https://www.ibm.com/developerworks/library/j-seqalign/)
 
 ### Videos
 
