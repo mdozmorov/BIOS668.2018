@@ -2,7 +2,7 @@
 
 ## `lab` - in-class lab material
 
-- `r-rnaseq-airway.Rmd` and `r-rnaseq-homework.Rmd` - RNA-seq tutorial and homework, https://github.com/thriv/datasci2017
+- `rnaseqGene_CSAMA2017.Rmd` - "RNA-seq workflow: gene-level exploratory analysis and differential expression," https://www.bioconductor.org/help/course-materials/2017/CSAMA/labs/2-tuesday/lab-03-rnaseq/rnaseqGene_CSAMA2017.html
 
 ## `read` - reading assignment
 
@@ -96,6 +96,7 @@
 - ENCODE RNA-, ChIP-, DNAse-, ATAC- and other seq pipelines, [https://github.com/ENCODE-DCC/](https://github.com/ENCODE-DCC/)
 
 - https://github.com/mdozmorov/dcaf/tree/master/ngs.rna-seq - an example of a pipeline
+
 
 ## `misc` - misc presentations and materials
 
