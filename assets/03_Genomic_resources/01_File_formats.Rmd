@@ -545,6 +545,19 @@ https://github.com/Ensembl/WiggleTools
 
 \tiny https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/pdf/btr330.pdf
 
+## Mutation Annotation Format (MAF)
+
+- Tab-delimited
+- In the context of human cancer, MAF files come in two types--protected and somatic
+    - TCGA Protected MAFs include all sequenced mutations for the given technique, and these are further classified as either somatic mutations or other mutations grouped under germline mutations
+    - TCGA Somatic MAFs retain mutations validated in a secondary assay to ensure it is not due to sequencing error and of those that remain unvalidated retain mutations within protein coding regions or splice sites. All other mutations are filtered out
+
+\tiny https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+%28MAF%29+Specification+-+v2.4
+
+https://www.biostars.org/p/69222/
+
+https://github.com/mskcc/vcf2maf
+
 ## Formats use different coordinate systems
 
 - **BED**: 0-based, half-open 
