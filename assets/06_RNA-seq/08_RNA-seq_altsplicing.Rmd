@@ -1,0 +1,386 @@
+---
+title: "Alternative splicing"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    theme: AnnArbor
+---
+
+## Transcriptome quantification goals
+
+- Gene expression level estimation
+    - genome-wide gene expression level estimates derived from isoform level estimates are significantly more accurate than those obtained directly from RNA-Seq data using isoform-oblivious GE methods
+- Isoform expression level (abundance) estimation
+- Novel isoform discovery
+
+## Alternative splicing
+
+- **Definition:** the same pre-mRNA produces different mRNA products, through joining different exons.
+- Locations where two exons join is called “junction”.
+- Can be detected and quantified using exon arrays, on which the probes are designed to target the junction regions.
+- From RNA-seq: look at “junction reads”, which are reads overlapping two exons.
+
+## Alternative splicing
+
+\begin{columns}
+\begin{column}{0.68\textwidth}
+
+\includegraphics[height=220px]{img/alternative_splicing.png}
+
+\end{column}
+\begin{column}{0.28\textwidth}
+
+\tiny Wang, Eric T., Rickard Sandberg, Shujun Luo, Irina Khrebtukova, Lu Zhang, Christine Mayr, Stephen F. Kingsmore, Gary P. Schroth, and Christopher B. Burge. “Alternative Isoform Regulation in Human Tissue Transcriptomes.” Nature 456, no. 7221 (November 27, 2008): 470–76. https://doi.org/10.1038/nature07509.
+
+\end{column}
+\end{columns}
+
+## Common types of alternative transcript events
+
+- Skipped exons and retained introns, in which a single exon or intron is alternatively included or spliced out of the mature message
+- Alternative 5' splice site (A5SS) and alternative 3' splice site (A3SS) events, which are particularly difficult to interrogate by microarray analysis because the variably included region is often quite small 
+- Tandem 3' untranslated regions (UTRs) and alternative last exons (ALEs), in which alternative use of a pair of polyadenylation sites results in shorter or longer 3' UTR isoforms or in distinct terminal exons, respectively
+- Alternative first exons (AFEs), in which alternative promoter use results in mRNA isoforms with distinct 5' UTRs.
+   
+## Splicing factor motifs
+
+- During splicing, a protein complex known as the spliceosome assembles on the pre-mRNA to remove introns and join exons. 
+- This process is guided by short consensus motifs at the ends of introns called splice sites.
+- Cis-acting elements can function as silencers or enhancers and are found in the vicinity of splice sites in introns and exons.
+- In general, alternative splicing is determined by the combined effect of multiple positively and negatively acting elements, and the fate of cassette exons is decided by the presence and arrangement of surrounding motifs as well as the condition- specific ratio and modification status of splicing factor proteins
+
+<!--
+**SpliceAid 2** - a database of human splicing factors expression data and RNA target motifs. 
+
+\tiny http://193.206.120.249/splicing_tissue.html
+-->
+
+## Splicing elements
+
+\begin{center}
+\includegraphics[height=60px]{img/splicing.png}
+\end{center}
+
+- The GU and the AG dinucleotides that directly flank the exon (at the 3' and 5' ends, respectively) and the branch-point adenosine (all in red) are always conserved.
+- In most cases, there is also a polypyrimidine tract of variable length (the consensus symbol 'y' represents a pyrimidine base — cytosine or thymine) upstream of the 3'-splice site.
+- The branch point is typically located 18–40 nucleotides upstream from the polypyrimidine tract.
+- Exon/Intron Splicing Enhancer (ESE/ISE), Exon/Intron Splicing Silencer (ESS/ISS) allow the correct splice sites to be distinguished from the many cryptic splice sites that have identical signal sequences.
+
+\tiny https://www.nature.com/nrg/journal/v5/n5/abs/nrg1327.html
+
+<!--a | The essential splicing signals that define the exon boundaries are relatively short and poorly conserved sequences. 
+
+Components of the basal splicing machinery bind to the consensus sequences and promote assembly of the splicing complex. This multiprotein complex, known as a spliceosome, performs the correct identification of the splicing signals and catalysis of the cut-and-paste reactions (Fig. 1). Five small nuclear ribonucleoproteins (snRNPs) and more than 100 proteins make up the spliceosome. The U1 snRNP binds to the 5'-splice site, and the U2 snRNP binds the branch site through RNA–RNA interactions. 
+
+Trans-acting splicing factors can interact with enhancers and silencers and can accordingly be subdivided into two main groups: members of the serine arginine (SR) family of proteins and of the HETEROGENEOUS NUCLEAR RIBONUCLEOPROTEIN PARTICLES (hnRNPs). In general, SR protein binding at ESE facilitates exon recognition whereas hnRNPs are inhibitory. Protein–protein interactions in the spliceosome that modulate the recognition of the splice sites are the probable cause of splicing inhibition or activation.-->
+
+## Alternative splicing workflow
+
+\begin{columns}
+\begin{column}{0.68\textwidth}
+
+\includegraphics[height=220px]{img/alternative_splicing_methods.png}
+
+\end{column}
+\begin{column}{0.28\textwidth}
+
+\tiny Alamancos, G. et.al. "Methods to Study Splicing from High-Throughput RNA Sequencing Data." Spliceosomal Pre-mRNA Splicing: Methods and Protocols, 2014 https://www.ncbi.nlm.nih.gov/pubmed/24549677
+
+\end{column}
+\end{columns}
+
+## Estimate isoform expressions
+
+- **Isoform:** different transcripts from the same gene, caused by alternative splicing.
+- Different isoforms could have different expression levels.
+- A toy example for a gene with 3 exons:
+- It was known the gene has two isoforms: exon1+exon2, and exon1+exon3.
+- The read counts from the exons are 10, 7, 5.
+- What are the expression level for the two isoforms?
+
+## Isoform abundance estimation
+
+- We have an unobserved variable (expression) that we wish to estimate  
+    - Set up a model and estimate it using the expectation-maximization (EM) algorithm
+- Step 1: (Expectation) Given some abundances, estimate the probability of each read mapping to each transcript
+- Step 2: (Maximization) Update the abundances by redistributing the reads
+- Step 3: Repeat until convergence
+
+## Expectation-Maximization algorithm
+
+\includegraphics[height=200px]{img/isoforms_em.png}
+
+\tiny Pachter, Lior. “Models for Transcript Quantification from RNA-Seq.” ArXiv Preprint ArXiv:1104.3889, 2011.
+ https://arxiv.org/abs/1104.3889
+
+<!--Illustration of the EM algorithm. The gene has three isoforms
+(red, green, blue) of the same length. There are five reads (a,b,c,d,e)
+mapping to the gene. One maps to all three isoforms, one only to red, and
+the other three to each of the three pairs of isoforms. Initially every isoform
+is assigned the same abundance ( 1/3, 1/3, 1/3). During the expectation (E) step
+reads are proportionately assigned to transcripts according to the isoform abundances. Next, during the maximization (M) step isoform abundances are recalculated from the proportionately assigned read counts. Thus, for example, the abundance of red after the first M step is estimated by 0.47 = (0.33 + 0.5 + 1 + 0.5)/(2.33 + 1.33 + 1.33)
+-->
+
+## Other EM approaches
+
+- Underlying Poisson rate of counts is a linear combination of isoform expressions, then derive joint data likelihood.
+- Compute MLE for the isoform expressions by maximizing Joint likelihood through numerical methods.
+
+\tiny Jiang, Hui, and Wing Hung Wong. “Statistical Inferences for Isoform Expression in RNA-Seq.” Bioinformatics 25, no. 8 (April 15, 2009): 1026–32. https://doi.org/10.1093/bioinformatics/btp113.
+
+## MISO
+
+\includegraphics[height=40px]{img/miso.png}
+
+- MISO (Mixture-of-Isoforms) is a probabilistic framework that quantitates the expression level of alternatively spliced genes from RNA-Seq data, and identifies differentially regulated isoforms or exons across samples. 
+- By modeling the generative process by which reads are produced from isoforms in RNA-Seq, the MISO model uses Bayesian inference to compute the probability that a read originated from a particular isoform.
+- MISO treats the expression level of a set of isoforms as a random variable and estimates a distribution over the values of this variable. 
+- The estimation algorithm is based on sampling, and falls in the family of techniques known as Markov Chain Monte Carlo (“MCMC”)
+
+## MISO 
+
+- Estimates of isoform expression ($\psi$ values, for “Percent Spliced In” or “Percent Spliced Isoform”) and differential isoform expression for single-end or paired-end RNA-Seq data
+- Expression estimates at the alternative splicing event level (“exon-centric” analysis) or at the whole mRNA isoform-level (“isoform-centric” analysis)
+- Confidence intervals for expression estimates and quantitative measures of differential expression (“Bayes factors”)
+
+\tiny http://genes.mit.edu/burgelab/miso/index.html
+
+https://miso.readthedocs.io/en/fastmiso/index.html
+
+Katz, Yarden, Eric T. Wang, Edoardo M. Airoldi, and Christopher B. Burge. “Analysis and Design of RNA Sequencing Experiments for Identifying Isoform Regulation.” Nature Methods 7, no. 12 (December 2010): 1009–15. https://doi.org/10.1038/nmeth.1528.
+
+## Percent spliced-in metric
+
+- The percent-spliced-in (PSI, $\psi$) metric estimates the incidence of single-exon–skipping events and can be computed directly by counting reads that align to known or predicted splice junctions.
+- $\psi$ metric is defined as the number of reads supporting exon inclusion (a + b) as the fraction of the combined number of reads supporting inclusion and exclusion (c).
+$$\psi = \frac{a + b}{a + b + 2c}$$
+
+\begin{center}
+\includegraphics[height=70px]{img/psi.png}
+\end{center}
+
+## Intron-centric estimation of alternative splicing
+
+- The majority of human splicing events are more complex than single-exon skipping
+- Split the value of $\psi$ into two indices, $\psi_5$ and $\psi_3$, measuring the rate of splicing at the 5' and 3' end of the intron, respectively
+- Each intron is defined uniquely by the combination of its 5'-splice site (D, donor) and 3'-splice site (A, acceptor)
+
+## Intron-centric estimation of alternative splicing
+
+- $n(D, A)$ the number of reads aligning to the splice junction spanning from D to A
+$$\psi_5(D, A) = \frac{n(D, A)}{\sum_{A'}n(D, A')},\ \ \ \psi_3(D, A) = \frac{n(D, A)}{\sum_{D'}n(D', A)}$$
+- D' and A' run over all donor and acceptor sites, respectively, within the given genomic annotation set
+
+\begin{center}
+\includegraphics[height=50px]{img/psi35.png}
+\end{center}
+
+\tiny Pervouchine, Dmitri D., David G. Knowles, and Roderic Guigó. “Intron-Centric Estimation of Alternative Splicing from RNA-Seq Data.” Bioinformatics (Oxford, England) 29, no. 2 (January 15, 2013): 273–74. https://doi.org/10.1093/bioinformatics/bts678.
+
+## Differential Transcript Usage (DTU)
+
+\small
+
+DTU considers changes in the proportions of the isoforms of a gene that are expressed as opposed to changes of the individual transcript levels.
+
+\begin{center}
+\includegraphics[height=50px]{img/dtu.png}
+\end{center}
+
+- DTE implies that we can observe expression changes for at least one transcript between condition 1 and condition 2. However, the expression proportion of each transcript (as a percentage of the total expression of all transcripts of the same gene) does not necessarily change between conditions, and thus DTE does not necessarily imply DTU
+- In DTU, on the other hand, the relative expression of the isoforms of a gene changes between the conditions, whereas the total expression of the gene may or may not remain constant
+- Since at least one isoform must change expression in DTU, it also implies DTE
+
+\tiny Soneson, Charlotte, Katarina L. Matthes, Malgorzata Nowicka, Charity W. Law, and Mark D. Robinson. “Isoform Prefiltering Improves Performance of Count-Based Methods for Analysis of Differential Transcript Usage.” Genome Biology 17, no. 1 (December 2016). https://doi.org/10.1186/s13059-015-0862-3.
+
+
+## Methods to detect DTU
+
+1. The assembly-based (or isoform deconvolution) methods (e.g., `cufflinks`/`cuffdiff`) reconstruct and quantify the expression of a set of transcripts that best explain the observed reads. 
+2. The second class of methods focuses on specific types of alternative splicing (e.g., retained introns or alternative exons) and identifies the number of observed reads that unambiguously support the presence or absence of each splicing event (e.g., `rMATS`)
+3. The third type of DTU detection methods do not directly quantify the transcript expression, but rather use differential exon usage as a surrogate to infer DTU (`DEXSeq2`)
+
+## The Tuxedo Suite: `Bowtie`, `TopHat`, `cufflinks`, and `cuffdiff`
+
+- Developed by Steven Salzberg's group at Hopkins
+- `Bowtie` - alignment
+- `TopHat` - alignment to exon junctions
+- `cufflink` - estimate isoform expressions
+- `cuffdiff` - estimate differential isoform expression
+- The `cuffdiff` test for DTU within a gene is based on the Jensen–Shannon divergence, measuring the similarity between two probability distributions
+
+## TopHat: a spliced read mapper for RNA-seq
+
+- Based on Bowtie, aligns RNA-Seq reads to a genome in order to identify exon-exon splice junctions.
+- Runs on Linux and Mac OSX
+- Command: `tophat -o out_dir -G known_genes.gtf --library-type fr-firststrand --mate-inner-dist 124 -p 8 --transcriptome-index bowtid_index isample1_read1.fastq sample1_read2.fastq`
+- Output:  
+    - `accepted_hits.sam` - read alignments in SAM format.
+    - `junctions.bed` - junction reads in BED format.
+    - `insertions.bed` - BED track of insertions
+    - `deletions.bed` - BED track of deletions
+
+## Cufflinks
+
+A product of Bernoulli model with multivariate normal prior, then use Bayesian method to report maximum a posteriori (MAP).
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+
+\includegraphics[height=130px]{img/cufflinks1.png}
+
+\end{column}
+\begin{column}{0.48\textwidth}
+
+\includegraphics[height=130px]{img/cufflinks2.png}
+
+\end{column}
+\end{columns}
+
+\tiny Trapnell, Cole, Brian A Williams, Geo Pertea, Ali Mortazavi, Gordon Kwan, Marijke J van Baren, Steven L Salzberg, Barbara J Wold, and Lior Pachter. “Transcript Assembly and Quantification by RNA-Seq Reveals Unannotated Transcripts and Isoform Switching during Cell Differentiation.” Nature Biotechnology 28, no. 5 (May 2, 2010): 511–15. https://doi.org/10.1038/nbt.1621.
+
+<!--Overview of Cufflinks. (a) The algorithm takes as input cDNA fragment sequences that have been aligned to the genome by software capable of producing spliced alignments, such as TopHat. (b–e) With paired-end RNA-Seq, Cufflinks treats each pair of fragment reads as a single alignment. The algorithm assembles overlapping ‘bundles’ of fragment alignments (b,c) separately, which reduces running time and memory use, because each bundle typically contains the fragments from no more than a few genes. Cufflinks then estimates the abundances of the assembled transcripts (d,e). The first step in fragment assembly is to identify pairs of ‘incompatible’ fragments that must have originated from distinct spliced mRNA isoforms (b). Fragments are connected in an ‘overlap graph’ when they are compatible and their alignments overlap in the genome. Each fragment has one node in the graph, and an edge, directed from left to right along the genome, is placed between each pair of compatible fragments. In this example, the yellow, blue and red fragments must have originated from separate isoforms, but any other fragment could have come from the same transcript as one of these three. Isoforms are then assembled from the overlap graph (c). Paths through the graph correspond to sets of mutually compatible fragments that could be merged into complete isoforms. The overlap graph here can be minimally ‘covered’ by three paths (shaded in yellow, blue and red), each representing a different isoform. Dilworth’s Theorem states that the number of mutually incompatible reads is the same as the minimum number of transcripts needed to ‘explain’ all the fragments. Cufflinks implements a proof of Dilworth’s Theorem that produces a minimal set of paths that cover all the fragments in the overlap graph by finding the largest set of reads with the property that no two could have originated from the same isoform. Next, transcript abundance is estimated (d). Fragments are matched (denoted here using color) to the transcripts from which they could have originated. The violet fragment could have originated from the blue or red isoform. Gray fragments could have come from any of the three shown. Cufflinks estimates transcript abundances using a statistical model in which the probability of observing each fragment is a linear function of the abundances of the transcripts from which it could have originated. Because only the ends of each fragment are sequenced, the length of each may be unknown. Assigning a fragment to different isoforms often implies a different length for it. Cufflinks incorporates the distribution of fragment lengths to help assign fragments to isoforms. For example, the violet fragment would be much longer, and very improbable according to the Cufflinks model, if it were to come from the red isoform instead of the blue isoform. Last, the program numerically maximizes a function that assigns a likelihood to all possible sets of relative abundances of the yellow, red and blue isoforms ( 1, 2, 3) (e), producing the abundances that best explain the observed fragments, shown as a pie chart.-->
+
+## Use `Cufflinks`
+
+- Runs on Linux or Mac OSX
+- Input is alignment result from `TopHat`.
+- Command: `cufflinks -o output_dir --library-type fr-firststrand -p 8 -G genes.gtf -b genome.fa -M rRNA.tRNA.gtf -u --compatible-hits-norm accepted_hits.bam`
+- Output:
+    - `transcripts.gtf`
+    - `genes.fpkm_tracking`
+    - `isoforms.fpkm_tracking`
+    - `skipped.gtf`
+
+## Merge annotation information with `cuffmerge`
+
+- The `cuffmerge` command takes gtf files that were generated by `cufflinks` and merges them into one combined file. 
+- This combined file can be used for differential expression testing in `cuffdiff`
+- Create a text file with gtf file names to be merged, e.g. `mygtfs.txt`
+- Command: `cuffmerge -p 8 -o merged.gtf compare -g genes.gtf -s genomefasta mygtfs`
+- Output: `merged.gtf` file
+
+## Testing for differential expression with `cuffdiff`
+
+- Command: `cuffdiff --library-type fr-firststrand -o cuffdiff_output -p 2 -b genome.fa -u -L sample1,sample2 -M rRNA.tRNA.gtf merged.gtf sample1.bam sample2.bam`
+- Takes a long time (>12 hours) to run
+- Output: many files, `gene_exp.diff` has p-values and q-values.
+
+## DEXSeq - differential isoform usage
+
+- Test for changes in the (relative) usage of exons: (number of reads mapping to the exon) / (number of reads mapping to the other exons of the same gene)
+
+\begin{center}
+\includegraphics[height=120px]{img/dexseq_example.png}
+\end{center}
+
+\tiny Anders, S., A. Reyes, and W. Huber. “Detecting Differential Usage of Exons from RNA-Seq Data.” Genome Research 22, no. 10 (October 1, 2012): 2008–17. https://doi.org/10.1101/gr.133744.111.
+
+https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
+
+## DEXSeq - differential isoform usage
+
+- Negative binomial and generalized linear model of log mean. Cox-Reid dispersion estimator
+
+\begin{center}
+\includegraphics[height=120px]{img/dexseq_stats.png}
+\end{center}
+
+\tiny Anders, S., A. Reyes, and W. Huber. “Detecting Differential Usage of Exons from RNA-Seq Data.” Genome Research 22, no. 10 (October 1, 2012): 2008–17. https://doi.org/10.1101/gr.133744.111.
+
+https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
+
+## EBseq - an empirical Bayes hierarchical model for inference in RNA-seq experiments
+
+- Differential expression of isoforms, genes
+- Negative binomial distribution of the expected counts for isoform $i$ in gene $g$ and sample $s$, condition $C$, library size $l_s$ - $X_{gi,s}^C|r_{gi,0},l_s,q_{gi}^C \sim NB(r_{gi,0},l_s,q_{gi}^C)$
+- Mean $\mu_{gi}^C=r_{gi,0}(1 - q_{gi}^C)/q_{gi}^C$, variance $(\sigma_{gi}^C)^2 = r_{gi,0}(1 - q_{gi}^C)/(q_{gi}^C)^2$
+- A prior distribution describes fluctuations in technical and biological variation $q_{gi}^C|\alpha \beta^{Ig} \sim Beta(\alpha \beta^{Ig})$, where hyperparameter $\alpha$ is shared across isoforms and $\beta$ depends on $I_g$ accommodating the systematic differences in variability among $I_g$ groups, obtained via EM algorithm
+
+\tiny Leng, Ning, John A. Dawson, James A. Thomson, Victor Ruotti, Anna I. Rissman, Bart M. G. Smits, Jill D. Haag, Michael N. Gould, Ron M. Stewart, and Christina Kendziorski. “EBSeq: An Empirical Bayes Hierarchical Model for Inference in RNA-Seq Experiments.” Bioinformatics (Oxford, England) 29, no. 8 (April 15, 2013): 1035–43. https://doi.org/10.1093/bioinformatics/btt087.
+
+https://www.biostat.wisc.edu/~kendzior/EBSEQ/
+
+## EBseq - an empirical Bayes hierarchical model for inference in RNA-seq experiments
+
+- Differential isoform expression corresponds to $\mu_{gi}^{C1} \ne \mu_{gi}^{C2}$, so $q_{gi}^{C1} \ne q_{gi}^{C2}$ since $r_{gi,0}$ is common across conditions
+- Given $p$ is the prior probability of differential expression, counts are modeled as $(1-p)f_0^{Ig}(X_{gi}^{C1,C2}) + pf_1^{Ig}(X_gi^{C1,C2})$, where $X_gi^{C1,C2}$ represents $g_i$'s read counts across the two conditions, $f_0$ and $f_1$ are the predictive distributions under equal and differential expression, respectively
+
+\tiny Leng, Ning, John A. Dawson, James A. Thomson, Victor Ruotti, Anna I. Rissman, Bart M. G. Smits, Jill D. Haag, Michael N. Gould, Ron M. Stewart, and Christina Kendziorski. “EBSeq: An Empirical Bayes Hierarchical Model for Inference in RNA-Seq Experiments.” Bioinformatics (Oxford, England) 29, no. 8 (April 15, 2013): 1035–43. https://doi.org/10.1093/bioinformatics/btt087.
+
+https://www.biostat.wisc.edu/~kendzior/EBSEQ/
+
+## EBseq - an empirical Bayes hierarchical model for inference in RNA-seq experiments
+
+- $f_0$ and $f_1$ are the predictive distributions under equal and differential expression, respectively
+
+\begin{center}
+\includegraphics[height=100px]{img/ebseq.png}
+\end{center}
+
+\tiny Leng, Ning, John A. Dawson, James A. Thomson, Victor Ruotti, Anna I. Rissman, Bart M. G. Smits, Jill D. Haag, Michael N. Gould, Ron M. Stewart, and Christina Kendziorski. “EBSeq: An Empirical Bayes Hierarchical Model for Inference in RNA-Seq Experiments.” Bioinformatics (Oxford, England) 29, no. 8 (April 15, 2013): 1035–43. https://doi.org/10.1093/bioinformatics/btt087.
+
+https://www.biostat.wisc.edu/~kendzior/EBSEQ/
+
+## Summary for isoform expression
+
+- Mostly for known isoforms (the combination patterns of exons).
+- Similar strategies are used for gene fusion detection
+- MLE approaches for estimation.
+
+## Alternative splicing
+
+- How to predict novel and alternative splicing events from RNA-seq data
+    - https://www.biostars.org/p/68966/
+    - https://www.biostars.org/p/62728/
+- How to detect alternative splicing
+    - https://www.biostars.org/p/65617/
+    - https://www.biostars.org/p/11695/
+- Identifying genes that express different isoforms in cancer vs normal RNA-seq data
+    - https://www.biostars.org/p/50365/
+- Visualization of alternative splicing events using RNA-seq data
+    - https://www.biostars.org/p/8979/
+
+<!--
+## SplicingCompass
+
+\begin{columns}
+\begin{column}{0.68\textwidth}
+
+\includegraphics[height=200px]{img/splicingcompass.png}
+
+\end{column}
+\begin{column}{0.28\textwidth}
+
+Alternative splicing detection by representing exon expression in multi-dimensional space and comparing isoforms by the angle between them. 
+
+\tiny Aschoff, Moritz, Agnes Hotz-Wagenblatt, Karl-Heinz Glatting, Matthias Fischer, Roland Eils, and Rainer König. “SplicingCompass: Differential Splicing Detection Using RNA-Seq Data.” Bioinformatics (Oxford, England) 29, no. 9 (May 1, 2013): 1141–48. https://doi.org/10.1093/bioinformatics/btt101. http://www.leibniz-hki.de/en/SplicingCompass.html
+
+\end{column}
+\end{columns}
+
+## Other tools
+
+- `IsoEM2` - fast bootstrap-based estimation of gene and isoform expression using RNA-Seq data, https://github.com/mandricigor/isoem2
+
+\tiny Nicolae, Marius, Serghei Mangul, Ion I. Măndoiu, and Alex Zelikovsky. “Estimation of Alternative Splicing Isoform Frequencies from RNA-Seq Data.” Algorithms for Molecular Biology: AMB 6, no. 1 (April 19, 2011): 9. https://doi.org/10.1186/1748-7188-6-9.
+
+## Splice expression variation analysis
+
+- Rank-based comparison of the variability of junction expression profiles 
+- Significant difference in heterogeneity of gene isoform usage using non-parametric U-statistics 
+- "splice dissimilarity" measure by computing the frequency of switching between all pairs of mutually exclusive isoforms
+- GSReg package https://bioconductor.org/packages/release/bioc/html/GSReg.html
+
+\tiny Afsari, Bahman, Theresa Guo, Michael Considine, Liliana Florea, Luciane T Kagohara, Genevieve L Stein-O’Brien, Dylan Kelley, et al. “Splice Expression Variation Analysis (SEVA) for Inter-Tumor Heterogeneity of Gene Isoform Usage in Cancer.” Bioinformatics, January 12, 2018. https://doi.org/10.1093/bioinformatics/bty004.
+
+
+-->
+
+
