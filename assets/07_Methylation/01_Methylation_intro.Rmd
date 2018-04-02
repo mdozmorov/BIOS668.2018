@@ -1,0 +1,157 @@
+---
+title: "Methylation introduction"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+
+## Epigenomics
+
+- **Epigenomics** can be defined as the genome-wide investigation of stably heritable phenotypes resulting from changes in a chromosome without alterations in the DNA sequence
+- Term coined by Conrad Hal Waddington in 1942
+
+\begin{center}
+\includegraphics[height=120px]{img/waddington_epigenetics.jpg}
+\end{center}
+
+\tiny Berger, S. L., Kouzarides, T., Shiekhattar, R., and Shilatifard, A. (2009). An operational definition of epigenetics. Genes Dev. 23, 781–783. doi: 10.1101/gad.1787609
+
+## DNA methylation 
+
+- DNA methylation is a type of chemical modification of DNA which involves the addition of a methyl group to the number 5 carbon of the cytosine (5C), to convert cytosine to 5-methylcytosine (5mC).
+- The most well characterized epigenetic mechanism.
+- In humans, DNA methylation occurs in cytosines that precede guanines (hence, CpG)
+- Invertebrates (Drosophila, yeast) do not exhibit cytosine methylation
+
+\begin{center}
+\includegraphics[height=120px]{img/methylation.png}
+\end{center}
+
+## DNA modifications  
+
+- Other nucleotides (Adenine, Guanine, Thymine) can also be modified
+- Mainly in bacteria, but genomes of eukaryotes may contain base modifications on bases other than cytosine, such as methylated adenine or guanine
+
+\begin{center}
+\includegraphics[height=120px]{img/methylation.png}
+\end{center}
+
+\tiny Sood AJ, Viner C, Hoffman MM. 2016. "**DNAmod: the DNA modification database.**" bioRxiv 071712. https://www.pmgenomics.ca/hoffmanlab/proj/dnamod/
+
+## CpG Sites and CpG islands
+
+- CpG sites are not randomly distributed in the genome - the frequency of CpG sites in human genomes is 1% (~28 million CpGs), which is less than the expected (~4-6%). 
+- Around 60-90% of CpGs are methylated in mammals. 
+- DNA methylation frequently occurs in repeated sequences, and may help to suppress transcription from these sequences, and aid chromosomal stability. 
+
+## CpG Sites and CpG islands
+
+- There are regions of the DNA that have a higher concentration of CpG sites (> 60%), named the CpG islands, which tend to be located in the promoter regions of many genes.
+- Between 200-1000 bp in length
+- Usually not methylated.
+- Less than 10% of CpGs occur in CG-dense regions
+
+## non-CG methylation
+
+- Embryonic stem cells have ~25% of non-CG methylation (mCHG and mCHH, where H=A, C, T). 
+- non-CG methylation correlates with gene expression in ESCs. 
+- non-CG methylation is on anti-sense strand of gene bodies, and correlates with increased _intronic_ transcription in ESCs.
+- non-CG methylation is depleted in ehancers in ESCs.
+
+\tiny Lister, Ryan, Mattia Pelizzola, Robert H. Dowen, R. David Hawkins, Gary Hon, Julian Tonti-Filippini, Joseph R. Nery, et al. “Human DNA Methylomes at Base Resolution Show Widespread Epigenomic Differences.” Nature 462, no. 7271 (November 19, 2009): 315–22. https://doi.org/10.1038/nature08514.
+
+## Creation and maintenance of DNA methylation
+
+- In humans, DNA is methylated by three enzymes, DNA methyltransferase DNMT1, DNMT3a, DNMT3b.
+- DNMT1 is the maintenance methyltransferase that is responsible for copying DNA methylation patterns to the daughter strands during DNA replication. 
+- DNMT3a and 3b are the _de novo_ methyltransferases that, in combination with DNMT3L, set up DNA methylation patterns early in development. 
+
+## Removal of DNA methylation
+
+- Loss of 5mC can be achieved **passively** by dilution during replication or exclusion of DNMT1 from the nucleus. 
+- Ten-eleven translocation (TET) family of proteins can **actively** convert 5-methylcytosine (5mC) into 5-hydroxymethylcytosine (5hmC) in vertebrates - demethylation
+- Iterative oxidations of 5hmC catalysed by TET result in 5-formylcytosine (5fC) and 5-carboxylcytosine (5caC). 5caC mark is excised from DNA by G/T mismatch-specific thymine-DNA glycosylase (TDG), which as a result returns cytosine residue back to its unmodified state
+
+\tiny Guo, Junjie U., Yijing Su, Chun Zhong, Guo-li Ming, and Hongjun Song. “Hydroxylation of 5-Methylcytosine by TET1 Promotes Active DNA Demethylation in the Adult Brain.” Cell 145, no. 3 (April 29, 2011): 423–34. https://doi.org/10.1016/j.cell.2011.03.022.
+
+
+## Roles of DNA methylation
+
+- Transcriptional gene silencing
+- Maintain genome stability
+- Embryonic development
+- Genomic imprinting
+- X chromosome inactivation (females)
+
+\begin{center}
+\includegraphics[height=120px]{img/methylation1.png}
+\end{center}
+
+\tiny http://learn.genetics.utah.edu/content/epigenetics/imprinting/
+
+## Factors associated with changes in DNA methylation
+
+- Aging (developmental stage)
+- Diet
+- Inflammatory patterns
+- Environmental exposures
+- Smoking
+- Alcohol
+
+## DNA methylation and cancer
+
+**Hypomethylation** – decrease methylation levels
+
+- A lower level of DNA methylation in tumors was one of the first epigenetic alterations to be found in human cancer. (Feinberg AP, et al., 1983). 
+- Demethylation of the promoter region of proto-oncogenes will activate normally repressed gene expression
+- Global hypomethylation of DNA sequences that are normally heavily methylated may result in:
+    - Chromosomal instability 
+    - Increased transcription from transposable elements 
+    - An elevated mutation rate due to mitotic recombination
+
+## DNA hypermethylation
+
+**Hypermethylation** – increase methylation levels
+
+- Hypermethylation of the CpG islands in the promoter regions of tumor-suppressor genes is a major event in the origin of many cancers.
+- Hypermethylation of promoters can inactivate tumor-suppressor genes, affect genes involved in the cell cycle, DNA repair, and the metabolism of carcinogens, all of which are involved in the development of cancer. 
+- The profiles of hypermethylation of the CpG islands in tumor-suppressor genes are specific to the cancer type.
+
+----
+
+\begin{center}
+\includegraphics[height=190px]{img/laird.png}
+\end{center}
+
+\tiny Laird PW "**Oncogenic mechanisms mediated by DNA methylation.**  " Mol Med Today. 1997 http://www.cell.com/moltod/pdf/S1357-4310(97)01019-8.pdf
+
+## Application of DNA methylation assays
+
+**Early diagnosis**
+
+- Detection of CpG-island hypermethylation in biological fluids and serum
+
+**Prognosis**
+
+- Hypemethylation of specific genes
+- Whole DNA methylation profiles
+
+**Prediction**
+
+- CpG island hypermethylation as a marker of response to chemotherapy
+
+**Prevention**
+
+- Developing DNMTs inhibitors as chemopreventive drugs to reactive silenced genes 
+
+
