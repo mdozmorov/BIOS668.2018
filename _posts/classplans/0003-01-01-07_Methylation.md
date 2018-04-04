@@ -12,6 +12,7 @@ visible: 1
 [Slides: Methylation Illumina arrays]({{site.baseurl}}/assets/07_Methylation/02_Methylation_microarrays.pdf)  
 [Slides: Methylation minfi tutorial]({{site.baseurl}}/assets/07_Methylation/03_Methylation_minfi.pdf)  
 [Slides: Methylation bisulfite sequencing]({{site.baseurl}}/assets/07_Methylation/04_Methylation_bisulfite.pdf)  
+[Slides: Cell type deconvolution]({{site.baseurl}}/assets/07_Methylation/05_Methylation_deconvolution.pdf)  
 
 ## References
 
