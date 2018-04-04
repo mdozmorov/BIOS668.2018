@@ -1,0 +1,124 @@
+---
+title: "minfi methylation pipeline"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## `minfi` - Analyze Illumina Infinium DNA methylation arrays
+
+- Reads Illumina’s 450k array raw data (IDAT files) into R
+- Performs QC and normalization
+- Identifies differential methylation positions (DMP)
+
+```{r eval=FALSE}
+source("https://bioconductor.org/biocLite.R")
+biocLite("minfi")
+biocLite("minfiData")
+```
+```{r message=FALSE, warning=FALSE}
+library(minfi)
+library(minfiData)
+```
+
+\tiny https://bioconductor.org/packages/release/bioc/html/minfi.html
+
+## Methylation data
+
+```{r}
+baseDir <- system.file("extdata", package = "minfiData")
+list.files(baseDir)
+targets <- read.metharray.sheet(baseDir)
+RGset <- read.metharray.exp(targets = targets)
+pd <- pData(RGset) ## phenotypic data
+```
+
+## QC: Beta values are expected to cluster around 0/1.
+
+```{r message=FALSE, fig.height=4}
+densityPlot(RGset, sampGroups = pd$Sample_Group, main = "Beta", xlab = "Beta")
+```
+
+## QC: Beta values are expected to cluster around 0/1.
+
+```{r fig.height=4}
+par(oma=c(2,10,1,1))
+densityBeanPlot(RGset, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
+```
+
+## Normalization
+
+Different methods for normalization have been proposed and still being developed
+
+- Dye-bias adjustment
+- Probe type I and II adjustment
+
+```{r}
+MSet.norm <- preprocessIllumina(RGset, bg.correct = TRUE, 
+                                normalize = "controls", 
+                                reference = 2)
+```
+
+&nbsp;
+
+\tiny Yousefi P. et. al. "**Considerations for normalization of DNA methylation data by Illumina 450K BeadChip assay in population studies**" Epigenetics 2013 http://www.tandfonline.com/doi/abs/10.4161/epi.26037
+
+## Multi-dimensional scaling (MDS) plot  {.smaller}
+
+```{r fig.height=3.5}
+mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Sample_Group, sampNames =pd$Sample_Name)
+```
+
+Similar to PCA, useful to identify outlier samples.
+
+## Getting M-values
+
+```{r}
+# A small subset to speed up the demo:
+mset <- MSet.norm[1:20000,]
+# Getting the M values:
+M <- getM(mset, type = "beta", betaThreshold = 0.001)
+```
+
+## QC: M values should show the level of methylation centered around 0
+
+Beta values $\le 0.001$, or $\ge 0.999$ are truncated to avoid numerical issues.
+
+```{r fig.height=3.5}
+# Look at the density distribution
+par(oma=c(2,10,1,1))
+densityPlot(M, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
+```
+
+## Differentially methylated positions
+
+```{r}
+dmp <- dmpFinder(M, pheno=pd$Sample_Group, type="categorical")
+head(dmp)
+```
+
+Rows ordered by p-value.
+
+## Plotting methylation levels
+
+```{r fig.height=4}
+cpgs <- rownames(dmp)[1:4]
+par(mfrow=c(2,2))
+plotCpg(mset, cpg=cpgs, pheno=pd$Sample_Group)
+```
+
+
+

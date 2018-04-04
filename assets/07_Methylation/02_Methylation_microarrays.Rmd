@@ -1,0 +1,226 @@
+---
+title: "Methylation data analysis"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Methylation technologies
+
+Three categories:
+
+1) Methylation-specific enzyme digestion
+2) Affinity enrichment
+3) Chemical treatment with bisulphite (BS)
+
+Techniques have been used in combination (e.g., enzyme digestion then BS, commonly known as RRBS)
+
+Differ by cost, resolution, scalability, amount of starting DNA
+
+## High-throughput DNA methylation techniques
+
+\includegraphics[height=200px]{img/dna_methylation_technologies.png}
+
+\tiny https://academic.oup.com/bfg/article/doi/10.1093/bfgp/elx018/4082035/Epigenetic-regulation-of-gene-expression-in-cancer
+
+## DNA methylation analysis methods
+
+\begin{center}
+\includegraphics[height=190px]{img/methylation_workflow.png}
+\end{center}
+
+\tiny www.nature.com/doifinder/10.1038/nbt.1681
+
+## Methylation assays 
+
+**Sensitivity of restriction enzymes for methylated CpG sites**
+
+**MeDIP (Methylated DNA immuno-precipitation)** - capture based, same as ChIP-seq, but uses antibody against methylated DNA
+
+- Anti-methylcytidine Ab to Me-C => ChIP–chip or ChIP-seq
+- Analysis methods are the same as ChIP-seq
+- Resolution is low: can roughly quantify the amount of DNA methylation in a few hundred bps.
+
+## Sodium Bisulfite conversion
+
+- Modifies non-methylated cytosines to uracil (methylation is protective from conversion)
+- Differentiation of methylated and non-methylated cytosines at base-pair resolution
+
+- $C \; \rightarrow \; U$ - which reads as **T** during sequencing
+- $C^M \; \rightarrow \; C$ - which reads as **C** during sequencing
+
+\begin{center}
+\includegraphics[height=110px]{img/bisulfite.png}
+\end{center}
+
+## Bisulfite conversion-based Microarray Analysis
+
+- A DNA microarray is a technology that consists of thousands of spots with DNA oligonucleotides (probes) that are used to hybridize a target sequence.
+- Probe-target hybridization is usually detected and quantified by detection of fluorophore-, or chemiluminescence-labeled targets.
+
+\begin{center}
+\includegraphics[height=150px]{img/RNA_wash.png}
+\end{center}
+
+## Illumina Infinium methylation assay 
+
+- Unmethylated **cytosines** are chemically deaminated to **uracil** in the presence of bisulfite.
+- Methylated cytosines are refractory to the effects of bisulfite and remain cytosine. 
+- After bisulfite conversion, each sample is whole-genome amplified (WGA) and enzymatically fragmented. 
+- The bisulfite-converted WGA-DNA samples is purified and applied to the BeadChips.
+
+## Illumina Infinium methylation assay 
+
+- Bead technology
+- Each bead has oligos containing 23-base address + 100-base probe complementary to bisulfite converted DNA with the CpG site in the center
+
+\includegraphics[height=100px]{img/illumina450K_probe_design.png}
+
+## Illumina Infinium evolution 
+
+- 2008: **HumanMethylation27K**. 25,578 probes targeting CpG sites within the proximal promoter regions.
+- 2011: **HumanMethylation450K**. 485,577 probes targeting additional CpG islands, shores and shelves, the 5' and 3' UTRs, gene bodies, some enhancer regions. Covers 99% of RefSeq genes.
+- 2015: **MethylationEPIC**. >850,000 probes. Additional cooverage of regulatory elements. 58% of FANTOM5 enhancers, 7% distal and 27% proximal ENCODE regulatory elements.
+
+----
+
+\begin{center}
+\includegraphics[height=220px]{img/Illumina450K.png}
+\end{center}
+
+## Measurement of methylation level 
+
+Illumina 450K and 850K use two types of probes:
+
+- **Type I probes** have two separate probe sequences per CpG site (one each for methylated and unmethylated CpGs). ~28% of probes. Suggested to be more stable and reproducible than the Type II probes
+- **Type II probes** have just one probe sequence per CpG site. Use half of the physical space. ~ 72% of probes. Have a decreased quantitative dynamic range compared to Type I probes.
+
+## Measurement of methylation level 
+
+**Beta-value** - bimodal distribution within [0,1] range
+
+$$\beta = \frac{M}{U + M}$$
+
+- $M$ - signal from methylated probes
+- $U$ - signal from unmethylated probes
+
+$\beta = 0/1$ - all probes are non-methylated/fully methylated, respectively
+
+## Measurement of methylation level 
+
+**Beta-value** - bimodal distribution within [0,1] range
+
+$$\beta = \frac{M}{U + M}$$
+
+- $M$ - signal from methylated probes
+- $U$ - signal from unmethylated probes
+
+**M-value** - centered around 0, $[- \infty, + \infty]$ range
+
+$$Mvalue=log \left( \frac{M}{U} \right) = log \left( \frac{\beta}{1 - \beta} \right)$$
+
+$M = - \infty$ - all probes are non-methylated
+
+$M = + \infty$ - all probes are methylated
+
+## Measurement of methylation level
+
+- $\beta$ values obtained from Infinium II probes are slightly less accurate and reproducible than those obtained from Infinium I probes (Dedeurwaerder et.al. 2011)
+- Peak correction methods (normalization) are available
+
+\begin{center}
+\includegraphics[height=150px]{img/betavals.png}
+\end{center}
+
+## Filter questionable probes 
+
+- Remove probes that have failed to hybridize (detection p-value)
+    - Detection p-value represents the probability the target signal was distinguishable against background noise
+- Drop probes that failed in $n^{th}$ percent of samples
+    - Common thresholds are 20%, 10%, 5% of probes at >0.05, >0.01
+- Drop samples that failed in $n^{th}$ percent of probes
+    - Common thresholds are 50%, 20% at >0.05, >0.01
+
+## Filter questionable probes 
+
+- Probes on X and Y chromosomes
+- Probes with lowest variation
+- Probes with extreme methylation level (e.g. median = 0% or 100%)
+- Keep only those in regions of interest (e.g. CpG islands, shores)
+
+## Filter questionable probes
+
+- A list of potential nonspecific probes and polymorphic probes of Illumina Human 27k Methylation Array,  [http://braincloud.jhmi.edu/NonspecificAndPolymorphic.zip](http://braincloud.jhmi.edu/NonspecificAndPolymorphic.zip)
+
+- Data from Chen YA, et.al. "[Discovery of cross-reactive probes and polymorphic CpGs in the Illumina Infinium HumanMethylation450 microarray](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3592906/)." Epigenetics. 
+    - [List of non-specific probes](http://www.sickkids.ca/MS-Office-Files/Research/Weksberg%20Lab/48639-non-specific-probes-Illumina450k.xlsx) - 29,233 non-specific 'cg' probes, 1,736 non-specific 'ch' probes; 
+    - [List of polymorphic CpGs](http://www.sickkids.ca/MS-Office-Files/Research/Weksberg%20Lab/48640-polymorphic-CpGs-Illumina450k.xlsx) - 70,899 records (66,877 unique probes) about CpGs containing SNPs at or near single base extension (SBE) position, 316,034 records (220,582 unique probes) having SNPs in probe sequences.
+
+- More for MethylationEPIC at https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1066-1
+
+## My pipeline
+
+1. Filtering non-specific, polymorphic, SNP, chromosome Y probes
+2. Pre-processing and QC
+    - `dasen` (background correction and quantile normalization)
+    - `BIMQ` (Beta-mixture quantile normalization, correcting batch effect of Infinium I and II chemistries)
+    - Principal Components Analysis to detect batch effects
+    - `ComBat`, `ISVA` (removing batch effect)
+3. Association analysis, or differential methylation
+    - `betareg` regression model
+    - Pearson correlation coefficient
+    - `limma`, `minfi` for differentially methylated tegions
+    - Benjamini-Hochberg adjusted p-values < 0.05
+4. Functional enrichment analyses
+
+## Interpretation
+
+- Map CpG sites of interest to the nearby genes, analyze genes for functional enrichment
+- Analyze genomic location of CpG sites, using genomic coordinates
+    - **GREAT** predicts functions of cis-regulatory regions, http://bejerano.stanford.edu/great/public/html/
+    - **Enrichr**, gene- and genomic regions enrichment analysis tool, http://amp.pharm.mssm.edu/Enrichr/#
+    - **GenomeRunner**, Functional interpretation of SNPs (any genomic regions) within regulatory/epigenomic context, http://integrativegenomics.org/
+
+## R packages for Illumina Infinium array analysis
+
+- **lumi** - normalization, vusualization, gene annotation https://www.bioconductor.org/packages/release/bioc/html/lumi.html
+- **methylumi** - normalization and general data handling	http://www.bioconductor.org/packages/release/bioc/html/methylumi.html	 
+- **minfi**	- normalization, analysis and visualization	http://www.bioconductor.org/packages/release/bioc/html/minfi.html, or **ChAMP** - eight functions to run _minfi_ pipelines, https://bioconductor.org/packages/release/bioc/html/ChAMP.html
+- **RnBeads** - works for 450K arrays, BS-Seq, MeDIP or MBD-Seq data https://bioconductor.org/packages/release/bioc/html/RnBeads.html
+- **wateRmelon** - 15 normalization methods, other QC metrics https://bioconductor.org/packages/release/bioc/html/wateRmelon.html
+
+\tiny Morris TJ, Beck S "**Analysis pipelines and packages for Infinium HumanMethylation450 BeadChip (450k) data**" Methods. 2015 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4304832/
+
+## R packages for Illumina Infinium array analysis
+
+\begin{center}
+\includegraphics[height=180px]{img/beck.png}
+\end{center}
+
+\tiny Morris TJ, Beck S "**Analysis pipelines and packages for Infinium HumanMethylation450 BeadChip (450k) data**" Methods. 2015 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4304832/
+
+## Methylation statistics packages 
+
+- **BiSeq** (K. Hebestreit et al.) Beta regression model, impractical for very large data other than RRBS or targeted BS-Seq https://bioconductor.org/packages/release/bioc/html/BiSeq.html
+- **bsseq** (K.D. Hansen) Implements the BSmooth smoothing algorithm. Numerous CpG-wise t-tests and p-value cutoff to define DMRs. Outperforms Fisher’s exact test. Requires biological replicates for DMR detection https://bioconductor.org/packages/release/bioc/html/bsseq.html
+- **DMAP** (P. Stockwell et al.) RRBS fragment or fixed window approach, Fisher’s exact test, Chi-squared or ANOVA RADMeth (C++ command line tool by E. Dolzhenko and A.D. Smith) Beta-binomial regression analysis to find DMCs or DMRs, local likelihood, adjust for neighbouring CpGs http://biochem.otago.ac.nz/research/databases-software
+
+## Methylation statistics packages, continued
+
+- **DSS** (Feng et al., 2014) Constructs genome-wide prior distribution for beta-binomial dispersion. Bayesian hierarchical model to detect differentially methylated loci https://www.bioconductor.org/packages/3.3/bioc/html/DSS.html
+- **methylKit** (A. Akalin et al.) Sliding window, Fisher’s exact test or logistic regression. Adjusts p-values to q-values using SLIM method. https://github.com/al2na/methylKit
+- **MOABS** (D. Sun et al.) Beta binomial hierarchical model to capture sampling and biological variation, Credible Methylation Difference (CDIF) single metric that combines biological and statistical significance https://code.google.com/archive/p/moabs/
+- **methyLiftover** - map bisulfite sequencing data to the Illumina 450K methylation CpG set https://github.com/Christensen-Lab-Dartmouth/methyLiftover

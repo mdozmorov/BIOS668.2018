@@ -1,0 +1,457 @@
+---
+title: "Bisulfite sequencing"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Bisulfite sequencing in a nutshell
+
+First treat the DNA with bisulfite. As a result  
+
+- Unmethylated C will be turned into T.
+- Methylated C will be protected and still be C.
+- No change for other bases.
+
+Amplify, then sequence the treated DNA segments.  
+
+- The mismatches between C-T measures the methylation strength.
+
+Raw data: sequence reads, but not exactly from the reference genome.
+
+## Bisulfite sequencing in a nutshell
+
+<!--Bisulfite conversion of genomic DNA and subsequent PCR amplification gives rise to two PCR products and up to four potentially different DNA fragments for any given locus. (Hydroxy)methylated cytosine residues are resistant to bisulfite conversion and can be used as a readout of the DNA methylation state. mC, 5-methylcytosine; hmC, 5-hydroxymethylcytosine; -->
+
+\includegraphics[height=130px]{img/bs_conversion.jpg}
+
+**OT**, original top strand; **CTOT**, strand complementary to the original top strand; **OB**, original bottom strand; and **CTOB**, strand complementary to the original bottom strand.
+
+\tiny Krueger, Felix, Benjamin Kreck, Andre Franke, and Simon R. Andrews. “DNA Methylome Analysis Using Short Bisulfite Sequencing Data.” Nature Methods 9, no. 2 (January 30, 2012): 145–51. https://doi.org/10.1038/nmeth.1828.
+
+## Bisulfite limitations
+
+- Bisulfite sequencing experiments do not distinguish an additional type of cytosine methylation, the 5-hydroxy-methylcytosine (hmC), which is a critical intermediary in active de-methylation pathways. 
+- Specific experimental methods for the identification of this mark at the base-resolution were developed
+- `MLML`, http://smithlabresearch.org/software/mlml/, is a popular computational method for a first analysis of these data
+
+\tiny Guo, Junjie U., Yijing Su, Chun Zhong, Guo-li Ming, and Hongjun Song. “Hydroxylation of 5-Methylcytosine by TET1 Promotes Active DNA Demethylation in the Adult Brain.” Cell 145, no. 3 (April 29, 2011): 423–34. https://doi.org/10.1016/j.cell.2011.03.022.
+
+Qu, Jianghan, Meng Zhou, Qiang Song, Elizabeth E. Hong, and Andrew D. Smith. “MLML: Consistent Simultaneous Estimates of DNA Methylation and Hydroxymethylation.” Bioinformatics (Oxford, England) 29, no. 20 (October 15, 2013): 2645–46. https://doi.org/10.1093/bioinformatics/btt459.
+
+<!--
+## Bisulfite sequencing libraries
+
+Depending on the adapters used, BS-Seq libraries can be constructed in two different ways:
+
+- If a library is directional only reads which are (bisulfite converted) versions of the original top strand (OT) or the original bottom strand (OB) will be sequenced. 
+- Even though the strands complementary to OT (CTOT) and OB (CTOB) are generated in the BS‐PCR step they will not be sequenced as they carry the wrong kind of adapter at their 5’‐end.
+
+&nbsp;
+
+- Alternatively, if BS-Seq libraries are constructed so that all four strands generated in the BS-PCR step end up in the sequencing library with roughly the same likelihood, the library is non-directional. 
+- In this case all four strands (OT, CTOT (complementary to OT), OB, CTOB (complementary to OB)) can produce valid alignments.
+-->
+
+## Workflow for analyzing BS-data
+
+**Processing of bisulfite-sequenging data**
+
+- Quality control and pre-processing
+- Bisulfite sequence alignment
+- Quan1fica1on of absolute DNA methyla1on
+
+**Data visualization and statistical analysis**
+
+- Visual inspection in a genome browser of selected regions
+- Visualiza1on of global distribu1on of methyla1on values
+- Clustering of samples based on similarity
+
+**Downstream analysis**
+
+- Identification of Differentially Methylated Regions (DMRs)
+- Global analysis of DMRs
+
+## Bisulfite sequencing mapping
+
+Mapping of bisulfite-treated sequences to a reference genome constitutes a significant computational challenge due to the combination of:
+
+- The reduced complexity of the DNA code
+- Up to four DNA strands to be analysed
+- The fact that each read can theoretically exist in all possible methylation states.
+
+## Alignment of BS-seq
+
+- The reads from BS-seq cannot be directly aligned to the reference genome.
+- There are four different strands after bisulfite treatment and PCR
+- T could be aligned to T or C.
+- The search space for alignment is bigger.
+
+\includegraphics[height=90px]{img/bs_alignment.png}
+
+\tiny Krueger, Felix, Benjamin Kreck, Andre Franke, and Simon R Andrews. “DNA Methylome Analysis Using Short Bisulfite Sequencing Data.” Nature Methods 9, no. 2 (January 30, 2012): 145–51. https://doi.org/10.1038/nmeth.1828.
+
+<!--
+## Alignment strategy
+
+Use existing alignment software (e.g., `bowtie`) as is:  
+
+- Problem: C-T mismatches make some reads can’t be aligned.
+
+Naïve method: change both the reference and reads to make all C’s to T’s, then align.  
+
+- Problem: creates other mismatches.
+
+Better ideas:  
+
+- Consider the methylation status during alignment: create multiple versions of the reference “seed” (there will be four sets of references at each locations containing a C ).
+- Clever implementations needed.
+
+\tiny https://omictools.com/read-alignment2-category
+-->
+## 3 main strategies for processing WGBS reads
+
+- Wild-card alignment
+- Three-letter alignment
+- Reference-free processing
+
+## Example of bisulfite alignment
+
+\includegraphics[height=180px]{img/alignment1.png}
+
+<!--An illustrative example of bisulfite sequencing for a DNA fragment with known DNA methylation levels at four CpGs and a total of eight bisulfite-sequencing reads. For easier visualization, the sequencing reads are four bases long (realistic numbers would be 50 to 200 bases), and the size of the genomic DNA sequence is just 23 bases (3 gigabases would be a realistic number for the human genome).-->
+
+## Wild-card aligners
+
+- Replace Cs in the genomic DNA sequence by the wild-card letter Y, which matches both Cs and Ts in the read sequence
+- Or modify the alignment scoring matrix in such a way that mismatches between Cs in the genomic DNA sequence and Ts in the read sequence are not penalized.
+- Solware: BSMAP, GSNAP, Last/bisulfighter, Pash, RMAP, RRBSMAP and segemehl
+
+## Wild-card alignment
+
+\includegraphics[height=180px]{img/alignment2.png}
+
+<!--Alignment of the bisulfite-sequencing reads (centre) to the reference sequence (top) using a wild-card aligner that tolerates zero mismatches and zero gaps. The aligner replaces each C in the reference sequence by the wild-card letter Y, which can match both C and T in the read sequences. Reads with more than one perfect alignment with the reference sequence are discarded (greyed out), and for each CpG in the genomic DNA sequence, the DNA methylation level (bottom) is calculated as the percentage of aligning Cs among all uniquely mapped reads. Note that the third CpG is incorrectly assigned a DNA methylation level of 100%, which is due to the fact that the unmethylated read was discarded as ambiguous, whereas the methylated read could be uniquely mapped.-->
+
+## Three-base aligner
+
+- Simplify bisulfite alignment by converting all Cs into Ts in the reads and for both strands of the genomic DNA sequence
+- Solware: Bismark, BRAT, BS-Seeker and MethylCoder
+
+## Three-base aligner
+
+\includegraphics[height=180px]{img/alignment3.png}
+
+<!--The same alignment carried out by a three-letter aligner, which also tolerates zero mismatches and zero gaps. The aligner replaces each C in the reference sequence by an upper-case T and each C in the sequencing reads by a lower-case t, with no distinction being made between upper-case T and lower-case t during the alignment. As a result of the reduced sequencing complexity with only three letters remaining, a larger number of reads align to more than one position in the reference sequence and are discarded. The three-letter alignment avoids incorrect results in this example, but it fails to provide any values for the first and third CpG. (As an alternative to discarding ambiguous reads, it is also possible to assign them randomly to one of the best-matching positions; in the current example, the wild-card alignment would provide correct results 50% of the time, whereas the three-letter alignment exhibits higher uncertainty and would be correct only 6.25% of the time.)-->
+
+## Strengths and weaknesses
+
+- Three-letter aligners have lower coverage in highly methylated regions because they purge the remaining Cs from the bisulfite-sequencing reads and thereby decrease their sequence complexity and they become ambiguous.
+- Wild-card aligners typically have higher genomic coverage but at the cost of introducing some bias towards increased DNA methyla1on levels because the extra Cs in a methylated sequencing read can raise the sequence complexity
+- These problems are more prevalent in repetitive regions of the genome and are reduced with longer reads
+
+## Bismark
+
+Bismark’s approach to bisulfite mapping and methylation calling. 
+
+- Reads from a BS-Seq experiment are converted into a C-to-T and a G-to-A version and are then aligned to equivalently converted versions of the reference genome. 
+- A unique best alignment is then determined from the four parallel alignment processes
+
+\tiny Bismark A tool to map bisulfite converted sequence reads and determine cytosine methylation states https://www.bioinformatics.babraham.ac.uk/projects/bismark/
+
+## Bismark
+
+\includegraphics[height=200px]{img/bismark1.png}
+
+Here, the best alignment has no mismatches and comes from thread (1)
+
+<!-- Bismark’s approach to bisulfite mapping and methylation calling. (A) Reads from a BS-Seq experiment are converted into a C-to-T and a G-to-A version and are then aligned to equivalently converted versions of the reference genome. A unique best alignment is then determined from the four parallel alignment processes [in this example, the best alignment has no mismatches and comes from thread (1)]. -->
+
+## Bismark
+
+\includegraphics[height=85px]{img/bismark2.png}
+
+- The methylation state of positions involving cytosines is determined by comparing the read sequence with the corresponding genomic sequence. 
+- Depending on the strand a read mapped against this can involve looking for C-to-T (as shown here) or G-to-A substitutions.
+
+\tiny Bismark A tool to map bisulfite converted sequence reads and determine cytosine methylation states https://www.bioinformatics.babraham.ac.uk/projects/bismark/
+
+## BS-seq data analysis
+
+Compared with ChIP-seq and RNA-seq, still in relatively early stage.
+
+Questions include:
+
+- Single dataset analysis:
+    - Segment genome according to methylation status. 
+
+- Comparison of multiple datasets:
+    - Differential methylation (DM) analysis.
+
+## Single BS-seq dataset analysis
+
+Detecting the methylation loci/regions:
+
+- Estimate “methylation density” (percentage of cells have methylation) at each C position, which is simply #methyl/#total at each CpG site, but:
+    - Background error rates need to be considered.
+    - Spatial correlation among nearby CpG sites can be utilized to improve estimation.
+- Methylated regions (or states) can be determined by smoothing based method (e.g., moving average) using the estimated percentage as input.
+
+<!--
+## An HMM approach
+
+- Using the estimated percentages as input to fit a 3-state HMM: F(ully)MR, L(ow)MR, U(n)MR
+
+\includegraphics[height=150px]{img/bs_hmm.png}
+
+\tiny Stadler et.al. (2012) Nature https://www.nature.com/nature/journal/v480/n7378/full/nature10716.html
+-->
+
+## Smoothing method
+
+- Can directly smooth the percentages,but that doesn’t consider the uncertainty in percentage estimates.
+- A better approach: BSmooth model (Hansen et.al. 2012 Genome Biology).
+    - Assumes the true methylation level is a smooth curve of genomic coordinates.
+    - The observed counts follow a binomial distribution.
+    - Estimate smoothing function with local smoothing estimator
+
+\includegraphics[height=100px]{img/bsmooth.png}
+
+https://www.jstor.org/stable/2289465
+
+## BSmooth smoothing
+
+Notations at position $j$:
+
+- $N_j$, $M_j$: total/methylated reads
+- $\pi_j$: underlying true methylation level
+- $l_j$: location
+
+Model:
+
+- $M_j \sim Bin(N_j, \pi_j)$
+- $log(\pi_j/(1-\pi_j)) = \beta_0 + \beta_1l_j + \beta_2l_j^2$
+
+Fitting: weighted glm in each 2kb window, where the weights depend on the variances of estimated $\pi_j$
+
+## Bsmooth Bioconductor package: `bsseq`
+
+- Mainly provide functions for smoothing and some visualization.
+- Implemented in parallel computing environment to speed up the calculation.
+```
+M   <- matrix(0:8, 3, 3) # Methylation evidence
+Cov <- matrix(1:9, 3, 3) # Coverage
+BS1 <- BSseq(chr = c("chr1", "chr2", "chr1"),
+             pos = c(1,2,3), M = M, Cov = Cov,
+             sampleNames = c("A","B", "C")) 
+BS1 <- BSmooth(BS1)
+```
+
+## Differential methylation analysis
+
+Comparison of methylation profiles under different biological conditions is of great interests.
+
+- Results from such analysis are: differentially methylated loci (DML) or regions (DMR).
+
+Strategy to detect DML:
+
+- Hypothesis testing at each CpG site.
+
+Strategy to detect DMR:
+
+- Need to combine data from nearby CpG sites because of the spatial correlation.
+
+## DML detection based on 2x2 table
+
+At each CpG site, summarize the counts from two samples into a 2x2 table:
+
+| Sample/Methylation | Total | Methylated |
+|--------------------|:-----:|:----------:|
+| Sample 1           |   40  |      2     |
+| Sample 2           |   25  |     19     |
+
+Chi-square or Fisher’s exact test can be applied. `bsseq` has function fisherTests for this: `fisherTests(BSobj, group1, group2)`
+
+## Wald-test based 
+
+- Uses data with replicates
+- The key is to estimate within-group variances
+- BSmooth approach (for two-group comparison):
+    - Denote the group assignment for $i^{th}$ 
+    - Number of replicates in two groups are $n_1$ and $n_2$
+    - Frame the estimated values into a two-group testing framework: $\pi_{ij} = \alpha(I_j) + \beta(I_j)X_i + \epsilon_{i,j},\ \epsilon_{i,j} \sim N(0,\sigma_j^2)$
+    - Use SAM-like method to estimate $\sigma_j^2$, then do Wald test
+
+\tiny Hansen, Kasper D, Benjamin Langmead, and Rafael A Irizarry. “BSmooth: From Whole Genome Bisulfite Sequencing Reads to Differentially Methylated Regions.” Genome Biology 13, no. 10 (2012): R83. https://doi.org/10.1186/gb-2012-13-10-r83.
+
+## Differential methylation in regions
+
+- Multiple loci can be differentially methylated - need one p-value
+- Fisher's method for combining p-values given $K$ independent tests:
+$$T=-2\sum_{k=1}^Kln(p_k)$$
+- $T \sim \chi_{2K}^2$
+- Other methods: Stouffer-Liptak
+
+\tiny Zaykin, D. V. “Optimally Weighted Z-Test Is a Powerful Method for Combining Probabilities in Meta-Analysis.” Journal of Evolutionary Biology 24, no. 8 (August 2011): 1836–41. https://doi.org/10.1111/j.1420-9101.2011.02297.x.
+
+## DSS: Dispersion shrinkage for sequencing data
+
+- Similar to RNA-seq DE analysis, the BS-seq data can be modeled as beta-binomial distribution.
+- For $i^{th}$ CpG site, $j^{th}$ group and $k^{th}$ replicate, $X_{ijk}$ is the number of reads that show methylation, $N_{ijk}$ is the total number of reads that cover this position and $p_{ijk}$ is the underlying "true" methylation proportion
+
+$$X_{ijk}|p_{ijk},N_{ijk} \sim Binomial(N_{ijk}, p_{ijk})$$
+
+- Since the true methylation proportions among replicates can be anywhere between 0 and 1, we assume that they follow a beta distribution
+
+$$p_{ijk} \sim Beta(\mu_{ijk}, \phi_{ij})$$
+
+## DSS: Shrinkage-based method
+
+- Beta distribution is parameterized by mean and dispersion, and impose a log-normal prior on dispersion $\phi_{ij} \sim lognormal(m_{0j}, r_{0j}^2)$, $m_{0j}$ mean and $r_{0j}^2$ can be estimated from the data
+- Wald test procedure can be derived. For two-group comparison:
+
+$$t_i = \frac{\hat\mu_{i1} - \hat\mu_{i2}}{\sqrt{\hat var_{i1} - \hat var_{i2}}}$$
+
+- where $\hat\mu_{ij}$ are mean methylation levels and $\hat var_{ij}, (j=1,2)$ is the estimated variance for group 1 or 2.
+
+\tiny Feng, Hao, Karen N. Conneely, and Hao Wu. “A Bayesian Hierarchical Model to Detect Differentially Methylated Loci from Single Nucleotide Resolution Sequencing Data.” Nucleic Acids Research 42, no. 8 (April 2014): e69–e69. https://doi.org/10.1093/nar/gku154. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4005660/
+
+## Simulation results
+
+- The Wald test with shrunk dispersion performs favorably compared with other methods (2 replicates, 5 replicates)
+
+\includegraphics[height=150px]{img/dss.png}
+
+<!--Comparison of TDR for different methods based on 100 simulations of 20 000 CpG sites. The proportion of true discovery among top ranked loci (y-axis) is plotted against the number of top ranked loci (x-axis). The dispersion   is randomly generated from the log-normal distri- bution. Each group contains two replicates (left) or five replicates (right).-->
+
+## Things to consider in DMR calling
+
+Coverage depth:
+
+- Should one filter out sites with shallower coverage?
+
+Biological replicates:
+
+- CpG-specific biological variances.
+- Small sample estimate of the variance.
+
+Spatial correlation of methylation levels among nearby CpG sites.
+
+- Is smoothing appropriate?
+- What if data has low spatial correlation, like in 5hmC.
+
+## Differential Methylation analysis using `bsseq`
+
+- First create `BSseq` objects
+- Use `BSmooth` function to smooth.
+- `fisherTests` performs Fisher’s exact test, if there’s no replicate.
+- `BSmooth.tstat` performs t-test with replicates.
+- `dmrFinder` calls DMRs based on `BSmooth.tstat` results.
+
+```
+BSobj = BSmooth(BSobj)
+dmlTest=fisherTests(BSobj, group1=c("C1", "C2", "C3"), 
+                           group2=c("N1", "N2", "N3")) 
+dmr <- dmrFinder(dmlTest)
+```
+
+## Differential Methylation analysis using `DSS`
+
+- Input data has the same format as `bsseq`. 
+- `DMLtest` performs Wald test at each CpG. 
+- `callDML`/`callDMR` calls DML or DMR.
+- More options in DML/DMR calling.
+
+```
+dmlTest <- DMLtest(BSobj, group1=c("C1", "C2", "C3"), 
+                          group2=c("N1", "N2", "N3"),
+                          smoothing=TRUE, smoothing.span=500) 
+dmrs <- callDMR(dmlTest)
+```
+
+<!--
+## Another paradigm – single-read BS-seq analysis
+
+- So far we have focused on “marginal” methylation levels (aggregated information from all reads).
+- Sometimes data at each single read provide additional information.
+- Useful references:
+    - Xie et al. (2011) NAR. https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkr017
+    - Landan et al. (2012) Nat. Genetics. https://www.nature.com/ng/journal/v44/n11/abs/ng.2442.html
+
+## Single read entropy
+
+\includegraphics[height=200px]{img/gkr017f1.jpeg}
+
+\tiny Xie et al. (2011) NAR. https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkr017
+-->
+<!--The formula of methylation entropy and the examples for genomic loci with various methylation entropies in a cell population. (A) The formula of methylation entropy. The determination of methylation entropy requires three parameters: the number of CpG sites, the total number of sequence reads generated and the occurrence of each methylation pattern. (B–E) Genomic loci with various methylation entropies.-->
+
+<!--
+## What a single read tells us
+
+- Comparison of methyl-entropy/polymorphism among different samples.
+- Sample deconvolution
+    - Zheng et al. (2014) GB: MethylPurify https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0419-x
+    - Estimate the proportion of cell types in a mixed sample (such as cancer), as well as calling DMRs.
+-->
+
+## Conclusion on BS-seq analyses
+
+- Careful in alignments.
+- Data modeling is different from ChIP/RNA-seq: Poisson/NB vs. Binomial models.
+- DMR calling needs to consider spatial correlation, coverage and biological variances.
+- Single read analysis could be very useful.
+- A lot of room for method development.
+
+## (m)RRBS: (multiplexed) Reduced Representation Bisulfite Sequencing {.larger}
+
+- Utilizes cutting pattern of MspI enzyme (C^CGG) to systematically digest CpG-poor DNA
+
+\begin{center}
+\includegraphics[height=30px]{img/mslp_enzyme.png}
+\end{center}
+
+- Covers the majority of CpG islands and promoters, and a reasonable number of exons, shores and enhancers
+
+- Advantages:
+    - Only need 50-200ng DNA
+    - Can be from any species
+    - Cost and time 
+
+## `methylKit` R package
+
+- Technology: (RB)BS-seq and derivatives, including 5hmc
+- Input: Bismark-aligned SAM files, or text-summarized % methylation 
+- Functionality: QC, clustering, differential methylation of sites/regions, visualization
+
+\begin{center}
+\includegraphics[height=100px]{img/methylkit.png}
+\end{center}
+
+\tiny https://github.com/al2na/methylKit
+
+Akalin, Altuna, Matthias Kormaksson, Sheng Li, Francine E. Garrett-Bakelman, Maria E. Figueroa, Ari Melnick, and Christopher E. Mason. “MethylKit: A Comprehensive R Package for the Analysis of Genome-Wide DNA Methylation Profiles.” Genome Biology 13, no. 10 (October 3, 2012): R87. https://doi.org/10.1186/gb-2012-13-10-r87.
+
+## Methods to detect differentially methylated loci or regions
+
+\begin{center}
+\includegraphics[height=170px]{img/dmr_methods.png}
+\end{center}
+
+\tiny Robinson, Mark D., Abdullah Kahraman, Charity W. Law, Helen Lindsay, Malgorzata Nowicka, Lukas M. Weber, and Xiaobei Zhou. “Statistical Methods for Detecting Differentially Methylated Loci and Regions.” Frontiers in Genetics 5 (2014): 324. https://doi.org/10.3389/fgene.2014.00324.
+
+## BS-seq data SNP/methylation caller
+
+- Bis-SNP
+- MethylExtract 
+- BS-SNPer
+- Etc.
