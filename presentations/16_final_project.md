@@ -46,7 +46,7 @@ Your project report should be written in R/Markdown format and compiled as a PDF
 
 Review grading policy at [https://mdozmorov.github.io/BIOS668.2018/policies/](https://mdozmorov.github.io/BIOS668.2018/policies/)
 
-- Your final project in the form of your GitHub repository is due on or before Saturday, May 5, 2018, at 9:00 pm EDT.
+- Your final project in the form of your GitHub repository is due on or before Saturday, May 8, 2018, at 9:00 am EDT.
 
 <!--
 - Following the submission, you will be assigned to grade one of your peer's project.  
