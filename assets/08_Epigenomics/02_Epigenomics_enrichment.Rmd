@@ -1,0 +1,241 @@
+---
+title: "Epigenomic enrichment"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Gene enrichment vs. genome enrichment
+
+- **Gene set enrichment analysis** - summarizing many **genes** of interest, such as differentially expressed genes, with a few common **gene annotations** (molecular functions, canonical pathways)
+
+\bigskip
+
+- **Epigenomic enrichment analysis** - summarizing many **genomic regions** of interest, such as disease-associated genomic variants, with a few common **genome annotations** (chromatin states, transcription factor binding sites)
+
+## Genomic regions
+
+- Gene/exon boundaries, promoters
+- Single Nucleotide Polymorphisms (SNPs)
+- Transcription Factor Binding Sites (TFBS)
+- Differentially methylated regions
+- CpG islands
+
+Each genomic region has coordinates (unique IDs): 
+
+`Chromosome`, `Start`, `End`
+
+## Annotations of genomic regions
+
+- **Epigenomic (regulatory) regions** - genomic regions annotated as carrying functional and/or regulatory potential
+
+- DNaseI hypersensitive sites
+- Histone modification marks
+- Transcription Factor Binding Sites
+- DNA methylation
+- Enhancers
+- ...
+
+## Why "genomic region enrichment analysis"?
+
+Enrichment = functional impact
+
+- **Hypothesis**: SNPs in epigenomic regions may disrupt regulation
+- More significant enrichment = more SNPs in epigenomic regions = more regulation is disrupted (SNP burden)
+
+\begin{center}
+\includegraphics[height=70px]{img/snp_burden.png}
+\end{center}
+
+## Regulatory marks are highly non-random
+
+- Statistical analysis of pilot ENCODE regions showed highly non-random location of regulatory elements
+- There are regulatory "hotspots" enriched in transcription factor binding sites, histone marks, as well as "deserts" of depleted regulatory marks
+- Combinations of different types of regulatory marks matter
+
+\tiny Zhang, Z. D., A. Paccanaro, Y. Fu, S. Weissman, Z. Weng, J. Chang, M. Snyder, and M. B. Gerstein. “Statistical Analysis of the Genomic Distribution and Correlation of Regulatory Elements in the ENCODE Regions.” Genome Research 17, no. 6 (June 1, 2007): 787–97. https://doi.org/10.1101/gr.5573107.
+
+## Statistics of epigenomic enrichments
+
+\begin{center}
+\includegraphics[height=70px]{img/genomerunner_statistics.png}
+\end{center}
+
+- 6 out of 7 disease-associated SNPs overlap with epigenomic marks
+- How likely this to be observed by chance? (Chi-square test/Binomial test/Permutation test)
+
+<!--
+## An example of a co-occurrence matrix. 
+
+\begin{center}
+\includegraphics[height=170px]{img/overlap.png}
+\end{center}
+
+\tiny https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-359
+-->
+<!--(a) A binding profile for two proteins, A and B, are displayed schematically in red and blue respectively. The sequence coordinate is along the horizontal axis and each rectangle represents a location. (b) A schematic of the co-occurrence matrix for the joint profile of (a). Locations are numbered sequentially by start coordinate. Rows and columns are associated with factors A and B respectively. The metric is used is whether locations overlap. Overlapped pairs have non-zero c ij and are indicated by diagonal hatching of the element. For example, we see from the matrix that locations 3 and 4 overlap and when they are bound by factors A and B, c34 is non-zero and therefore the statistic is increased by its value.-->
+
+## Basic concepts of epigenomic enrichments
+
+| TF1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
+|-----|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| TF2 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+
+- Pearson correlation coefficient $r$: this quantity gives equal weight to co-binding (1,1) and co-non-binding (0,0). Hence, high values may not necessarily imply high levels of co-occurrence. For the above example, $r = 0.36$.
+
+## Statistics of epigenomic enrichments
+
+|         | TF2 no  | TF2 yes |       |
+|---------|---------|---------|-------|
+| TF1 no  | n-k+t   | m-t     | m+n-k |
+| TF1 yes | k-t     | t       | k     |
+|         | n       | m       | m+n   |
+
+- **Hypergeometric test**: it tests for co-occurrence based on the contingency table, which can be re-written using random variables
+- Assume that the row and column sums ($m$, $n$, $k$) are fixed. The probability of observing $t$ is hypergeometric. The p-value for the example is $p=Pr(T \ge 10|H_0,m=12,n=8,k=14)=0.14$
+
+## Statistics of epigenomic enrichments
+
+|         | TF2 no  | TF2 yes |       |
+|---------|---------|---------|-------|
+| TF1 no  | n-k+t   | m-t     | m+n-k |
+| TF1 yes | k-t     | t       | k     |
+|         | n       | m       | m+n   |
+
+\footnotesize
+
+- **Chi-square test**: it tests for dependence (not co-occurrence) between TF1 and TF2, and applies to contingency tables with very large counts
+- The difference between observed and expected counts can be approximated by a chi-square distribution with one degree of freedom
+
+$$D=\sum_{i=1}^2\sum_{j=1}^2\frac{(O_{ij} - E_{ij})^2}{E_{ij}}$$
+
+where $O_{ij}$ are the observed counts, and $E_{ij}$ are the expected counts under the null hypothesis, and are computed under the fixed row and column sums, e.g. $E_{22}=\frac{mk}{m+n}$
+
+## Statistics of epigenomic enrichments
+
+\small
+
+- **Poisson distribution**: it can be used to compute how likely it is for a single TF to have, say, three binding events in 1 kb with 300 events in 1 Mb. The formula is
+
+$$Pr(x=3;L=1kb;\rho=\frac{300}{1000kb})=e^{L\rho}\frac{(L\rho)^x}{x!}$$
+
+where $\rho$ is the binding rate per bp.
+
+- **Fisher’s method for combining p-values**: one can calculate a p-value for each TF in a genomic region to assess whether that TF has more binding sites than expected in this region. To assess whether both TFs bind to more sites than expected, p-values can be combined using Fisher’s method
+
+$$P=-2\sum_{i=1}^nlog p_i$$
+
+where $n$ is the number of TFs. The quantity $P$ has a chi-square distribution with $2n$ degrees of freedom. As before, a small combined p-value associated with the quantity $P$ suggests co-occurrence.
+
+## Permutation
+
+- Genomic features are nonrandomly distributed throughout the genome
+- In permutation schemes, need to consider this to properly calculate observed and expected overlaps
+
+- **Permutation test**: it tests for co-occurrence through repeatedly permuting observed enriched regions (or binding events) in one or both profiles many times
+- A pre-defined co-occurrence score is calculated for each permutation
+- Many permutations produce a null distribution of the co-occurrence score. One can then use this null distribution to compute a p-value for the observed co-occurrence score
+
+## Permutation
+
+\begin{center}
+\includegraphics[height=70px]{img/randomization_basic.png}
+\end{center}
+
+\tiny De, Subhajyoti, Brent S. Pedersen, and Katerina Kechris. “The Dilemma of Choosing the Ideal Permutation Strategy While Estimating Statistical Significance of Genome-Wide Enrichment.” Briefings in Bioinformatics 15, no. 6 (November 2014): 919–28. https://doi.org/10.1093/bib/bbt053.
+
+## Permutation on steroids
+
+\begin{center}
+\includegraphics[height=170px]{img/randomization_better.png}
+\end{center}
+
+## Permutation strategies
+
+\begin{center}
+\includegraphics[height=190px]{img/permutation_table.png}
+\end{center}
+
+\tiny De, Subhajyoti, Brent S. Pedersen, and Katerina Kechris. “The Dilemma of Choosing the Ideal Permutation Strategy While Estimating Statistical Significance of Genome-Wide Enrichment.” Briefings in Bioinformatics 15, no. 6 (November 2014): 919–28. https://doi.org/10.1093/bib/bbt053.
+
+<!--
+## poverlap
+
+- Significance testing over interval overlaps
+- Different permutation strategies
+
+\tiny https://github.com/brentp/poverlap
+-->
+
+## Evaluating overlap between sets of genomic regions
+
+\begin{center}
+\includegraphics[height=140px]{img/overlap_scoring_table.png}
+\end{center}
+
+\tiny Fu, Audrey Qiuyan, and Boris Adryan. “Scoring Overlapping and Adjacent Signals from Genome-Wide ChIP and DamID Assays.” Molecular BioSystems 5, no. 12 (December 2009): 1429–38. https://doi.org/10.1039/B906880e.
+
+## Looking for significant GO enrichment
+
+- We can look at biological significance of our peaks using Gene Ontologies (GO) terms genome annotations
+    - GO: Set of structured, controlled vocabularies for community use in annotating genes, gene products and sequences
+- Popular tool: the Genomic Regions Enrichment of Annotations Tool (GREAT)
+
+\tiny http://great.stanford.edu/public/html/
+
+## GREAT: Cis-regulatory regions functions prediction
+
+- Binding sites are often not located in the proximal region of the gene of interest
+- GREAT looks beyond this proximal region
+- Input: BED file with regions of interest
+- Output: Matching GO terms for Molecular Functions, Biological Processes, Phenotypes, Diseases, etc.
+
+## GREAT: Cis-regulatory regions functions prediction
+
+\begin{center}
+\includegraphics[height=100px]{img/great1.png}
+\end{center}
+
+\tiny McLean, Cory Y., Dave Bristor, Michael Hiller, Shoa L. Clarke, Bruce T. Schaar, Craig B. Lowe, Aaron M. Wenger, and Gill Bejerano. “GREAT Improves Functional Interpretation of Cis-Regulatory Regions.” Nature Biotechnology 28, no. 5 (May 2010): 495–501. https://doi.org/10.1038/nbt.1630.
+
+## GREAT: Cis-regulatory regions functions prediction
+
+\begin{center}
+\includegraphics[height=110px]{img/great2.png}
+\end{center}
+
+\tiny McLean, Cory Y., Dave Bristor, Michael Hiller, Shoa L. Clarke, Bruce T. Schaar, Craig B. Lowe, Aaron M. Wenger, and Gill Bejerano. “GREAT Improves Functional Interpretation of Cis-Regulatory Regions.” Nature Biotechnology 28, no. 5 (May 2010): 495–501. https://doi.org/10.1038/nbt.1630.
+
+## GREAT: Cis-regulatory regions functions prediction
+
+\begin{center}
+\includegraphics[height=70px]{img/great3.png}
+\end{center}
+
+\tiny McLean, Cory Y., Dave Bristor, Michael Hiller, Shoa L. Clarke, Bruce T. Schaar, Craig B. Lowe, Aaron M. Wenger, and Gill Bejerano. “GREAT Improves Functional Interpretation of Cis-Regulatory Regions.” Nature Biotechnology 28, no. 5 (May 2010): 495–501. https://doi.org/10.1038/nbt.1630.
+
+<!--
+## How can we tell whether overlaps are significantly greater than chance? Assigning a p-value?
+
+- We have 3 pieces of count frequency information: The number of overlaps, the number of regions compared, and we can generate the expected background frequency through shuffling
+- This type of data is like coin tosses and is ideally suited for a binomial test, which uses "number of matches", "number of tests" and "expected background frequency" to calculate p-values
+- If you flip a coin, say 10 times and it comes up heads 6 out of 10 (frequency 0.6 vs. expected 0.5), that would not seem unlikely - and a binomial test would tell you this
+- However if you flip a coin 1000 times and get heads 600 out of 1000, that would seem a bit odd, and the binomial test would indicate this by saying that the probability of the null hypothesis (that the frequency of heads is 0.5) is low
+
+## Resampling statistic or binomial tests for overlaps
+
+- Let’s say we have peak regions from two samples (7000 and 8260), and the number of overlaps is 1653
+- We can estimate the background chance by randomly placing the regions in the first dataset in new locations, and then count the number of overlaps. We would repeat this procedure 100-1000 times
+- Then, we can either ask: how many times, out of the 1000 repeated procedures, was the number of overlaps greater than that observed for the real dataset? This is our p-value ("3" - 3/1000 -> p=0.003. "0" -> p<0.001)
+- Alternatively, we can take the mean of the number of overlaps, and use this in a binomial test. For example, let’s say the mean number of overlaps in the shuffled sets was 95.11
+- Run a binomial test in R: `binom.test(1653, 8260, 95.11/8260)`. The p.value is <2e-16. So, yes, the binding sites in the two samples overlapped more than expected by chance... but binding events are still to ~80% different places between these two samples
+-->

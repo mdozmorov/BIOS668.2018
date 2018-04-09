@@ -1,0 +1,167 @@
+---
+title: "Hidden Markov Models intro, Chromatin segmentation"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Markov Model (aka Markov Chain)
+
+- Stochastic process - a random process, or a sequence or random variables
+
+\begin{center}
+\includegraphics[height=150px]{img/markov.png}
+\end{center}
+
+Andrey Markov, a Russian mathematician (1856 - 1922)
+
+## Markov Model (aka Markov Chain)
+
+- A discrete stochastic process $X_1, X_2, X_3,...$ has the Markov property
+
+$$P(X_{n+1}=j|X_1=x_1, X_2=x_2, ..., X_n=x_n) = P(X_{n+1}=j|X_n=x_n)$$
+$$for\ all\ x_i, all\ j, all\ n$$
+
+- A random process which has the property that the future (next state) is conditionally independent of the past given the present (current state)
+
+## Elements of Hidden Markov Models
+
+- An alphabet of $n$ emitted symbols (e.g., "A", "T", "C", "G")
+- A set of $k$ hidden states (e.g., CG-island, regular sequence)
+- Transition = ($transition_{l,k}$) - a $|States| \times |States|$ matrix of **transition probabilities** for changing from state $l$ to state $k$
+- Emission = ($emission_k(symbol_n)$) - a $|States| \times n$ matrix of **emission probabilities** (of emitting $symbol_n$ then the HMM is in state $k$) 
+<!--
+Elements
+- Hidden state X
+- Clock  
+    - at each tick of the clock, the state updates using
+-  Dynamical model  
+$$X_{i+1} \sim P(X_{i+1}|X_i=x_i)$$  
+-  Emission at each state, depending on the state alone $Y$ - this is observed  
+$$Y_i \sim P(Y_i|X_i = x_i)$$
+-->
+
+## A simple hidden Markov model
+
+\begin{center}
+\includegraphics[height=140px]{img/hmm_eddy.png}
+\end{center}
+
+\scriptsize The model generates two strings of information. One is the underlying _state path_ (the labels), as we transition from state to state. The other is the _observed sequence_ (the DNA), each residue being emitted from one state in the state path. The efficient Viterbi algorithm is guaranteed to find the most probable state path given a sequence and an HMM. The Viterbi algorithm is a dynamic programming algorithm quite similar to those used for standard sequence alignment.
+
+\tiny Eddy, Sean R. “What Is a Hidden Markov Model?” Nature Biotechnology 22, no. 10 (October 2004): 1315–16. https://doi.org/10.1038/nbt1004-1315.
+
+## A simple hidden Markov model
+
+\begin{center}
+\includegraphics[height=140px]{img/hmm_sequence.png}
+\end{center}
+
+\tiny A two-state HMM describing DNA sequence with a heterogeneous base composition. (a) State 1 generates AT-rich sequence, and state 2 generates CG-rich sequence. State transitions and their associated probabilities are indicated by arrows, and symbol emission probabilities for A,C,G and T for each state are indicated below the states. (b) This model generates a state sequence as a Markov chain and each state generates a symbol according to its own emission probability distribution (c). The probability of the sequence is the product of the state transitions and the symbol emissions. For a given observed DNA sequence, we are interested in inferring the hidden state sequence that 'generated' it, that is, whether this position is in a CG-rich segment or an AT-rich segment.
+
+
+## Chromatin segmentation
+
+\begin{center}
+\includegraphics[height=180px]{img/chromatin_segmentation.png}
+\end{center}
+
+\tiny Hoffman, Michael M., Jason Ernst, Steven P. Wilder, Anshul Kundaje, Robert S. Harris, Max Libbrecht, Belinda Giardine, et al. “Integrative Annotation of Chromatin Elements from ENCODE Data.” Nucleic Acids Research 41, no. 2 (January 2013): 827–41. https://doi.org/10.1093/nar/gks1284.
+
+<!--View of the ENC1 locus on the minus strand using the ENCODE GM12878 segmentations. The unusual state pattern in middle of the gene in all three segmentations reveals a potential intronic regulatory element, which is confirmed by H3K4me1, H3K27ac, DNaseI hypersensitivity and transcription factor binding, and overlaps a putative GENCODE processed transcript.-->
+
+## Ideas for chromatin track analysis
+
+- Hidden Markov Model (ChromHMM)  
+- Dynamic Bayesian Network (Segway)  
+    - Bayesian Network that models data sampled at intervals. Still a directed acyclic graph (DAG).  
+    - Can learn model with Graphical Model Toolkit (GMTK)  
+    - Can incorporate relationships between variables and handle missing data  
+    - 1bp analysis resolution
+
+## ChromHMM
+
+\begin{center}
+\includegraphics[height=70px]{img/chromhmm1.png}
+\end{center}
+
+- chromHMM learns chromatin-state signatures using a multivariate hidden Markov model (HMM) that explicitly models the combinatorial presence or absence of each mark
+- chromHMM uses these signatures to generate a genome-wide annotation for each cell type by calculating the most probable state for each genomic segment
+- chromHMM provides an automated enrichment analysis of the resulting annotations to facilitate the functional interpretations of each chromatin state
+
+\tiny Ernst, Jason, and Manolis Kellis. “Chromatin-State Discovery and Genome Annotation with ChromHMM.” Nature Protocols 12, no. 12 (December 2017): 2478–92. https://doi.org/10.1038/nprot.2017.124.
+
+<!--Tracks of multiple histone modifications are shown from one cell type, IMR90. From such types of tracks, ChromHMM learns a set of chromatin-state definitions de novo, and then assigns each location in the genome to an instance of each state. The chromatin-state assignments for IMR90 made on the basis of the model-->
+
+<!--## ChromHMM
+
+\begin{center}
+\includegraphics[height=70px]{img/chromhmm1.png}
+\end{center}
+
+The panel on the left displays a heatmap of the emission parameters in which each row corresponds to a different state, and each column corresponds to a different mark for the Roadmap Epigenomics 18-state expanded model defined on the basis of the observed data for six histone modifications (H3K4me1, H3K4me3, H3K27me3, H3K27ac, H3K36me3, and H3K9me3) from ref. 3. The darker blue color corresponds to a greater probability of observing the mark in the state. The heatmap to the right of the emission parameters displays the overlap fold enrichment for various external genomic annotations in IMR90 cells (epigenome E017) and is similar to what was previously shown for H1-hESC cells in ref. 3. A darker blue color corresponds to a greater fold enrichment for a column-specific coloring scale. The heatmap to the right of that shows the fold enrichment for each state for each 200-bp bin position within 2 kb around a set of transcription start sites (TSSs). A darker blue color corresponds to a greater fold enrichment, and there is one color scale for the entire heatmap. Candidate-state descriptions for each state, followed by a state abbreviation, are shown to the right of the heatmaps. 
+
+\tiny https://www.nature.com/articles/nprot.2017.124-->
+
+## ChromHMM
+
+\begin{center}
+\includegraphics[height=100px]{img/chromhmm3.png}
+\end{center}
+
+\tiny The genome is split into nonoverlapping segments, and ChIP- seq signal for histone modifications is binarized (0 or 1) and collected for each segment, which are further built into input matrix for HMM training. The hidden state of the current segment is dependent on the state of the previous one, and the transition probabilities (in red) of changing from one state to another are learnt from train- ing on the input matrix. ChromHMM outputs trained hidden states for each segmentation, which are then interpreted as chromatin states based on the chromatin profile and gene annotations, such as active promoter/enhancer, transcriptional elongation or repressive states.
+
+\tiny Jiang, Shan, and Ali Mortazavi. “Integrating ChIP-Seq with Other Functional Genomics Data.” Briefings in Functional Genomics, March 20, 2018. https://doi.org/10.1093/bfgp/ely002.
+
+## Graphical model representation of the default Segway Dynamic Bayesian Network
+
+\begin{center}
+\includegraphics[height=190px]{img/segway_dbn.png}
+\end{center}
+
+<!--Nodes represent random variables. The shape represents the domain of the variable (squares: discrete; circles: continuous), and color represents the visibility of the variable (white: hidden; black: observed). We refer to all other variables pointing inwards to a particular variable as that variable’s parents. Every variable is, given its parents, condition- ally independent of all other variables in the model. Black arcs represent a deterministic conditional dependence, and red arcs represent a stochastic conditional dependence. A dashed arc indicates that, depending on the value of the parent variable along that arc, the conditional parents of the child variable switch deterministically. The model allows n different continuous observation tracks X(i) ∈ {X(1), . . . , X(n)}, which are conditionally dependent on the segment label Q. At any position t ≤ T in the sequence, we always know
+whether the variable X(i) is present (X ̊ (i) = 1) or missing (X ̊ (i) = 0). Critically, the depen- ttt
+dence between X(i) and Qt is determined based on the value of X ̊ (i). That is, when X ̊ (i) = 0, ttt
+the dependence is severed, and thereby whatever information is in the track at the current position has no ability to affect the rest of the model. A binary segment transition variable Jt can either force the segment label to change at the current position (Jt = 1), or prevent it from changing (Jt = 0). The value of Jt is influenced by the segment label and a discrete countdown variable Ct. A regularly occurring ruler marker variable Mt specifies when the countdown variable is allowed to decrease.-->
+
+## Segway segmentation
+
+\begin{center}
+\includegraphics[height=170px]{img/segway_example.png}
+\end{center}
+
+## ChromHMM vs. Segway
+
+\begin{center}
+\includegraphics[height=80px]{img/chromhmm_vs_segway.png}
+\end{center}
+
+\tiny Hoffman, Michael M., Jason Ernst, Steven P. Wilder, Anshul Kundaje, Robert S. Harris, Max Libbrecht, Belinda Giardine, et al. “Integrative Annotation of Chromatin Elements from ENCODE Data.” Nucleic Acids Research 41, no. 2 (January 2013): 827–41. https://doi.org/10.1093/nar/gks1284.
+
+## Notes about chromatin segmentation
+
+A large portion of the human genome exists in a quiescent state, which holds across multiple cell types.
+
+\begin{center}
+\includegraphics[height=170px]{img/genome_segmentation.png}
+\end{center}
+
+\tiny Hoffman, Michael M., Jason Ernst, Steven P. Wilder, Anshul Kundaje, Robert S. Harris, Max Libbrecht, Belinda Giardine, et al. “Integrative Annotation of Chromatin Elements from ENCODE Data.” Nucleic Acids Research 41, no. 2 (January 2013): 827–41. https://doi.org/10.1093/nar/gks1284.
+
+<!--
+## Problems
+
+- Estimating a model  
+    - given a set of data $Y_i=y_i$, what model produced the data?
+- Inference  
+    - given a string and a model, what set of hidden states produced the data?
+-->
