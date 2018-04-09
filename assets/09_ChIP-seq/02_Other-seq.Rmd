@@ -1,0 +1,125 @@
+---
+title: "Other epigenomic sequencing"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Other "captured/targeted" sequencing technologies
+
+- Enrich and then sequence selected genomic regions.
+    - **MeDIP-seq**: measure methylated DNA.
+    - **DNase-seq**: detect DNase I hypersensitive sites.
+    - **FAIRE-seq**: detect open chromatin sites.
+    - **Hi-C**: study 3D structure of chromatin conformation.
+    - **GRO-seq**: map the position, amount and orientation of transcriptionally engaged RNA polymerases.
+    - **Ribo-seq**: detect ribosome occupancy on mRNA. This is captured RNA- seq.
+
+## DNAse-seq
+
+Another widely used approach in gene regulation studies uses DNase I as a tool to identify DNase I Hypersensitive Sites (DHSs) within chromatin (1). DHSs represent open chromatin regions that are normally only accessible at sites of active regulatory elements such as transcriptional enhancers.
+
+\begin{center}
+\includegraphics[height=130px]{img/dnase.png}
+\end{center}
+
+\tiny Cockerill,P.N. (2011) Structure and function of active chromatin and DNase I hypersensitive sites. FEBS J., 278, 2182–2210.
+
+<!--Figure from https://academic.oup.com/nar/article/41/21/e201/1283596-->
+
+
+## High-throughput chromatin organization techniques
+
+\includegraphics[height=190px]{img/chromatin_technologies.png}
+
+\tiny Kagohara, Luciane T., Genevieve L. Stein-O’Brien, Dylan Kelley, Emily Flam, Heather C. Wick, Ludmila V. Danilova, Hariharan Easwaran, et al. “Epigenetic Regulation of Gene Expression in Cancer: Techniques, Resources and Analysis.” Briefings in Functional Genomics, August 11, 2017. https://doi.org/10.1093/bfgp/elx018.
+
+## Comparison of experimental protocols
+
+\includegraphics[height=190px]{img/other_seq.png}
+
+\tiny Furey, Terrence S. “ChIP–seq and beyond: New and Improved Methodologies to Detect and Characterize Protein–DNA Interactions.” Nature Reviews Genetics 13, no. 12 (October 23, 2012): 840–52. doi:10.1038/nrg3306.
+
+## ATAC-seq: finding open chromatin regions
+
+ATAC-seq is an ensemble measure of open chromatin that uses the prokaryotic Tn5 transposase to tag regulatory regions by inserting sequencing adapters into accessible regions of the genome.
+
+\includegraphics[height=90px]{img/atac-seq1.png}
+
+\tiny Jason D Buenrostro et al., “Transposition of Native Chromatin for Fast and Sensitive Epigenomic Profiling of Open Chromatin, DNA-Binding Proteins and Nucleosome Position,” Nature Methods 10, no. 12 (December 2013): 1213–18, https://doi.org/10.1038/nmeth.2688.
+
+<!--(a) ATAC-seq reaction schematic. Transposase (green), loaded with sequencing adaptors (red and blue), inserts only in regions of open chromatin (between nucleosomes in gray) and generates sequencing-library fragments that can be PCR-amplified. (b) Approximate reported input material and sample preparation time requirements for genome-wide methods of open-chromatin analysis.-->
+
+## ATAC-seq: finding open chromatin regions
+
+\includegraphics[height=200px]{img/atacseq_vs_others.png}
+
+\tiny Jason D Buenrostro et al., “Transposition of Native Chromatin for Fast and Sensitive Epigenomic Profiling of Open Chromatin, DNA-Binding Proteins and Nucleosome Position,” Nature Methods 10, no. 12 (December 2013): 1213–18, https://doi.org/10.1038/nmeth.2688.
+
+## DamID
+
+- DamID, an alternative technique to ChIP-seq (no need for antibodies) to map genome-wide occupancy of interaction sites in vivo
+- DamID is based on the expression of a fusion protein consisting of a protein of interest and DNA adenine methyltransferase (Dam). 
+- Binding of the protein of interest leads to methylation of **adenines** near binding sites, a modification not present in most eukaryotes.
+- These methylated sequences are subsequently amplified by a methylation-specific PCR protocol and identified by hybridization to microarrays.
+- Adenine-methylated DNA from cells expressing unfused Dam should processed in parallel and served as a reference (think input ChIP-seq)
+- The resolution of DamID is about 1 kb
+
+\tiny Vogel, Maartje J., Daniel Peric-Hupkes, and Bas van Steensel. “Detection of in Vivo Protein-DNA Interactions Using DamID in Mammalian Cells.” Nature Protocols 2, no. 6 (2007): 1467–78. https://doi.org/10.1038/nprot.2007.148.
+
+## Technology-specific data
+
+Peaks produced by different technologies are different - calling peaks should be adjusted
+
+\begin{center}
+\includegraphics[height=170px]{img/mnase_dnase_atac.jpg}
+\end{center}
+
+\tiny https://www.the-scientist.com/?articles.view/articleNo/44772/title/Reveling-in-the-Revealed/
+
+https://www.biostars.org/p/209592/
+
+## Calling peaks in any-seq
+
+- General signal detection problem for peaks of arbitrary shape
+- `DFilter` algorithm - a linear detection filter, known as a Hotelling observer, that provides mathematically optimal detection accuracy
+- The objective of the Hotelling detection filter is to maximize the difference between filter outputs at true-positive regions and noise regions. 
+- More precisely, the Hotelling detection filter maximizes the ratio of the mean of this difference to its s.d. 
+
+\tiny Kumar, Vibhor, Masafumi Muratani, Nirmala Arul Rayan, Petra Kraus, Thomas Lufkin, Huck Hui Ng, and Shyam Prabhakar. “Uniform, Optimal Signal Processing of Mapped Deep-Sequencing Data.” Nature Biotechnology 31, no. 7 (July 2013): 615–22. https://doi.org/10.1038/nbt.2596.
+
+http://collaborations.gis.a-star.edu.sg/~cmb6/kumarv1/dfilter/
+
+Hotelling, Harold. “The Generalization of Student’s Ratio.” The Annals of Mathematical Statistics 2, no. 3 (August 1931): 360–78. https://doi.org/10.1214/aoms/1177732979. https://projecteuclid.org/download/pdf_1/euclid.aoms/1177732979
+
+## Hotelling detection filter
+
+\includegraphics[height=200px]{img/hotelling_observer1.png}
+
+## Hotelling detection filter
+
+\includegraphics[height=200px]{img/hotelling_observer2.png}
+
+<!--For every bin in genome the number of tags starting from it’s location is counted and called as its tag­count. The binned tag­count signal is divided by tag density of control (see Methods) and then positive and negative regions are chosen. The mean (tag­count profile) and covariance matrices of tag­count signal are calculated separately for positives and negatives regions. Element (i,j) of the covariance matrix quantifies how much the tag­count in bins i and j covary. Finally to achieve Hotelling detection filter, difference in tag profiles at positives and negatives is multiplied to inverse of sum of covariance matrices of positives and negatives. The inverse covariance matrix has as a role of “whitening” that transforms the original detection­signal such that the background noise distribution is uncorrelated.-->
+
+## General analysis pipeline for sequence-tag experiments
+
+\includegraphics[height=200px]{img/other_seq_pipeline.png}
+
+\tiny https://www.nature.com/nrg/journal/v13/n12/full/nrg3306.html
+
+## Selected software tools available for three key steps in the analysis of sequence data
+
+\includegraphics[height=200px]{img/other_seq_soft.png}
+
+\tiny https://www.nature.com/nrg/journal/v13/n12/full/nrg3306.html
+
