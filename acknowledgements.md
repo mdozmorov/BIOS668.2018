@@ -9,7 +9,7 @@ Special thanks to:
 
 - Aaron Quinlan, `applied-computational-genomics` - applied computational genomics course, https://github.com/quinlan-lab/applied-computational-genomics
 
-- David Gifford and his course "Foundations of Computational and Systems Biology" https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/index.htm, https://www.youtube.com/watch?v=pJAIalWDgY0&list=PLA48145CC64FE7990
+- David Gifford, Christopher Burge, and the course "Foundations of Computational and Systems Biology" https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/index.htm, https://www.youtube.com/watch?v=pJAIalWDgY0&list=PLA48145CC64FE7990
 
 - Ben Langmead, `ads1-slides` - Ben Langmead's Slides for Algorithms for DNA Sequencing Coursera class. https://github.com/BenLangmead/ads1-slides.git. The complete class is at http://www.langmead-lab.org/teaching-materials/
 
