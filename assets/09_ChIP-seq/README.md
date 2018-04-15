@@ -83,3 +83,9 @@
   - For windows-based approaches, Simes method to combine p-values. the overall p-value of $n$ merged regions will be calculated as $p_{Simes}=min\{n*p_r/r\}$, where $r=1,2,..,n$.
 
 
+https://math.stackexchange.com/questions/1050184/difference-between-poisson-and-binomial-distributions
+
+The difference between the Binomial and Poisson distributions is that while both measure the number of certain random events (or "successes") within a certain frame, the Binomial is based on discrete events, while the Poisson is based on continuous events. That is, with a binomial distribution you have a certain number, $n$, of "attempts," each of which has probability of success $p$. With a Poisson distribution, you essentially have infinite attempts, with infinitesimal chance of success. That is, given a Binomial distribution with some $n,p$, if you let $n \rightarrow \infty$ and $p \rightarrow 0$ in such a way that $np \rightarrow \lambda$, then that distribution approaches a Poisson distribution with parameter $\lambda$.
+
+Because of this limiting effect, Poisson distributions are used to model occurences of events that could happen a very large number of times, but happen rarely. That is, they are used in situations that would be more properly represented by a Binomial distribution with a very large $n$ and small $p$, especially when the exact values of n and p are unknown. (Historically, the number of wrongful criminal convictions in a country)
+
