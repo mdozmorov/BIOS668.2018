@@ -425,6 +425,7 @@ Ji, Hongkai, Hui Jiang, Wenxiu Ma, David S Johnson, Richard M Myers, and Wing H 
 
 <!--(3) After selecting the fraction of potential target sites that should be excluded from the normalization, the scaling factor Pf is determined by linear regression of the ChIP-seq sample against the input-DNA control in 10-Kb bins. Bins that overlap the potential targets regions selected for exclusion are not used for regression. The fitted slopes as well as the Pearson correlations are displayed for Pf set to either 0 or 1. (4) Enrichment and significance are computed for putative binding regions.-->
 
+<!--
 ## PICS: Probabilistic Inference for ChIP-seq
 
 - Use shifted t-distributions to model peak shape
@@ -437,6 +438,8 @@ Ji, Hongkai, Hui Jiang, Wenxiu Ma, David S Johnson, Richard M Myers, and Wing H 
     - Computationally very intensive
 
 \tiny Zhang, Xuekui, Gordon Robertson, Martin Krzywinski, Kaida Ning, Arnaud Droit, Steven Jones, and Raphael Gottardo. “PICS: Probabilistic Inference for ChIP-Seq.” Biometrics 67, no. 1 (March 2011): 151–63. https://doi.org/10.1111/j.1541-0420.2010.01441.x.
+-->
+
 
 <!--
 ## PICS 
@@ -571,6 +574,7 @@ HMM-based method:
 - Use negative binomial distribution to model the bin counts, "NBDiff" distribution for differences between IP and control
 - HMM (3-state for TF data, 2-state for epigenomic domains) for genome segmentation. Use permutation to calculate p-values and determine boundaries
 -->
+
 ## SICER
 
 Algorithm:
@@ -733,6 +737,7 @@ Normalization between experiments:
 
 Biological variation and experimental design (same as in RNA-seq)
 
+<!--
 ## Normalization methods for the comparative analysis of ChIP-seq data sets
 
 | Linear Algorithms | Focus on negative control sample |
@@ -756,6 +761,7 @@ Biological variation and experimental design (same as in RNA-seq)
 | POLYPHEMUS      (Quantile and locally weighted regression)         | No                               |
 
 \tiny Bailey, Timothy, Pawel Krajewski, Istvan Ladunga, Celine Lefebvre, Qunhua Li, Tao Liu, Pedro Madrigal, Cenny Taslim, and Jie Zhang. “Practical Guidelines for the Comprehensive Analysis of ChIP-Seq Data.” Edited by Fran Lewitter. PLoS Computational Biology 9, no. 11 (November 14, 2013): e1003326. https://doi.org/10.1371/journal.pcbi.1003326.
+-->
 
 ## Existing method/software for DB analysis
 
