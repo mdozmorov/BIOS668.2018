@@ -26,10 +26,11 @@ output:
 
 ## DNAse-seq
 
-Another widely used approach in gene regulation studies uses DNase I as a tool to identify DNase I Hypersensitive Sites (DHSs) within chromatin (1). DHSs represent open chromatin regions that are normally only accessible at sites of active regulatory elements such as transcriptional enhancers.
+- A widely used approach in gene regulation studies uses DNase I as a tool to identify DNase I Hypersensitive Sites (DHSs) within chromatin
+- DHSs represent open chromatin regions that are normally only accessible at sites of active regulatory elements such as transcriptional enhancers
 
 \begin{center}
-\includegraphics[height=130px]{img/dnase.png}
+\includegraphics[height=120px]{img/dnase.png}
 \end{center}
 
 \tiny Cockerill,P.N. (2011) Structure and function of active chromatin and DNase I hypersensitive sites. FEBS J., 278, 2182–2210.
@@ -39,21 +40,27 @@ Another widely used approach in gene regulation studies uses DNase I as a tool t
 
 ## High-throughput chromatin organization techniques
 
-\includegraphics[height=190px]{img/chromatin_technologies.png}
+\begin{center}
+\includegraphics[height=180px]{img/chromatin_technologies.png}
+\end{center}
 
 \tiny Kagohara, Luciane T., Genevieve L. Stein-O’Brien, Dylan Kelley, Emily Flam, Heather C. Wick, Ludmila V. Danilova, Hariharan Easwaran, et al. “Epigenetic Regulation of Gene Expression in Cancer: Techniques, Resources and Analysis.” Briefings in Functional Genomics, August 11, 2017. https://doi.org/10.1093/bfgp/elx018.
 
 ## Comparison of experimental protocols
 
-\includegraphics[height=190px]{img/other_seq.png}
+\begin{center}
+\includegraphics[height=180px]{img/other_seq.png}
+\end{center}
 
 \tiny Furey, Terrence S. “ChIP–seq and beyond: New and Improved Methodologies to Detect and Characterize Protein–DNA Interactions.” Nature Reviews Genetics 13, no. 12 (October 23, 2012): 840–52. doi:10.1038/nrg3306.
 
 ## ATAC-seq: finding open chromatin regions
 
-ATAC-seq is an ensemble measure of open chromatin that uses the prokaryotic Tn5 transposase to tag regulatory regions by inserting sequencing adapters into accessible regions of the genome.
+- ATAC-seq is an ensemble measure of open chromatin that uses the prokaryotic Tn5 transposase to tag regulatory regions by inserting sequencing adapters into accessible regions of the genome
 
-\includegraphics[height=90px]{img/atac-seq1.png}
+\begin{center}
+\includegraphics[height=80px]{img/atac-seq1.png}
+\end{center}
 
 \tiny Jason D Buenrostro et al., “Transposition of Native Chromatin for Fast and Sensitive Epigenomic Profiling of Open Chromatin, DNA-Binding Proteins and Nucleosome Position,” Nature Methods 10, no. 12 (December 2013): 1213–18, https://doi.org/10.1038/nmeth.2688.
 
@@ -61,10 +68,13 @@ ATAC-seq is an ensemble measure of open chromatin that uses the prokaryotic Tn5 
 
 ## ATAC-seq: finding open chromatin regions
 
-\includegraphics[height=200px]{img/atacseq_vs_others.png}
+\begin{center}
+\includegraphics[height=180px]{img/atacseq_vs_others.png}
+\end{center}
 
 \tiny Jason D Buenrostro et al., “Transposition of Native Chromatin for Fast and Sensitive Epigenomic Profiling of Open Chromatin, DNA-Binding Proteins and Nucleosome Position,” Nature Methods 10, no. 12 (December 2013): 1213–18, https://doi.org/10.1038/nmeth.2688.
 
+<!--
 ## DamID
 
 - DamID, an alternative technique to ChIP-seq (no need for antibodies) to map genome-wide occupancy of interaction sites in vivo
@@ -75,6 +85,7 @@ ATAC-seq is an ensemble measure of open chromatin that uses the prokaryotic Tn5 
 - The resolution of DamID is about 1 kb
 
 \tiny Vogel, Maartje J., Daniel Peric-Hupkes, and Bas van Steensel. “Detection of in Vivo Protein-DNA Interactions Using DamID in Mammalian Cells.” Nature Protocols 2, no. 6 (2007): 1467–78. https://doi.org/10.1038/nprot.2007.148.
+-->
 
 ## Technology-specific data
 
@@ -113,13 +124,17 @@ Hotelling, Harold. “The Generalization of Student’s Ratio.” The Annals of 
 
 ## General analysis pipeline for sequence-tag experiments
 
+\begin{center}
 \includegraphics[height=200px]{img/other_seq_pipeline.png}
+\end{center}
 
 \tiny https://www.nature.com/nrg/journal/v13/n12/full/nrg3306.html
 
 ## Selected software tools available for three key steps in the analysis of sequence data
 
+\begin{center}
 \includegraphics[height=200px]{img/other_seq_soft.png}
+\end{center}
 
 \tiny https://www.nature.com/nrg/journal/v13/n12/full/nrg3306.html
 
