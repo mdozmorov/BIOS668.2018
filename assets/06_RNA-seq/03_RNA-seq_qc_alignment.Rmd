@@ -17,6 +17,12 @@ output:
 
 \tiny http://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8
 
+## RNA-seq analysis workflow
+
+\includegraphics[height=200px]{img/rnaseq_workflow.png}
+
+\tiny https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4900641/
+
 ## FASTA/FASTQ format
 
 **FASTA**: text-based representation of nucleotide sequence
