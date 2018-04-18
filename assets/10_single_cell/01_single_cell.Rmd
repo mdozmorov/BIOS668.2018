@@ -1,0 +1,418 @@
+---
+title: "Single-cell RNA-seq"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Single cell sequencing applications
+
+- Infer cell lineages
+- Identify subpopulations
+- Outline temporal evolution
+- Define cell-specific biological characteristics, e.g., differentially expressed genes
+
+## Single cell timeline
+
+\begin{center}
+\includegraphics[height=140px]{img/timeline.png}
+\end{center}
+
+\tiny Wang, Yong, and Nicholas E. Navin. “Advances and Applications of Single-Cell Sequencing Technologies.” Molecular Cell 58, no. 4 (May 21, 2015): 598–609. https://doi.org/10.1016/j.molcel.2015.05.005.
+
+## Single-cell Sequencing Technology
+
+\begin{center}
+\includegraphics[height=140px]{img/technology.png}
+\end{center}
+
+A single device has three input ports (oil, barcoded beads in lysis buffer, and cells of interest) and a single output port used for collecting bead–cell-containing lipid droplets. Then each cell (or RNA in the cell) is marked by the unique barcode and processed on the bead for sequencing
+
+## Timeline of single-cell technologies
+
+\begin{center}
+\includegraphics[height=140px]{img/scrna_seq_timeline.png}
+\end{center}
+
+\tiny Svensson, Valentine, Roser Vento-Tormo, and Sarah A. Teichmann. “Exponential Scaling of Single-Cell RNA-Seq in the Past Decade.” Nature Protocols 13, no. 4 (April 2018): 599–604. https://doi.org/10.1038/nprot.2017.149.
+
+## How does single-cell data differ from bulk RNA-seq
+
+- In theory, up to 600 cells could be sequenced on a single lane (assuming 120 million reads per lane)
+- Even with the most sensitive platforms, the data are relatively sparse owing to a high frequency of dropout events (lack of detection of specific transcripts)
+- The numbers of expressed genes detected from single cells are typically lower compared with population-level ensemble measurements
+- The commonly used ‘reads per kilobase per million’ (RPKM) transcript quantification is biased on a single-cell level, at the very least the ‘transcripts per million’ (TPM) should be used
+
+## Abundance of zeros
+
+\begin{center}
+\includegraphics[height=150px]{img/prop_zeros.png}
+\end{center}
+
+\tiny Bacher, Rhonda, and Christina Kendziorski. “Design and Computational Analysis of Single-Cell RNA-Sequencing Experiments.” Genome Biology 17 (April 7, 2016): 63. https://doi.org/10.1186/s13059-016-0927-y.
+
+<!--Prominent features in single-cell RNA-seq data relative to bulk RNA-seq include an abundance of zeros, increased variability, and multi-modal expression distributions. a Boxplots of the gene-specific proportion of zeros in a bulk (bulk1) and single-cell (sc1) dataset stratified by percentile of median gene expression. Sequencing depth ranges from 420,000 to 16.6 million in bulk1 and 385,000 to 16.4 million in sc1 (samples were chosen to have comparable depths; see the “Data” section).-->
+
+## How does single-cell data differ from bulk RNA-seq
+
+- scRNA-seq data, in general, are much more variable than bulk data
+- Distributions of transcript quantities are often more complex in single-cell datasets than in bulk RNA-seq - negative binomial or multimodal distributions
+
+## Multimodal distribution of variance
+
+\begin{center}
+\includegraphics[height=170px]{img/multimodality.png}
+\end{center}
+
+\tiny Bacher, Rhonda, and Christina Kendziorski. “Design and Computational Analysis of Single-Cell RNA-Sequencing Experiments.” Genome Biology 17 (April 7, 2016): 63. https://doi.org/10.1186/s13059-016-0927-y.
+
+<!--b Densities of gene-specific log variance for all genes in three bulk and three single-cell RNA-seq datasets. Densities are also shown for the single-cell datasets for log variances calculated following the removal of zeros, emphasizing that the increased variability observed relative to bulk is not entirely due to the presence of zeros. c For each dataset shown in b, 1000 genes were selected at random from the list of genes for which at least 75 % of cells showed non-zero expression. For each gene, zeros were removed and Mclust [92] was applied to log expression to estimate the number of modes. Because zeros were removed prior to Mclust, a mode at zero will not contribute to the total number of modes shown-->
+
+## Filtering
+
+- Filter cells and/or genes
+- No single consensus, frequently used criteria include:
+    - relative library size
+    - number of detected genes (< 10,000)
+    - fraction of reads mapping to mitochondria-encoded genes or synthetic spike-in RNAs (< 500)
+
+## Correlation with regular RNA-seq data
+
+\begin{center}
+\includegraphics[height=190px]{img/scrnaseq_vs_rnaseq.png}
+\end{center}
+
+\tiny https://www.nature.com/nmeth/journal/v11/n1/full/nmeth.2694.html
+
+## scRNA-seq design considerations
+
+Same as for RNA-seq:
+
+- Randomize batch effects
+- Spike-ins (debatable), or unique molecular identifiers (UMIs)
+- Record all sources of variability, check for confounding with the main effect
+
+Low amount of starting material
+
+- Approximately $10^5–10^6$ mRNA molecules are present in a typical single mammalian cell, and up to 10,000 different genes may be expressed
+- ~500,000 to 1M reads per cell (sometimes less (~50,000) reads is sufficient for cell classification [Pollen AA et.al. Nat. Biotechnol. 2014]) vs. 20-30M reads in bulk RNA-seq
+
+## Single cell workflow 
+
+\begin{center}
+\includegraphics[height=200px]{img/workflow.jpg}
+\end{center}
+
+## Noise in scRNA-seq
+
+- Technical noise can be approximated with Poisson distribution
+- Low–read count genes show strong noise and high–read count genes show weak noise
+
+\begin{center}
+\includegraphics[height=150px]{img/singlecell_dilution.png}
+\end{center}
+
+https://www.ncbi.nlm.nih.gov/pubmed/24056876
+
+## Drop-out rate
+
+- Depends on the expected expression magnitude
+- Genes with lower expression magnitude are more likely to be affected by dropout than genes that are expressed with greater magnitude
+
+## Normalization
+
+Ideally, normalize for
+
+- Capture efficiency
+- Amplification biases
+- GC content
+- Differences in total RNA content
+- Sequencing depth (that's what is done in reality)
+
+## Global-scaling normalization
+
+\begin{center}
+\includegraphics[height=110px]{img/global_normalization.png}
+\end{center}
+
+\tiny Vallejos, Catalina A, Davide Risso, Antonio Scialdone, Sandrine Dudoit, and John C Marioni. “Normalizing Single-Cell RNA Sequencing Data: Challenges and Opportunities.” Nature Methods 14, no. 6 (May 15, 2017): 565–71. https://doi.org/10.1038/nmeth.4292.
+
+## Between-sample normalization
+
+TPM or RPKM/FPKM (within-cell normalization) is insufficient - between-sample normalization is needed
+
+- **Median normalization** - identify relatively stable genes to calculate global scaling factors (one for each cell, common across genes in the cell)
+- **Spike-in based normalization** - estimate global rescaling factors from known spike-in concentration
+
+## Spike-in sequences and normalization
+
+- A set of RNA standards for RNA-seq
+    - 92 polyadenylated transcripts that mimic natural eukaryotic mRNAs
+    - Designed to have a wide range of lengths (250–2,000 nucleotides) and GC-contents (5–51%) and can be spiked into RNA samples before library preparation at various concentrations (106-fold range)
+
+- External RNA Control Consortium (ERCC) spike-in controls can be used for normalization in the context of a global expression shift
+    - Count the number of cells in each sample
+    - Add the ERCC spike-in sequences to each sample in proportion to the number of cells
+    - Normalize read counts based on cyclic loess robust local regression on the spike-in counts
+
+\tiny Baker, S.C. et al. The external RNA controls consortium: a progress report. Nat. Methods 2, 731–734 (2005).
+
+Jiang, L. et al. Synthetic spike-in standards for RNA-seq experiments. Genome Res. 21, 1543–1551 (2011).
+
+Loven, J. et al. Revisiting global gene expression analysis. Cell 151, 476–482
+(2012).
+
+## Unique Molecular Identifiers
+
+- Random 4- or 5-mers incorporated into mRNA fragments before amplification. This is in addition to cell barcodes and primers
+- For each cell barcode, count the number of UMIs for every transcript and aggregate this number across all transcripts derived from the same gene locus
+- Significantly reduce noise, improve gene expression quantification
+
+\begin{center}
+\includegraphics[height=90px]{img/umi.png}
+\end{center}
+
+\tiny Grün, Dominic, Lennart Kester, and Alexander van Oudenaarden. “Validation of Noise Models for Single-Cell Transcriptomics.” Nature Methods 11, no. 6 (June 2014): 637–40. https://doi.org/10.1038/nmeth.2930.
+
+# Tools and methods
+
+## SingleCellExperiment
+
+Light-weight container for single-cell genomics data that extends the RangedSummarizedExperiment class with the following additional slots and methods specific to single-cell genomics datasets.
+
+```
+library(SingleCellExperiment)
+sce <- SingleCellExperiment(assays = list(counts = matrix(rpois(100, lambda = 10), ncol=10, nrow=10)))
+```
+
+## SCnorm - normalization for single-cell data
+
+- Quantile regression to estimate the dependence of transcript expression on sequencing depth for every gene
+- Genes with similar dependence are then grouped, and a second quantile regression is used to estimate scale factors within each group
+- Within-group adjustment for sequencing depth is then performed using the estimated scale factors to provide normalized estimates of expression
+
+\tiny https://www.biostat.wisc.edu/~kendzior/SCNORM/
+
+Bacher, Rhonda, Li-Fang Chu, Ning Leng, Audrey P Gasch, James A Thomson, Ron M Stewart, Michael Newton, and Christina Kendziorski. “SCnorm: Robust Normalization of Single-Cell RNA-Seq Data.” Nature Methods 14, no. 6 (April 17, 2017): 584–86. https://doi.org/10.1038/nmeth.4263.
+
+## ZINB-WaVE
+
+- Zero-inflated negative binomial model for normalization, batch removal and dimensionality reduction
+- Extends the RUV model with more careful definition of "unwanted" variation as it may be biological
+
+\tiny https://bioconductor.org/packages/release/bioc/html/zinbwave.html
+
+Davide Risso et al., “ZINB-WaVE: A General and Flexible Method for Signal Extraction from Single-Cell RNA-Seq Data,” BioRxiv, January 1, 2017, https://doi.org/10.1101/125112.
+
+## ZINB-WaVE
+
+\begin{center}
+\includegraphics[height=90px]{img/zinbvawe.png}
+\end{center}
+
+\tiny
+
+- $\mu_{ij} = E[Y_{ij}|Z_{ij} = 0,X,V,W]$
+    - $Y_{ij}$ is the count of gene $j$ ($j = 1,...,J$) for cell $i$ ($i = 1,...,n$)
+    - $Z_{ij}$ an unobserved indicator variable, equal to one if gene $j$ is a dropout in cell $i$ and zero otherwise
+- $\pi_{ij} = Pr(Z_{ij} = 1|X,V,W)$
+- Model $ln(\mu)$ and $logit(\pi)$ with the regression as shown. Both models allow for covariate inclusion
+- The sample-level intercept $\Gamma$ (corresponding to a column of ones in the gene-level covariate matrix $V$) acts as a global-scaling normalization factor
+
+## ZINB-WaVE
+
+- PMF of the negative binomial distribution with mean $\mu$ and inverse dispersion parameter $\theta$
+
+$$f_{NB}(y;\mu,\theta) = \frac{\Gamma(y + \theta)}{\Gamma(y + 1) \Gamma(\theta)} \left( \frac{\theta}{\theta + \mu} \right)^\theta \left( \frac{\mu}{\mu + \theta} \right)^y$$
+
+- Its variance $\sigma^2 = \mu + \frac{\mu^2}{\theta} = \mu + \phi \mu^2$, given the dispersion parameter $\phi = \theta^{-1}$ (when $\phi = 0$, NB = Poisson)
+
+- The PMF fo the zero-inflated negative binomial. For any $\pi \in [0,1]$ - the probability that a 0 is ovserved instead of the actual counts - we have an inflation of zeros compared to the NB distribution
+
+$$f_{ZINB}(y;\mu,\theta,\pi) = \pi \delta_0(y) + (1-\pi)f_{NB}(y;\mu,\theta)$$
+
+$\delta_0(.)$ is the Dirac function
+
+## ZINB-WaVE
+
+Estimate the parameters from the following regression models:
+
+$$ln(\mu_{i,j}) = (X\beta_\mu + (V\Gamma_\mu))^T + W\alpha_\mu + O_\mu)_{i,j}$$
+
+$$logit(\pi_{i,j}) = ln(\frac{\pi_{i,j}}{1-\pi_{i,j}}) = (X\beta_\mu + (V\Gamma_\mu))^T + W\alpha_\mu + O_\mu)_{i,j}$$
+
+$$ln(\theta_{i,j}) = \zeta_j$$
+
+$\zeta$ is a vector of gene-specific dispersion parameters
+
+\tiny https://bioconductor.org/packages/release/bioc/html/zinbwave.html
+
+Davide Risso et al., “ZINB-WaVE: A General and Flexible Method for Signal Extraction from Single-Cell RNA-Seq Data,” BioRxiv, January 1, 2017, https://doi.org/10.1101/125112.
+
+## Sub-population identification
+
+Standard methods used in RNA-Seq
+
+- **Hierarchical clustering**, **PCA**, **tSNE** of highly variable, or differentially expressed, genes. Zeros can be a problem
+- **ZIFA** - Zero-inflated dimensionality reduction algorithm for single-cell data
+- **SNN-Cliq** - A clustering method for high dimensional dataset. Rank-based (not expression) similarity
+
+\tiny https://github.com/epierson9/ZIFA
+
+http://bioinfo.uncc.edu/SNNCliq/
+
+Many more at https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0927-y
+
+## Differentially expressed genes
+
+- Need to accomodate unobserved dropouts, bimodality in expression levels due to abundance of zero or low values (**MAST**, **SCDE**)
+- **scDD** - Distinguishes four types of differential expression changes to increase power:
+    - shifts in unimodal distribution
+    - differences in the number of modes
+    - differences in the proportion of cells within modes
+    - combination of the previous two
+
+\tiny https://github.com/kdkorthauer/scDD
+
+## SCDE - a Bayesian approach to single-cell differential expression detection
+
+- A two-component mixture model to capture drop-out events (modeled by low-magnitude Poisson) and events where a transcript is faithfully amplified (Negative Binomial)
+- Incorporates evidence from other cells to estimate both the likelihood of a gene being expressed in each subpopulation of cells and the likelihood of expression fold change between them
+
+\tiny https://hms-dbmi.github.io/scde/index.html
+
+Kharchenko, Peter V., Lev Silberstein, and David T. Scadden. “Bayesian Approach to Single-Cell Differential Expression Analysis.” Nature Methods 11, no. 7 (July 2014): 740–42. https://doi.org/10.1038/nmeth.2967.
+
+## SCDE - a Bayesian approach to single-cell differential expression detection
+
+\tiny
+
+The posterior probability of a gene being expressed at an average level $x$ in a subpopulation of cells $S$ is determined as an expected value ($E$) as:
+
+$$p_S(x) = E\left[ \prod_{c \in B} p(x|r_c, \Omega_c) \right]$$
+
+where $B$ is a bootstrap sample of $S$, and $p(x|r_c, \Omega_c)$ is the posterior probability for a given cell $c$, as:
+
+$$p(x|r_c, \Omega_c) = p_d(x)p_{Poisson}(x) + (1 - p_d(x))p_{NB}(x|r_c)$$
+
+where $p_d$ is the probability of obseerving a dropout event, $p_{Poisson}(x)$ and $p_{NB}(x|r_c)$ are the probabilities of observing expression magnitude of $r_c$ in case of a dropout (Poisson) or successful amplification (NB) for a gene expressed at an average level $x$ in $S$ in cell $c$, with the parameters of the distributions determined by the $\Omega_c$ fit
+
+## SCDE - a Bayesian approach to single-cell differential expression detection
+
+- For the differential expression analysis, the posterior probability that the gene shows a fold expression difference of $f$ between subpopulations $S$ and $G$ was evaluated as:
+
+$$p(f) = \sum_{x \in X}p_S(x)p_G(fx)$$
+
+where $x$ is the valid range of expression levels
+
+## MAST: a flexible statistical framework for assessing transcriptional changes and characterizing heterogeneity in single-cell RNA sequencing data
+
+- A two-part generalized linear model (hurdle model) explicitly parameterizing expressed and non-detectable gene distributions
+- Includes as a covariate the fraction of genes that are detectably expressed in each cell as a proxy for both technical and biological sources of variation ($CDR$). For cell $i$, $CRD_i = 1/N \sum_{g=1}^N z_{ig}$, where $z_{ig}$ is an indicator if gene $g$ in cell $i$ is expressed above background
+- The expression measure of a detected gene is modeled by linear regression and the probability of detection by logistic regression
+
+\tiny https://github.com/RGLab/MAST
+
+
+## Cell clustering
+
+- Perhaps the most active topic in scRNA-seq
+- The goals include:
+    - Cluster cells into subgroups
+    - Model temporal transcriptomic dynamics: reconstruct “pseudo-time” for cells. This is useful for understanding development or disease progression
+- Traditional method like k-means or hierarchical clustering need to be used with caution due to dropout events
+
+## t-SNE: a useful visualization tool
+
+- t-SNE (t-distributed stochastic neighbor embedding): visualize high-dimensional data on 2-/3-D map
+- When project high-dimensional data into lower dimensional space, preserve the distances among data points
+    - This alleviate the problem that many clusters overlap on low dimensional space
+- Try to make the pairwise distances of points similar in high and low dimension
+- This is used in almost all scRNA-seq data visualization
+- Has “tsne” package on CRAN
+
+## Pseudotemporal ordering 
+
+- Idea - cells at different differentiation (or other biological process) stage are presented with different expression profiles
+- Dynamics of cellular processes can be reconstructed from expression profiles
+- Key assumption: genes do not change direction very often, thus samples with similar transcriptional profiles should be close in order
+- Most approaches are dimensionality reduction-based, and apply graph theory designed to traverse nodes in a graph efficiently
+- **Monocle** - Independent component analysis, then a minimum spanning three through the dimension-reduced data
+
+\tiny https://cole-trapnell-lab.github.io/monocle-release/
+
+Many more at https://github.com/agitter/single-cell-pseudotime
+
+## Monocle, An analysis toolkit for single-cell RNA-seq
+
+Single-cell trajectories, clustering, visualization, differential expression
+
+\begin{center}
+\includegraphics[height=170px]{img/monocle.png}
+\end{center}
+
+\tiny https://cole-trapnell-lab.github.io/monocle-release/
+
+Trapnell, Cole, Davide Cacchiarelli, Jonna Grimsby, Prapti Pokharel, Shuqiang Li, Michael Morse, Niall J. Lennon, Kenneth J. Livak, Tarjei S. Mikkelsen, and John L. Rinn. “The Dynamics and Regulators of Cell Fate Decisions Are Revealed by Pseudotemporal Ordering of Single Cells.” Nature Biotechnology 32, no. 4 (April 2014): 381–86. https://doi.org/10.1038/nbt.2859.
+
+## Slingshot
+
+- Inferring multiple developmental lineages from single-cell gene expression
+- Clustering by gene expression, then inferring cell lineage as an ordered set of clusters - minimum spanning tree through the clusters using Mahalanobis distance
+- Initial state and terminal state specification
+- Principal curves to draw a path through the gene expression space of each lineage
+
+\tiny https://github.com/kstreet13/slingshot
+
+## Single-cell network analysis
+
+- `SCENIC` R package - single-cell network reconstruction and cell-state identification. Three modules: 
+    1) `GENIE3` - Connect co-expressed genes and TFs using random forest regression; 
+    2) `RcisTarget` - Refine them using cis-motif enrichment; 
+    3) `AUCell` - assign activity scores for each network in each cell type.
+
+\tiny Aibar, Sara, Carmen Bravo González-Blas, Thomas Moerman, Vân Anh Huynh-Thu, Hana Imrichova, Gert Hulselmans, Florian Rambow, et al. “SCENIC: Single-Cell Regulatory Network Inference and Clustering.” Nature Methods 14, no. 11 (November 2017): 1083–86. https://doi.org/10.1038/nmeth.4463.
+
+https://gbiomed.kuleuven.be/english/research/50000622/lcb/tools/scenic
+
+https://github.com/aertslab/SCENIC
+
+https://github.com/aertslab/GENIE3
+
+https://github.com/aertslab/AUCell
+
+## ZIFA - dimensionality reduction for zero-inflated 
+
+- Given the mean level of non-zero expression (log read count) $\mu$ and the dropout rate for that gene $p_0$, model the dropout as $p_0 = exp(-\lambda\mu^2)$, where $\lambda$ is a fitted parameter, based on
+a double exponential function
+- EM algorithm that incorporates imputation step for the expected gene expression level of drop-outs
+
+\tiny https://github.com/epierson9/ZIFA
+
+Pierson, Emma, and Christopher Yau. “ZIFA: Dimensionality Reduction for Zero-Inflated Single-Cell Gene Expression Analysis.” Genome Biology 16 (November 2, 2015): 241. https://doi.org/10.1186/s13059-015-0805-z.
+
+## All-in-one tools
+
+\begin{center}
+\includegraphics[height=200px]{img/scrnaseq_tools.png}
+\end{center}
+
+\tiny Zhu, Xun, Thomas K. Wolfgruber, Austin Tasato, Cédric Arisdakessian, David G. Garmire, and Lana X. Garmire. “Granatum: A Graphical Single-Cell RNA-Seq Analysis Pipeline for Genomics Scientists.” Genome Medicine 9, no. 1 (December 2017). https://doi.org/10.1186/s13073-017-0492-3. http://garmiregroup.org/granatum/app 
+
+## ascend - Analysis of Single Cell Expression, Normalisation and Differential expression
+
+\begin{center}
+\includegraphics[height=200px]{img/workflow1.png}
+\end{center}
+
+\tiny R package https://github.com/IMB-Computational-Genomics-Lab/ascend
+
