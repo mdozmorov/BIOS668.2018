@@ -2,6 +2,7 @@ _site
 .sass-cache
 .jekyll-metadata
 node_modules
+.DS_Store
 .Rproj.user
 assets/Untitled.*
 assets/README.md
