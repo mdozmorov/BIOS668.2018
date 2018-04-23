@@ -169,7 +169,7 @@ Not all microbes are bad: Beneficial microbes perform functions essential for hu
 ## OTU
 
 - The third approach, open-reference clustering, is a hybrid of the closed-reference and de novo approaches (Navas-Molina et al., 2013; Rideout et al., 2014). 
-- Open-reference clustering involves performing closed-reference clustering followed by de novo clustering on those sequences that are not su ciently similar to the reference.
+- Open-reference clustering involves performing closed-reference clustering followed by de novo clustering on those sequences that are not sufficiently similar to the reference.
 
 ## Taxonomic thresholds of bacteria and archaea
 
@@ -434,6 +434,8 @@ A 6-minute video describing curatedMetagenomicData and giving a simple usage sce
 | RampelliS_2015      | 38      | Rampelli, S. et al. Metagenome Sequencing of the Hadza Hunter-Gatherer Gut Microbiota. Curr. Biol. 25, 1682–1693 (2015).                                                                    |
 | TettAJ_2016         | 97      | Ferretti, P. et al. Experimental metagenomics and ribosomal profiling of the human skin microbiome. Exp. Dermatol. (2016). doi:10.1111/exd.13210                                            |
 | ZellerG_2014        | 156     | Zeller, G. et al. Potential of fecal microbiota for early-stage detection of colorectal cancer. Mol. Syst. Biol. 10, 766 (2014).                                                            |
+
+<!--
 ## MetaPhlAn: Metagenomic Phylogenetic Analysis
 
 - MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic shotgun sequencing data. 
@@ -442,6 +444,7 @@ A 6-minute video describing curatedMetagenomicData and giving a simple usage sce
 - Used by the Human Microbiome project
 
 \tiny http://huttenhower.sph.harvard.edu/metaphlan/
+-->
 
 ## `phyloseq` R package
 
