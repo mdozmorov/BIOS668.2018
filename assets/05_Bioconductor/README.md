@@ -76,4 +76,8 @@ or
 
 - Kishore, Kamal, Stefano de Pretis, Ryan Lister, Marco J. Morelli, Valerio Bianchi, Bruno Amati, Joseph R. Ecker, and Mattia Pelizzola. “MethylPipe and CompEpiTools: A Suite of R Packages for the Integrative Analysis of Epigenomics Data.” BMC Bioinformatics 16 (September 29, 2015): 313. https://doi.org/10.1186/s12859-015-0742-6. - methylPipe + compEpiTools. Integrative analysis of methylation and other omics data. Detailed description of each function. Table 1 lists comparison with other tools. https://bioconductor.org/packages/release/bioc/html/methylPipe.html, https://bioconductor.org/packages/release/bioc/html/compEpiTools.html, https://bioconductor.org/packages/release/data/experiment/html/ListerEtAlBSseq.html
 
+- Gu, Zuguang, Roland Eils, Matthias Schlesner, and Naveed Ishaque. “EnrichedHeatmap: An R/Bioconductor Package for Comprehensive Visualization of Genomic Signal Associations.” BMC Genomics 19, no. 1 (April 2018): 234. https://doi.org/10.1186/s12864-018-4625-x. - EnrichedHeatmap - genomics data visualization, intro on other packages (deeptools, ngs.plot, genomation). https://bioconductor.org/packages/release/bioc/html/EnrichedHeatmap.html
+
+
+
 
