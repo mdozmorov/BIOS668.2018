@@ -1,0 +1,167 @@
+---
+title: "Genome-Wide Association Studies"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Definitions
+
+- **ASSOCIATION STUDY** - A genetic variant is genotyped in a population for which phenotypic information is available (such as disease occurrence, or a range of different trait values). If a correlation is observed between genotype and phenotype, there is said to be an association between the variant and the disease or trait.
+- **QUANTITATIVE TRAIT** - A biological trait that shows continuous variation (such as height) rather than falling into distinct categories (such as diabetic or healthy). The genetic basis of these traits generally involves the effects of multiple genes and gene–environment interactions. Examples of quantitative traits that contribute to disease are body mass index, blood pressure and blood lipid levels
+- **CANDIDATE GENE** - A gene for which there is evidence of its possible role in the trait or disease that is under study.
+
+## The Role of GWAS SNP Arrays in Human Genetic Discoveries
+
+\begin{center}
+\includegraphics[height=170px]{img/gwas_analyses.png}
+\end{center}
+
+\tiny Visscher, Peter M., Naomi R. Wray, Qian Zhang, Pamela Sklar, Mark I. McCarthy, Matthew A. Brown, and Jian Yang. "10 Years of GWAS Discovery: Biology, Function, and Translation." The American Journal of Human Genetics 101, no. 1 (July 2017): 5–22. https://doi.org/10.1016/j.ajhg.2017.06.005.
+
+
+## Genetic disorders
+
+- _Mendelian_ diseases - caused by changes in a single genes
+- Most heritable diseases in humans are _multigenic_ or _complex_ rather than Mendelian
+- In a complex genetic model, many genes and possible environmental factors collectively increase the risk of disease in a population, but each gene individually contributes minor to modest effects.
+
+## Genome-Wide Association Studies (GWAS)
+
+\begin{center}
+\includegraphics[height=170px]{img/gwas.png}
+\end{center}
+
+\tiny McCarthy, Mark I., Gonçalo R. Abecasis, Lon R. Cardon, David B. Goldstein, Julian Little, John P. A. Ioannidis, and Joel N. Hirschhorn. “Genome-Wide Association Studies for Complex Traits: Consensus, Uncertainty and Challenges.” Nature Reviews. Genetics 9, no. 5 (May 2008): 356–69. https://doi.org/10.1038/nrg2344.
+
+## Genetic definitions
+
+\begin{center}
+\includegraphics[height=150px]{img/genetic_definitions.png}
+\end{center}
+
+\tiny Paria N, Copley LA, Herring JA, Kim HK, Richards BS, Sucato DJ, Rios JJ, Wise 
+CA. The impact of large-scale genomic methods in orthopaedic disorders: insights 
+from genome-wide association studies. J Bone Joint Surg Am. 2014 Mar 5;96(5):e38.
+doi: 10.2106/JBJS.M.00398
+
+## GWAS workflow
+
+\begin{center}
+\includegraphics[height=190px]{img/gwas_workflow1.png}
+\end{center}
+
+## GWAS workflow
+
+\begin{center}
+\includegraphics[height=190px]{img/gwas_workflow2.png}
+\end{center}
+
+## GWAS workflow
+
+\begin{center}
+\includegraphics[height=190px]{img/gwas_pipeline.jpeg}
+\end{center}
+
+\tiny Panoutsopoulou K, Tachmazidou I, Zeggini E. In search of low-frequency and
+rare variants affecting complex traits. Hum Mol Genet. 2013 Oct 15;22(R1):R16-21.
+doi: 10.1093/hmg/ddt376
+
+## GWAS workflow
+
+\begin{center}
+\includegraphics[height=190px]{img/gwas_workflow3.png}
+\end{center}
+
+\tiny Reed, Eric, Sara Nunez, David Kulp, Jing Qian, Muredach P. Reilly, and Andrea S. Foulkes. “A Guide to Genome-Wide Association Analysis and Post-Analytic Interrogation.” Statistics in Medicine 34, no. 28 (December 10, 2015): 3769–92. https://doi.org/10.1002/sim.6605.
+
+
+## GWAS power
+
+\begin{center}
+\includegraphics[height=170px]{img/gwas_power.png}
+\end{center}
+
+\tiny Online tools, such as PAWE (Power Analysis With Errors, http://www.jurgott.org/linkage/pawe3d.zip) and the Genetic Power Calculator (http://zzz.bwh.harvard.edu/gpc/), are available.
+
+http://journals.lww.com/jbjsjournal/Citation/2014/03050/The_Impact_of_Large_Scale_Genomic_Methods_in.16.aspx
+
+## GWAS significance level
+
+- The first is the need to adjust for multiple testing and the probability of chance associations. For example, for a significance level ($\alpha$) of $0.05$, a typical GWAS involving 1 million SNPs will generate 1 million x 0.05 = 50,000 SNPs with $p < 0.05$ as a result of chance.
+
+Genome-wide significance levels for the GWAS era were estimated to be at $P = 5 x 10^{-8}$ based on the number of independent common-frequency variants across the genome calculated based on the European population data from the HapMap Project
+
+## GWAScatalog - the Catalog of Published Genome-Wide Association Studies
+
+\begin{center}
+\includegraphics[height=150px]{img/gwascatalog.png}
+\end{center}
+
+\tiny https://www.ebi.ac.uk/gwas/
+
+## Statistical analysis: linear regression
+
+Two main parameters: p-value and effect size
+
+$$y = \beta_0 + \beta_1 x$$
+$$Trait = \beta_0 + \beta_1 SNP_1$$
+$$Toe size = \beta_0 + \beta_1 rs9876543$$
+
+\begin{center}
+\includegraphics[height=170px]{img/snp_regression.png}
+\end{center}
+
+## Statistical analysis: linear regression
+
+Two main parameters: p-value and effect size
+
+$$y = \beta_0 + \beta_1 x$$
+$$Trait = \beta_0 + \beta_1 SNP_1$$
+$$Toe size = \beta_0 + \beta_1 rs9876543$$
+
+$$Toe size = \beta_0 + \beta_1 rs9876543 + \beta_2 sex + \beta_3 age + \beta_4 age^2 + \beta_5 BMI$$
+
+Assumptions
+
+Trait is normally distributed for each genotype, with a common variance
+
+- Subjects independent (e.g. unrelated)
+
+## Odds ratio
+
+- Surrogate measure of effect of allele on risk of developing disease
+
+| Allele  | A    | C    | Total |
+|---------|------|------|-------|
+|         |      |      |       |
+| Case    | 860  | 1140 | 2000  |
+|         |      |      |       |
+| Control | 1000 | 1000 | 2000  |
+|         |      |      |       |
+| Total   | 1860 | 2140 | 4000  |
+
+Odds of C allele given case $status = Case C / Case A$  
+Odds of C allele given control $status = Control C / Control A$  
+$OddsRatio= \frac{CaseC/CaseA}{Control C / Control A} = \frac{1140/860}{1000 / 1000} = 1.33$  
+
+## Multiple testing
+
+- Genotype and test > 300K – 5M SNPs
+- Correct for the multiple tests
+
+$$\frac{0.05\ P-value}{~1\ million\ common\ SNPs} = 5 x 10^{-8}$$
+
+- Need large effect or large sample size
+
+
+

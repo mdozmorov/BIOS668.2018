@@ -1,0 +1,876 @@
+---
+title: "Single Nucleotide Polymorphisms"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## How much do we differ? (number of aligned DNA base differences)
+
+\begin{center}
+\includegraphics[height=170px]{img/snp_difference.png}
+\end{center}
+
+\tiny Human mutation rate is 1.0 – 1.5 x 10-8 per bp per generation: we transmit ~30 new DNA variants with each gamete (J. Roach et al., 2010, Science; D. Conrad et al., 2011, Nature Genetics)
+
+## Genome diversity
+
+- **SNPs** (Single Nucleotide Polymorphisms) - base substitutions
+- In humans, occur approx. once per 1,000 bases ($\sim 3 x 10^6$ per genome)
+- Most polymorphisms (~90%) take the form of SNPs: variations that involve just one nucleotide
+- InDels (insertion/deletion, frameshifts) - occur in 1 in every 300 bp (human)
+
+\begin{center}
+\includegraphics[height=120px]{img/number_of_snps.png}
+\end{center}
+
+## Functional Consequences
+
+| Type                                              | Consequence                                                 |
+|---------------------------------------------------|-------------------------------------------------------------|
+| SNPs in coding area that alter aa sequence        | Cause of most monogenic disorders, e.g:                     |
+|                                                   | Cystic fibrosis (CFTR)                                      |
+|                                                   | Hemophilia (F8)                                             |
+| SNPs in coding areas that don’t alter amino acid sequence | May affect splicing                                         |
+| SNPs in promoter or regulatory regions            | May affect the level, location or timing of gene expression |
+| SNPs in other regions                             | No direct known impact on phenotype                         |
+|                                                   | Useful as markers                                           |
+
+## Studying variation – why?
+
+- SNPs can cause disease
+    - SNP in clotting factor IX codes for a stop codon: haemophilia
+- SNPs can increase disease risk
+    - SNP in LDL receptor reduces efficiency: high cholesterol
+- SNPs can affect drug response
+    - SNP in CYP2D8, a gene in the drug breakdown pathway in the liver, disrputs breakdown of debrisoquine, a treatment for high blood pressure
+
+## Studying variation – why?
+
+- Determine disease risk
+- Individualised medicine (pharmacogenomics)
+- Forensic studies
+- Biological markers
+- Hybridisation studies, marker-assisted breeding
+- Understanding evolution
+
+## Reference Sequence
+
+- The Human Genome Project gave the "average" DNA sequence of a small number of people.
+- This helps us find out how a human develops and works
+- Does not show us the DNA differences between different humans
+- Does not reflect the major alleles
+
+## 1000 genomes
+
+- Delivering 20TB of sequence data
+- First Pilot. 60 HapMap samples sequenced (low coverage)
+- Second Pilot. Two trios of European and African descent (high coverage)
+- Third Pilot. Sequence 1,000 genes in 1,000 individuals (high coverage)
+
+## Haplotypes
+
+- Adjacent SNPs are often highly correlated, occurring together in individuals of similar ancestry
+- These combinations of adjacent SNPs are termed **haplotypes**
+- A **haplotype** is a set of SNPs (on average ~25 kb) found to be statistically associated on a single chromatid and which therefore tend to be inherited together over time.
+- The International HapMap (haplotype mapping) project was launched in 2002 and provided critical insight regarding differences in the SNP frequencies and genome-wide haplotypes of different ethnic groups worldwide
+- Used for grouping subjects by haplotypes.
+
+\tiny www.hapmap.org
+
+## HapMap (phase I & II)
+
+Samples from populations with African, Asian and European ancestry.
+
+- 270 DNA samples from 4 populations:
+- 30 trios (two parents and an adult child) from the Yoruba people of Ibadan, Nigeria
+- 45 unrelated Japanese from the Tokyo area
+- 45 unrelated Han Chinese from Beijing
+- 30 trios from Utah with Northern and Western European ancestry (CEPH)
+
+## HapMap (phase III)
+
+Genotypes from 1115 individual from 11 populations:
+
+- ASW African ancestry in Southwest USA (71)
+- CEU Utah residents with Northern and Western European ancestry from the CEPH collection (162)
+- CHB Han Chinese in Beijing, China (70)
+- CHD Chinese in Metropolitan Denver, Colorado (70)
+- GIH Gujarati Indians in Houston, Texas (83)
+- JPT Japanese in Tokyo, Japan (82)
+- LWK Luhya in Webuye, Kenya (83)
+- MEX Mexican ancestry in Los Angeles, California (71)
+- MKK Maasai in Kinyawa, Kenya (171)
+- TSI Toscani in Italia (77)
+- YRI Yoruba in Ibadan, Nigeria (163)
+
+## dbSNP
+
+Central repository for simple genetic polymorphisms:
+
+- single-base nucleotide substitutions
+- small-scale multi-base deletions or insertions
+- retroposable element insertions and microsatellite repeat variations
+
+- For human (dbSNP build 151) 
+    - 907.2 Million submissions (submitter SNPs, ss#’s)
+    - 325.7 Million unique submitted SNPs (reference SNPs, rs#'s)
+
+\tiny http://www.ncbi.nlm.nih.gov/SNP/
+
+## Other SNP resources
+
+- **ExAC**  - the Exome Aggregation Consortium (ExAC), a coalition of investigators seeking to aggregate and harmonize exome sequencing data from a wide variety of large-scale sequencing projects, and to make summary data available for the wider scientific community
+- **gnomAD** - the Genome Aggregation Database (gnomAD), adds whole genome variants
+
+\begin{center}
+\includegraphics[height=100px]{img/exacv2_barplot_cut.png}
+\end{center}
+
+\tiny http://exac.broadinstitute.org/, ftp://ftp.broadinstitute.org/pub/ExAC_release
+
+http://gnomad.broadinstitute.org/, http://gnomad.broadinstitute.org/downloads
+
+https://macarthurlab.org/2017/02/27/the-genome-aggregation-database-gnomad/
+
+## SNP types
+
+- **Non-synonymous** - In coding sequence, resulting in an aa change
+- **Synonymous** - In coding sequence, not resulting in an aa change
+- **Frameshift** - In coding sequence, resulting in a frameshift
+- **Stop lost** - In coding sequence, resulting in the loss of a stop codon
+- **Stop gained** - In coding sequence, resulting in the gain of a stop codon
+
+\tiny How ClinVar defines its clinical significance values. https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/
+
+## SNP types
+
+- **Essential splice site** - In the first 2 or the last 2 basepairs of an intron
+- **Splice site** - 1-3 bps into an exon or 3-8 bps into an intron
+- **Upstream** - Within 5 kb upstream of the 5'-end of a transcript
+- **Regulatory region** - In regulatory region annotated by Ensembl
+- **5' UTR** - In 5' UTR
+- **Intronic** - In intron
+- **3' UTR** - In 3' UTR
+- **Downstream** - Within 5 kb downstream of the 3'-end of a transcript
+- **Intergenic** - More than 5 kb away from a transcript
+
+## Sequence Variant Nomenclature
+
+- Human Genome Variation Society nomenclature. 
+    - Example: NM_004006.1:c.[145C>T;147C>G] - two substitutions replacing codon CGC (position c.145 to c.147) by TGG
+
+\begin{center}
+\includegraphics[height=130px]{img/nomenclature-guide.png}
+\end{center}
+
+\tiny http://varnomen.hgvs.org/
+
+## Linkage Disequilibrium
+
+- **LINKAGE DISEQUILIBRIUM** - Correlation between nearby variants such that the alleles at neighbouring markers (observed on the same chromosome) are associated within a population more often than if they were unlinked.
+- LD is the deviation from equilibrium, or random association. (i.e. in a population, two alleles are always inherited together, though they should undergo recombination some of the time.)
+
+## Linkage disequilibrium
+
+\begin{center}
+\includegraphics[height=170px]{img/linkage_disequilibrium_maps.png}
+\end{center}
+
+LD values between two variants are displayed by means of inverted coloured triangles going from white (low LD) to red (high LD)
+
+## Measures of LD
+
+$D = P(AB) - P(A)P(B)$  
+
+- $D$ ranges from – 0.25 to + 0.25  
+- $D = 0$ indicates linkage equilibrium  
+- dependent on allele frequencies, therefore of little use  
+
+$D’ = D / maximum\ possible\ value$   
+
+- $D’ = 1$ indicates perfect LD  
+- estimates of D’ strongly inflated in small samples  
+
+$r^2 = D^2 / P(A)P(B)P(a)P(b)$  
+
+- $r^2 = 1$ indicates perfect LD  
+- measure of choice  
+
+## Tag SNPs
+
+- **HAPLOTYPE** - A sequential set of genetic markers that are present on the same chromosome.
+- **TAG SNPs** - Single nucleotide polymorphisms that are correlated with, and therefore can serve as a proxy for, much of the known remaining common variation in a region.
+    - Tag SNPs define the minimum SNP set to identify a haplotype
+
+$r^2 = 1$ between two SNPs means one would be ‘redundant’ in the haplotype.
+
+\tiny https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html
+
+## Genotypes
+
+- **Homozygote** - a SNP having **two identical alleles** of a particular gene or genes
+- **Heterozygote** - a SNP having **two different alleles** of a particular gene or genes
+
+\begin{center}
+\includegraphics[height=150px]{img/snp_homo_hetero.png}
+\end{center}
+
+<!--
+## REF and ALT
+
+snp_ref-alt1.png
+snp_ref-alt2.png
+-->
+
+## Homo
+
+\begin{center}
+\includegraphics[height=100px]{img/vcf_homo.png}
+\end{center}
+
+## Hetero
+
+\begin{center}
+\includegraphics[height=100px]{img/vcf_hetero.png}
+\end{center}
+
+## HomDel
+
+\begin{center}
+\includegraphics[height=100px]{img/vcf_homodel.png}
+\end{center}
+
+## HetetroIns
+
+\begin{center}
+\includegraphics[height=100px]{img/vcf_heteroins.png}
+\end{center}
+
+## Genotypes summary
+
+\begin{center}
+\includegraphics[height=80px]{img/vcf_genotypes_summary.png}
+\end{center}
+
+## SNP calling pipeline
+
+\begin{center}
+\includegraphics[height=190px]{img/snp_pipeline.jpg}
+\end{center}
+
+\tiny https://humgenomics.biomedcentral.com/articles/10.1186/1479-7364-8-14
+
+## SNP calling
+
+- Algorithms should have high power to detect a wide range of variation, including single- and multiple-nucleotide variants (SNVs and MNVs) and structural variation including indels, sequence replacements and mobile element insertions
+- Must have low false discovery rates (FDRs) to minimize costly validation experiments
+- Should be able to cope with challenging loci, including highly repetitive sequence and reference errors, and be robust to high levels of local diversity to access clinically interesting regions such as the human leukocyte antigen (HLA) loci
+- Should have low resource requirements and run on commodity hardware while achieving fast turnaround times
+
+## SNP calling
+
+- The most common approach is to map reads to a reference genome and either scan for systematic differences with the reference or identify haplotypes that are well supported by the data
+    - **Strengths:** Highly sensitive, use common reference, use paired-end information, low on computations
+    - **Weaknesses:** Focus on single-base variants, fail in highly divergent regions, e.g., Human Leukocyte Antigen region, require realignment around known indels, computationally high
+
+## SNP calling
+
+- A complementary approach is reference-free sequence assembly - de Bruijn or overlap graphs
+- Search this data structure for evidence of polymorphisms
+    - **Strengths:** By not relying on a reference genome, this approach is variant agnostic, copes well with highly divergent regions, naturally works on the local haplotype level rather than on the level of individual variants and avoids the need for an initial mapping and alignment step
+    - **Weaknesses:** high computational requirements, lower sensitivity than mapping-based approaches, limited by repetitive sequence, as contiguity information is lost when the reads are broken up into their consecutive k-mers during graph construction
+
+## Genome Analysis Toolkit
+
+- A single framework and the associated tools capable of discovering high-quality variation and genotyping individual samples using diverse sequencing machines and experimental designs
+    - Initial read  mapping;
+    - Local realignment around indels; 
+    - Base quality  score recalibration;
+    - SNP discovery and genotyping to find  all potential variants; 
+    - Machine learning to separate  true segregating variation from machine artifacts common to  next-generation sequencing technologies.
+
+\tiny https://software.broadinstitute.org/gatk/
+
+DePristo, Mark A., Eric Banks, Ryan Poplin, Kiran V. Garimella, Jared R. Maguire, Christopher Hartl, Anthony A. Philippakis, et al. "A Framework for Variation Discovery and Genotyping Using Next-Generation DNA Sequencing Data." Nature Genetics 43, no. 5 (May 2011): 491–98. https://doi.org/10.1038/ng.806.
+
+## GATK Variant Calling Best Practices
+
+\begin{center}
+\includegraphics[height=170px]{img/gatk_best_practices.png}
+\end{center}
+
+## Genome Analysis Toolkit
+
+\begin{center}
+\includegraphics[height=170px]{img/gatk_pipeline.png}
+\end{center}
+
+\tiny https://software.broadinstitute.org/gatk/
+
+DePristo, Mark A., Eric Banks, Ryan Poplin, Kiran V. Garimella, Jared R. Maguire, Christopher Hartl, Anthony A. Philippakis, et al. "A Framework for Variation Discovery and Genotyping Using Next-Generation DNA Sequencing Data." Nature Genetics 43, no. 5 (May 2011): 491–98. https://doi.org/10.1038/ng.806.
+
+## Genome Analysis Toolkit
+
+- Excellent documentation, tutorials, best practices guidelines
+- Cloud-ready and parallelizable
+- Current version - GATK4 
+    - Uses Mutect2 algorithm
+    - Adapted for better CNV/SV detection
+    - Neural network for variant filtering
+
+\tiny https://software.broadinstitute.org/gatk/gatk4
+
+## GATK HaplotypeCaller
+
+- Jointly calling variants on multiple samples
+- Better detects insertions and deletions
+- Produces square matrix with samples vs. variants calls
+- Algorithm: 
+    - defining "Active regions" with high coverage
+    - local reassembly using de Bruijn graph
+    - hidden Markov Model to identify match, insertion, or deletion
+    - haplotype calling based on CIGAR information using Bayesian model
+
+\tiny Poplin, Ryan, Valentin Ruano-Rubio, Mark A. DePristo, Tim J. Fennell, Mauricio O. Carneiro, Geraldine A. Van der Auwera, David E. Kling, et al. "Scaling Accurate Genetic Variant Discovery to Tens of Thousands of Samples." BioRxiv, January 1, 2017. https://doi.org/10.1101/201178.
+
+## Filtering
+
+The rationale for filtering
+
+- To eliminate False Positive variants from variant list
+- What causes errors in variant calling?
+    - **Sequencing errors** - should be accounted for by base quality + recalibration + marking of duplicates
+    - **Incorrect alignment** - Re-alignment step should have reduced this problem but not eliminated it
+- Thus although QUAL (which depends on Mapping Quality of reads and Base qualities) is a useful measure, there will still be FP with high QUAL
+
+## VCF annotation
+
+\begin{center}
+\includegraphics[height=60px]{img/vcf_annotation.png}
+\end{center}
+
+## INFO fields – important for filtering
+
+\scriptsize
+
+<!--
+- **Coverage** (`DP`) - Total (unfiltered) depth of coverage
+- **QualByDepth** (`QD`) - Variant confidence (from the QUAL field)/unfiltered depth of non-reference samples
+- **FisherStrand** (`FS`) - Phred-scaled p-value using Fisher’s Exact Test (Fisher, 1922) to detect strand bias (the variation being seen on only the forward or only the reverse strand) in the reads. More bias is indicative of false positive calls
+- **MappingQualityRankSumTest** (`MQRankSum`) - The u-based z-approximation from the Mann-Whitney Rank Sum Test (Mann and Whitney, 1947) for mapping qualities (reads with ref bases versus those with the alternate allele). Note that the mapping quality rank sum test cannot be calculated for sites without a mixture of reads showing both the reference and alternate alleles.
+- **ReadPosRankSumTest** (`ReadPosRankSum`) - The u-based z-approximation from the Mann-Whitney Rank Sum Test (Mann and Whitney, 1947) for the distance from the end of the read for reads with the alternate allele. If the alternate allele is only seen near the ends of reads, this is indicative of error. Note that the read position rank sum test cannot be calculated for sites without a mixture of reads showing both the reference and alternate alleles.
+-->
+- QD: variant quality score over depth
+    - Confidence in the site being variant should increase with increasing depth
+- MQ: Root Mean Square of MAPQ of all reads at locus
+    - Regions of excessively low mapping quality are ambiguously mapped and variants called within are suspicious
+- MQ0: number of MAPQ 0 reads at locus
+- MQRankSum: Mapping quality rank sum test
+    - If the alternate bases are more likely to be found on reads with lower MAPQ than reference bases then the site is likely mismapped
+- Haplotype score: Probability that the reads in a window around the variant can be explained by at most two haplotypes
+- FS: fisher exact test of read strand
+    - If the reference-carrying reads are balanced between forward and reverse strands then the alternate-carrying reads should be as well
+- ReadPosRankSum: Read position rank sum test
+    - If the alternate bases are biased towards the beginning or end of the reads then the site is likely a mapping artifact
+
+## Strand bias (assume heterozygote)
+
+\begin{center}
+\includegraphics[height=190px]{img/vcf_strand_bias.png}
+\end{center}
+
+## Hard vs. soft filtering
+
+- Can set thresholds for the relevant INFO fields and request that all thresholds are passed for a variant to be considered valid
+- Which fields to you use and where do you set the thresholds? –  use datasets of known SNPs and compare their INFO fields to those likely FP variants
+- Disadvantage of hard filtering –  loosely justified hard cut-offs
+- Variant Quality Score Recalibration (GATK) or soft filtering
+
+## VCF files: normalization
+
+- The VCF format is quite precise but still leaves room for representing one variant in multiple ways - normalization (harmonization) of variant representation is needed
+- **Parsimony**
+    - Pos: 5, Ref: `ATC`, Alt: `AT`
+    - **Or** Pos: 6, Ref: `TC`, Alt: `T` >> most parsimonious
+- Left alignment, suppose context: pos 8, ref: `ATTTT`, `T` deletion
+    - Pos: 10, Ref: `TT`, Alt: `T`
+    - **Or** Pos: 8, Ref: `AT`, Alt: `A` >> left aligned
+- **MNP on separate lines**
+    - 150 `TCT` `CCC` - Can be decomposed into two records: 150 `T` `C` AND 152 `T` `C`
+- One should also ensure that the same reference naming is used in both comparison files and that both files have the same sort order
+
+\tiny https://github.com/chapmanb/bcbio.variation/wiki/Normalized-variant-representation
+
+http://genome.sph.umich.edu/wiki/Variant_Normalization
+
+http://annovar.openbioinformatics.org/en/latest/articles/VCF/
+
+## Other VCF issues
+
+- Chromosome labeling: chr1, chr2 ... vs. 1, 2, X, Y, M
+- Chromosome ordering: 1, 2, 3, 4 ... vs. 1, 10, 11, ...
+- GATK enforcement of "X, Y, MT" sorting vs. "MT, X, Y"
+
+## `vcflib` - a simple C++ library for parsing and manipulating VCF files, + many command-line utilities
+
+- Comparison: intersection, overlay-merge, combine, validate
+- Format conversion: to tab-separated, BED formats
+- Filtering: using the INFO and sample fields, random sampling, select by criteria
+- Annotation: one VCF with INFO fields from another VCF, from BED, annotate by distance
+- Samples: extract sample names, remove samples
+- Ordering: sort, remove duplicates
+- Variant representation: complex variants harmonization
+- Statistics and EDA: summary stats, entropy, heterozygosity rate, classify variants
+
+\tiny https://github.com/vcflib/vcflib
+
+## bcftools — utilities for variant calling and manipulating VCFs and BCFs
+
+\begin{center}
+\includegraphics[height=150px]{img/bcftools.png}
+\end{center}
+
+\tiny http://www.htslib.org/doc/bcftools.html
+
+Li, Heng. "A Statistical Framework for SNP Calling, Mutation Discovery, Association Mapping and Population Genetical Parameter Estimation from Sequencing Data." Bioinformatics (Oxford, England) 27, no. 21 (November 1, 2011): 2987–93. https://doi.org/10.1093/bioinformatics/btr509.
+
+Danecek, Petr, and Shane A. McCarthy. "BCFtools/Csq: Haplotype-Aware Variant Consequences." Bioinformatics 33, no. 13 (July 1, 2017): 2037–39. doi:10.1093/bioinformatics/btx100. https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btx100
+
+## bcftools examples
+
+\begin{center}
+\includegraphics[height=150px]{img/bcf_example.png}
+\end{center}
+
+\tiny https://samtools.github.io/bcftools/howtos/index.html
+
+## bcftools examples
+
+\begin{center}
+\includegraphics[height=150px]{img/bcf_filtering.png}
+\end{center}
+
+## cyvcf2
+
+\begin{center}
+\includegraphics[height=180px]{img/cyvcf2.png}
+\end{center}
+
+\tiny https://academic.oup.com/bioinformatics/article/2971439/
+
+https://brentp.github.io/cyvcf2/
+
+## Alignment errors during mapping require fix
+
+\begin{center}
+\includegraphics[height=160px]{img/realignment.png}
+\end{center}
+
+## Alignment
+
+\begin{center}
+\includegraphics[height=170px]{img/alignment.png}
+\end{center}
+
+## Few mismatches when considering one-to-one
+
+\begin{center}
+\includegraphics[height=160px]{img/realignment1.png}
+\end{center}
+
+## Mapping vs. alignment
+
+\begin{center}
+\includegraphics[height=170px]{img/mapping_vs_alignment.png}
+\end{center}
+
+## Local realignment around indels
+
+Sequence aligners are often unable to perfectly map reads containing insertions or deletions (indels)
+
+- Indel‐containing reads can be either left unmapped or arranged in gapless alignments
+- Mismatches in a particular read can interfere with the gap, esp. in low‐complexity regions
+- Single‐read alignments are "correct" in a sense that they do provide the best guess given the (limited!) information and constrains.
+
+Major issues:
+
+- Indel detection becomes difficult with so many missing reads
+- Indels can be overlooked or misplaced in individual reads
+- Artifacts introduced by the gapless alignments cause the appearance of false positive SNPs (usually in clusters)
+
+\tiny https://www.broadinstitute.org/files/shared/mpg/nextgen2010/nextgen_sivachenko.pdf
+
+## Example: SNP clusters are really a hidden indel 
+
+\begin{center}
+\includegraphics[height=190px]{img/realignment_indel_before.png}
+\end{center}
+
+## Example: SNP clusters are really a hidden indel 
+
+\begin{center}
+\includegraphics[height=190px]{img/realignment_indel_after.png}
+\end{center}
+
+## Example : Indel "scatter"
+
+\begin{center}
+\includegraphics[height=130px]{img/realignment_indel_scatter.png}
+\end{center}
+
+- A (heterogeneous) insertion + adjacent insertion may be clean homogeneous (?) insertion
+- Even when aligner detects indels in individual reads successfully, they can be scattered around (e.g. due to additional mismtaches in the read)
+
+## What is annotation?
+
+- Adding information about the variants
+- Two broad categories of annotations
+  - annotations that depend on gene models
+    - coding/non-coding
+    - if coding: synonymous / non-synonymous
+    - if non-synonymous - what is the impact on protein structure (Polyphen, SIFT, etc)
+  - annotations that do not depend on gene models
+    - variant frequency in different databases / different populations
+    - degree of conservation across species
+- Considerable complications caused by different gene models
+- Two approaches to problem
+    - decide ex-ante what which transcript to use for each gene
+    - annotate with all transcript for a given gene and pick the highest impact effect
+
+## Loss of function (LoF) SNPs
+
+- Genetic variants predicted to severely disrupt protein-coding genes, collectively known as loss-of-function (LoF) variants
+- Typically rare
+- Human genomes typically contain ~100 genuine LoF variants with ~20 genes completely inactivated
+
+## Frequency of loss of function SNPs
+
+\begin{center}
+\includegraphics[height=100px]{img/lof_frequency.png}
+\end{center}
+
+\tiny http://science.sciencemag.org/content/335/6070/823
+
+## Types of LoF SNPs
+
+- Stop codon–introducing (nonsense) or splice site–disrupting single-nucleotide variants (SNVs)
+- Insertion/deletion (indel) variants predicted to disrupt a transcript’s reading frame
+- Larger deletions removing either the first exon or more than 50% of the protein-coding sequence of the affected transcript
+
+\begin{center}
+\includegraphics[height=80px]{img/lof_table.png}
+\end{center}
+
+## Location of LoF SNPs 
+
+Both nonsense SNVs and frameshift indels are enriched toward the 3' end of the affected gene, consistent with a greater tolerance to truncation close to the end of the coding sequence
+
+\begin{center}
+\includegraphics[height=100px]{img/lof_gene.png}
+\end{center}
+
+Distribution of frameshift indels along the coding region of affected genes, before and after filtering
+
+\tiny http://science.sciencemag.org/content/335/6070/823
+
+## False positives LoF SNPs
+
+- Predicted functional effect of a nonsense or frameshift variant can be altered by other nearby variants on the same chromosome
+- Predicted splice-disrupting SNVs and indels can be rescued by nearby alternative splice sites
+
+##  Many tools + many transcript annotations = many answers
+
+\begin{center}
+\includegraphics[height=150px]{img/vcf_annotation_tools.png}
+\end{center}
+
+## Annotation software
+
+Two sets of software
+
+- Annovar
+    - provides a wide range of annotations that can be applied with one tool
+- SNPEff and dbNSFP (non-synoymous functional prediction)
+- GATK recommends snpEff, but with strict requirements
+    - snpEff version 2.0.5 (not 2.0.5d)
+    - db should be GRCh37.64 (which is the ensembl database version 64)
+    - should use the option -onlyCoding true (using false can cause erroneous annotation)
+- GATKs VariantAnnotator to pick the highest impact.
+- Finally, also annotate with dbNSFP, which contains: 
+    - variant frequencies
+    - conservation scores
+    - protein function effect
+
+## snpEff annotation get placed into INFO field
+
+\begin{center}
+\includegraphics[height=150px]{img/vcf_snpeff1.png}
+\end{center}
+
+\tiny http://snpeff.sourceforge.net/
+
+## snpEff annotation get placed into INFO field
+
+\begin{center}
+\includegraphics[height=150px]{img/vcf_snpeff.png}
+\end{center}
+
+\tiny http://snpeff.sourceforge.net/
+
+## Annovar
+
+\begin{center}
+\includegraphics[height=170px]{img/annovar.png}
+\end{center}
+
+\tiny http://annovar.openbioinformatics.org/en/latest/
+
+## VEP - Variant Effect Predictor
+
+\begin{center}
+\includegraphics[height=150px]{img/vep0.png}
+\end{center}
+
+\tiny http://www.ensembl.org/info/docs/tools/vep/index.html
+
+## VEP script
+
+\begin{center}
+\includegraphics[height=150px]{img/vep_script.png}
+\end{center}
+
+\tiny http://uswest.ensembl.org/info/docs/tools/vep/script/index.html
+
+## VEP script
+
+\begin{center}
+\includegraphics[height=150px]{img/vep.png}
+\end{center}
+
+\tiny http://uswest.ensembl.org/info/docs/tools/vep/script/index.html
+
+## A second source of functional annotation: dbNSFP
+
+- NSFP = Non-synonymous functional prediction
+- Limited to non-synonymous variants
+- Has many data fields. We use only: 
+    - dbnsfpSIFT_score
+    - dbnsfpPolyphen2_HVAR_pred
+    - dbnsfp29way_logOdds
+    - dbnsfp1000Gp1_AF
+
+## Example of annotation with dbNSFP
+
+\begin{center}
+\includegraphics[height=170px]{img/vcf_dbnsfp.png}
+\end{center}
+
+## vcfanno
+
+annotate a VCF with other VCFs/BEDs/tabixed files
+
+\begin{center}
+\includegraphics[height=170px]{img/vcfanno_example.png}
+\end{center}
+
+https://github.com/brentp/vcfanno
+https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0973-5
+
+## Cancer Genome Interpreter (CGI)
+
+Designed to support the identification of tumor alterations that drive the disease and detect those that may be therapeutically actionable. CGI relies on existing knowledge collected from several resources and on computational methods that annotate the alterations in a tumor according to distinct levels of evidence.
+
+\begin{center}
+\includegraphics[height=130px]{img/cgi.png}
+\end{center}
+
+https://cancergenomeinterpreter.org/home, https://www.biorxiv.org/content/early/2017/06/21/140475
+
+## Annotation problems
+
+Ambiguity - one variant may be annotated differently depending on the choice of transcripts and software
+
+\begin{center}
+\includegraphics[height=170px]{img/annotation_table.png}
+\end{center}
+
+\tiny https://genomemedicine.biomedcentral.com/articles/10.1186/gm543
+
+## Straightforward annotation
+
+\begin{center}
+\includegraphics[height=80px]{img/annotation_straightforward.png}
+\end{center}
+
+The variant NC_000011.9:g.57983194A>G (rs7103033) is relatively straightforward to annotate. It is the final base of the final exon in both transcripts at this position (a CCDS transcript (green) and a ‘merged’ ENSEMBL/Havana (GENCODE) transcript (gold)). The final codon has changed from TGA (stop codon) to TGG (tryptophan), so this is unambiguously a stop-loss variant. Using the ENSEMBL transcript set, both ANNOVAR and VEP correctly annotate this variant as stop-loss.
+
+\tiny https://genomemedicine.biomedcentral.com/articles/10.1186/gm543
+
+## Ambigious annotation
+
+\begin{center}
+\includegraphics[height=80px]{img/annotation_ambigious.png}
+\end{center}
+
+The variant NC_000006.11:g.30558477_30558478insA (rs72545970) is more difficult to annotate. It is the penultimate base of the exon for all but one of the transcripts shown. It is a single-base insertion, so could be annotated as a frameshift variant. Then again, it is an insertion in a stop codon, so could be a stop-loss variant. In fact, the final codon, TGA (stop codon), remains TGA with this variant (insertion of a single base A), so it is actually a synonymous variant.
+
+\tiny https://genomemedicine.biomedcentral.com/articles/10.1186/gm543
+
+## Allele frequencies differ in different populations
+
+exac.broadinstitute.org gnomad.broadinstitute.org
+
+- Always filter by frequency separately in every available population
+    - do not filter for frequency in only one population
+    - do not filter on average worldwide frequency
+- If variant causes severe phenotype, should _always_ be rare in every population
+
+ExAC reports the allele frequency from diverse ancestries
+
+## SNP exploration
+
+\begin{center}
+\includegraphics[height=170px]{img/gemini.png}
+\end{center}
+
+\tiny https://gemini.readthedocs.io/en/latest/
+
+https://github.com/arq5x/gemini
+
+## GEMINI annotations
+
+- GEMINI (GEnome MINIng), a flexible software package for exploring all forms of human genetic variation.
+- Integrates genetic variation with a diverse and adaptable set of genome annotations (e.g., dbSNP, ENCODE, UCSC, ClinVar, KEGG) into a unified database to facilitate interpretation and data exploration.
+
+\begin{center}
+\includegraphics[height=130px]{img/gemini_annotations.png}
+\end{center}
+
+http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003153
+
+## GEMINI variant mining framework
+
+- Structured Query Language (SQL), SQLite database with SNP annotations.
+
+\begin{center}
+\includegraphics[height=170px]{img/gemini_query.png}
+\end{center}
+
+http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003153
+
+## Gemini howto
+
+- Getting started with GEMINI
+- Summary plots from GEMINI
+- Incidental findings using GEMINI
+
+\tiny  https://davetang.org/muse/2016/01/13/getting-started-with-gemini/
+
+https://davetang.org/muse/2017/06/18/summary-plots-gemini/
+
+https://davetang.org/muse/2017/06/21/incidental-findings-using-gemini/
+
+Paila, Umadevi, Brad A. Chapman, Rory Kirchner, and Aaron R. Quinlan. "GEMINI: Integrative Exploration of Genetic Variation and Genome Annotations." PLoS Computational Biology 9, no. 7 (2013): e1003153. doi:10.1371/journal.pcbi.1003153. http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003153
+
+## Genotype imputation
+
+- Generally, a subset of all genetic markers in the genome can be directly genotyped (SNP arrays, exome sequencing)
+- Imputation allows evaluating genetic markers that are not directly genotyped for association with a phenotype
+- Particularly useful in GWAS meta-analysis
+
+## Genotype imputation in related individuals
+
+Family samples are the most intuitive and simple to genotype - using stretches of shared haplotypes - "identity-by-descent" (IBD) blocks
+
+\begin{center}
+\includegraphics[height=170px]{img/imputation1.png}
+\end{center}
+
+http://www.annualreviews.org/doi/abs/10.1146/annurev.genom.9.081307.164242
+
+## Genotype imputation in unrelated individuals
+
+Using haploblocks from haplotype reference panels, e.g., HapMap, 1000 genomes
+
+\begin{center}
+\includegraphics[height=150px]{img/imputation2.png}
+\end{center}
+
+## Genotype imputation software
+
+- Genotype imputation tools typically fall into two categories:
+    - computationally intensive tools such as `IMPUTE`, `MACH` and `fastPHASE`/`BIMBAM` that take into account all observed genotypes when imputing each missing genotype
+    - computationally more efficient tools such as `PLINK`, `TUNA`, `WHAP` and `BEAGLE` that typically focus on genotypes for a small number of nearby markers when imputing each missing genotype
+
+
+## SNP clustering
+
+- `MSEA-clust` - Kolmogorov-Smirnov adaptation to test whether the distribution of mutations along the genes is significantly different from a random distribution. 
+
+\begin{center}
+\includegraphics[height=150px]{img/snp_msea_enrichment.png}
+\end{center}
+
+## MuSiC
+
+- Mutational Significance in Cancer (MuSiC) Mutation analysis pipeline: 
+    1) significantly mutated genes, 
+    2) significantly mutated pathways, 
+    3) mutation correlation test (pairwise gene test for mutation correlation/exclusion), 
+    4) clinical correlation test, 
+    5) proximity analysis (clustering of mutations), 
+    6) COSMIC/OMIM matching, 
+    7) Pfam protein domain mutation analysis. 
+
+\tiny http://gmt.genome.wustl.edu/
+
+https://github.com/ding-lab/MuSiC2
+
+Dees, Nathan D., Qunyuan Zhang, Cyriac Kandoth, Michael C. Wendl, William Schierding, Daniel C. Koboldt, Thomas B. Mooney, et al. "MuSiC: Identifying Mutational Significance in Cancer Genomes." Genome Research 22, no. 8 (August 2012): 1589–98. https://doi.org/10.1101/gr.134635.111.
+
+## OncodriveCLUST
+
+- Gene-centric protein-affecting mutation clustering. 
+- Significant mutations defined vs. background rate accounting for gene length and the overal number of gene' mutations (binomial test)
+- Clusters within 5 amino-acid residues. 
+
+
+\tiny http://bg.upf.edu/group/projects/oncodrive-clust.php
+
+Tamborero, David, Abel Gonzalez-Perez, and Nuria Lopez-Bigas. "OncodriveCLUST: Exploiting the Positional Clustering of Somatic Mutations to Identify Cancer Genes." Bioinformatics (Oxford, England) 29, no. 18 (September 15, 2013): 2238–44. https://doi.org/10.1093/bioinformatics/btt395.
+
+## MutSigCV
+
+- Mutational heterogeneity (among patients and cancers) leads to many false positive detection. Need to account for: 
+    1) regional heterogeneity (among patients, considering mutation spectrum), 
+    2) gene expression (highly expressed genes mutate more frequently), 
+    3) replication timing (higher at later replicating regions)
+
+\begin{center}
+\includegraphics[height=120px]{img/mutsig.png}
+\end{center}
+
+\tiny http://archive.broadinstitute.org/cancer/cga/mutsig
+
+Lawrence, Michael S., Petar Stojanov, Paz Polak, Gregory V. Kryukov, Kristian Cibulskis, Andrey Sivachenko, Scott L. Carter, et al. "Mutational Heterogeneity in Cancer and the Search for New Cancer-Associated Genes." Nature 499, no. 7457 (July 2013): 214–18. https://doi.org/10.1038/nature12213.
+
+<!--Somatic mutation frequencies observed in exomes from 3,083 tumour–normal pairs. Each dot corresponds to a tumour–normal pair, with vertical position indicating the total frequency of somatic mutations in the exome. Tumour types are ordered by their median somatic mutation frequency, with the lowest frequencies (left) found in haematological and paediatric tumours, and the highest (right) in tumours induced by carcinogens
+such as tobacco smoke and ultraviolet light. Mutation frequencies vary more than 1,000-fold between lowest and highest across different cancers and also within several tumour types. The bottom panel shows the relative proportions of the six different possible base-pair substitutions, as indicated in the legend on the left.-->
+
+## Other tools
+
+- `Platypus` - SNP caller combining haplotype-based, multi-sample, local sequence assembly algorithms in a Bayesian framework
+
+\tiny http://www.well.ox.ac.uk/platypus
+
+Rimmer, Andy, Hang Phan, Iain Mathieson, Zamin Iqbal, Stephen R. F. Twigg, WGS500 Consortium, Andrew O. M. Wilkie, Gil McVean, and Gerton Lunter. "Integrating Mapping-, Assembly- and Haplotype-Based Approaches for Calling Variants in Clinical Sequencing Applications." Nature Genetics 46, no. 8 (August 2014): 912–18. https://doi.org/10.1038/ng.3036.

@@ -1,0 +1,397 @@
+---
+title: "Structural and Copy Number Variants"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+
+## SVs - structural variants
+
+- Structural variation (SV) is defined as differences in the copy number, orientation or location of relatively large genomic segments (typically >100 bp).
+- Two humans differ by 5,000–10,000 inherited SVs
+- Both inherited and _de novo_ SVs contribute to a variety of normal and disease phenotypes
+
+## SV
+
+- **Structural variant (SV)** - Genomic rearrangements that affect >50bp of sequence, including deletions, novel insertions, inversions, mobile-element transpositions, duplications and translocations.
+- **Copy number variant (CNV)** - Also defined as unbalanced structural variants; variants that change the number of base pairs in the genome.
+- **Mobile elements** - DNA sequences that move location within the genome. Active mobile elements (transposons) in the human genome include Alu, L1 and SVA sequences.
+
+Large CNVs are individually very rare in the general population, yet 8% of individuals have a CNV of >500 kb in their genomes
+
+## SV
+
+\includegraphics[height=130px]{img/sv_summary.png}
+
+SV is a superset of copy number variation (CNV). Not all structural changes affect copy number (e.g., inversions)!
+
+##  Why is structural variation relevant / important?
+
+- They are common and affect more base pairs than all single-nucleotide differences.
+- They are a major driver of genome evolution
+- Speciation can be driven by rapid changes in genome architecture
+- Genome instability and aneuploidy: hallmarks of solid tumor genomes
+ 
+##  Why is structural variation relevant / important?
+
+- Genetic basis of traits 
+- Gene dosage effects
+- Neuropsychiatric disease (e.g., autism, schizophrenia)
+- Spontaneous SVs implicated in so-called “genomic” and developmental disorders
+- Somatic genome instability; age-dependent disease
+ 
+## Size distribution of SVs in 1000 genomes project
+
+\includegraphics[height=130px]{img/sv_size1.png}
+
+\tiny Sudmant, Peter H., Tobias Rausch, Eugene J. Gardner, Robert E. Handsaker, Alexej Abyzov, John Huddleston, Yan Zhang, et al. “An Integrated Map of Structural Variation in 2,504 Human Genomes.” Nature 526, no. 7571 (September 30, 2015): 75–81. https://doi.org/10.1038/nature15394.
+
+<!--Size distribution of ascertained SVs (bin width is uniform in log-scale). DEL, biallelic deletion, DUP, biallelic duplication, INV, inversion, INS, non-reference insertion (including mobile element insertions MEIs and nuclear mitochondrial insertions NUMTs).-->
+
+## SV
+
+SVs vary widely in size and there are numerous classes of structural variation: deletions, translocations, inversions, mobile elements, tandem duplications and novel insertions
+
+\includegraphics[height=190px]{img/sv_classes.png}
+
+## SV and human disease phenotypes
+
+\includegraphics[height=200px]{img/CNV_diseases.png}
+
+\tiny http://www.annualreviews.org/doi/full/10.1146/annurev.genom.9.081307.164217
+
+
+
+## Copy Number Variants (CNVs)
+
+- Copy number variants (deletions/duplications > 50 bp) account for more inter-individual variation than do single-nucleotide variants
+- In an average haploid human sequence,
+    - ~9 Mb are affected by structural variants,
+    - ~3.6 Mb are affected by single nucleotide variants,
+    - on average, humans are heterozygous for ~150 CNVs (Sudmant et al., 2015, Nature)
+
+\tiny Sudmant, Peter H., Tobias Rausch, Eugene J. Gardner, Robert E. Handsaker, Alexej Abyzov, John Huddleston, Yan Zhang, et al. “An Integrated Map of Structural Variation in 2,504 Human Genomes.” Nature 526, no. 7571 (September 30, 2015): 75–81. https://doi.org/10.1038/nature15394.
+
+Iafrate, A John, Lars Feuk, Miguel N Rivera, Marc L Listewnik, Patricia K Donahoe, Ying Qi, Stephen W Scherer, and Charles Lee. “Detection of Large-Scale Variation in the Human Genome.” Nature Genetics 36, no. 9 (September 2004): 949–51. doi:10.1038/ng1416.
+
+## Copy Number Variants (CNVs)
+
+\includegraphics[height=150px]{img/cnv_overview.png}
+
+## CNVs in tumors
+
+\includegraphics[height=160px]{img/cnv_tumors.png}
+
+## Technologies assessing genome stability
+
+\includegraphics[height=150px]{img/sv_technologies.png}
+
+## How CNVs arise?
+
+Four major mechanisms: 
+
+- **NAHR** - Non-Allelic Homologous Recombination between repeat sequences
+- **NHEJ** -  Non-Homologous End-Joining, recombination repair of double strand break
+- **FoSTeS** - Fork Stalling and Template Switching. Multiple FoSTeS events (×2 or more) result in complex rearrangements, single FoSTeS event (×1) cause simple rearrangements
+- **L1-mediated retrotransposition**
+
+## Mechanisms
+
+\includegraphics[height=200px]{img/mechanisms.png}
+
+\tiny Zhang, Feng, Wenli Gu, Matthew E. Hurles, and James R. Lupski. “Copy Number Variation in Human Health, Disease, and Evolution.” Annual Review of Genomics and Human Genetics 10 (2009): 451–81. https://doi.org/10.1146/annurev.genom.9.081307.164217.
+
+<!--Comparisons and characteristics of the four major mechanisms underlying human genomic rearrangements and CNV formation. (a) Models for Non-Allelic Homologous Recombination (NAHR) between repeat sequences (LCRs/SDs, Alu, or L1 elements); Non-Homologous End-Joining (NHEJ), recombination repair of double strand break; Fork Stalling and Template Switching (FoSTeS), multiple FoSTeS events (×2 or more) resulting in complex rearrangement and single FoSTeS event (×1) causing simple rearrangement; and retrotransposition. TS, target site; TSD, duplicated target site. Adapted from References (47, 123). Thick bars of different colors indicate different genomic fragments; completely different colors (as orange and red or orange/red/green in FoSTeS×2) symbolize that no homology between the two fragments is required. The two bars in two similar shades of blue indicate that the two fragments involved in NAHR should have extensive homology with each other. The triangles symbolize short sequences sharing microhomologies. Each group of triangles (either filled or empty) indicates one group of sequences sharing the same microhomology with each other. (b) Characteristic features for each rearrangement mechanism. Specific features of certain mechanisms are shown in red. Abbreviations: dup, duplication; del, deletion; inv, inversion; ins, insertion.-->
+
+<!--
+## Copy number variants
+
+- Large-scale copy number variants (CNVs) (about 100 kilobases and greater) contribute substantially to genomic variation between normal humans
+- On average, individuals differed by 11 CNVs, and the average length of a CNV interval was 465 kilobases
+- Copy number variation of 70 different genes within CNV intervals, including genes involved in neurological function, regulation of cell growth, regulation of metabolism, and several genes known to be associated with disease
+
+\includegraphics[height=80px]{img/CNV_human.png}
+
+\tiny Sebat, Jonathan, B. Lakshmi, Jennifer Troge, Joan Alexander, Janet Young, Pär Lundin, Susanne Månér, et al. “Large-Scale Copy Number Polymorphism in the Human Genome.” Science (New York, N.Y.) 305, no. 5683 (July 23, 2004): 525–28. https://doi.org/10.1126/science.1098918.
+
+Genome-wide map of CNPs identified by ROMA. The position of all CNPs (excluding somatic differences) is shown. CNPs identified in multiple individuals (by Bgl II–ROMA) are indicated in yellow, and CNPs observed in only one individual are indicated in red. Additional CNPs identified by one Hind III–ROMA experiment are indicated in blue. Symbols denoting CNPs are not drawn to scale. Genome assembly gaps in pericentromeric and satellite regions are indicated by gray boxes. Genomic regions where recurring de novo rearrangements cause the developmental disorders Prader-Willi and Angelman syndromes, cat eye syndrome, DiGeorge/velocardiofacial syndrome, and spinal muscular atrophy are labeled A, B, C, and D, respectively.-->
+
+## CNVs before sequencing
+
+- **SNP arrays** use short oligos to interrogate a single SNP. However, the signal strength from the probe can be used for Copy Number estimation
+- SNP Arrays are single color but a pool of arrays can be used to form a “reference” intensity value for a probe
+- These platforms can also determine the zygosity of the probe as AA, AB, or BB
+- Provided by Affymetrix and Illumina
+- The most important benefit of NGS technologies is that it is possible to discover different variant classes
+
+## Segmenting the Probes
+
+\includegraphics[height=120px]{img/snp_array_segmentation.png}
+
+## B-Allele Freq. Bands
+
+\includegraphics[height=180px]{img/snp_array_segmentation1.png}
+
+Green = Normal; Orange = LOH; Blue = Allelic imbalance
+
+<!--
+##  1/1000 bp varies between a pair of individuals: how is this variation distributed between continents?
+
+$$F_{ST} = \frac{H_T - \hat{H_S}}{H_T}$$
+
+- $F_{ST}$ is the amount of genetic variation that is due to population differences 
+- $H_T$ is the total heterozygosity (variation) in the sample
+- $H_S$ is the average heterozygosity within each population (continent)
+- $F_{ST} = 0$: All variation exists within populations; none exists between
+- $F_{ST} = 1$: All variation exists between populations
+
+##  Rare single nucleotide variants (SNVs) are much more likely to be population-specific
+ 
+\includegraphics[height=190px]{img/rare_snps.png}
+-->
+
+
+
+
+##  How do we identify structural variants via DNA sequencing?
+
+\includegraphics[height=150px]{img/sv_detection.png}
+
+## Copy number affect the depth of sequence coverage
+ 
+\includegraphics[height=140px]{img/cnv_duplication.png}
+
+Challenges:
+
+- need high coverage for high resolution
+- deletions easier than duplications
+- prone to artifacts owing to repeats, GC content, etc.
+
+## Detecting CNV by counting alignments in genome "windows"
+ 
+Strengths:
+
+1) Fast and simple.
+2) Easy to identify gene amplifications.
+3) Relatively straightforward interpretation: is gene X amplified or deleted?
+
+Weaknesses:
+
+1) Limited resolution (2-5kb) = imprecise boundaries
+2) Cannot detect balanced events or reveal variant architecture.
+
+Best practices
+
+- Use variably-sized windows, masked for repeats - repeatMasker, simple sequence repeats, mappability
+- Window size should yield >100 reads (median)
+
+## Looking for "discordant" paired-end fragments
+
+\includegraphics[height=160px]{img/discordant.png}
+
+## Discordant mapping "signatures" for various SV types
+
+\includegraphics[height=130px]{img/discordant1.png}
+
+\tiny Quinlan, Aaron R., and Ira M. Hall. “Characterizing Complex Structural Variation in Germline and Somatic Genomes.” Trends in Genetics: TIG 28, no. 1 (January 2012): 43–53. https://doi.org/10.1016/j.tig.2011.10.002.
+
+## Looking for "discordant" paired-end fragments
+
+Challenges:
+
+- Difficult to achieve single-nucleotide resolution for the SV breakpoint 
+- Chimeric molecules, PCR duplicates
+
+Advantages:
+
+- Much higher resolution
+- Can find any type of SV - not limited to deletions and duplications like depth of coverage
+
+## Split-read mapping "signatures" for various SV types
+
+\includegraphics[height=140px]{img/splitread.png}
+
+## Split-read mapping
+
+- SRM identifies sequences that actually contain a breakpoint
+- The alignments for such sequences are ‘split’ because DNA segments flanking the breakpoint align to disjoint locations in the reference genome. 
+- SRM inherently maps breakpoints to single base resolution
+- SRM requires reads longer than approximately 200 bp. Long-read (>500 bp) SRM is a particularly powerful approach for studying complex SV because multiple breakpoints can potentially be captured by a single read
+
+## Paired-end mapping 
+
+- Sequencing libraries are created with fragments of known length (generally 200–500 bp for paired-end libraries and 1–10 kb for mate-pair libraries). 
+- Paired-end sequences that are ‘concordant’ with the reference genome align with the expected distance and orientation
+- Read pairs spanning an SV breakpoint will produce ‘discordant’ alignments with an unexpected alignment distance and/or orientation.
+
+\includegraphics[height=70px]{img/pem.png}
+
+## Paired-end mapping 
+
+Read-pair methods assess the span and orientation of paired-end reads and cluster ‘discordant’ pairs in which the mapping span and/or orientation of the read pairs are inconsistent with the reference genome
+
+Read pairs that map too far apart define deletions, those found too close together are indicative of insertions, and orientation inconsistencies can delineate inversions and a specific class of tandem duplications
+
+- **PEMer** - http://sv.gersteinlab.org/pemer/
+- **VariationHunter** - http://variationhunter.sourceforge.net/Home
+- **BreakDancer** - http://breakdancer.sourceforge.net/
+- **MoDIL** - http://compbio.cs.toronto.edu/modil/
+- **HydraMulti** - an SV discovery tool that incorporates hundreds of samples, https://github.com/arq5x/Hydra
+- **Spanner** - Spanner is a c++ program for the detection of Structural Variation events from whole genome sequenced read pair data. https://github.com/chipstewart/Spanner
+
+## Read-depth methods. 
+
+Read-depth approaches assume a random (typically Poisson or modified Poisson) distribution in mapping depth and investigate the divergence from this distribution to discover duplications and deletions in the sequenced sample. 
+
+The basic idea is that duplicated regions will show significantly higher read depth and deletions will show reduced read depth when compared to diploid regions
+
+- **CNVnator** - a tool for CNV discovery and genotyping from depth of read mapping., http://sv.gersteinlab.org/
+- **AGE** - a tools that implements an algorithm for optimal alignment of sequences with SVs, http://sv.gersteinlab.org/
+
+## Split-read approaches. 
+
+Split-read methods are capable of detecting deletions and small insertions down to single-base-pair resolution and were first applied to longer Sanger sequencing reads. 
+
+The aim is to define the breakpoint of a structural variant on the basis of a ‘split’ sequence-read signature (that is, the alignment to the genome is broken; a continuous stretch of gaps in the read indicates a deletion or in the reference indi- cates an insertion).
+
+- **Pindel** - can detect breakpoints of large deletions, medium sized insertions, inversions, tandem duplications and other structural variants at single-based resolution from next-gen sequence data. It uses a pattern growth approach to identify the breakpoints of these variants from paired-end short reads. http://gmt.genome.wustl.edu/packages/pindel/
+
+## Sequence assembly. 
+
+In theory, all forms of structural variation could be accurately typed for copy, content and structure if the underlying sequence reads were long and accurate enough to allow de novo assembly. In practice, sequence-assembly approaches are still in their infancy and typically use a combination of de novo and local assembly algorithms to generate sequence contigs that are then compared to a reference genome 
+
+- **SOAPdenovo** - http://soap.genomics.org.cn/soapdenovo.html
+- **ALLPATH-LG** - http://software.broadinstitute.org/allpaths-lg/blog/
+- **Cortex** - http://cortexassembler.sourceforge.net/
+- **NovelSeq** - http://compbio.cs.sfu.ca/software-novelseq
+- **TIGRA** - http://bioinformatics.mdanderson.org/main/TIGRA
+
+## Other approaches
+
+- **DELLY2** - Structural variant discovery by integrated paired-end and split-read analysis. https://github.com/dellytools/delly
+- **Genome STRiP** (Genome STRucture In Populations) is a suite of tools for discovering and genotyping structural variations using sequencing data. The methods are designed to detect shared variation using data from multiple individuals. http://software.broadinstitute.org/software/genomestrip/
+
+## Other approaches
+
+- **LUMPY-SV** - a general probabilistic framework for structural variant discovery. Integrates multiple signals - read-pair, split-read, read-depth and prior knowledge. Operates on multiple samples.
+
+\includegraphics[height=130px]{img/lumpy.png}
+
+\tiny https://github.com/arq5x/lumpy-sv/
+
+## SV detection methods summary
+
+\begin{center}
+\includegraphics[height=200px]{img/sv_sequencing.png}
+\end{center}
+
+## Limitations 
+
+- On the basis of typical NGS fragment sizes, more than 90% of the discovered events are less than 1 kb and most of these are deletions rather than insertions
+- Over 1.5% of the human genome cannot be covered uniquely even with read lengths of 1 kb
+- Low reproducibility
+
+\begin{center}
+\includegraphics[height=80px]{img/sv_reproducibility.png}
+\end{center}
+
+The most serious challenges that remain are the absence of a ‘gold standard’ for assessment of disparate discovery and genotyping methods, and the remaining biases in global discovery.
+
+## SV discovery set in VCF format
+
+- VCF Format
+    - `#CHROM POS ID REF ALT QUAL FILTER INFO`
+    - [POS] is the position before the variant
+    - [ID] links the variant to the original SV discovery method and callset (SV master validation tables)
+    - [REF] and [ALT] show exact sequence if breakpoints are known, otherwise a variant-specific tag is used: (<DEL>, <DUP:TANDEM>, <INS:ME:ALU>, <INS:ME:L1>, <INS:ME:SVA>)
+    - [INFO] contains various information including [END] as the SV end coordinate
+
+- Processed with `vcftools`: http://vcftools.sourceforge.net/
+
+## Example VCF Records for SVs
+
+\includegraphics[height=170px]{img/vcf_sv_example.png}
+
+## Processing VCF genotypes with vcftools
+
+- `--012` converts vcf file into large matrix with samples as columns and genotypes as 0,1,2 representing the number of non-reference alleles
+- `--IMPUTE` converts vcf file into IMPUTE reference-panel format
+- `--BEAGLE-GL` converts vcf into input file for the BEAGLE program
+- `--plink` converts vcf into PLINK PED format 
+
+Full list of commands can be found here: http://vcftools.sourceforge.net/options.html
+
+## Problems in SV calling
+
+- Often many false positives (~30%)
+- Short reads + heuristic alignment + rep. genome = systematic alignment artifacts (false calls)
+- Chimeras and duplicate molecules
+- Ref. genome errors (e.g., gaps, mis-assemblies)
+- ALL SV mapping studies use strict filters for above
+
+## Solution - long-read sequencing
+
+\includegraphics[height=200px]{img/longreads.png}
+
+\tiny https://www.nature.com/nature/journal/v517/n7536/full/nature13907.html
+
+##  Oxford Nanopore Sequencing
+
+\includegraphics[height=180px]{img/oxfordnanopore.png}
+
+## Long read analysis
+
+- `poretools` - a toolkit for working with Oxford nanopore data
+
+\includegraphics[height=190px]{img/poretools.png}
+
+\tiny https://github.com/arq5x/poretools
+
+## SpeedSeq genome analysis pipeline
+
+- Integrates **FreeBayes**, **LUMPY** for breakpoint detection, **SVTyper**
+
+## SVTyper
+
+- SVTyper is a maximum-likelihood Bayesian classification algorithm that infers an underlying genotype at each SV
+- $S(g)$ is the prior probability of observing a variant read in a single trial given a genotype $g$ at any locus
+- Assuming a random sampling of reads, the number of observed alternate ($A$) and reference ($R$) reads will follow a binomial distribution $B(A+R, S(g'))$, where $g' \in G$ is the true underlying genotype
+
+## SVTyper
+
+\begin{center}
+\includegraphics[height=130px]{img/svtyper1.png}
+\end{center}
+
+## SVTyper
+
+\begin{center}
+\includegraphics[height=80px]{img/svtyper2.png}
+\end{center}
+
+\tiny Chiang, Colby, Ryan M Layer, Gregory G Faust, Michael R Lindberg, David B Rose, Erik P Garrison, Gabor T Marth, Aaron R Quinlan, and Ira M Hall. "SpeedSeq: Ultra-Fast Personal Genome Analysis and Interpretation." Nature Methods 12, no. 10 (October 2015): 966–68. https://doi.org/10.1038/nmeth.3505.
+
+https://github.com/hall-lab/svtyper
+
+
+
+
+
+
+
+
+
+
+
+
+

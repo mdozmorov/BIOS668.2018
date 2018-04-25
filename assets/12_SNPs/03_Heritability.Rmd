@@ -1,0 +1,220 @@
+---
+title: "Heritability"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## Genetic disease
+
+\begin{center}
+\includegraphics[height=190px]{img/genetic_disease.jpeg}
+\end{center}
+
+\tiny https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2630295/
+
+<!--Single gene disorders or complex traits. A single rare mutation can fully account for a Mendelian disease; clinical variability can be, however, observed even for determined monogenic disease, and this variability may itself involve genetic factors, the so-called modifier genes. In contrast to monogenic traits, complex traits have many contributing genes and non-genetic influences.-->
+
+## Heredity
+
+- Traits are passed from parents to children
+- Some traits tend to dominate other traits
+- **Allele** - alternative forms of a gene 
+- Simplifying assumption: some traits are all-or-nothing. E.g. eye color - one allele (b) is for blue eyes, another allele (B) is for brown eyes
+    - **Bb** - heterozygous
+    - **bb** - homozygous 
+
+<!--
+## Heritability
+
+\begin{center}
+\includegraphics[height=170px]{img/heritability.png}
+\end{center}
+
+\tiny Visscher, Peter M., William G. Hill, and Naomi R. Wray. “Heritability in the Genomics Era — Concepts and Misconceptions.” Nature Reviews Genetics 9, no. 4 (April 2008): 255–66. doi:10.1038/nrg2322.
+-->
+
+- **Genotype** - what alleles you have
+- **Phenotype** - what traits you have 
+- **HERITABILITY** - the proportion of the variation in a given characteristic or state that can be attributed to (additive) genetic factors.
+
+<!--
+Say, brown eyes allele is dominant, blue is recessive.
+
+- **Bb** - brown eyes - homozygous dominant
+- **bB** - brown eyes - homozygous dominant
+- **BB** - brown eyes - homozygous dominant
+- **bb** - blue eyes - heterozygous hybrid
+-->
+
+## Punnett square 
+
+|   |  B |  b |
+|:-:|:--:|:--:|
+| B | BB | Bb |
+| b | Bb | bb |
+
+- Many different genotypes correspond to the same phenotype
+- Two hybrids produce blue-eyed offsprings with 25% probability
+- Two hybrids produce heterozygous offsprings with 50% probability
+
+## Fun with Punnett square
+
+- Mom: BB
+- Dad: Bb
+
+|   |  B |  B |
+|:-:|:--:|:--:|
+| B | BB | BB |
+| b | Bb | bB |
+
+- Blue eyes - **bb** - 0%
+- Heterozygous dominant - **Bb** - 50%
+
+## Incomplete dominance
+
+- Red flower
+- White flower
+
+|   | R  | W  |
+|---|----|----|
+| R | RR | RW |
+| W | RW | WW |
+
+Mixing (blending) of traits. E.g., RW - pink
+
+## Blood types
+
+A B O
+
+O - recessive, A and B are codominant
+
+|   | A  | B  |
+|---|----|----|
+| A | AA | AB |
+| O | AO | BO |
+
+AB - AB blood type
+
+P(A blood type) = AA and AO = 50%
+
+## Independent assortment 
+
+If alleles are on different chromosomes, one allele is said to be independent on another 
+
+- b - blue eyes
+- B - brown eyes (dominant)
+- t - small nose
+- T - big nose (dominant)
+
+BbTT - brown eyes, big nose
+
+## Independent assortment 
+
+Parents: both are dihybrids BbTt
+
+|    | BT   | Bt   | bT   | bt   |
+|----|------|------|------|------|
+| BT | BTBT | BTBt | BTbT | BTbt |
+| Bt | BtBT | BtBt | BtbT | Btbt |
+| bT | bTBT | bTBt | bTbT | bTbt |
+| bt | btBT | btBt | btbT | btbt |
+
+- Brown eyes, big nose - 9
+- Brown eyes, small nose - 3
+- Blue eyes, big nose - 3
+- Blue eyes, small nose - 1 (1/16)
+
+## Hardy-Weinberg principle (1908)
+
+\begin{center}
+\includegraphics[height=170px]{img/hardy_weinberg.png}
+\end{center}
+
+## Hardy-Weinberg principle (1908)
+
+Given a population with a locus with two alleles and discrete generations and these assumptions:
+
+- The population is infinitely large
+- There is no mutation
+- There is no immigration or emigration
+- There are no differences among the genotypes in viability
+- There are no differences among the genotypes in fertility
+- There are no differences in frequencies of genotypes between females and males
+
+then if we start with genotype frequencies, we can calculate the frequencies of the genotypes in the next generation
+
+## Modeling allele sampling with the binomial distribution
+
+- The binomial distribution with parameters $n$ and $p$ is the discrete probability distribution of the number of successes in a sequence of $n$ _independent_ _yes_ (e.g., "heads" or "reference allele") or _no_ (e.g., "tails" or "alternate allele") experiments, each of which yields success with probability $p$ 
+- The probability of getting exactly $k$ successes in $n$ trials is given by the probability mass function:
+
+$$Pr(X=k) = \binom{n}{k}p^k(1-p)^{n-k}$$
+
+\scriptsize
+
+- What is the probability of seeing $k=1$ tails in $n=3$ flips of a fair coin with the probability of a tail $(p) = 0.5$?
+- $3\ choose\ 1 = 3$; $0.5^1 = 0.5$; $(1-0.5)^{(3-1)} = 0.25$. So, $3*0.5*0.25 = 0.375$
+- In R: `dbinom(1, size=3, prob=0.5)`
+
+## Hardy-Weinberg equilibrium
+
+- The binomial distribution of genotypes in a population, such that frequencies of genotypes **AA**, **Aa** and **aa** will be $p^2$, $2pq$, and $q^2$, respectively, where $p$ is the frequency of allele **A**, and $q$ is the frequency of allele **a**. 
+- Hardy–Weinberg equilibrium applies in a population when there are no factors such as migration or admixture that cause deviations from $p^2$, $2pq$ and $q^2$.
+
+## Hardy-Weinberg principle
+
+- Blue - **b**, $p$ - allele frequency of **b**
+- Brown - **B** (dominant), $q$ - allele frequency of **B**
+
+For two individuals **Bb** and **bb**, genotype frequency of **b** is 75%, frequency of **B** is 25%. Phenotype frequency for blue eyes - 50%, for brown eyes - 50%
+
+$$p + q = 100\% = 1,\ q = 1 - p$$
+
+$$p^2 + 2pq + q^2 = 1$$
+
+- $p^2$ - probability of **bb** from both parents
+- $q^2$ - probability of **BB** from both parents
+- $2pq$ - two ways of have hybrid alleles **Bb** or **bB**. Frequency of hybrids in a population
+
+<!--
+## Hardy-Weinberg principle example
+
+- 15 individuals in a population
+
+| Phenotype | Counts | Frequency |
+|-----------|--------|-----------|
+| AA        | 7      | 7/15      |
+| Aa        | 3      | 3/15      |
+| aa        | 5      | 5/15      |
+
+## Hardy-Weinberg principle example
+
+$$f(AA) + f(Aa) + f(aa)$$
+$$p^2 + 2p(1 - p) + (1 - p)^2$$
+
+$p(A) = f(AA) + 1/2f(Aa) = 7/15 + 1/2*3/15 = 17/30 \simeq 0.57$
+
+$p(a) = f(aa) + 1/2f(Aa) = 5/15 + 1/2*3/15 = 13/30 \simeq 0.43$
+-->
+
+## Hardy-Weinberg principle
+
+- Say, population is 1M
+- 9% have blue eyes. Must have $bb = p^2 = 0.9$, $p = \sqrt{0.9} = 0.3$
+- 91% have brown eyes. What percent will be **BB**?
+
+\tiny https://www.youtube.com/watch?v=4Kbruik_LOo&index=16&list=PL7A9646BC5110CF64
+
+http://www.tiem.utk.edu/~gross/bioed/bealsmodules/hardy-weinberg.html
+
+

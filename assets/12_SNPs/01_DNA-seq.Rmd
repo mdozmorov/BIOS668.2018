@@ -1,0 +1,269 @@
+---
+title: "Genome sequencing intro"
+author: "Mikhail Dozmorov"
+date: "Spring 2018"
+output:
+  beamer_presentation:
+    # colortheme: seahorse
+    colortheme: dolphin
+    fig_caption: no
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    # theme: boxes
+    theme: AnnArbor
+---
+
+## What is genetic variation?
+
+\includegraphics[height=200px]{img/FractionThatYouShareFinal1.jpg}
+
+\tiny https://blog.23andme.com/23andme-and-you/genetics-101/genetic-similarities-of-mice-and-men/
+
+## What is genetic variation?
+
+- Differences in DNA content or structure among individuals.
+- Any two individuals have ~99.5% identical DNA. 
+
+\begin{center}
+\includegraphics[height=80px]{img/ident_twins.jpg}
+\end{center}
+
+- But the human genome is big - each haploid set of 23 chromosomes has 3.1 billion nucleotides.
+- There are >88,000,000 know genetic variants in the human genome.
+- Effectively infinite combinations of alleles. The details matter.
+
+## Types of genetic variation
+
+\includegraphics[height=130px]{img/types_of_genomic_variants.png}
+
+## Types of genetic variation
+
+\includegraphics[height=130px]{img/SNP_STR.jpg}
+
+## A typical human genome variation
+
+- "We find that a typical [human] genome differs from the reference human genome at **4.1 million to 5.0 million sites**. 
+- Although **>99.9% of variants consist of SNPs and short indels**, structural variants affect more bases: the typical genome contains an estimated **2,100 to 2,500 structural variants** (~1,000 large deletions, ~160 copy-number variants, ~915 Alu insertions, ~128 L1 insertions, ~51 SVA insertions, ~4 NUMTs, and ~10 inversions), **affecting ~20 million bases of sequence**.
+
+\tiny https://www.nature.com/nature/journal/v526/n7571/full/nature15393.html
+
+## Why do we care?
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+
+- Complex diseases (multiple genes contribute to risk)
+
+- Understanding the relationship between genetic variation and traits or disease phenotypes
+
+\end{column}
+\begin{column}{0.48\textwidth}
+
+\includegraphics[height=150px]{img/population_variants.png}
+
+\end{column}
+\end{columns}
+
+<!--
+## Why do we care?
+
+- Genetic variants are the blueprint of evolution
+
+\includegraphics[height=180px]{img/dogs.jpg}
+
+\tiny http://www.csus.edu/indiv/l/loom/preview%2027.htm
+-->
+
+## Mutation vs. polymorphism
+
+- Mutation: _private_ to this chromosome / individual
+
+\includegraphics[height=130px]{img/mutation2.png}
+
+## Mutation vs. polymorphism
+
+- From private mutation to a more common polymorphism
+
+\includegraphics[height=100px]{img/mutation3.png}
+
+## How SNPs arise
+
+- Haplotype - a group of genes or DNPs _inherited together_
+- A child inherits two haplotypes - one from dad and one from mom
+
+\includegraphics[height=80px]{img/haplotypes.png}
+
+## Meiotic recombination shuffles alleles and generates new haplotypes
+
+\includegraphics[height=110px]{img/haplotypes2.png}
+
+## Genetic linkage
+
+\includegraphics[height=80px]{img/recombination.png}
+
+- The greater the frequency of recombination (segregation) between two genetic markers, the further apart they are assumed to be.
+
+\tiny https://en.wikipedia.org/wiki/Genetic_linkage
+
+## One centimorgan (cM) is the equivalent to a recombination frequency of 0.01 (1%)
+ 
+\includegraphics[height=110px]{img/centimorgan.png}
+
+In humans, 1 cM corresponds to approximately 1 million bp on average
+
+## Linkage (dis)equilibrium
+
+- Linkage equilibrium: random association of alleles at different loci
+- Linkage disequilibrium: non-random association of alleles at different loci
+
+\includegraphics[height=90px]{img/disequilibrium.png}
+
+- Therefore, knowing one allele (e.g., the first A) is a strong predictor of other alleles on a haplotype
+ 
+## Existing (germline) variants are inherited
+
+\includegraphics[height=160px]{img/germline_inheritance.png}
+
+## New (_de novo_) mutations
+
+- May be the cause of many developmental disorders
+
+\includegraphics[height=160px]{img/denovo_inheritance.png}
+
+\tiny http://massgenomics.org/2015/07/insights-human-de-novo-mutations.html
+
+## Frequency of _de novo_ mutations
+
+- Human mutation rate: ~$1.1 x 10^{-8}$ / bp / generation 
+- Other estimations:  ~$2.5 x 10^{-8}$ 
+- Size of the haploid genome: ~$3.1 x 10^{9}$ nucleotides
+- So, ~$30-40$ _de novo_ mutations per haploid genome or twice as many per diploid genome
+
+\tiny Roach et al. (2010) Science, http://science.sciencemag.org/content/328/5978/636
+
+Nachman et al. (2000) Genetics, http://www.genetics.org/content/156/1/297
+
+##  DNMs are more likely to occur in the paternal germline, and correlate with age
+
+\includegraphics[height=120px]{img/denovo_paternal_maternal.png}
+
+<!--Parent-of-origin of germline and somatic variants. Number of germline de novo SNVs and de novo indels derived from the father was significantly higher than that from the mother. On the other hand, there are significantly more clustered (within 20 kb) germline de novo mutations originating from the mother than from the father, while somatic mutations can be found in similar proportion from both parents. (b) Number of de novo SNVs found on the paternal allele increases with the age of father, but there is no correlation between the number of de novo SNVs found on the maternal allele and the age of the mother.-->
+
+\tiny https://www.nature.com/articles/npjgenmed201627, however: Janecka, M, F Rijsdijk, D Rai, A Modabbernia, and A Reichenberg. “Advantageous Developmental Outcomes of Advancing Paternal Age.” Translational Psychiatry 7, no. 6 (June 20, 2017): e1156. https://doi.org/10.1038/tp.2017.125. - Older dads have 'geekier' sons
+
+## Identifying parental origion of DNMs - phasing
+
+\includegraphics[height=200px]{img/Phasing-Data-1024x1021.png}
+
+\tiny http://www.chromosomechronicles.com/2009/09/30/use-family-snp-data-to-phase-your-own-genome/
+
+## Somatic mutations are acquired over the lifetime
+
+\includegraphics[height=160px]{img/somatic.png}
+
+## SNPs are not created equal
+
+- Cytosine is the least stable DNA base. Its half-life is ~19 days compared to a year or longer for other bases
+- The spontaneous deamination of cytosine to uracil can cause polymerases to read the former C as T, making C-G to T-A an unusually common muration in genomes
+
+## SNPs are not created equal
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+
+- Transitions are interchanges of two-ring purines (A <> G) or of one-ring pyrimidines (C <> T): they therefore involve bases of similar shape.  
+
+- Transversions are interchanges of purine for pyrimidine bases, which therefore involve exchange of one-ring and two-ring structures. 
+
+\end{column}
+\begin{column}{0.48\textwidth}
+
+\includegraphics[height=150px]{img/Transitions_Transversions.png}
+
+\end{column}
+\end{columns}
+
+\tiny https://www.mun.ca/biology/scarr/Transitions_vs_Transversions.html
+
+## SNPs are not created equal
+
+\includegraphics[height=150px]{img/dnm_rates.png}
+
+- Due to spontaneous deamination of methylated cytosines, C>T transitions predominate in DNMs
+ 
+<!--
+## Genome evolution and genetic drift
+
+\includegraphics[height=150px]{img/genetic_drift.png}
+
+## Genetic bottleneck
+
+- Bottleneck event - reduction of population diversity (war, migration, animal extinction)
+
+\includegraphics[height=150px]{img/bottleneck.png}
+
+## Out of Africa Theory 
+
+- Bottlenecks & reduced diversity
+
+\includegraphics[height=170px]{img/out_of_africa.png}
+
+\tiny https://www.nature.com/nrg/journal/v3/n8/abs/nrg865.html
+
+## The 1000 (2,504) Genomes Project
+
+\includegraphics[height=170px]{img/1000genomes.png}
+
+\tiny https://www.nature.com/nature/journal/v526/n7571/full/nature15393.html
+
+## The 1000 (2,504) Genomes Project
+
+\includegraphics[height=150px]{img/100genomes_fig1.png}
+
+- Individuals from African ancestry populations harbour the greatest numbers of variant sites, as predicted by the out-of-Africa model of human origins.
+- European, Asian and American populations shared strong and sustained bottlenecks.
+-->
+
+## The majority of variants in the data set are rare
+
+\includegraphics[height=170px]{img/100genomes_ext_fig3.png}
+
+- ~64 million autosomal variants have a frequency <0.5%, ~ 12 million have a frequency between 0.5% and 5%, and only ~8 million have a frequency >5%
+
+## Distinguishing genomic variants from sequencing errors
+
+Distinguishing SNPs from sequencing error typically a likelihood test of the coverage
+
+- Hardest to distinguish between errors and heterozygous SNP.
+- Coverage is the most important factor!
+    - Target at least 10x, 30x more reliable
+
+\includegraphics[height=100px]{img/alignment_errors.png}
+
+## Exome-Capture Sequencing
+
+Exome-capture reduces the costs of sequencing
+
+- Currently targets around 50Mbp of sequence: all exons plus flanking regions
+- WGS currently costs ~\$1500 per sample, while WES currently costs ~\$300 per sample
+- Coverage is highly localized around genes, although will get sparse coverage throughout rest of genome
+
+\tiny Bamshad et al.  Exome sequencing as a tool for Mendelian disease gene discovery (2011) Nature Reviews Genetics. 12, 745-755 https://www.nature.com/nrg/journal/v12/n11/full/nrg3031.html
+
+## Defining the exome
+
+- **Exome** - The subset of a genome that is protein coding. In addition to the exome, commercially available capture probes target non-coding exons, sequences flanking exons and microRNAs.
+- Initial efforts at exome sequencing erred on the conservative side (for example, by targeting the high-confidence subset of genes identified by the Consensus Coding Sequence (CCDS) Project).
+- Commercial kits now target, at a minimum, all of the RefSeq collection and an increasingly large number of hypothetical proteins.
+
+## Exome limitations
+
+Limitations
+
+- Knowledge of all truly protein-coding exons is incomplete.
+- Efficiency of capture probes varies
+- Not all regions sequenced efficiently
+- Should other transcripts (e.g., miRNAs) be targeted?
+- On average, 82% of genes have at least 90% bases called.
+
