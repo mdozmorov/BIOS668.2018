@@ -42,6 +42,12 @@ Your project report should be written in R/Markdown format and compiled as a PDF
 5. **References**.
 6. **Computational component**: code chunks, as well as any data that can't be recreated with the code, must be provided to the instructor so it can be tested. Make sure your code is readable (use `formatR::tidy_app()`) and commented.
 
+# Submitting guidelines
+
+- Submit PDFs of the reports to the blackboard, https://blackboard.vcu.edu
+- Include a link to your GitHub repositories, one for the first and another for the second parts of the project
+
+
 ### Final grading
 
 Review grading policy at [https://mdozmorov.github.io/BIOS668.2018/policies/](https://mdozmorov.github.io/BIOS668.2018/policies/)
