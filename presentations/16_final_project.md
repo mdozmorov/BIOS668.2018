@@ -45,7 +45,7 @@ Your project report should be written in R/Markdown format and compiled as a PDF
 # Submitting guidelines
 
 - Submit PDFs of the reports to the blackboard, https://blackboard.vcu.edu
-- Include a link to your GitHub repositories, one for the first and another for the second parts of the project
+- Include a link to your GitHub repositories, one for the first and another for the second parts of the project. Do not include raw data in the GitHub repository, provide script(s) for data downloading
 
 
 ### Final grading
