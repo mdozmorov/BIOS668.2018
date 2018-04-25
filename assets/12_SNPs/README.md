@@ -10,64 +10,66 @@
 
 ## `lab` - in-class lab material
 
-- "Wrangling genomics" SNP calling pipeline. https://github.com/datacarpentry/wrangling-genomics
-
-- "Variant Annotation Workshop with FunciVAR, StateHub and MotifBreakR", https://www.simoncoetzee.com/bioc2017.html
-
-- "GWAS tutorial", https://poissonisfish.wordpress.com/2017/10/09/genome-wide-association-studies-in-r/, https://github.com/monogenea/GWAStutorial
-
-- Reed, Eric, Sara Nunez, David Kulp, Jing Qian, Muredach P. Reilly, and Andrea S. Foulkes. “A Guide to Genome-Wide Association Analysis and Post-Analytic Interrogation.” Statistics in Medicine 34, no. 28 (December 10, 2015): 3769–92. https://doi.org/10.1002/sim.6605. GWAS R tutorial. Workflow details, file types, filtering steps, PCA, post-analysis visualization. Data from https://www.mtholyoke.edu/courses/afoulkes/Data/GWAStutorial/. Support site http://www.stat-gen.org/
-
-- Mutation calling Snakemake pipeline by Tommy Tang, https://gitlab.com/tangming2005/snakemake_DNAseq_pipeline/tree/multiRG
-
-- `alignment-and-variant-calling-tutorial` - basic walk-throughs for alignment and variant calling from NGS sequencing data, by Erik Garrison. [https://github.com/ekg/alignment-and-variant-calling-tutorial](https://github.com/ekg/alignment-and-variant-calling-tutorial)
-
 - "CBW HT-seq Module 4 - Single Nucleotide Variant Calling" using GATK, filtering, effect estimation, annotation - https://bioinformaticsdotca.github.io/htseq_2017_module4_lab
 
 - "CBW HT-seq Module 5 - Structural Variant Calling" using delly, LUMPY - https://bioinformaticsdotca.github.io/htseq_2017_module5_lab
 
+- Mutation calling Snakemake pipeline by Tommy Tang, https://gitlab.com/tangming2005/snakemake_DNAseq_pipeline/tree/multiRG
+
 
 ## References
 
-- 1000 Genomes Project Consortium, Adam Auton, Lisa D. Brooks, Richard M. Durbin, Erik P. Garrison, Hyun Min Kang, Jan O. Korbel, et al. “A Global Reference for Human Genetic Variation.” Nature 526, no. 7571 (October 1, 2015): 68–74. doi:10.1038/nature15393. https://www.nature.com/nature/journal/v526/n7571/full/nature15393.html
+### DNA sequencing
 
-- Bamshad, Michael J., Sarah B. Ng, Abigail W. Bigham, Holly K. Tabor, Mary J. Emond, Deborah A. Nickerson, and Jay Shendure. “Exome Sequencing as a Tool for Mendelian Disease Gene Discovery.” Nature Reviews. Genetics 12, no. 11 (September 27, 2011): 745–55. doi:10.1038/nrg3031. - Exome sequencing technology, limitations, use for diagnostics, family studies.
+- 1000 Genomes Project Consortium, Adam Auton, Lisa D. Brooks, Richard M. Durbin, Erik P. Garrison, Hyun Min Kang, Jan O. Korbel, et al. “A Global Reference for Human Genetic Variation.” Nature 526, no. 7571 (October 1, 2015): 68–74. [https://www.nature.com/nature/journal/v526/n7571/full/nature15393.html](https://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
 
-- Pirooznia, Mehdi, Melissa Kramer, Jennifer Parla, Fernando S. Goes, James B. Potash, W. Richard McCombie, and Peter P. Zandi. “Validation and Assessment of Variant Calling Pipelines for Next-Generation Sequencing.” Human Genomics 8 (July 30, 2014): 14. doi:10.1186/1479-7364-8-14. - SNP pipeline benchmarking, GATK vs. samtools. GATK is the best. Supplementary - actual commands to run. http://metamoodics.org/wiki/index.php?title=Whole_Exome_Sequencing_Analysis_Pipeline
+- Bamshad, Michael J., Sarah B. Ng, Abigail W. Bigham, Holly K. Tabor, Mary J. Emond, Deborah A. Nickerson, and Jay Shendure. “Exome Sequencing as a Tool for Mendelian Disease Gene Discovery.” Nature Reviews. Genetics 12, no. 11 (September 27, 2011): 745–55. [https://www.nature.com/articles/nrg3031](https://www.nature.com/articles/nrg3031) - Exome sequencing technology, limitations, use for diagnostics, family studies.
 
-- McCarthy, Davis J, Peter Humburg, Alexander Kanapin, Manuel A Rivas, Kyle Gaulton, asds, Jean-Baptiste Cazier, and Peter Donnelly. “Choice of Transcripts and Software Has a Large Effect on Variant Annotation.” Genome Medicine 6, no. 3 (2014): 26. doi:10.1186/gm543. - SNP annotation depends on transcripts and software. Types of SNPs. Ambigious annotations
+- McCarthy, Davis J, Peter Humburg, Alexander Kanapin, Manuel A Rivas, Kyle Gaulton, asds, Jean-Baptiste Cazier, and Peter Donnelly. “Choice of Transcripts and Software Has a Large Effect on Variant Annotation.” Genome Medicine 6, no. 3 (2014): 26. [https://genomemedicine.biomedcentral.com/articles/10.1186/gm543](https://genomemedicine.biomedcentral.com/articles/10.1186/gm543) - SNP annotation depends on transcripts and software. Types of SNPs. Ambigious annotations
 
-- Purcell, Shaun, Benjamin Neale, Kathe Todd-Brown, Lori Thomas, Manuel A. R. Ferreira, David Bender, Julian Maller, et al. “PLINK: A Tool Set for Whole-Genome Association and Population-Based Linkage Analyses.” American Journal of Human Genetics 81, no. 3 (September 2007): 559–75. https://doi.org/10.1086/519795. - PLINK - a tool for whole-genome association studies data management, summary statistics, population stratification, association analysis, and identity-by-descent estimation. Details of each task. gPLINK - graphical user interface integrated with HaploView. http://zzz.bwh.harvard.edu/plink/
+- Pabinger, S., A. Dander, M. Fischer, R. Snajder, M. Sperk, M. Efremova, B. Krabichler, M. R. Speicher, J. Zschocke, and Z. Trajanoski. “A Survey of Tools for Variant Analysis of Next-Generation Genome Sequencing Data.” Briefings in Bioinformatics 15, no. 2 (March 1, 2014): 256–78. [https://doi.org/10.1093/bib/bbs086](https://doi.org/10.1093/bib/bbs086) - SNP calling and analysis tools overview. Germline, somatic, CNV, SV detection.  Variant annotation tools.
 
-- Pabinger, S., A. Dander, M. Fischer, R. Snajder, M. Sperk, M. Efremova, B. Krabichler, M. R. Speicher, J. Zschocke, and Z. Trajanoski. “A Survey of Tools for Variant Analysis of Next-Generation Genome Sequencing Data.” Briefings in Bioinformatics 15, no. 2 (March 1, 2014): 256–78. https://doi.org/10.1093/bib/bbs086. - SNP calling and analysis tools overview. Germline, somatic, CNV, SV detection.  Variant annotation tools.
-
-- MacArthur, D. G., T. A. Manolio, D. P. Dimmock, H. L. Rehm, J. Shendure, G. R. Abecasis, D. R. Adams, et al. “Guidelines for Investigating Causality of Sequence Variants in Human Disease.” Nature 508, no. 7497 (April 24, 2014): 469–76. https://doi.org/10.1038/nature13127. - Definitions and guidelines to define pathogenicity of SNPs
-
-- Shabalin, Andrey A. “Matrix EQTL: Ultra Fast EQTL Analysis via Large Matrix Operations.” Bioinformatics (Oxford, England) 28, no. 10 (May 15, 2012): 1353–58. https://doi.org/10.1093/bioinformatics/bts163. - eQTL detection using linear regression/ANOVA models. Genotype by gene expression matrix multiplication to calculate model statistics. Handling of covariates, correlation structure, FDR correction, handling of cis/trans qtls.
+- MacArthur, D. G., T. A. Manolio, D. P. Dimmock, H. L. Rehm, J. Shendure, G. R. Abecasis, D. R. Adams, et al. “Guidelines for Investigating Causality of Sequence Variants in Human Disease.” Nature 508, no. 7497 (April 24, 2014): 469–76. [https://doi.org/10.1038/nature13127](https://doi.org/10.1038/nature13127) - Definitions and guidelines to define pathogenicity of SNPs
 
 ### Structural and Copy Number Variants
 
-- Quinlan, Aaron R., and Ira M. Hall. “Characterizing Complex Structural Variation in Germline and Somatic Genomes.” Trends in Genetics: TIG 28, no. 1 (January 2012): 43–53. doi:10.1016/j.tig.2011.10.002. - SV review, types, how generated, technologies for detection (Box 1. depth, paired-end, split-read)
+- Quinlan, Aaron R., and Ira M. Hall. “Characterizing Complex Structural Variation in Germline and Somatic Genomes.” Trends in Genetics: TIG 28, no. 1 (January 2012): 43–53. [https://www.sciencedirect.com/science/article/pii/S0168952511001685](https://www.sciencedirect.com/science/article/pii/S0168952511001685) - SV review, types, how generated, technologies for detection (Box 1. depth, paired-end, split-read)
 
-- Alkan, Can, Bradley P. Coe, and Evan E. Eichler. “Genome Structural Variation Discovery and Genotyping.” Nature Reviews Genetics 12, no. 5 (May 2011): 363–76. doi:10.1038/nrg2958. - CNV, structural detection review
+- Alkan, Can, Bradley P. Coe, and Evan E. Eichler. “Genome Structural Variation Discovery and Genotyping.” Nature Reviews Genetics 12, no. 5 (May 2011): 363–76. [https://www.nature.com/articles/nrg2958](https://www.nature.com/articles/nrg2958) - CNV, structural detection review
 
-- Zhang, Feng, Wenli Gu, Matthew E. Hurles, and James R. Lupski. “Copy Number Variation in Human Health, Disease, and Evolution.” Annual Review of Genomics and Human Genetics 10 (2009): 451–81. https://doi.org/10.1146/annurev.genom.9.081307.164217. - CNV review, mechanisms, analytical difficulties, roles in individual diseases
+- Zhang, Feng, Wenli Gu, Matthew E. Hurles, and James R. Lupski. “Copy Number Variation in Human Health, Disease, and Evolution.” Annual Review of Genomics and Human Genetics 10 (2009): 451–81. [https://doi.org/10.1146/annurev.genom.9.081307.164217](https://doi.org/10.1146/annurev.genom.9.081307.164217) - CNV review, mechanisms, analytical difficulties, roles in individual diseases
 
-- Trost, Brett, Susan Walker, Zhuozhi Wang, Bhooma Thiruvahindrapuram, Jeffrey R. MacDonald, Wilson W. L. Sung, Sergio L. Pereira, et al. “A Comprehensive Workflow for Read Depth-Based Identification of Copy-Number Variation from Whole-Genome Sequence Data.” American Journal of Human Genetics 102, no. 1 (January 4, 2018): 142–55. https://doi.org/10.1016/j.ajhg.2017.12.007. - CNV (>1kb) read-depth detection workflow, from experimental considerations to computational analysis. HuRef (NA12878) genome, supplemental files contain CNV genomic coordinates. CNVnator and ERDS perform optimally. Tools comparison, links to resources.
+- Trost, Brett, Susan Walker, Zhuozhi Wang, Bhooma Thiruvahindrapuram, Jeffrey R. MacDonald, Wilson W. L. Sung, Sergio L. Pereira, et al. “A Comprehensive Workflow for Read Depth-Based Identification of Copy-Number Variation from Whole-Genome Sequence Data.” American Journal of Human Genetics 102, no. 1 (January 4, 2018): 142–55. [https://doi.org/10.1016/j.ajhg.2017.12.007](https://doi.org/10.1016/j.ajhg.2017.12.007) - CNV (>1kb) read-depth detection workflow, from experimental considerations to computational analysis. HuRef (NA12878) genome, supplemental files contain CNV genomic coordinates. CNVnator and ERDS perform optimally. Tools comparison, links to resources.
 
 
-### Sequencing resources
+### Tools
+
+- Pirooznia, Mehdi, Melissa Kramer, Jennifer Parla, Fernando S. Goes, James B. Potash, W. Richard McCombie, and Peter P. Zandi. “Validation and Assessment of Variant Calling Pipelines for Next-Generation Sequencing.” Human Genomics 8 (July 30, 2014): 14. [https://humgenomics.biomedcentral.com/articles/10.1186/1479-7364-8-14](https://humgenomics.biomedcentral.com/articles/10.1186/1479-7364-8-14) - SNP pipeline benchmarking, GATK vs. samtools. GATK is the best. Supplementary - actual commands to run. [http://metamoodics.org/wiki/index.php?title=Whole_Exome_Sequencing_Analysis_Pipeline](http://metamoodics.org/wiki/index.php?title=Whole_Exome_Sequencing_Analysis_Pipeline)
+
+- Purcell, Shaun, Benjamin Neale, Kathe Todd-Brown, Lori Thomas, Manuel A. R. Ferreira, David Bender, Julian Maller, et al. “PLINK: A Tool Set for Whole-Genome Association and Population-Based Linkage Analyses.” American Journal of Human Genetics 81, no. 3 (September 2007): 559–75. [https://doi.org/10.1086/519795](https://doi.org/10.1086/519795) - PLINK - a tool for whole-genome association studies data management, summary statistics, population stratification, association analysis, and identity-by-descent estimation. Details of each task. gPLINK - graphical user interface integrated with HaploView. [http://zzz.bwh.harvard.edu/plink/](http://zzz.bwh.harvard.edu/plink/)
+
+- Shabalin, Andrey A. “Matrix EQTL: Ultra Fast EQTL Analysis via Large Matrix Operations.” Bioinformatics (Oxford, England) 28, no. 10 (May 15, 2012): 1353–58. [https://doi.org/10.1093/bioinformatics/bts163](https://doi.org/10.1093/bioinformatics/bts163) - eQTL detection using linear regression/ANOVA models. Genotype by gene expression matrix multiplication to calculate model statistics. Handling of covariates, correlation structure, FDR correction, handling of cis/trans qtls. [http://www.bios.unc.edu/research/genomic_software/Matrix_eQTL/](http://www.bios.unc.edu/research/genomic_software/Matrix_eQTL/)
+
+
+### Workflows and tools
+
+- Van der Auwera, Geraldine A., Mauricio O. Carneiro, Chris Hartl, Ryan Poplin, Guillermo Del Angel, Ami Levy-Moonshine, Tadeusz Jordan, et al. “From FastQ Data to High Confidence Variant Calls: The Genome Analysis Toolkit Best Practices Pipeline.” Current Protocols in Bioinformatics 43 (2013): 11.10.1-33. [https://doi.org/10.1002/0471250953.bi1110s43](https://doi.org/10.1002/0471250953.bi1110s43)
+
+- Reed, Eric, Sara Nunez, David Kulp, Jing Qian, Muredach P. Reilly, and Andrea S. Foulkes. “A Guide to Genome-Wide Association Analysis and Post-Analytic Interrogation.” Statistics in Medicine 34, no. 28 (December 10, 2015): 3769–92. [https://doi.org/10.1002/sim.6605](https://doi.org/10.1002/sim.6605) - GWAS R tutorial. Workflow details, file types, filtering steps, PCA, post-analysis visualization. Data from [https://www.mtholyoke.edu/courses/afoulkes/Data/GWAStutorial/](https://www.mtholyoke.edu/courses/afoulkes/Data/GWAStutorial/). Support site [http://www.stat-gen.org/](http://www.stat-gen.org/)
 
 - Notes on whole exome and whole genome sequencing analysis. [https://github.com/crazyhottommy/DNA-seq-analysis](https://github.com/crazyhottommy/DNA-seq-analysis)
 
 - Thousand Variant Callers Project Github Repo, links and short descriptions of different genomic variant callers. [https://github.com/deaconjs/ThousandVariantCallersRepo](https://github.com/deaconjs/ThousandVariantCallersRepo)
 
+- "Wrangling genomics" SNP calling pipeline. [https://github.com/datacarpentry/wrangling-genomics](https://github.com/datacarpentry/wrangling-genomics)
+
+- "Variant Annotation Workshop with FunciVAR, StateHub and MotifBreakR", [https://www.simoncoetzee.com/bioc2017.html](https://www.simoncoetzee.com/bioc2017.html)
+
+- "GWAS tutorial", [https://poissonisfish.wordpress.com/2017/10/09/genome-wide-association-studies-in-r/](https://poissonisfish.wordpress.com/2017/10/09/genome-wide-association-studies-in-r/), [https://github.com/monogenea/GWAStutorial](https://github.com/monogenea/GWAStutorial)
+
 - Off-label workflow to simply call differences in two samples. [https://gatkforums.broadinstitute.org/gatk/discussion/11315/off-label-workflow-to-simply-call-differences-in-two-samples](https://gatkforums.broadinstitute.org/gatk/discussion/11315/off-label-workflow-to-simply-call-differences-in-two-samples)
 
-
-### Workflows and tools
-
-- Van der Auwera, Geraldine A., Mauricio O. Carneiro, Chris Hartl, Ryan Poplin, Guillermo Del Angel, Ami Levy-Moonshine, Tadeusz Jordan, et al. “From FastQ Data to High Confidence Variant Calls: The Genome Analysis Toolkit Best Practices Pipeline.” Current Protocols in Bioinformatics 43 (2013): 11.10.1-33. https://doi.org/10.1002/0471250953.bi1110s43.
+- Basic walk-throughs for alignment and variant calling from NGS sequencing data, by Erik Garrison. [https://github.com/ekg/alignment-and-variant-calling-tutorial](https://github.com/ekg/alignment-and-variant-calling-tutorial)
 
 
 
