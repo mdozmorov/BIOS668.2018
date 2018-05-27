@@ -14,6 +14,8 @@
 
 - Zhou, Vicky W., Alon Goren, and Bradley E. Bernstein. “Charting Histone Modifications and the Functional Organization of Mammalian Genomes.” Nature Reviews. Genetics 12, no. 1 (January 2011): 7–18. [https://www.nature.com/articles/nrg2905](https://www.nature.com/articles/nrg2905) - Histone marks review, ChIP-seq. Graphics of histone marks roles
 
+- Wang, Zhibin, Dustin E. Schones, and Keji Zhao. “Characterization of Human Epigenomes.” Current Opinion in Genetics & Development 19, no. 2 (April 2009): 127–34. [https://doi.org/10.1016/j.gde.2009.02.001](https://doi.org/10.1016/j.gde.2009.02.001) - Concise description of main histone marks, their roles in transcription, and the corresponding studies. Figure 2 - schematic distribution of histone marks with respect to genes-TSSs.
+
 - Zhang, Z. D., A. Paccanaro, Y. Fu, S. Weissman, Z. Weng, J. Chang, M. Snyder, and M. B. Gerstein. “Statistical Analysis of the Genomic Distribution and Correlation of Regulatory Elements in the ENCODE Regions.” Genome Research 17, no. 6 (June 1, 2007): 787–97. [https://doi.org/10.1101/gr.5573107](https://doi.org/10.1101/gr.5573107). - ENCODE pilot project analysis. Non-random location of regulatory elements. Enrichment in TSSs, not in the middle or end of transcription sites. PCA and biplot representation of interrelatedness among TFs and histone marks, clustering.
 
 - Fu, Audrey Qiuyan, and Boris Adryan. “Scoring Overlapping and Adjacent Signals from Genome-Wide ChIP and DamID Assays.” Molecular BioSystems 5, no. 12 (December 2009): 1429–38. [http://pubs.rsc.org/en/content/articlelanding/2009/mb/b906880e](http://pubs.rsc.org/en/content/articlelanding/2009/mb/b906880e)
