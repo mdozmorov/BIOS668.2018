@@ -83,6 +83,9 @@
   - For windows-based approaches, Simes method to combine p-values. the overall p-value of $n$ merged regions will be calculated as $p_{Simes}=min\{n*p_r/r\}$, where $r=1,2,..,n$.
 
 
+- Lun, Aaron T. L., and Gordon K. Smyth. “From Reads to Regions: A Bioconductor Workflow to Detect Differential Binding in ChIP-Seq Data.” F1000Research 4 (January 11, 2016): 1080. https://doi.org/10.12688/f1000research.7016.2. - ChIP-seq differential binding analysis tutorial using csaw, edgeR. Filtering (blacklisted regions), normalization (MA), differential analysis using the Quasi Likelihood F-test. detailRanges function for finding nearest genes. ChIPpeakAnno for peak annotation. Visualization.
+
+
 https://math.stackexchange.com/questions/1050184/difference-between-poisson-and-binomial-distributions
 
 The difference between the Binomial and Poisson distributions is that while both measure the number of certain random events (or "successes") within a certain frame, the Binomial is based on discrete events, while the Poisson is based on continuous events. That is, with a binomial distribution you have a certain number, $n$, of "attempts," each of which has probability of success $p$. With a Poisson distribution, you essentially have infinite attempts, with infinitesimal chance of success. That is, given a Binomial distribution with some $n,p$, if you let $n \rightarrow \infty$ and $p \rightarrow 0$ in such a way that $np \rightarrow \lambda$, then that distribution approaches a Poisson distribution with parameter $\lambda$.
