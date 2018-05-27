@@ -80,6 +80,8 @@ Local version at /Users/mdozmorov/Documents/Data/bioc2017singlecell
 
 - powsimR: Power analysis for bulk and single cell RNA-seq experiments, https://github.com/bvieth/powsimR
 
+- `lab/SingleCell_2018` - Repository for Single Cell Analysis Course in MDC
+
 ## References
 
 - Single-cell ATAC-seq: Buenrostro, Jason D., Beijing Wu, Ulrike M. Litzenburger, Dave Ruff, Michael L. Gonzales, Michael P. Snyder, Howard Y. Chang, and William J. Greenleaf. “Single-Cell Chromatin Accessibility Reveals Principles of Regulatory Variation.” Nature 523, no. 7561 (July 23, 2015): 486–90. https://doi.org/10.1038/nature14590.
