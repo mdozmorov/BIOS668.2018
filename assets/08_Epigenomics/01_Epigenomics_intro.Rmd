@@ -188,3 +188,11 @@ output:
 \end{center}
 
 \tiny https://www.ncbi.nlm.nih.gov/pubmed/21116306
+
+## Summary of histone modifications
+
+histone_distribution.png
+
+Schematic showing the characteristics (broad or narrow peaks) of different histone modification marks and their regulatory role (activation or repression) in gene regulation (from [5]). The first row in the figure shows an exemplary gene region and the arrow represents the Transcription Start Site (TSS) and the direction of transcription. The signal of H3K4me1/2/3 is characterized by a narrow peak, whereas H3K27me3 is associated with broad and diffused peaks.
+
+\tiny Wang, Zhibin, Dustin E. Schones, and Keji Zhao. “Characterization of Human Epigenomes.” Current Opinion in Genetics & Development 19, no. 2 (April 2009): 127–34. https://doi.org/10.1016/j.gde.2009.02.001.
