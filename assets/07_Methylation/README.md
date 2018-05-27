@@ -32,6 +32,8 @@
 
 - Methylation statistics packages: Table 2 in Liu, Hongbo, Song Li, Xinyu Wang, Jiang Zhu, Yanjun Wei, Yihan Wang, Yanhua Wen, et al. “**DNA Methylation Dynamics: Identification and Functional Annotation.**” Briefings in Functional Genomics, 2016. [https://www.ncbi.nlm.nih.gov/pubmed/27515490](https://www.ncbi.nlm.nih.gov/pubmed/27515490)
 
+- Mark D. Robinson et al., “Statistical Methods for Detecting Differentially Methylated Loci and Regions,” Frontiers in Genetics 5 (2014): 324, https://doi.org/10.3389/fgene.2014.00324. - Methylation nethods review. From data, experimental design to software tools for finding differentially methylated regions.
+
 ### Misc
 
 - R annotation ana analysis packages for Illumina methylation arrays, [http://www.hansenlab.org/software.html](http://www.hansenlab.org/software.html)
