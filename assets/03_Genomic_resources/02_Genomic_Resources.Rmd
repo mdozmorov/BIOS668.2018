@@ -174,6 +174,18 @@ https://epiviz.github.io/
 
 http://www.sthda.com/english/wiki/ggbio-visualize-genomic-data
 
+## karyotypeR
+
+- karyoploteR is an R package to create karyoplots, that is, representations of whole genomes with arbitrary data plotted on them
+
+\includegraphics[height=130px]{img/karyoploter.png}
+
+\tiny Gel, Bernat, and Eduard Serra. “KaryoploteR: An R/Bioconductor Package to Plot Customizable Genomes Displaying Arbitrary Data.” Bioinformatics 33, no. 19 (October 1, 2017): 3088–90. https://doi.org/10.1093/bioinformatics/btx346.
+
+https://bioconductor.org/packages/release/bioc/html/karyoploteR.html
+
+https://bernatgel.github.io/karyoploter_tutorial/
+
 ## Other visualization tools
 
 - Review of omics data visualization tools, summary table: Schroeder, Michael P., Abel Gonzalez-Perez, and Nuria Lopez-Bigas. “Visualizing Multidimensional Cancer Genomics Data.” Genome Medicine 5, no. 1 (2013): 9. https://doi.org/10.1186/gm413.
