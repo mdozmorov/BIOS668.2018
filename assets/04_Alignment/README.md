@@ -64,6 +64,8 @@
 
 - "Dynamic programming for sequence alignment" - building alignment table and tracing back. [https://www.ibm.com/developerworks/library/j-seqalign/](https://www.ibm.com/developerworks/library/j-seqalign/)
 
+- The Freiburg RNA tools teaching material on RNA- and DNA-sequencing alignment (Needleman-Wunsch, Smith-Waterman, many more). [http://rna.informatik.uni-freiburg.de/Teaching/](http://rna.informatik.uni-freiburg.de/Teaching/)
+
 ### Videos
 
 - The [Bioinformatics algoriths](http://bioinformaticsalgorithms.com/index.htm) web site
