@@ -4,7 +4,7 @@ _site
 node_modules
 .DS_Store
 .Rproj.user
-assets/Untitled.*
+Untitled.*
 assets/README.md
 assets/*/lab
 assets/*/misc
