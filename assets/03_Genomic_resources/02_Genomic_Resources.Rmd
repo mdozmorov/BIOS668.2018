@@ -196,6 +196,41 @@ https://bernatgel.github.io/karyoploter_tutorial/
 
 Cao, Xiaoyi, Zhangming Yan, Qiuyang Wu, Alvin Zheng, and Sheng Zhong. “Building a Genome Browser with GIVE.” BioRxiv, January 1, 2018. https://doi.org/10.1101/177832. https://zhong-lab-ucsd.github.io/GIVE_homepage/
 
+## Large genomics projects and resources
+
+<!-- misc/Table_big_data.xlsx-->
+
+\tiny 
+
+| Name                                                    | Website                         | Description                                                                                                                                                                      |
+|---------------------------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1000 Genomes Project (1KGP)                             | www.internationalgenome.org     | This project includes whole-genome and exome sequencing data from 2,504 individuals across 26 populations                                                                        |
+| Cancer Cell Line Encyclopedia (CCLE)                    | portals.broadinstitute.org/ccle | This resource includes data spanning 1,457 cancer cell lines                                                                                                                     |
+| Encyclopedia of DNA Elements (ENCODE)                   | www.encodeproject.org           | The goal of this project is to identify functional elements of the human genome using a gamut of sequencing assays across cell lines and tissues                                 |
+| Genome Aggregation Database (gnomAD)                    | gnomad.broadinstitute.org       | This resource entails coverage and allele frequency information from over 120,000 exomes and 15,000 whole genomes                                                                |
+| Genotype–Tissue Expression (GTEx) Portal                | gtexportal.org                  | This effort has to date performed RNA sequencing or genotyping of 714 individuals across 53 tissues                                                                              |
+| Global Alliance for Genomics and Health (GA4GH)         | genomicsandhealth.org           | This consortium of over 400 institutions aims to standardize secure sharing of genomic and clinical data                                                                         |
+| International Cancer Genome Consortium (ICGC)           | icgc.org                        | This consortium spans 76 projects, including TCGA                                                                                                                                |
+| Million Veterans Program (MVP)                          | www.research.va.gov/mvp         | This US programme aims to collect blood samples and health information from 1 million military veterans                                                                          |
+| Model Organism Encyclopedia of DNA Elements (modENCODE) | www.modencode.org               | The goal of this effort is to identify functional elements of the Drosophila melanogaster and Caenorhabditis elegans genomes using a gamut of sequencing assays                  |
+| Precision Medicine Initiative (PMI)                     | allofus.nih.gov                 | This US programme aims to collect genetic data from over 1 million individuals                                                                                                   |
+| The Cancer Genome Atlas (TCGA)                          | cancergenome.nih.gov            | This resource includes data from 11,350 individuals spanning 33 cancer types                                                                                                     |
+| Trans-Omics for Precision Medicine (TOPMed)             | https://www.nhlbiwgs.org        | The goal of this programme is to build a commons with omics data and associated clinical outcomes data across populations for research on heart, lung, blood and sleep disorders |
+
+\tiny Langmead, Ben, and Abhinav Nellore. “Cloud Computing for Genomic Data Analysis and Collaboration.” Nature Reviews Genetics, January 30, 2018. https://doi.org/10.1038/nrg.2017.113.
+
+
+## A comparison of genomics data types
+
+\tiny
+
+| NGS technology                       | Total bases | Compressed bytes | Equivalent size | Core hours to analyse 100 samples | Comments                                                              |
+|--------------------------------------|-------------|------------------|-----------------|-----------------------------------|-----------------------------------------------------------------------|
+| Single-cell RNA sequencing           | 725 million | 300 MB           | 50 MP3 songs    | 20                                | >100,000 such samples in SRA, >50,000 from humans                     |
+| Bulk RNA sequencing                  | 4 billion   | 2 GB             | 2 CD-ROMs       | 100                               | >400,000 such samples in SRA, >100,000 from humans                    |
+| Human reference genome (GRCh38)      | 3 billion   | 800 MB           | 1 CD-ROM        | NA                                |                                                                       |
+| Whole-exome sequencing               | 9.5 billion | 4.5 GB           | 1 DVD movie     | 4,000                             | \~1,300 human samples from 1000 Genomes Project alone                  |
+| Whole-genome sequencing of human DNA | 75 billion  | 25 GB            | 1 Blu-ray movie | 30,000                            | \~18,000 human samples with 30x coverage from the TOPMed project alone |
 
 
 ## Other genome browsers/databases
