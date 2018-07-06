@@ -40,6 +40,8 @@
 
 - Hoffman, Michael M., Orion J. Buske, Jie Wang, Zhiping Weng, Jeff A. Bilmes, and William Stafford Noble. “Unsupervised Pattern Discovery in Human Chromatin Structure through Genomic Segmentation.” Nature Methods 9, no. 5 (May 2012): 473–76. [https://doi.org/10.1038/nmeth.1937](https://doi.org/10.1038/nmeth.1937) - Segway - segmentation and prediction of genomic states. Using dynamic Bayesian network
 
+- Rojano, Elena, Pedro Seoane, Juan A G Ranea, and James R Perkins. “Regulatory Variants: From Detection to Predicting Impact.” Briefings in Bioinformatics, June 8, 2018. [https://doi.org/10.1093/bib/bby039](https://doi.org/10.1093/bib/bby039) - Regulatory SNPs methods of analysis review. Key regulatory elements (promoters, enhancers, silencers, insulators). Clustering and redundancy of regulatory elements. Post-transcriptional regulation (miRNA, lincRNA). How to call SNPs. Table 1 - databases of regulatory elements. Annotations for predicting pathogenicity (CADD, DANN, GWAVA, FATHMM-MKL, LINSIGHT, others, Table 3). Table 2 - annotation tools. Table 4 - current experimental techniques, including Hi-C. Example diseases having regulatory variants.
+
 
 ## `misc` - misc presentations and materials
 
