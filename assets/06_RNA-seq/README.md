@@ -62,6 +62,9 @@
 
 - "RNA-Seq Methods and Algorithms" short video course by Harold Pimentel, pseudoalignment, kallisto, sleuth, practical. [https://www.youtube.com/watch?v=96yBPM8lEt8&list=PLfFNmoa-yUIb5cYG2R1zf5rtrQQKZvKwG](https://www.youtube.com/watch?v=96yBPM8lEt8&list=PLfFNmoa-yUIb5cYG2R1zf5rtrQQKZvKwG)
 
+- Zhao, Qi, Yubin Xie, Peng Nie, Rucheng Diao, Licheng Sun, Zhixiang Zuo, and Jian Ren. “IDEA: A Web Server for Interactive Differential Expression Analysis with R Packages,” July 3, 2018. [https://doi.org/10.1101/360461](https://doi.org/10.1101/360461) - Differential expression analysis from a matrix of FPKMs and a design matrix. Several methods to detect DEGs (DESeq2, edgeR, NOISeq, PoissonSeq, SAMseq), plots (MA, volcano, heatmap). [http://renlab.org:3838/IDEA/](http://renlab.org:3838/IDEA/)
+
+
 ### RNA-seq resources
 
 - Tools for RNA-seq data analysis, [http://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s004](http://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s004)
