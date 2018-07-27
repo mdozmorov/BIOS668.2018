@@ -31,6 +31,9 @@
 
 - MacArthur, D. G., T. A. Manolio, D. P. Dimmock, H. L. Rehm, J. Shendure, G. R. Abecasis, D. R. Adams, et al. “Guidelines for Investigating Causality of Sequence Variants in Human Disease.” Nature 508, no. 7497 (April 24, 2014): 469–76. [https://doi.org/10.1038/nature13127](https://doi.org/10.1038/nature13127) - Definitions and guidelines to define pathogenicity of SNPs
 
+- Bush, William S., and Jason H. Moore. “Chapter 11: Genome-Wide Association Studies.” Edited by Fran Lewitter and Maricel Kann. PLoS Computational Biology 8, no. 12 (December 27, 2012): e1002822. https://doi.org/10.1371/journal.pcbi.1002822. - GWAS key concepts review. Examples of GWAS findings. Definitions of allele frequency, linkage disequilibrium and D' and r^2 definitions, technology, study design, association tests using GLM, ANOVA, logistic regression frameworks, population stratification, meta-analysis considerations, data phasing, imputation. Tools.
+
+
 ### Structural and Copy Number Variants
 
 - Quinlan, Aaron R., and Ira M. Hall. “Characterizing Complex Structural Variation in Germline and Somatic Genomes.” Trends in Genetics: TIG 28, no. 1 (January 2012): 43–53. [https://www.sciencedirect.com/science/article/pii/S0168952511001685](https://www.sciencedirect.com/science/article/pii/S0168952511001685) - SV review, types, how generated, technologies for detection (Box 1. depth, paired-end, split-read)
@@ -84,6 +87,8 @@
 - `HTS_2014_variantCallingCourse_sept2014_Part1.pdf` - Variant	Calling	(using	High-throughput	Sequencing	Data) https://wiki.uio.no/projects/clsi/images/6/6b/HTS_2014_variantCallingCourse_sept2014_Part1.pdf	
 
 ## ToDo - todo list
+
+- `journal.pcbi.1002822.s001.DOCX` - GWAS questions and answers from http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002822#s11
 
 - for eQTL lecture, read Peng, Jie, Ji Zhu, Anna Bergamaschi, Wonshik Han, Dong-Young Noh, Jonathan R. Pollack, and Pei Wang. “Regularized Multivariate Regression for Identifying Master Predictors with Application to Integrative Genomics Study of Breast Cancer.” The Annals of Applied Statistics 4, no. 1 (March 2010): 53–77. https://doi.org/10.1214/09-AOAS271SUPP.
 - and watch http://www.birs.ca/events/2013/5-day-workshops/13w5083/videos/watch/201308130908-Wang.html
