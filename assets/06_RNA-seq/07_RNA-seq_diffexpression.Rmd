@@ -93,6 +93,8 @@ This yields (over biological replicates): $n_{ij}$ is Negative Binomial with mea
 - Dispersion $\phi$ represents the biological variance, so shrinkage should be done for $\phi$
 - NB distribution can be parameterized by mean and dispersion, but there's no conjugate prior for $\phi$
 
+nb.png
+
 ## Warnings about the use of negative binomial
 
 Some transcript data does NOT fit the negative binomial model
