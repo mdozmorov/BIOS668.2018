@@ -63,6 +63,11 @@
 
 - Wei, Zheng, Wei Zhang, Huan Fang, Yanda Li, and Xiaowo Wang. “EsATAC: An Easy-to-Use Systematic Pipeline for ATAC-Seq Data Analysis.” Bioinformatics (Oxford, England), March 7, 2018. [https://doi.org/10.1093/bioinformatics/bty141](https://doi.org/10.1093/bioinformatics/bty141) - esATAC R package for full ATAC-seq data processing and analysis. [https://www.bioconductor.org/packages/release/bioc/html/esATAC.html](https://www.bioconductor.org/packages/release/bioc/html/esATAC.html)
 
+### ATAC-seq resources
+
+- Zuo, Zuqi, Yonghao Jin, Wen Zhang, Yichen Lu, Bin Li, and Kun Qu. “ATAC-Pipe: General Analysis of Genome-Wide Chromatin Accessibility.” Briefings in Bioinformatics, June 29, 2018. [https://doi.org/10.1093/bib/bby056](https://doi.org/10.1093/bib/bby056) - ATAC-seq pipeline. From alignment to differential analysis, networks, TF motif analysis. Table 1 - other pipelines. [https://github.com/QuKunLab/ATAC-pipe](https://github.com/QuKunLab/ATAC-pipe)
+
+
 
 ## `misc` - misc presentations and materials
 
