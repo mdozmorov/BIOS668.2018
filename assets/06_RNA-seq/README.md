@@ -64,6 +64,7 @@
 
 - Zhao, Qi, Yubin Xie, Peng Nie, Rucheng Diao, Licheng Sun, Zhixiang Zuo, and Jian Ren. “IDEA: A Web Server for Interactive Differential Expression Analysis with R Packages,” July 3, 2018. [https://doi.org/10.1101/360461](https://doi.org/10.1101/360461) - Differential expression analysis from a matrix of FPKMs and a design matrix. Several methods to detect DEGs (DESeq2, edgeR, NOISeq, PoissonSeq, SAMseq), plots (MA, volcano, heatmap). [http://renlab.org:3838/IDEA/](http://renlab.org:3838/IDEA/)
 
+- TPMCalculator quantifies mRNA abundance directly from the alignments by parsing BAM files. The input parameters are the same GTF files used to generate the alignments, and one or multiple input BAM file(s) containing either single-end or paired-end sequencing reads. The TPMCalculator output is comprised of four files per sample reporting the TPM values and raw read counts for genes, transcripts, exons and introns respectively. [https://github.com/ncbi/TPMCalculator](https://github.com/ncbi/TPMCalculator)
 
 ### RNA-seq resources
 
