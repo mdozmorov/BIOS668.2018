@@ -38,6 +38,8 @@
 
 - VCF-tips-tricks, [https://github.com/tdelhomme/VCF-tips-tricks](https://github.com/tdelhomme/VCF-tips-tricks)
 
+- Tip and tricks for BAM files, [https://github.com/IARCbioinfo/BAM-tricks](https://github.com/IARCbioinfo/BAM-tricks)
+
 # `misc`
 
 - `ngsplot_Apr2014.pdf` - Visualization of Next-Gen Sequencing (NGS) Data: ngsplot, http://barc.wi.mit.edu/education/hot_topics/ngsplot/ngsplot_Apr2014.pdf
