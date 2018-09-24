@@ -12,7 +12,7 @@
 
 - Schroeder, Michael P., Abel Gonzalez-Perez, and Nuria Lopez-Bigas. “Visualizing Multidimensional Cancer Genomics Data.” Genome Medicine 5, no. 1 (2013): 9. https://doi.org/10.1186/gm413. - Omics visualization tools review, summary table.
 
-- Silva, Tiago C., Antonio Colaprico, Catharina Olsen, Fulvio D’Angelo, Gianluca Bontempi, Michele Ceccarelli, and Houtan Noushmehr. “TCGA Workflow: Analyze Cancer Genomics and Epigenomics Data Using Bioconductor Packages.” F1000Research 5 (December 28, 2016): 1542. https://doi.org/10.12688/f1000research.8923.2. - TCGA workflow
+- Silva, Tiago C., Antonio Colaprico, Catharina Olsen, Fulvio D’Angelo, Gianluca Bontempi, Michele Ceccarelli, and Houtan Noushmehr. “TCGA Workflow: Analyze Cancer Genomics and Epigenomics Data Using Bioconductor Packages.” F1000Research 5 (December 28, 2016): 1542. https://doi.org/10.12688/f1000research.8923.2. - A comprehensive TCGA workflow in R. Code at https://github.com/BioinformaticsFMRP/TCGAWorkflow/
 
 - Colaprico, Antonio, Tiago C. Silva, Catharina Olsen, Luciano Garofano, Claudia Cava, Davide Garolini, Thais S. Sabedot, et al. “TCGAbiolinks: An R/Bioconductor Package for Integrative Analysis of TCGA Data.” Nucleic Acids Research 44, no. 8 (May 5, 2016): e71. https://doi.org/10.1093/nar/gkv1507.
 
