@@ -415,6 +415,17 @@ http://genome.sph.umich.edu/wiki/Variant_Normalization
 
 http://annovar.openbioinformatics.org/en/latest/articles/VCF/
 
+## Complex variants
+
+- Illustration of a complex variant at position 101: TACA > TAATGTCTATCAGA being represented in two combinations of simple SNV and indels.
+    - Representation one: insertion at 101: T > TAATGTCTATC and SNV at 103: G > C. 
+    - Representation two: insertions at 102: A > AATGT and 103: C > CTATCAG.
+
+complex_variant.png
+
+\tiny Xu, Chang. “A Review of Somatic Single Nucleotide Variant Calling Algorithms for Next-Generation Sequencing Data.” Computational and Structural Biotechnology Journal 16 (2018): 15–24. https://doi.org/10.1016/j.csbj.2018.01.003.
+
+
 ## Other VCF issues
 
 - Chromosome labeling: chr1, chr2 ... vs. 1, 2, X, Y, M
