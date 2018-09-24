@@ -38,6 +38,8 @@
 
 - Metagenomic Assembly Workshop, [https://2014-5-metagenomics-workshop.readthedocs.io/en/latest/index.html](https://2014-5-metagenomics-workshop.readthedocs.io/en/latest/index.html)
 
+- Schiffer, Lucas, Rimsha Azhar, Lori Shepherd, Marcel Ramos, Ludwig Geistlinger, Curtis Huttenhower, Jennifer B Dowd, Nicola Segata, and Levi Waldron. “HMP16SData: Efficient Access to the Human Microbiome Project through Bioconductor,” August 29, 2018. https://doi.org/10.1101/299115. - HMP16SData - SummarizedExperiment of 16S sequencing data (counts) for V13 and V35 variable regions with clinical annotations (visit number, sex, run center, body site, and body subsite) and an option to attach controlled access clinical annotations. Compatible with phylosec. https://bioconductor.org/packages/release/data/experiment/html/HMP16SData.html
+
 
 ## ToDo
 
