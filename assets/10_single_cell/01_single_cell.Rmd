@@ -45,6 +45,10 @@ A single device has three input ports (oil, barcoded beads in lysis buffer, and 
 
 \tiny Svensson, Valentine, Roser Vento-Tormo, and Sarah A. Teichmann. “Exponential Scaling of Single-Cell RNA-Seq in the Past Decade.” Nature Protocols 13, no. 4 (April 2018): 599–604. https://doi.org/10.1038/nprot.2017.149.
 
+## The computational workflow for single cell experiments detailed in steps
+
+workflow_computational.png
+
 ## How does single-cell data differ from bulk RNA-seq
 
 - In theory, up to 600 cells could be sequenced on a single lane (assuming 120 million reads per lane)
