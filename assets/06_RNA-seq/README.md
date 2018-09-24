@@ -110,6 +110,10 @@
 
 - Video Naomi Altman, RNA-seq, differential analysis, https://www.youtube.com/watch?v=IWsP-008W0Q&feature=youtu.be
 
+- `Asa_Bjorklund_RNAseqQC_141029.pdf` - RNA-seq QC
+
+- `DiffExp_Estelle_Proux_Vera_201410.pdf` - RNA-seq differential expression, very thorough. 
+
 - `kingsford-regulatory-genomics-salmon.pdf` - Accurate, Fast, and Model-Aware Transcript Expression Quantification with Salmon. https://www.youtube.com/watch?v=TMLIxwDP7sk&list=PLgKuh-lKre10fYXnD-8ghi9b9xl83CKet&index=3
 
 
