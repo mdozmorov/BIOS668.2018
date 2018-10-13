@@ -40,6 +40,9 @@
 
 - MultiAssayExperiment tutorial, GRanges, UpSetR diagrams. [https://github.com/waldronlab/MultiAssayExperimentWorkshop](https://github.com/waldronlab/MultiAssayExperimentWorkshop)
 
+- Rue-Albrecht, Kevin, Federico Marini, Charlotte Soneson, and Aaron T.L. Lun. “ISEE: Interactive SummarizedExperiment Explorer.” F1000Research 7 (June 14, 2018): 741. https://doi.org/10.12688/f1000research.14966.1. - iSEE - Shiny app for interactive visualization of SummarizedExperiment objects. https://github.com/csoneson/iSEE
+
+
 ### Integrative
 
 - Rappoport, Nimrod, and Ron Shamir. “Multi-Omic and Multi-View Clustering Algorithms: Review and Cancer Benchmark,” July 19, 2018. https://doi.org/10.1101/371120. - Review of multi-omics integration methods, Table 1. Early integration - concatenate matrices into one, then cluster. Late integration - cluster each matrix separately, then integrate clustering solutions. Spectral clustering, dimensionality reduction, statistical approaches, deep learning methods. Details of each method. Benchmarking by survival differences and enrichment of clinical labels. rMKKL-LPP, MCCA, MultiNMF are among the best methods. Preprocessed multi-omics data at http://acgt.cs.tau.ac.il/multi_omic_benchmark/download.html, scripts at https://github.com/Shamir-Lab/Multi-Omics-Cancer-Benchmark
