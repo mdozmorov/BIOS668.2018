@@ -40,6 +40,8 @@
 
 - Schiffer, Lucas, Rimsha Azhar, Lori Shepherd, Marcel Ramos, Ludwig Geistlinger, Curtis Huttenhower, Jennifer B Dowd, Nicola Segata, and Levi Waldron. “HMP16SData: Efficient Access to the Human Microbiome Project through Bioconductor,” August 29, 2018. https://doi.org/10.1101/299115. - HMP16SData - SummarizedExperiment of 16S sequencing data (counts) for V13 and V35 variable regions with clinical annotations (visit number, sex, run center, body site, and body subsite) and an option to attach controlled access clinical annotations. Compatible with phylosec. https://bioconductor.org/packages/release/data/experiment/html/HMP16SData.html
 
+- Microbiome Helper - wrapper scripts and tutorials for metagenomics analysis. https://github.com/LangilleLab/microbiome_helper/wiki. Main paper: Comeau, André M., Gavin M. Douglas, and Morgan G. I. Langille. “Microbiome Helper: A Custom and Streamlined Workflow for Microbiome Research.” Edited by Jonathan Eisen. MSystems 2, no. 1 (February 28, 2017). https://doi.org/10.1128/mSystems.00127-16.
+
 
 ## ToDo
 
