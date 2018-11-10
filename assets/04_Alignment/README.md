@@ -66,6 +66,9 @@
 
 - The Freiburg RNA tools teaching material on RNA- and DNA-sequencing alignment (Needleman-Wunsch, Smith-Waterman, many more). [http://rna.informatik.uni-freiburg.de/Teaching/](http://rna.informatik.uni-freiburg.de/Teaching/)
 
+- Fonseca, Nuno A., Johan Rung, Alvis Brazma, and John C. Marioni. “Tools for Mapping High-Throughput Sequencing Data.” Bioinformatics (Oxford, England) 28, no. 24 (December 15, 2012): 3169–77. https://doi.org/10.1093/bioinformatics/bts605. - Sequencing mappers, lists and characteristics of DNA, RNA, bisulfite aligners. https://www.ebi.ac.uk/~nf/hts_mappers/
+
+
 ### Videos
 
 - The [Bioinformatics algoriths](http://bioinformaticsalgorithms.com/index.htm) web site
