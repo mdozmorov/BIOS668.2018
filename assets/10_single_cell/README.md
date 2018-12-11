@@ -63,6 +63,8 @@ Local version at /Users/mdozmorov/Documents/Data/bioc2017singlecell
 
 - Conquer DB of scRNA-seq datasets: [http://imlspenticton.uzh.ch:3838/conquer/](http://imlspenticton.uzh.ch:3838/conquer/)
 
+- `scATAC-seq-analysis-notes` - single-cell ATAC-seq notes by Ming Tang, https://github.com/crazyhottommy/scATAC-seq-analysis-notes
+
 
 ## `misc` - misc presentations and materials
 
