@@ -50,6 +50,8 @@
 
 ### Workflows and tools
 
+- He, Wen, Shanrong Zhao, Chi Zhang, Michael S. Vincent, and Baohong Zhang. “QuickRNASeq: Guide for Pipeline Implementation and for Interactive Results Visualization.” In Transcriptome Data Analysis, edited by Yejun Wang and Ming-an Sun, 1751:57–70. New York, NY: Springer New York, 2018. https://doi.org/10.1007/978-1-4939-7710-9_4. - Practical RNA-seq tutorial based on QuickRNASeq publication.
+
 - Love, Michael I., Simon Anders, Vladislav Kim, and Wolfgang Huber. “RNA-Seq Workflow: Gene-Level Exploratory Analysis and Differential Expression.” F1000Research 4 (November 17, 2016): 1070. [doi:10.12688/f1000research.7035.2](doi:10.12688/f1000research.7035.2) - RNA-seq workflow. From count import, including tximport, through EDA, DESeq2, batch removal, time course analysis, visualization.
 
 - Griffith, Malachi, Jason R. Walker, Nicholas C. Spies, Benjamin J. Ainscough, and Obi L. Griffith. “Informatics for RNA Sequencing: A Web Resource for Analysis on the Cloud.” PLoS Computational Biology 11, no. 8 (August 2015): e1004393. [https://doi.org/10.1371/journal.pcbi.1004393](https://doi.org/10.1371/journal.pcbi.1004393) - RNA-seq technology and analysis introduction. Very interesting are supplementary tables [http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393#sec009](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393#sec009). The full tutorials are at [https://github.com/griffithlab/rnaseq_tutorial/wiki](https://github.com/griffithlab/rnaseq_tutorial/wiki)
