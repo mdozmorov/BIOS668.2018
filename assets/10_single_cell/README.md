@@ -21,6 +21,9 @@ Local version at /Users/mdozmorov/Documents/Data/bioc2017singlecell
 
 - Dal Molin, Alessandra, and Barbara Di Camillo. “How to Design a Single-Cell RNA-Sequencing Experiment: Pitfalls, Challenges and Perspectives.” Briefings in Bioinformatics, January 31, 2018. [https://doi.org/10.1093/bib/bby007](https://doi.org/10.1093/bib/bby007) - single-cell RNA-seq review. From experimental to bioinformatics steps. Cell isolation (FACS, microfluidics, droplet-based), mRNA capture, RT and amplification (poly-A tails, template switching, IVT), quantitative standards (spike-ins, UMIs), transcript quantification, normalization, batch effect removal, visualization.
 
+- Freytag, Saskia, Luyi Tian, Ingrid Lönnstedt, Milica Ng, and Melanie Bahlo. “Comparison of Clustering Tools in R for Medium-Sized 10x Genomics Single-Cell RNA-Sequencing Data.” F1000Research 7 (August 15, 2018): 1297. https://doi.org/10.12688/f1000research.15809.1. - Comparison of 12 scRNA-seq clustering tools on medium-size 10X genomics datasets. Adjusted Rand index, normalized mutual information, homogeneity score, stability by random sampling of samples or genes. Seurat and Cell Ranger outperform other methods.
+
+
 ### Statistics
 
 - Brennecke, Philip, Simon Anders, Jong Kyoung Kim, Aleksandra A Kołodziejczyk, Xiuwei Zhang, Valentina Proserpio, Bianka Baying, et al. “Accounting for Technical Noise in Single-Cell RNA-Seq Experiments.” Nature Methods 10, no. 11 (September 22, 2013): 1093–95. [https://doi.org/10.1038/nmeth.2645](https://doi.org/10.1038/nmeth.2645) - Single-cell noise. Technical, biological. Use spike-ins to estimate noise. Can be approximated with Poisson distribution.
