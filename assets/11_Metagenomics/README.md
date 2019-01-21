@@ -10,6 +10,8 @@
 
 ## References
 
+- Franzosa, Eric A., Tiffany Hsu, Alexandra Sirota-Madi, Afrah Shafquat, Galeb Abu-Ali, Xochitl C. Morgan, and Curtis Huttenhower. “Sequencing and beyond: Integrating Molecular ‘omics’ for Microbial Community Profiling.” Nature Reviews Microbiology 13, no. 6 (June 2015): 360–72. https://doi.org/10.1038/nrmicro3451. - Metagenomics technology, methods and analysis review. Multi-omics integrative analyses, statistical considerations. Well-written, references.
+
 - Ghodsi, Mohammadreza, Bo Liu, and Mihai Pop. “DNACLUST: Accurate and Efficient Clustering of Phylogenetic Marker Genes.” BMC Bioinformatics 12 (June 30, 2011): 271. [https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-271](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-271) DNACLUST - metagenomics clustering of 16S sequencing. Comparison with CD-HIT and UCLUST. Recruit sequences within the radius around cluster seed. Explanation of distance, Needleman-Wunsch algorithm.
 
 - Grice, Elizabeth A., and Julia A. Segre. “The Human Microbiome: Our Second Genome.” Annual Review of Genomics and Human Genetics 13, no. 1 (September 22, 2012): 151–70. [https://www.annualreviews.org/doi/abs/10.1146/annurev-genom-090711-163814](https://www.annualreviews.org/doi/abs/10.1146/annurev-genom-090711-163814) - Review on microbiome, 16S RNA, tools, human microbiome project.
