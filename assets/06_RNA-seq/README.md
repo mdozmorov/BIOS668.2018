@@ -121,6 +121,8 @@
 
 ## ToDo 
 
+- Slides from http://combine-australia.github.io/RNAseq-R/
+
 - `RNA-seq_workflow.pdf` - SummarizedExperiment and RNA-seq data manipulation in Bioconductor, https://www.bioconductor.org/help/course-materials/2017/OMRF/B3_RNASeq_Workflow.html
 
 
