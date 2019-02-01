@@ -91,3 +91,4 @@ Local version at /Users/mdozmorov/Documents/Data/bioc2017singlecell
 
 - Single-cell ATAC-seq: Buenrostro, Jason D., Beijing Wu, Ulrike M. Litzenburger, Dave Ruff, Michael L. Gonzales, Michael P. Snyder, Howard Y. Chang, and William J. Greenleaf. “Single-Cell Chromatin Accessibility Reveals Principles of Regulatory Variation.” Nature 523, no. 7561 (July 23, 2015): 486–90. https://doi.org/10.1038/nature14590.
 
+- Hwang, Byungjin, Ji Hyun Lee, and Duhee Bang. “Single-Cell RNA Sequencing Technologies and Bioinformatics Pipelines.” Experimental & Molecular Medicine 50, no. 8 (August 2018). https://doi.org/10.1038/s12276-018-0071-8. - scRNA-seq technology and computational analysis review. Single cell isolation techniques, library preparation methods, computational analyses, R/FPKM/TPM, batch and cell cycle effect, cell type identification, clustering, network inference, trajectory inference. Figures for teaching.
