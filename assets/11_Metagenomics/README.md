@@ -7,6 +7,9 @@
 
 - `/Users/mdozmorov/Documents/Data/Teaching/microbiome_mothur` - data used in mothur paper, Microbial diversity in the deep sea and the underexplored "rare biosphere" (2006); PNAS, 103(32):12115-20. From http://jbpc.mbl.edu/research_supplements/g454/20060412-private/
 
+- `F1000_workflow` - Microbiome workflow. RSV instead of OTU. Data preprocessing from raw reads. DADA2 pipeline, ASV summary tables using RDP (Greengenes and SILVA are available), phylogenetic tree reconstruction (pangorn). phyloseq downstream analysis, from filtering to agglomeration, transformation, various ordination visualizations (from PCoA, DPCoA, rank PCA, to CCA), supervised learning, graph-based visualization and testing, multi-omics analyses. https://github.com/spholmes/F1000_workflow
+    - Callahan, Ben J., Kris Sankaran, Julia A. Fukuyama, Paul J. McMurdie, and Susan P. Holmes. “Bioconductor Workflow for Microbiome Data Analysis: From Raw Reads to Community Analyses.” F1000Research 5 (2016): 1492. https://doi.org/10.12688/f1000research.8986.2.
+
 
 ## References
 
@@ -52,5 +55,7 @@
 - Microbiome data analysis by the Waldron lab, https://github.com/waldronlab/MicrobiomeWorkshop/tree/BiocNYC-2017-12-15
 
 - `HMP16SData` - 16S rRNA Microbiome Data from the Human Microbiome Project, https://bioconductor.org/packages/devel/data/experiment/html/HMP16SData.html
+
+- McMurdie, Paul J., and Susan Holmes. “Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible.” Edited by Alice Carolyn McHardy. PLoS Computational Biology 10, no. 4 (April 3, 2014): e1003531. https://doi.org/10.1371/journal.pcbi.1003531. - Rarefying microbiome data or using proportions is wrong, statistical arguments. Variance stabilization (DESeq) and upper-quartile log-fold change normalization (edgeR) perform well to normalize the data. Negative binomial and zero-inflated Gaussian mixture models are recommended to test for differential abundance, differential abundance test in metagenomeSeq package also performs well. Rarefying lead to high proportion of false positives. Importance of filtering.
 
 ## `misc`
