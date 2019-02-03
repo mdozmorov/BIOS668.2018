@@ -58,4 +58,7 @@
 
 - McMurdie, Paul J., and Susan Holmes. “Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible.” Edited by Alice Carolyn McHardy. PLoS Computational Biology 10, no. 4 (April 3, 2014): e1003531. https://doi.org/10.1371/journal.pcbi.1003531. - Rarefying microbiome data or using proportions is wrong, statistical arguments. Variance stabilization (DESeq) and upper-quartile log-fold change normalization (edgeR) perform well to normalize the data. Negative binomial and zero-inflated Gaussian mixture models are recommended to test for differential abundance, differential abundance test in metagenomeSeq package also performs well. Rarefying lead to high proportion of false positives. Importance of filtering.
 
+- Morgan, Xochitl C., and Curtis Huttenhower. “Chapter 12: Human Microbiome Analysis.” Edited by Fran Lewitter and Maricel Kann. PLoS Computational Biology 8, no. 12 (December 27, 2012): e1002808. https://doi.org/10.1371/journal.pcbi.1002808. - Human Microbiome Analysis review. History, technologies, 16S, OTUs, alpha diversity (Shannon index), beta-diversity (Bray-Curtis dissimilarity) formulas. Well-written, includes exercises.
+
+
 ## `misc`
