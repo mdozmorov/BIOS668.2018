@@ -129,3 +129,10 @@
 - RNA-seq differential expression with Bioconductor by Davide Risso, https://github.com/drisso/rnaseq_meetup
 
 - DiffSplice, rMATS (shen), EBSeq
+
+- With the TPM normalization, expression values are scaled so that their sum is always 10^6 for each sample. This approach allows transcript proportions to be comparable among samples. However, in case the total mRNA of a sample is dominated by the expression of only a few genes, the remaining fraction of genes will be characterized by especially low expression values. This effect applies only to RNA-seq data, not to microarray data, as RNA-seq does not have an upper limit in its dynamic range (Bullard J.H. Purdom E. Hansen K.D. Dudoit S. Evaluation of statistical methods for normalization and differential expression in mRNA-seq experiments.BMC Bioinformatics. 2010; 11: 94).
+
+### Compositional data analysis
+
+- Fernandes, Andrew D., Jennifer Ns Reid, Jean M. Macklaim, Thomas A. McMurrough, David R. Edgell, and Gregory B. Gloor. “Unifying the Analysis of High-Throughput Sequencing Datasets: Characterizing RNA-Seq, 16S RRNA Gene Sequencing and Selective Growth Experiments by Compositional Data Analysis.” Microbiome 2 (2014): 15. https://doi.org/10.1186/2049-2618-2-15. - ALDEx2 R package - a compositional data analysis tool that uses Bayesian methods to infer technical and statistical errors. Works with RNA-seq, microbiome, and other compositional data. Distinction between absolute counts and compositional data. Counts are converted to probabilities by Monte Carlo sampling (128 by default) from the Dirichlet distribution with a uniform prior. Centered log-ratio transformation, clr - divide by the geometric mean. https://bioconductor.org/packages/release/bioc/html/ALDEx2.html
+
