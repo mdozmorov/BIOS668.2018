@@ -5,7 +5,7 @@ layout: default
 <!-- weekly plans including class plans, readings of the week and assignment of the week -->
 <!-- tags are specifically reserved for grouping weekly content -->
 <!-- see posts in assignments, classplans, and readings  -->
-{% for post in site.categories.weekly %} <!--reversed-->
+{% for post in site.categories.weekly reversed %} <!--reversed-->
 {% if post.visible==1 %}
 {% capture timetag%}{{post.tags}}{% endcapture%}
 <section class="weekly">
