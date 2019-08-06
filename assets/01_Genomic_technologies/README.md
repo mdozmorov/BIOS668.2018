@@ -49,6 +49,9 @@
 
 # ToDo
 
+- SequencEnG - Hierarchical summary of 66 sequencing technologies, computational algorithms, references to papers.http://education.knoweng.org/sequenceng/
+    - Zhang, Y., Manjunath, M., Kim, Y., Heintz, J., and Song, J.S. (2019). SequencEnG: an interactive knowledge base of sequencing techniques. Bioinformatics 35, 1438–1440.
+
 # `misc`
 
 
