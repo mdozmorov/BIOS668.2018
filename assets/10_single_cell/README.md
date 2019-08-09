@@ -87,6 +87,8 @@ Local version at /Users/mdozmorov/Documents/Data/bioc2017singlecell
 
 - `lab/SingleCell_2018` - Repository for Single Cell Analysis Course in MDC
 
+- Three broad categories of imputation: (i) Model-based imputation methods of technical zeros use probabilistic models to identify which observed zeros represent technical rather than biological zeros and aim to impute expression levels just for these technical zeros, leaving other observed expression levels untouched; or (ii) Data-smoothing methods define sets of “similar” cells (e.g. cells that are neighbours in a graph or occupy a small region in a latent space) and adjust expression values for each cell based on expression values in similar cells. These methods adjust all expression values, including technical zeros, biological zeros and observed non-zero values. (iii) Data-reconstruction methods typically aim to define a latent space representation of the cells. This is often done through matrix factorization (e.g. principal component analysis) or, increasingly, through machine learning approaches (e.g. variational autoencoders that exploit deep neural networks to capture non-linear relationships). 
+
 ## References
 
 - Single-cell ATAC-seq: Buenrostro, Jason D., Beijing Wu, Ulrike M. Litzenburger, Dave Ruff, Michael L. Gonzales, Michael P. Snyder, Howard Y. Chang, and William J. Greenleaf. “Single-Cell Chromatin Accessibility Reveals Principles of Regulatory Variation.” Nature 523, no. 7561 (July 23, 2015): 486–90. https://doi.org/10.1038/nature14590.
